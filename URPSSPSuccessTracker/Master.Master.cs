@@ -13,5 +13,30 @@ namespace URPSSPSuccessTracker
         {
 
         }
+
+        protected void btnSearchRestaurant_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnReviewList_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnReservationList_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAddRestaurant_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
