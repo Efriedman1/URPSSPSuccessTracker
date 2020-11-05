@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AdminHome.aspx" />
     <Content Include="images\urpssp.png" />
+    <Content Include="master.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
