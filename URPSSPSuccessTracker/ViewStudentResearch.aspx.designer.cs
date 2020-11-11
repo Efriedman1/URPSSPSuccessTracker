@@ -10,7 +10,7 @@
 namespace URPSSPSuccessTracker {
     
     
-    public partial class PIPersonalInformation {
+    public partial class ViewStudentResearch1 {
         
         /// <summary>
         /// lblName control.
