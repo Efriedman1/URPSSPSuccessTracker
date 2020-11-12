@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace URPSSPSuccessTracker
 {
-    public partial class PIViewStudent : System.Web.UI.Page
+    public partial class AdminManageUsers : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

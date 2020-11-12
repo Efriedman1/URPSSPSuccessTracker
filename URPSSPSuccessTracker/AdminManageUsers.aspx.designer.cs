@@ -10,42 +10,42 @@
 namespace URPSSPSuccessTracker {
     
     
-    public partial class PIViewStudent {
+    public partial class AdminManageUsers {
         
         /// <summary>
-        /// lblName control.
+        /// btnAddNewAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.Button btnAddNewAdmin;
         
         /// <summary>
-        /// lblID control.
+        /// lblTUID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblID;
+        protected global::System.Web.UI.WebControls.Label lblTUID;
         
         /// <summary>
-        /// btnDash control.
+        /// txtTUID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDash;
+        protected global::System.Web.UI.WebControls.TextBox txtTUID;
         
         /// <summary>
-        /// btnProfile control.
+        /// tblAdministrators control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProfile;
+        protected global::System.Web.UI.WebControls.Table tblAdministrators;
     }
 }
