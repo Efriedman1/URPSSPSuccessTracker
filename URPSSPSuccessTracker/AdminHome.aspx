@@ -2,5 +2,109 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-              <asp:label runat="server">Name</asp:label>
+
+    <style>
+       fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+    legend.scheduler-border {
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width:auto;
+        padding:0 10px;
+        border-bottom:none;
+    }
+    </style>
+
+              <div class="container">
+                  <div class="row">
+                      <div class="col-6">
+                        <fieldset class="scheduler-border">
+                            <legend class="scheduler-border">Instructions</legend>
+                             Insert Instructions here
+                        </fieldset>
+
+
+                          &nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;
+
+                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                              <label class="btn btn-secondary active">                                 
+                              <asp:RadioButton ID="optStudent" runat="server" /> Students            
+                              </label>
+                              &nbsp;
+                              <label class="btn btn-secondary active">                                 
+                              <asp:RadioButton ID="optPI" runat="server" /> Principal Investigators            
+                              </label>
+
+                          </div>
+
+                          <asp:DropDownList ID="DropDownList1" runat="server">
+                              <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
+                              <asp:ListItem>SPRING 2020</asp:ListItem>
+                              <asp:ListItem>FALL 2019</asp:ListItem>
+                          </asp:DropDownList>
+
+                          </div>                                                        
+                      <div class="col-6"></div>
+                  </div>
+                  <div class="row">
+                      <div class="col-12 table-responsive">
+                          
+                        <fieldset class="scheduler-border">
+                            <legend class="scheduler-border">
+                                <asp:Label ID="lblUser" runat="server" Text="Student"></asp:Label>
+                            </legend>
+
+                            <table class="table-bordered">
+                              <thead class="bg-danger">
+                                <tr>
+                                  <th scope="col"> </th>
+                                  <th scope="col">TUID</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Department</th>
+                                  <th scope="col">Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row"> <asp:CheckBox ID="CheckBox1" runat="server" /></th>
+                                  <td>9210345</td>
+                                  <td>Bill</td>
+                                  <td>Washer</td>
+                                  <td>IST</td>
+                                  <td> <asp:Button ID="Button1" runat="server" Text="Button" /></td>
+                                </tr>
+                               <tr>
+                                  <th scope="row"> <asp:CheckBox ID="CheckBox2" runat="server" /></th>
+                                  <td>9654123</td>
+                                  <td>Nyla</td>
+                                  <td>Taylor</td>
+                                  <td>IST</td>
+                                  <td> <asp:Button ID="Button2" runat="server" Text="Button" /></td>
+                                </tr>
+                                  <tr>
+                                  <th scope="row"> <asp:CheckBox ID="CheckBox3" runat="server" /></th>
+                                  <td>9678521</td>
+                                  <td>Omar</td>
+                                  <td>Dodson</td>
+                                  <td>IST</td>
+                                  <td> <asp:Button ID="Button3" runat="server" Text="Button" /></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          
+                        </fieldset>
+                          
+                          
+                      </div>
+                  </div>
+              </div>
 </asp:Content>
