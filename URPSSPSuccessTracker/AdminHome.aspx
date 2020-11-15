@@ -52,7 +52,32 @@
                           </asp:DropDownList>
 
                           </div>                                                        
-                      <div class="col-6"></div>
+                      <div class="col-6">
+                         
+                          <div>
+                              <asp:Label ID="lblParam1" runat="server" Text="TUID: "></asp:Label>
+                              <asp:TextBox ID="txtTUID" runat="server"></asp:TextBox> &nbsp;
+
+                              <asp:Label ID="lblStatus" runat="server" Text="Status: "></asp:Label>
+                              <asp:DropDownList ID="DropDownList2" runat="server">
+                                  <asp:ListItem>Complete</asp:ListItem>
+                                  <asp:ListItem>Incomplete</asp:ListItem>
+                              </asp:DropDownList>
+                          </div>
+                          <br />
+                          <div>
+                              <asp:Label ID="lblFirst" runat="server" Text="First Name: "></asp:Label>
+                              <asp:TextBox ID="txtFirst" runat="server"></asp:TextBox> 
+
+                              <asp:Label ID="lblLast" runat="server" Text="Last Name: "></asp:Label>
+                              <asp:TextBox ID="txtLast" runat="server"></asp:TextBox>
+                          </div>
+                          <br />
+                          <div>
+                              <asp:Button class="btn-danger" ID="btnSearch" runat="server" Text="Search" />&nbsp;
+                               <asp:Button class="btn-danger" ID="btnClear" runat="server" Text="Clear" />
+                          </div>
+                      </div>
                   </div>
                   <div class="row">
                       <div class="col-12 table-responsive">
@@ -62,7 +87,7 @@
                                 <asp:Label ID="lblUser" runat="server" Text="Student"></asp:Label>
                             </legend>
 
-                            <table class="table-bordered">
+                            <table class="table-bordered w-100">
                               <thead class="bg-danger">
                                 <tr>
                                   <th scope="col"> </th>
@@ -100,7 +125,17 @@
                                 </tr>
                               </tbody>
                             </table>
-                          
+                            <p>
+                          <br />
+
+                            </p>
+
+                            <div style="margin-left: 40%">
+                                <asp:Button class="btn-danger" ID="btnExport" runat="server" Text="Export" />&nbsp;
+                                <asp:Button class="btn-danger" ID="btnEmail" runat="server" Text="Email All" />&nbsp;
+                                <asp:Button class="btn-danger" ID="btnEmailChecked" runat="server" Text="Email Selected" />
+                            </div>
+
                         </fieldset>
                           
                           
