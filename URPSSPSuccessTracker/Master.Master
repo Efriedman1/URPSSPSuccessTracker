@@ -7,9 +7,12 @@
     <title></title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+     <%--<link rel="stylesheet" href="master.css" />--%>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -32,12 +35,15 @@
                         </a>
                     </li>
                           <li class="nav-item">
+
                         <a class="nav-link" href="#">
                             <h3>Search</h3>
                         </a>
                     </li>
                 </ul>
+
                 <div class="form-inline my-2 my-lg-0">
+
                     <asp:Button ID="btnLogout" runat="server" Text="Logout" class="btn btn-outline-warning my-2 my-sm-0" OnClick="btnLogout_Click" />
                 </div>
             </div>
