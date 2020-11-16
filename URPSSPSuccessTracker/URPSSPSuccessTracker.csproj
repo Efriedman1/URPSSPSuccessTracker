@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminHome.aspx" />
+    <Content Include="AdminManageUsers.aspx" />
+    <Content Include="AdminSendEmail.aspx" />
     <Content Include="images\urpssp.png" />
     <Content Include="master.css" />
     <Content Include="PIViewStudentResearch.aspx" />
@@ -81,6 +83,20 @@
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManageUsers.aspx.cs">
+      <DependentUpon>AdminManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminManageUsers.aspx.designer.cs">
+      <DependentUpon>AdminManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSendEmail.aspx.cs">
+      <DependentUpon>AdminSendEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminSendEmail.aspx.designer.cs">
+      <DependentUpon>AdminSendEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
