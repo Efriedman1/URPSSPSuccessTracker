@@ -71,6 +71,9 @@
     <Content Include="AdminManageUsers.aspx" />
     <Content Include="AdminSendEmail.aspx" />
     <Content Include="images\urpssp.png" />
+    <Content Include="master.css" />
+    <Content Include="PIViewStudentResearch.aspx" />
+    <Content Include="StudentEnterResearch.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +105,21 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="PIViewStudentResearch.aspx.cs">
+      <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PIViewStudentResearch.aspx.designer.cs">
+      <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentEnterResearch.aspx.cs">
+      <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentEnterResearch.aspx.designer.cs">
+      <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />
