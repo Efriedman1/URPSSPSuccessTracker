@@ -72,12 +72,14 @@
     <Content Include="AdminSearchStudent.aspx" />
     <Content Include="AdminManageUsers.aspx" />
     <Content Include="AdminSendEmail.aspx" />
+    <Content Include="images\templeulogo.png" />
     <Content Include="images\urpssp.png" />
     <Content Include="ManageTerm.aspx" />
     <Content Include="master.css" />
     <Content Include="StudentHome.aspx" />
     <Content Include="PIViewStudentResearch.aspx" />
     <Content Include="StudentEnterResearch.aspx" />
+    <Content Include="TempLogin.aspx" />
     <Content Include="ViewStudentResearch.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -145,6 +147,13 @@
     </Compile>
     <Compile Include="StudentEnterResearch.aspx.designer.cs">
       <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TempLogin.aspx.cs">
+      <DependentUpon>TempLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TempLogin.aspx.designer.cs">
+      <DependentUpon>TempLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewStudentResearch.aspx.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
