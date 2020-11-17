@@ -7,32 +7,22 @@
             <div class="container-fluid">
                 <div class="row text-center">
                     <div class="col-md-3" id="div1" style="background-color:darkgray">
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        &nbsp;<img src="images/ProfilePic.jpg" class="rounded-circle center-block" style=" width: 125px; height: 125px;"/><br />
-                        <br />
-
+                        <img src="images/ProfilePic.jpg" class="rounded-circle center-block" style=" width: 125px; height: 125px;"/><br />
                         <p class="text-center">
                             <asp:Label ID="lblName" runat="server" Text="John Doe" Style="font-family: Avenir Next; font-size:20px;"></asp:Label>
                         </p>
-                        <br />
                         <p class="text-center">
                             <asp:Label ID="lblTUIDLabel" runat="server" Text="TUID:  " Style="font-family: Avenir Next; font-size:20px;"></asp:Label>
                             <asp:Label ID="lblTUID" runat="server" Text="914 274 289" Style="font-family: Avenir Next; font-size:20px;"></asp:Label>
                         </p>
-                        <br />
                         <p class="text-center">
                             <asp:Label ID="lblEmailLabel" runat="server" Text="Email:  "  Style="font-family: Avenir Next; font-size:20px;"></asp:Label>
                             <asp:Label ID="lblEmail" runat="server" Text="John.Doe@temple.edu" Style="font-family: Avenir Next; font-size:20px;"></asp:Label>
                         </p>
-                        <br />
                         <p class="text-center">
                             <asp:Label ID="lblMajorLabel" runat="server" Text="Major:  "  Style="font-family: Avenir Next; font-size:20px;"></asp:Label>
                             <asp:Label ID="lblMajor" runat="server" Text="Computer Science"  Style="font-family: Avenir Next; font-size:20px;"></asp:Label>
                         </p>
-
                     </div>
                     <div class="col-md-9" id="div2" style="background-color: ghostwhite">
 
