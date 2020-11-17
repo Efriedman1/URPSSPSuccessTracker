@@ -72,9 +72,11 @@
     <Content Include="AdminManageUsers.aspx" />
     <Content Include="AdminSendEmail.aspx" />
     <Content Include="images\urpssp.png" />
+    <Content Include="ManageTerm.aspx" />
     <Content Include="master.css" />
     <Content Include="PIViewStudentResearch.aspx" />
     <Content Include="StudentEnterResearch.aspx" />
+    <Content Include="ViewStudentResearch.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -91,7 +93,7 @@
     </Compile>
     <Compile Include="AdminSearchStudent.aspx.designer.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
-   </Compile>
+    </Compile>
     <Compile Include="AdminManageUsers.aspx.cs">
       <DependentUpon>AdminManageUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,6 +107,13 @@
     </Compile>
     <Compile Include="AdminSendEmail.aspx.designer.cs">
       <DependentUpon>AdminSendEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageTerm.aspx.cs">
+      <DependentUpon>ManageTerm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageTerm.aspx.designer.cs">
+      <DependentUpon>ManageTerm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
@@ -127,6 +136,13 @@
     </Compile>
     <Compile Include="StudentEnterResearch.aspx.designer.cs">
       <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewStudentResearch.aspx.cs">
+      <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewStudentResearch.aspx.designer.cs">
+      <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
