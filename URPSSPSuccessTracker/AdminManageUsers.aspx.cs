@@ -7,19 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace URPSSPSuccessTracker
 {
-    public partial class Master : System.Web.UI.MasterPage
+    public partial class AdminManageUsers : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-
-        }
-
-  
     }
 }
