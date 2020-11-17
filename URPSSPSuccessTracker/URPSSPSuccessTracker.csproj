@@ -95,7 +95,7 @@
     </Compile>
     <Compile Include="ManageTerm.aspx.designer.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
-
+    </Compile>
     <Compile Include="AdminSearchStudent.aspx.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -139,7 +139,7 @@
     </Compile>
     <Compile Include="ViewStudentResearch.aspx.designer.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
-
+    </Compile>
     <Compile Include="StudentEnterResearch.aspx.cs">
       <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
