@@ -72,12 +72,9 @@
     <Content Include="AdminManageUsers.aspx" />
     <Content Include="AdminSendEmail.aspx" />
     <Content Include="images\urpssp.png" />
-    <Content Include="ManageTerm.aspx" />
-    <Content Include="ViewStudentResearch.aspx" />
     <Content Include="master.css" />
     <Content Include="PIViewStudentResearch.aspx" />
     <Content Include="StudentEnterResearch.aspx" />
-
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +85,6 @@
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="ManageTerm.aspx.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -140,13 +136,13 @@
     <Compile Include="ViewStudentResearch.aspx.designer.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="StudentEnterResearch.aspx.cs">
       <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="StudentEnterResearch.aspx.designer.cs">
       <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
-
     </Compile>
   </ItemGroup>
   <ItemGroup>
