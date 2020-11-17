@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="URPSSPSuccessTracker.AdminHome" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminSearchStudent.aspx.cs" Inherits="URPSSPSuccessTracker.AdminSearchStudent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    
     <style>
        fieldset.scheduler-border {
     border: 1px groove #ddd !important;
@@ -36,8 +36,8 @@
                           &nbsp;&nbsp;&nbsp;
 
                           <div>
-                              <asp:Button class="btn-outline-danger" ID="Button4" runat="server" Text="Student" OnClick="Button4_Click" />&nbsp;
-                              <asp:Button class="btn-danger" ID="Button5" runat="server" Text="Principal Investigator" />&nbsp;
+                              <asp:Button class="btn-danger" ID="Button4" runat="server" Text="Student" OnClick="Button4_Click" />&nbsp;
+                              <asp:Button class="btn-outline-danger" ID="Button5" runat="server" Text="Principal Investigator" OnClick="Button5_Click" />&nbsp;
                               <asp:DropDownList ID="DropDownList1" runat="server">
                               <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
                               <asp:ListItem>SPRING 2020</asp:ListItem>
@@ -45,7 +45,7 @@
                           </asp:DropDownList>
                           </div>
 
-                          
+                         
 
                           </div>                                                        
                       <div class="col-6">
@@ -54,8 +54,11 @@
                               <asp:Label ID="lblParam1" runat="server" Text="TUID: "></asp:Label>
                               <asp:TextBox ID="txtTUID" runat="server"></asp:TextBox> &nbsp;
 
-                              <asp:Label ID="lblDepartment" runat="server" Text="Department: "></asp:Label>
-                              <asp:TextBox ID="txtDepartment" runat="server"></asp:TextBox>
+                              <asp:Label ID="lblStatus" runat="server" Text="Status: "></asp:Label>
+                              <asp:DropDownList ID="DropDownList2" runat="server">
+                                  <asp:ListItem>Complete</asp:ListItem>
+                                  <asp:ListItem>Incomplete</asp:ListItem>
+                              </asp:DropDownList>
                           </div>
                           <br />
                           <div>
@@ -64,6 +67,18 @@
 
                               <asp:Label ID="lblLast" runat="server" Text="Last Name: "></asp:Label>
                               <asp:TextBox ID="txtLast" runat="server"></asp:TextBox>
+                          </div>
+                          <br />
+                          <div>
+                              <asp:Label ID="lblMajor" runat="server" Text="Major : "></asp:Label>
+                              <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox> 
+
+                              <asp:Label ID="lblProgram" runat="server" Text="Program : "></asp:Label>
+                              <asp:DropDownList ID="DropDownList3" runat="server">
+                                  <asp:ListItem></asp:ListItem>
+                                  <asp:ListItem>SSP</asp:ListItem>
+                                  <asp:ListItem>SSP/URP</asp:ListItem>
+                              </asp:DropDownList>
                           </div>
                           <br />
                           <div style="margin-left: 120px">
@@ -77,7 +92,7 @@
                           
                         <fieldset class="scheduler-border">
                             <legend class="scheduler-border">
-                                <asp:Label ID="lblUser" runat="server" Text="Principal Investigator"></asp:Label>
+                                <asp:Label ID="lblUser" runat="server" Text="Student"></asp:Label>
                             </legend>
 
                             <table class="table-bordered w-100"  id="myTable" runat="server">
@@ -87,7 +102,10 @@
                                   <th scope="col">TUID</th>
                                   <th scope="col">First</th>
                                   <th scope="col">Last</th>
-                                  <th scope="col">Department</th>
+                                  <th scope="col">Major</th>
+                                  <th scope="col">Program</th>
+                                  <th scope="col">Principal Investigator</th>
+                                  <th scope="col">Status</th>
                                   <th scope="col">Actions</th>
                                 </tr>
                               </thead>
@@ -95,26 +113,46 @@
                                 <tr>
                                   <th scope="row"> <asp:CheckBox ID="CheckBox1" runat="server" /></th>
                                   <td>9210345</td>
-                                  <td>Bill</td>
-                                  <td>Washer</td>
+                                  <td>Ruby</td>
+                                  <td>Byrd</td>
                                   <td>IST</td>
+                                  <td>SSP</td>
+                                  <td>Omar Dodson</td>
+                                  <td>Complete</td>
                                   <td> <asp:Button ID="Button1" runat="server" Text="Button" /></td>
                                 </tr>
-                               <tr>
+                                <tr>
                                   <th scope="row"> <asp:CheckBox ID="CheckBox2" runat="server" /></th>
-                                  <td>9654123</td>
-                                  <td>Nyla</td>
-                                  <td>Taylor</td>
-                                  <td>IST</td>
+                                  <td>989345210</td>
+                                  <td>Jane</td>
+                                  <td>Notron</td>
+                                  <td>CS</td>
+                                  <td>SSP/URP</td>
+                                  <td>Bill Wascher</td>
+                                  <td>Incomplete</td>
                                   <td> <asp:Button ID="Button2" runat="server" Text="Button" /></td>
                                 </tr>
-                                  <tr>
+                                <tr>
                                   <th scope="row"> <asp:CheckBox ID="CheckBox3" runat="server" /></th>
-                                  <td>9678521</td>
-                                  <td>Omar</td>
-                                  <td>Dodson</td>
-                                  <td>IST</td>
+                                  <td>920432776</td>
+                                  <td>Terry</td>
+                                  <td>Berry</td>
+                                  <td>CHEM</td>
+                                  <td>SSP</td>
+                                  <td>Iwan Haliday</td>
+                                  <td>Incomplete</td>
                                   <td> <asp:Button ID="Button3" runat="server" Text="Button" /></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"> <asp:CheckBox ID="CheckBox4" runat="server" /></th>
+                                  <td>920432776</td>
+                                  <td>Sahar</td>
+                                  <td>Mayo</td>
+                                  <td>CS</td>
+                                  <td>SSP</td>
+                                  <td>Jan Mann</td>
+                                  <td>Complete</td>
+                                  <td> <asp:Button ID="Button6" runat="server" Text="Button" /></td>
                                 </tr>
                               </tbody>
                             </table>
