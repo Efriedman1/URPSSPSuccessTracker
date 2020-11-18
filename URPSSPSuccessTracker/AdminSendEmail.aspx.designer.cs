@@ -22,6 +22,15 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Table tblStudentEmail;
         
         /// <summary>
+        /// btnAddStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddStudent;
+        
+        /// <summary>
         /// lblSubject control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace URPSSPSuccessTracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailBody;
+        
+        /// <summary>
+        /// btnSend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSend;
     }
 }
