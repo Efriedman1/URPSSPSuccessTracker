@@ -16,6 +16,11 @@ namespace URPSSPSuccessTracker
             {
                 pnlPI.Visible = false;
                 btnStudent.Enabled = false;
+                lblUser.Text = "Students";
+
+                pnlStudentSearch.Visible = true;
+                pnlPISearch.Visible = false;
+
             }
 
         }
@@ -28,6 +33,9 @@ namespace URPSSPSuccessTracker
             btnPI.Enabled = true;
             pnlStudent.Visible = true;
             pnlPI.Visible = false;
+            pnlPISearch.Visible = false;
+            pnlStudentSearch.Visible = true;
+            
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -37,6 +45,8 @@ namespace URPSSPSuccessTracker
             btnStudent.Enabled = true;
             pnlStudent.Visible = false;
             pnlPI.Visible = true;
+            pnlStudentSearch.Visible = false;
+            pnlPISearch.Visible = true;
         }
 
         protected void btnEmail_Click(object sender, EventArgs e)
