@@ -30,7 +30,7 @@
                     <div class="row">
                         <asp:Table ID="tblAdministrators" runat="server" CssClass="table table-striped">
 
-                            <asp:TableHeaderRow Style="background-color: #B21125; color: white;">
+                            <asp:TableHeaderRow Style="background-color: #91182a; color: white;">
                                 <asp:TableHeaderCell Scope="Column">
                                 Select
                                 </asp:TableHeaderCell>
@@ -50,7 +50,7 @@
 
                             <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                        <asp:Button ID="btnSelectTerm1" runat="server" Text="Select" style="redbtn" OnClick="btnSelectTerm1_Click"/>
+                                        <asp:Button ID="btnSelectTerm1" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm1_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Spring
@@ -68,7 +68,7 @@
 
                             <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                    <asp:Button ID="btnSelectTerm2" runat="server" Text="Select" style="redbtn" OnClick="btnSelectTerm2_Click"/>
+                                    <asp:Button ID="btnSelectTerm2" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm2_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Summer
@@ -86,7 +86,7 @@
 
                             <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                    <asp:Button ID="btnSelectTerm3" runat="server" Text="Select" style="redbtn" OnClick="btnSelectTerm3_Click"/>
+                                    <asp:Button ID="btnSelectTerm3" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm3_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Fall
@@ -104,7 +104,7 @@
 
                             <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                    <asp:Button ID="btnSelectTerm4" runat="server" Text="Select" style="redbtn" OnClick="btnSelectTerm4_Click"/>
+                                    <asp:Button ID="btnSelectTerm4" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm4_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Spring
@@ -122,7 +122,7 @@
 
                             <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                    <asp:Button ID="btnSelectTerm5" runat="server" Text="Select" style="redbtn" OnClick="btnSelectTerm5_Click"/>
+                                    <asp:Button ID="btnSelectTerm5" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm5_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Fall

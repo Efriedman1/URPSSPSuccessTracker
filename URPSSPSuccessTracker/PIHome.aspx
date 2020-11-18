@@ -29,7 +29,7 @@
                     <div class="row">
                         <asp:Table ID="tblAdministrators" runat="server" CssClass="table table-striped">
 
-                            <asp:TableHeaderRow Style="background-color: #B21125; color: white;">
+                            <asp:TableHeaderRow Style="background-color: #91182a; color: white;">
                                 <asp:TableHeaderCell Scope="Column">
                                 Select
                                 </asp:TableHeaderCell>
@@ -55,7 +55,7 @@
 
                             <asp:TableRow>
                                 <asp:TableHeaderCell>
-                         <asp:Button ID="btnStudent1" runat="server" Text="Select" style="redbtn" OnClick="btnStudent1_Click"/>
+                         <asp:Button ID="btnStudent1" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent1_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Larry
@@ -79,7 +79,7 @@
 
                               <asp:TableRow>
                                 <asp:TableHeaderCell>
-                         <asp:Button ID="btnStudent2" runat="server" Text="Select" style="redbtn" OnClick="btnStudent2_Click"/>
+                         <asp:Button ID="btnStudent2" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent2_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Jerry
@@ -103,7 +103,7 @@
 
                                      <asp:TableRow>
                                 <asp:TableHeaderCell>
-                         <asp:Button ID="btnStudent3" runat="server" Text="Select" style="redbtn" OnClick="btnStudent3_Click"/>
+                         <asp:Button ID="btnStudent3" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent3_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 George
@@ -127,7 +127,7 @@
 
                                 <asp:TableRow>
                                 <asp:TableHeaderCell>
-                         <asp:Button ID="btnStudent4" runat="server" Text="Select" style="redbtn" OnClick="btnStudent4_Click"/>
+                         <asp:Button ID="btnStudent4" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent4_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Cosmo
@@ -151,7 +151,7 @@
 
                             <asp:TableRow>
                                 <asp:TableHeaderCell>
-                         <asp:Button ID="btnStudent5" runat="server" Text="Select" style="redbtn" OnClick="btnStudent5_Click"/>
+                         <asp:Button ID="btnStudent5" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent5_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Elaine
