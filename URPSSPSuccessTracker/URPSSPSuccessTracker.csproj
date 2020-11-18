@@ -76,6 +76,7 @@
     <Content Include="images\urpssp.png" />
     <Content Include="ManageTerm.aspx" />
     <Content Include="master.css" />
+    <Content Include="PIHome.aspx" />
     <Content Include="StudentHome.aspx" />
     <Content Include="PIViewStudentResearch.aspx" />
     <Content Include="StudentEnterResearch.aspx" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PIHome.aspx.cs">
+      <DependentUpon>PIHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PIHome.aspx.designer.cs">
+      <DependentUpon>PIHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="PIViewStudentResearch.aspx.cs">
       <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>

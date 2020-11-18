@@ -10,7 +10,7 @@
 namespace URPSSPSuccessTracker {
     
     
-    public partial class StudentHome {
+    public partial class PIHome {
         
         /// <summary>
         /// lblName control.
