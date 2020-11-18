@@ -1,4 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="StudentHome.aspx.cs" Inherits="URPSSPSuccessTracker.StudentHome" %>
+<<<<<<< Updated upstream
+=======
+<%@ MasterType VirtualPath="~/Master.Master" %>
+>>>>>>> Stashed changes
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Student Home</title>
