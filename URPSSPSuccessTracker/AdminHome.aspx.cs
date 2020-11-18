@@ -15,12 +15,29 @@ namespace URPSSPSuccessTracker
             if (!IsPostBack)
             {
                 this.Master.SetNavBar((String)Session["UserType"]);
+                tblPI.Style.Add("display","none");
+                btnStudent.Enabled = false;
             }
+
         }
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminSearchStudent.aspx");
+            //Response.Redirect("AdminSearchStudent.aspx");
+            lblUser.Text = "Students";
+            btnStudent.Enabled = false;
+            btnPI.Enabled = true;
+            tblStudent.Style.Add("display", "block");
+            tblPI.Style.Add("display", "none");
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            lblUser.Text = "Principal Investigator";
+            btnPI.Enabled = false;
+            btnStudent.Enabled = true;
+            tblStudent.Style.Add("display", "none");
+            tblPI.Style.Add("display", "block");
         }
     }
 }
