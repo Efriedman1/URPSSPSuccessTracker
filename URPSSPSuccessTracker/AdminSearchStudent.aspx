@@ -95,7 +95,7 @@
                                 <asp:Label ID="lblUser" runat="server" Text="Student"></asp:Label>
                             </legend>
 
-                            <table class="table-bordered w-100"  id="myTable" runat="server">
+                            <table class="table-bordered w-100">
                               <thead class="bg-danger">
                                 <tr>
                                   <th scope="col"> </th>

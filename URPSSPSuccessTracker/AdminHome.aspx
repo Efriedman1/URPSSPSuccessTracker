@@ -19,10 +19,12 @@
         width:auto;
         padding:0 10px;
         border-bottom:none;
+
     }
+
     </style>
 
-              <div class="container">
+              <div class="container-fluid">
                   <div class="row">
                       <div class="col-6">
                         <fieldset class="scheduler-border">
@@ -36,8 +38,8 @@
                           &nbsp;&nbsp;&nbsp;
 
                           <div>
-                              <asp:Button class="btn-outline-danger" ID="Button4" runat="server" Text="Student" OnClick="Button4_Click" />&nbsp;
-                              <asp:Button class="btn-danger" ID="Button5" runat="server" Text="Principal Investigator" />&nbsp;
+                              <asp:Button class="btn-outline-danger p-2" ID="btnStudent" runat="server" Text="Student" OnClick="Button4_Click" />&nbsp;
+                              <asp:Button class="btn-danger" ID="btnPI" runat="server" Text="Principal Investigator" OnClick="Button5_Click" />&nbsp;
                               <asp:DropDownList ID="DropDownList1" runat="server">
                               <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
                               <asp:ListItem>SPRING 2020</asp:ListItem>
@@ -80,44 +82,165 @@
                                 <asp:Label ID="lblUser" runat="server" Text="Principal Investigator"></asp:Label>
                             </legend>
 
-                            <table class="table-bordered w-100"  id="myTable" runat="server">
-                              <thead class="bg-danger">
-                                <tr>
-                                  <th scope="col"> </th>
-                                  <th scope="col">TUID</th>
-                                  <th scope="col">First</th>
-                                  <th scope="col">Last</th>
-                                  <th scope="col">Department</th>
-                                  <th scope="col">Actions</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row"> <asp:CheckBox ID="CheckBox1" runat="server" /></th>
-                                  <td>9210345</td>
-                                  <td>Bill</td>
-                                  <td>Washer</td>
-                                  <td>IST</td>
-                                  <td> <asp:Button ID="Button1" runat="server" Text="Button" /></td>
-                                </tr>
-                               <tr>
-                                  <th scope="row"> <asp:CheckBox ID="CheckBox2" runat="server" /></th>
-                                  <td>9654123</td>
-                                  <td>Nyla</td>
-                                  <td>Taylor</td>
-                                  <td>IST</td>
-                                  <td> <asp:Button ID="Button2" runat="server" Text="Button" /></td>
-                                </tr>
-                                  <tr>
-                                  <th scope="row"> <asp:CheckBox ID="CheckBox3" runat="server" /></th>
-                                  <td>9678521</td>
-                                  <td>Omar</td>
-                                  <td>Dodson</td>
-                                  <td>IST</td>
-                                  <td> <asp:Button ID="Button3" runat="server" Text="Button" /></td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <asp:Table ID="tblPI" class="table w-100" runat="server">
+                                 <asp:TableHeaderRow style="background-color:#B21125;color:white; ">
+
+                            <asp:TableHeaderCell Scope="Column">
+                                
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                TUID
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                First Name
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                Last Name
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                Department
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                Actions
+                            </asp:TableHeaderCell>            
+                        </asp:TableHeaderRow>
+
+
+                           <asp:TableRow>
+                            <asp:TableHeaderCell>
+                                 <asp:CheckBox ID="CheckBox1" runat="server" />
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell>
+                                921034587
+                            </asp:TableHeaderCell>
+                            <asp:TableCell>
+                                Bill
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                Wascher
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                IST
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                 <asp:Button ID="Button6" runat="server" Text="Button" />
+                            </asp:TableCell>
+                        </asp:TableRow>
+
+                                <asp:TableRow>
+                            <asp:TableHeaderCell>
+                                 <asp:CheckBox ID="CheckBox2" runat="server" />
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell>
+                                9654123
+                            </asp:TableHeaderCell>
+                            <asp:TableCell>
+                                Nyla
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                Taylor
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                IST
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                 <asp:Button ID="Button1" runat="server" Text="Button" />
+                            </asp:TableCell>
+                        </asp:TableRow>
+
+
+                                 <asp:TableRow>
+                            <asp:TableHeaderCell>
+                                 <asp:CheckBox ID="CheckBox3" runat="server" />
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell>
+                                9678521
+                            </asp:TableHeaderCell>
+                            <asp:TableCell>
+                                Omar
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                Dodson
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                IST
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                 <asp:Button ID="Button2" runat="server" Text="Button" />
+                            </asp:TableCell>
+                        </asp:TableRow>
+
+                            </asp:Table>
+
+                          
+                 <asp:Table ID="tblStudent" class="table w-100" runat="server">
+                     <asp:TableHeaderRow style="background-color:#B21125;color:white; ">
+
+                            <asp:TableHeaderCell Scope="Column">
+                                
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                TUID
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                First Name
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                Last Name
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                Major
+                            </asp:TableHeaderCell>
+                         <asp:TableHeaderCell Scope="Column">
+                                Program
+                            </asp:TableHeaderCell>
+                         <asp:TableHeaderCell Scope="Column">
+                                Principal Investigator
+                            </asp:TableHeaderCell>
+                         <asp:TableHeaderCell Scope="Column">
+                                Status
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">
+                                Actions
+                            </asp:TableHeaderCell>            
+                        </asp:TableHeaderRow>
+
+
+                           <asp:TableRow>
+                            <asp:TableHeaderCell>
+                                 <asp:CheckBox ID="CheckBox4" runat="server" />
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell>
+                                921034590
+                            </asp:TableHeaderCell>
+                            <asp:TableCell>
+                                Ruby
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                Byrd
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                IST
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                SSP
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Omar Dodson
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Complete
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                 <asp:Button ID="Button3" runat="server" Text="Button" />
+                            </asp:TableCell>
+                        </asp:TableRow>
+
+                               
+
+              </asp:Table>
+
+
                             <p>
                           <br />
 
