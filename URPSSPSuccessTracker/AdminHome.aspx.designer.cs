@@ -11,6 +11,7 @@ namespace URPSSPSuccessTracker {
     
     
     public partial class AdminHome {
+<<<<<<< Updated upstream
         
         /// <summary>
         /// btnStudent control.
@@ -410,5 +411,7 @@ namespace URPSSPSuccessTracker {
                 return ((URPSSPSuccessTracker.Master)(base.Master));
             }
         }
+=======
+>>>>>>> Stashed changes
     }
 }
