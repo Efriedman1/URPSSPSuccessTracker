@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PIViewStudentResearch.aspx.cs" Inherits="URPSSPSuccessTracker.PIViewResearch" %>
+<%@ MasterType VirtualPath="~/Master.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -42,7 +44,6 @@
 
                 </div>
                 <!--Grid row-->
-
                 <!--Grid row-->
                 <div class="row">
                     <div class="col-md-12" style="padding-top:20px;">
@@ -187,7 +188,6 @@
       <asp:Label ID="lblComments" runat="server" Text="Comments" class="mr-sm-2" Font-Bold="True" Visible="true"></asp:Label>
         <%-- <asp:Button ID="btnHome" runat="server" Text="Home" class="btn btn-outline-warning my-2 my-sm-0" />--%>
     </div>
-
     <div class="actionBox">
         <ul class="commentList">
             <li>
