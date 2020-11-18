@@ -14,12 +14,11 @@ namespace URPSSPSuccessTracker
         {
             if (!IsPostBack)
             {
-<<<<<<< HEAD
+
                 this.Master.SetNavBar((String)Session["UserType"]);
                 tblPI.Style.Add("display","none");
-=======
                 pnlPI.Visible = false;
->>>>>>> 132f9ec03ef4c600d38dbd547220609b2027aebc
+
                 btnStudent.Enabled = false;
                 lblUser.Text = "Students";
 
