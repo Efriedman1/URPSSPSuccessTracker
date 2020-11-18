@@ -79,7 +79,6 @@
     <Content Include="PIHome.aspx" />
     <Content Include="StudentHome.aspx" />
     <Content Include="PIViewStudentResearch.aspx" />
-    <Content Include="StudentEnterResearch.aspx" />
     <Content Include="TempLogin.aspx" />
     <Content Include="ViewStudentResearch.aspx" />
     <Content Include="Web.config" />
@@ -148,13 +147,6 @@
     </Compile>
     <Compile Include="StudentHome.aspx.designer.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="StudentEnterResearch.aspx.cs">
-      <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentEnterResearch.aspx.designer.cs">
-      <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="TempLogin.aspx.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>

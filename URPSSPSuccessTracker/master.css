@@ -8,8 +8,9 @@ body {
 }
 
 .detailBox {
-    width: 320px;
-    margin: 50px;
+    width: 475px;
+    margin: 25px;
+    justify-content: center !important;
 }
 
 .titleBox {
@@ -29,7 +30,7 @@ body {
 }
 
     .commentBox .form-group:first-child, .actionBox .form-group:first-child {
-        width: 80%;
+        width: 90%;
     }
 
     .commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
@@ -60,7 +61,7 @@ body {
         }
 
 .commenterImage {
-    width: 30px;
+    width: 40px;
     margin-right: 5px;
     height: 100%;
     float: left;
@@ -73,13 +74,15 @@ body {
 
 .commentText p {
     margin: 0;
-    font-size:18px !important;
+    font-size:22px !important;
+    font-weight: normal;
 }
 
 .sub-text {
     color: #aaa;
     font-family: verdana;
-    font-size: 11px;
+    font-size: 16px;
+    font-weight: lighter;
 }
 
 .actionBox {
@@ -91,6 +94,17 @@ body {
     background-color: #91182a;
     color: white;
 }
+
+
+/*Made for PIViewStudentResearch*/
+
+.btnSize{
+    height: 50px !important;
+    width: 200px !important;
+    justify-content: center !important;
+    margin: 5px;
+}
+
 
 /* MEDIA QUERIES */
 

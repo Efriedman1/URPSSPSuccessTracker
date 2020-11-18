@@ -8,13 +8,26 @@
 <section class="mb-4">
 
     <!--Section heading-->
-   
-    <h2 class="h1-responsive text-left my-4"><b>John Doe</b> 915 112 112</h2>
+   <div class="row">
+
+       <div class="col-md-8">
+           <h2 class="h1-responsive text-left my-4"><b>John Doe</b> 915 112 112</h2>
+       </div>
+       <div class="col-md-4 float-right">
+            <asp:Label ID="lblTerm" runat="server" Text="Term: "></asp:Label>
+            <asp:DropDownList ID="ddTerm" runat="server">
+                              <asp:ListItem Selected="True">Fall 2020</asp:ListItem>
+                              <asp:ListItem>Spring 2020</asp:ListItem>
+                              <asp:ListItem>Fall 2019</asp:ListItem>
+           </asp:DropDownList>
+       </div>
+   </div>
+    
            
     <div class="row">
 
         <!--Grid column-->
-        <div class="col-md-9 mb-md-0 mb-5 h4">
+        <div class="col-md-7 mb-md-0 mb-5 h4">
 
 
                 <!--Grid row-->
@@ -170,21 +183,21 @@
                     </div>
                 </div>
                 <!--Grid row-->
-              <div class="text-center text-lg-left" style="padding-top:20px;">
-                <a class="btn btn-outline-danger " style=" width: 150px !important;"><h4>Edit</h4></a>
-            </div>
-            <div class="text-center text-lg-left" style="padding-top:20px;">
-                <a class="btn btn-danger "style=" width: 150px !important;"><h4>Save</h4></a>
+            <div class="row" style="justify-content: center !important;">
+                <div class="col p-3 btn-toolbar m-4" style="justify-content: center !important;">
+                    <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnEdit" runat="server" Text="Edit" />
+                    <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnSave" runat="server" Text="Save" />
+                </div>
             </div>
             <div class="status"></div>
         </div>
         <!--Grid column-->
 
         <!--Grid column Comments-->
-        <div class="col-md-3 text-left h4">
+        <div class="col-md-5 text-left h4">
             <div class="detailBox">
     <div class="titleBox">
-      <asp:Label ID="lblComments" runat="server" Text="Comments" class="mr-sm-2" Font-Bold="True" Visible="true"></asp:Label>
+      <asp:Label ID="lblComments" runat="server" Text="Comments" class="mr-md-2" Font-Bold="True" Font-Size="X-Large"></asp:Label>
         <%-- <asp:Button ID="btnHome" runat="server" Text="Home" class="btn btn-outline-warning my-2 my-sm-0" />--%>
     </div>
 
@@ -195,7 +208,7 @@
                   <img src="http://placekitten.com/50/50" />
                 </div>
                 <div class="commentText">
-                    <h5>Bill Perkins</h5>
+                    <h4>Bill Perkins</h4>
                     <p class="">Hello this is a test comment.</p> <span class="date sub-text">on November 15th, 2020</span>
 
                 </div>
@@ -206,7 +219,7 @@
                 </div>
 
                 <div class="commentText">
-                    <h5>Bill Perkins</h5>
+                    <h4>Bill Perkins</h4>
                     <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on November 15th, 2020</span>
                 </div>
             </li>
@@ -215,18 +228,19 @@
                   <img src="http://placekitten.com/40/40" />
                 </div>
                 <div class="commentText">
-                    <h5>Bill Perkins</h5>
+                    <h4>Bill Perkins</h4>
                     <p class="">Hello this is a test comment.</p> <span class="date sub-text">on November 15th, 2020</span>
 
                 </div>
             </li>
         </ul>
         
-            <div class="form-group">
-                   <p><asp:TextBox ID="tbComment" runat="server" class="form-control my-2 my-sm-0" Width="287px"></asp:TextBox></p>
+            <div class="form-group ">
+ 
+                   <p><asp:TextBox ID="tbComment" runat="server" class="form-control my-2 my-sm-0" Width="450px" TextMode="MultiLine"></asp:TextBox></p>
             </div>
-            <div class="form-group">
-             <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn btn-outline-danger my-2 my-sm-0" />
+            <div class="form-group text-center">
+             <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn redbtn my-2 my-sm-0 btnSize" />
             </div>
       
     </div>
