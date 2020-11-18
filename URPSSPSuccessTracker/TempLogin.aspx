@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="TempLogin.aspx.cs" Inherits="URPSSPSuccessTracker.TempLogin" %>
+<%@ MasterType VirtualPath="~/Master.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-   
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">   
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 25rem; margin-top: 150px;">
                 <div class="card-body">
