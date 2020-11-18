@@ -21,6 +21,24 @@ namespace URPSSPSuccessTracker
             Response.Redirect("TempLogin.aspx");
         }
 
-  
+        public void SetNavBar(String userType)
+        {
+
+        }
+
+        protected void btnUploadUsers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnManageUsers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
