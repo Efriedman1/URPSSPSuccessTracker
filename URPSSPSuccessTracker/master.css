@@ -105,6 +105,31 @@ body {
     margin: 5px;
 }
 
+.mydropdownlist1 {
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 5px 12px;
+    background-color: #ffffff;
+    border: 1px solid;
+    font-weight: normal;
+    color: black;
+}
+
+.termLabel{
+    font-size:22px;
+    font-weight:normal;
+}
+
+.textbox {
+    margin: 0;
+    font-size: 22px !important;
+    font-weight: normal;
+}
+
+.form-control{
+    font-size: 20px !important;
+}
 
 /* MEDIA QUERIES */
 

@@ -75,7 +75,7 @@
                       </div>
                   </div>
                   <div class="row">
-                      <div class="col-12 table-responsive">
+                      <asp:Panel ID="pnl" runat="server" class="col-12 table-responsive"/>
                           
                         <fieldset class="scheduler-border">
                             <legend class="scheduler-border">
@@ -255,7 +255,7 @@
                         </fieldset>
                           
                           
-                      </div>
+                      </asp:Panel>
                   </div>
               </div>
 </asp:Content>

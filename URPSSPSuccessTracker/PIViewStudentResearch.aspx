@@ -6,16 +6,17 @@
     <div class ="container">
 <!--Section: Contact v.2-->
 <section class="mb-4">
-
+    
+    <h2>Student Research</h2>
     <!--Section heading-->
    <div class="row">
 
        <div class="col-md-8">
            <h2 class="h1-responsive text-left my-4"><b>John Doe</b> 915 112 112</h2>
        </div>
-       <div class="col-md-4 float-right">
-            <asp:Label ID="lblTerm" runat="server" Text="Term: "></asp:Label>
-            <asp:DropDownList ID="ddTerm" runat="server">
+       <div class="col-md-4 float-right ">
+            <asp:Label CssClass="termLabel" ID="lblTerm" runat="server" Text="Term: "></asp:Label>
+            <asp:DropDownList  CssClass="mydropdownlist1 align-self-center" ID="ddTerm" runat="server">
                               <asp:ListItem Selected="True">Fall 2020</asp:ListItem>
                               <asp:ListItem>Spring 2020</asp:ListItem>
                               <asp:ListItem>Fall 2019</asp:ListItem>
@@ -36,8 +37,10 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <label for="name" class="">Principal Investigator</label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            <asp:Label ID="lblPI" CssClass="control-label" runat="server" Text="Principal Investigator" Enabled="False"></asp:Label>
+<%--                            <label for="name" class="">Principal Investigator</label>--%>
+                            <asp:TextBox ID="txtName" CssClass="form-control input-lg" runat="server" Enabled="False">Bill Perkins</asp:TextBox>
+                            <%--<input type="text" id="name" name="name" class="form-control">--%>
                             
                         </div>
                     </div>
@@ -46,8 +49,10 @@
                     <!--Grid column-->
                     <div class="col-md-6" >
                         <div class="md-form mb-0">
-                            <label for="date" class="">Principal Investigator's Email</label>
-                            <input type="text" id="email" name="date" class="form-control">
+                            <asp:Label ID="lblPIEmail" CssClass="control-label" runat="server" Text="Principal Investigator's Email"></asp:Label>
+                           <%-- <label for="date" class="">Principal Investigator's Email</label>--%>
+                            <asp:TextBox ID="txtEmail" CssClass="form-control input-lg" runat="server" Enabled="False">billperkins@temple.edu</asp:TextBox>
+                           <%-- <input type="text" id="email" name="date" class="form-control">--%>
                  
                         </div>
                     </div>
@@ -60,22 +65,26 @@
                 <div class="row">
                     <div class="col-md-12" style="padding-top:20px;">
                         <div class="md-form mb-0">
-                            <label for="subject" class="">Principal Investigator's Department</label>
-                            <input type="text" id="subject" name="subject" class="form-control">
+                            <asp:Label ID="lblDept" CssClass="control-label" runat="server" Text="Principal Investigator's Department"></asp:Label>
+                            <%--<label for="subject" class="">Principal Investigator's Department</label>--%>
+                            <asp:TextBox ID="txtDept" CssClass="form-control input-lg" runat="server" Enabled="False">Chemistry</asp:TextBox>
+                            <%--<input type="text" id="subject" name="subject" class="form-control">--%>
                             
                         </div>
                     </div>
                 </div>
                 <!--Grid row-->
-            <br /><br />
+            <br />
              <!--Grid row-->
                 <div class="row">
 
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <label for="title" class="">Title</label>
-                            <input type="text" id="title" name="title" class="form-control">
+                            <asp:Label ID="lblTitle" CssClass="control-label" runat="server" Text="Title"></asp:Label>
+                            <%--<label for="title" class="">Title</label>--%>
+                            <asp:TextBox ID="txtTitle" CssClass="form-control input-lg" runat="server" Enabled="False">UV Photolysis</asp:TextBox>
+                            <%--<input type="text" id="title" name="title" class="form-control">--%>
                             
                         </div>
                     </div>
@@ -84,8 +93,10 @@
                     <!--Grid column-->
                     <div class="col-md-6" >
                         <div class="md-form mb-0">
-                            <label for="type" class="">Research Type</label>
-                            <input type="text" id="type" name="type" class="form-control">
+                            <asp:Label ID="lblType" CssClass="control-label" runat="server" Text="Resesarch Type"></asp:Label>
+                            <%--<label for="type" class="">Research Type</label>--%>
+                            <asp:TextBox ID="txtType" CssClass="form-control input-lg" runat="server" Enabled="False">URP</asp:TextBox>
+                            <%--<input type="text" id="type" name="type" class="form-control">--%>
                  
                         </div>
                     </div>
@@ -100,8 +111,10 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <label for="status" class="">Status</label>
-                            <input type="text" id="status" name="status" class="form-control">
+                            <asp:Label ID="lblStatus" CssClass="control-label" runat="server" Text="Status"></asp:Label>
+                           <%-- <label for="status" class="">Status</label>--%>
+                            <asp:TextBox ID="txtStatus" CssClass="form-control input-lg" runat="server" Enabled="False">Concluded</asp:TextBox>
+                           <%-- <input type="text" id="status" name="status" class="form-control">--%>
                             
                         </div>
                     </div>
@@ -110,8 +123,10 @@
                     <!--Grid column-->
                     <div class="col-md-6" >
                         <div class="md-form mb-0">
-                            <label for="method" class="">Research Method</label>
-                            <input type="text" id="method" name="method" class="form-control">
+                            <asp:Label ID="lblMethod" CssClass="control-label" runat="server" Text="Research Method"></asp:Label>
+                            <%--<label for="method" class="">Research Method</label>--%>
+                            <asp:TextBox ID="txtMethod" CssClass="textbox form-control input-lg" runat="server" Enabled="False">Experimentation</asp:TextBox>
+                            <%--<input type="text" id="method" name="method" class="form-control">--%>
                  
                         </div>
                     </div>
@@ -127,8 +142,10 @@
                     <div class="col-md-12" style="padding-top:20px;">
 
                         <div class="md-form">
-                            <label for="links">Link(s)</label>
-                            <textarea id="links" name="links" rows="2" class="form-control md-textarea"></textarea>
+                            <asp:Label ID="lblUser" CssClass="control-label" runat="server" Text="Link(s)"></asp:Label>
+                            <%--<label for="links">Link(s)</label>--%>
+                            <textarea id="links" name="links" rows="2" class="form-control md-textarea" disabled="disabled">https://www.chemistry-conferences.com/
+https://www.acs.org/content/acs/en/meetings.html</textarea>
                             
                         </div>
 
@@ -143,8 +160,9 @@
                     <div class="col-md-12" style="padding-top:20px;">
 
                         <div class="md-form">
-                            <label for="Journal">Journal</label>
-                            <textarea id="Journal" name="Journal" rows="2" class="form-control md-textarea"></textarea>
+                            <asp:Label ID="Label1" CssClass="control-label" runat="server" Text="Journal"></asp:Label>
+                            <%--<label for="Journal">Journal</label>--%>
+                            <textarea id="Journal" name="Journal" rows="2" class="form-control md-textarea" disabled="disabled">Journal of Physical Chemistry A</textarea>
                             
                         </div>
 
@@ -159,8 +177,10 @@
                     <div class="col-md-12" style="padding-top:20px;">
 
                         <div class="md-form">
-                            <label for="info">Conference Information</label>
-                            <textarea id="info" name="info" rows="2" class="form-control md-textarea"></textarea>
+                            <asp:Label ID="Label2" CssClass="control-label" runat="server" Text="Conference Information"></asp:Label>
+                            <%--<label for="info">Conference Information</label>--%>
+                            <textarea id="info" name="info" rows="2" class="form-control md-textarea" disabled="disabled">-Undergraduate Computational Chemistry Symposium
+                            -Theoretical Analysis of the UV Photolysis</textarea>
                             
                         </div>
 
@@ -175,8 +195,9 @@
                     <div class="col-md-12" style="padding-top:20px;">
 
                         <div class="md-form">
-                            <label for="description">Description</label>
-                            <textarea id="description" name="description" rows="2" class="form-control md-textarea"></textarea>
+                            <asp:Label ID="Label3" runat="server" Text="Description"></asp:Label>
+                           <%-- <label for="description">Description</label>--%>
+                            <textarea id="description" name="description" rows="2" class="form-control md-textarea" disabled="disabled">This is a brief description of my research. This field is optional.</textarea>
                             
                         </div>
 
