@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ManageTerm.aspx.cs" Inherits="URPSSPSuccessTracker.ManageTerm" %>
-<%@ MasterType VirtualPath="~/Master.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -36,11 +35,12 @@
                                 Year
                             </label>
                             <asp:TextBox ID="txtYear" runat="server" CssClass="form-control" MaxLength="4">
+
                             </asp:TextBox>
                         </div>
                     </div>
                     <div class="mt-5 text-center mb-5">
-                        <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn redbtn" />
+                        <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn btn-light" />
                     </div>
                 </div>
                 <div class="col">
