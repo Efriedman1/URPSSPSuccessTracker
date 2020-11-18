@@ -1,5 +1,4 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PIHome.aspx.cs" Inherits="URPSSPSuccessTracker.PIHome" %>
-
 <%@ MasterType VirtualPath="~/Master.Master" %>
 
 
@@ -7,11 +6,6 @@
     <title>PI Home</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
-
-
-
     <div class="container md-auto justify-content-center mt-5">
         <div class="row text-center">
             <div class="col-md-4 md-offset-">

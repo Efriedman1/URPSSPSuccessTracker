@@ -127,7 +127,7 @@ namespace URPSSPSuccessTracker {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
+
         protected global::System.Web.UI.WebControls.Button btnSelectTerm5;
         
         /// <summary>
@@ -141,8 +141,8 @@ namespace URPSSPSuccessTracker {
                 return ((URPSSPSuccessTracker.Master)(base.Master));
             }
         }
-=======
+
         protected global::System.Web.UI.WebControls.Button Button5;
->>>>>>> 132f9ec03ef4c600d38dbd547220609b2027aebc
+
     }
 }
