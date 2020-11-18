@@ -5,9 +5,8 @@
 <html>
 <head runat="server">
     <title></title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-
     <link rel="stylesheet" href="master.css" />
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -21,13 +20,12 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
-
 </head>
 <body>
     <form id="form1" runat="server">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand text-light" href="#"><img src="images/urpssp.png" alt="" style="width:80%;height:80%;"/></a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand text-light" href="#">
+                <img src="images/urpssp.png" alt="" style="width: 80%; height: 80%;" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,30 +33,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="padding-right:50px !important;">
-                            <h3>Upload Users</h3>
-                        </a>
+                        <asp:Button ID="btnUploadUsers" runat="server" Text="Upload Users" OnClick="btnUploadUsers_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
                     </li>
-                          <li class="nav-item">
-                        <a class="nav-link" href="#" style="padding-right:50px !important;">
-                            <h3>Manager Users</h3>
-                        </a>
+                    <li class="nav-item">
+                        <asp:Button ID="btnManageUsers" runat="server" Text="Manage Users" OnClick="btnManageUsers_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
                     </li>
-                          <li class="nav-item">
-
-                        <a class="nav-link" href="#">
-                            <h3>Search</h3>
-                        </a>
+                    <li class="nav-item">
+                        <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
                     </li>
                 </ul>
-
                 <div class="form-inline my-2 my-lg-0">
-
-                    <asp:Button ID="btnLogout" runat="server" Text="Logout" class="btn btn-outline-warning my-2 my-sm-0" OnClick="btnLogout_Click" />
+                    <asp:Label ID="lblUserName" runat="server" CssClass="mr-3"></asp:Label>
+                    <asp:Label ID="lblUserType" runat="server" CssClass="mr-3"></asp:Label>
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" class="btn redbtn" OnClick="btnLogout_Click" />
                 </div>
             </div>
         </nav>
-
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

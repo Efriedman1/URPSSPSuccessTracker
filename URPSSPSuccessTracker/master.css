@@ -95,6 +95,7 @@ body {
     color: white;
 }
 
+<<<<<<< HEAD
 
 /*Made for PIViewStudentResearch*/
 
@@ -130,6 +131,12 @@ body {
 .form-control{
     font-size: 20px !important;
 }
+=======
+    .redbtn:hover {
+        background-color: #740000;
+        color:white;
+    }
+>>>>>>> 7261e08a976a7d14913ce5f288d1a9037bf7a951
 
 /* MEDIA QUERIES */
 
