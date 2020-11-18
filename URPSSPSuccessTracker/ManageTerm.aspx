@@ -34,7 +34,7 @@
                             <label>
                                 Year
                             </label>
-                            <asp:TextBox ID="txtYear" runat="server" CssClass="form-control" MaxLength="4">
+                            <asp:TextBox ID="txtYear" runat="server" CssClass="form-control" MaxLength="4" placeholder="YYYY">
 
                             </asp:TextBox>
                         </div>
