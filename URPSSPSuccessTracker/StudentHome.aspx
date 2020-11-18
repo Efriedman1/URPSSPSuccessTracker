@@ -1,8 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="StudentHome.aspx.cs" Inherits="URPSSPSuccessTracker.StudentHome" %>
 
-<%@ MasterType VirtualPath="~/Master.Master" %>
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Student Home</title>
 </asp:Content>

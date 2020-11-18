@@ -127,22 +127,6 @@ namespace URPSSPSuccessTracker {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< Updated upstream
         protected global::System.Web.UI.WebControls.Button Button4;
-=======
-        protected global::System.Web.UI.WebControls.Button btnSelect3;
-        
-        /// <summary>
-        /// Master property.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated property.
-        /// </remarks>
-        public new URPSSPSuccessTracker.Master Master {
-            get {
-                return ((URPSSPSuccessTracker.Master)(base.Master));
-            }
-        }
->>>>>>> Stashed changes
     }
 }

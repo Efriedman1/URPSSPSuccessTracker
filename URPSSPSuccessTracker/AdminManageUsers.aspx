@@ -1,6 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminManageUsers.aspx.cs" Inherits="URPSSPSuccessTracker.AdminManageUsers" %>
-<%@ MasterType VirtualPath="~/Master.Master" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -35,13 +33,16 @@
                 <asp:TextBox ID="txtTUID" runat="server" CssClass="form-control"  placeholder="9 Digit TUID" BackColor="#FAFAFA"></asp:TextBox>
             </div>
         </div>
+
         <br />
+
         <div class="row">
             <div class="col-sm-12 col-sm-12 col-md-12 col-lg-12">
                 <h5>Administrators</h5>
                 <div class="border border-secondary" style="border-radius:5px;">
                   <div class="col-12 col-sm-12 col-lg-12 col-lg-12" style="margin-top:2%;">
                      <asp:Table ID="tblAdministrators" runat="server" CssClass="table table-striped">
+
                         <asp:TableHeaderRow style="background-color:#B21125;color:white; ">
                             <asp:TableHeaderCell Scope="Column">
                                 TUID
