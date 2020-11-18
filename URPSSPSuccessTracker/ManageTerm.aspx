@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <label class="h3 mt-3 ml-4">Manage Term</label>
+    <label class="h2 mt-3 ml-4">Manage Term</label>
     <br />
     <label class="h6 ml-4 mt-5">
         Academic Terms
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="mt-5 text-center mb-5">
-                        <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn btn-light" />
+                        <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn redbtn" />
                     </div>
                 </div>
                 <div class="col">
