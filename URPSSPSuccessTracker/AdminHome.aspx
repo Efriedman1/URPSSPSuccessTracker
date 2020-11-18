@@ -19,10 +19,12 @@
         width:auto;
         padding:0 10px;
         border-bottom:none;
+
+
     }
     </style>
 
-              <div class="container">
+              <div class="container-fluid">
                   <div class="row">
                       <div class="col-6">
                         <fieldset class="scheduler-border">
@@ -36,7 +38,7 @@
                           &nbsp;&nbsp;&nbsp;
 
                           <div>
-                              <asp:Button class="btn-outline-danger" ID="Button4" runat="server" Text="Student" OnClick="Button4_Click" />&nbsp;
+                              <asp:Button class="btn-outline-danger p-2" ID="Button4" runat="server" Text="Student" OnClick="Button4_Click" />&nbsp;
                               <asp:Button class="btn-danger" ID="Button5" runat="server" Text="Principal Investigator" />&nbsp;
                               <asp:DropDownList ID="DropDownList1" runat="server">
                               <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
