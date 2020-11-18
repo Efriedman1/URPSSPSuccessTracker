@@ -23,7 +23,7 @@
             width:auto;
             padding:0 10px;
             border-bottom:none;
-        }
+        }  
     </style>
 
 
