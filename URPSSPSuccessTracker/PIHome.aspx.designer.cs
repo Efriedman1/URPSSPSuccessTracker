@@ -85,48 +85,48 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Table tblAdministrators;
         
         /// <summary>
-        /// btnSelect control.
+        /// btnStudent1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelect;
+        protected global::System.Web.UI.WebControls.Button btnStudent1;
         
         /// <summary>
-        /// Button1 control.
+        /// btnStudent2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnStudent2;
         
         /// <summary>
-        /// Button2 control.
+        /// btnStudent3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnStudent3;
         
         /// <summary>
-        /// Button3 control.
+        /// btnStudent4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button btnStudent4;
         
         /// <summary>
-        /// Button4 control.
+        /// btnStudent5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button btnStudent5;
     }
 }

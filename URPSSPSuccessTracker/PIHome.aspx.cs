@@ -13,5 +13,25 @@ namespace URPSSPSuccessTracker
         {
 
         }
+        protected void btnStudent1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PIViewStudentResearch.aspx");
+        }
+        protected void btnStudent2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PIViewStudentResearch.aspx");
+        }
+        protected void btnStudent3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PIViewStudentResearch.aspx");
+        }
+        protected void btnStudent4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PIViewStudentResearch.aspx");
+        }
+        protected void btnStudent5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PIViewStudentResearch.aspx");
+        }
     }
 }
