@@ -85,53 +85,49 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Table tblAdministrators;
         
         /// <summary>
-        /// btnSelectTerm1 control.
+        /// btnSelect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelectTerm1;
+        protected global::System.Web.UI.WebControls.Button btnSelect;
         
         /// <summary>
-        /// btnSelectTerm2 control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelectTerm2;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// btnSelectTerm3 control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelectTerm3;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// btnSelectTerm4 control.
+        /// Button3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelectTerm4;
+        protected global::System.Web.UI.WebControls.Button Button3;
         
         /// <summary>
-        /// btnSelectTerm5 control.
+        /// Button4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< Updated upstream
-        protected global::System.Web.UI.WebControls.Button btnSelectTerm5;
-=======
         protected global::System.Web.UI.WebControls.Button Button4;
-        protected global::System.Web.UI.WebControls.Button btnSelect3;
         
         /// <summary>
         /// Master property.
@@ -144,6 +140,5 @@ namespace URPSSPSuccessTracker {
                 return ((URPSSPSuccessTracker.Master)(base.Master));
             }
         }
->>>>>>> Stashed changes
     }
 }
