@@ -3,9 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-
-
     <script>
       tinymce.init({
         selector: 'textarea#editor',
@@ -29,6 +26,22 @@
             width: 800px;
             border-radius:5px;
         }
+        fieldset.scheduler-border {
+           border: 1px groove #ddd !important;
+            border-radius:5px;
+           padding: 0 1.4em 1.4em 1.4em !important;
+           margin: 0 0 1.5em 0 !important;
+           -webkit-box-shadow:  0px 0px 0px 0px #000;
+           box-shadow:  0px 0px 0px 0px #000;
+        }
+        legend.scheduler-border {
+            font-size: 1.2em !important;
+            font-weight: bold !important;
+            text-align: left !important;
+            width:auto;
+            padding:0 10px;
+            border-bottom:none;
+        }
     </style>
 
 
@@ -41,9 +54,9 @@
 
         <div class="row"  >
             <div class="col-sm-12 col-sm-12 col-lg-5 col-lg-5 " >
-               <h5>Receipients</h5>
-                <div class="col-8 col-sm-6 col-lg-12 col-lg-12 border border-secondary table_scroll" style="border-radius:5px;">
-<%--                    <asp:Table ID="tblStudentEmail" runat="server" CssClass="table table-striped table-responsive" style="margin-top:10px;height:480px;width:auto">--%>
+                <fieldset class="scheduler-border col-8 col-sm-6 col-lg-12 col-lg-12 table_scroll" style="height:550px">
+                    <legend class="scheduler-border">Receipients</legend>
+
                     <asp:Table ID="tblStudentEmail" runat="server" CssClass="table table-striped" >
 
                         <asp:TableHeaderRow style="background-color:#91182A;color:white;">
@@ -66,7 +79,7 @@
                                 Laran@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
 
                         </asp:TableRow>
@@ -79,7 +92,7 @@
                                 Salimn@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
 
@@ -91,7 +104,7 @@
                                 FarzanaC@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
 
@@ -103,7 +116,7 @@
                                 RaymondD@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
 
@@ -115,7 +128,7 @@
                                 AlyssaJ@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
 
@@ -127,7 +140,7 @@
                                 BrynR@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
 
@@ -139,7 +152,7 @@
                                 AnnikaA@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
 
@@ -151,7 +164,7 @@
                                 BryceW@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
                         
@@ -163,7 +176,7 @@
                                 JacquelineKy@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
                         
@@ -175,7 +188,7 @@
                                 TobiasR@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
                         
@@ -187,7 +200,7 @@
                                 OsmanH@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
                         
@@ -199,7 +212,7 @@
                                 AlessandroS@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
                         
@@ -211,7 +224,7 @@
                                 ClariceL@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
                         
@@ -223,22 +236,21 @@
                                 KarlaA@temple.edu
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:Button runat="server" text="Remove" CssClass="btn p-1" BackColor="#91182A" ForeColor="white"/>
+                                <asp:Button runat="server" text="Remove" CssClass="btn redbtn"/>
                             </asp:TableCell>
                         </asp:TableRow>
-
-
                     </asp:Table>
                     <asp:Button runat="server" CssClass="btn redbtn" ID="btnAddStudent" Text="Add More Students" style="margin-bottom:20px"/>
+                 </fieldset>    
 
-                </div>
             </div>
 
-            <div class="col-sm-12 col-sm-12 col-md-7 col-lg-7 ">
-                <h5>Write Email</h5>
-                <div class="border border-secondary" style="border-radius:5px;">
+            <div class="col-sm-12 col-sm-12 col-md-7 col-lg-7">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Write Email</legend>
 
-                  <div class="col-8 col-sm-6 col-lg-12 col-lg-12" style="margin-top:2%;">
+     
+                  <div class="col-8 col-sm-6 col-lg-12 col-lg-12" >
                     <asp:label ID="lblSubject" runat="server" CssClass="col-form-label-lg">Subject</asp:label>                  
                     <asp:TextBox ID="txtEmailSubject" runat="server" CssClass="form-control" placeholder="Enter your subject here"></asp:TextBox>
                   </div>
@@ -247,15 +259,9 @@
                     <asp:label ID="lblBody" runat="server" CssClass="col-form-label-lg">Body</asp:label>
                     <asp:TextBox ID="txtEmailBody" runat="server" CssClass="form-control" placeholder="Enter your email here" TextMode="MultiLine" Rows="12" ></asp:TextBox>
                   </div>
-                    <asp:button  runat="server" ID="btnSend" type="submit" CssClass="btn mb-2" style="margin-top:5%;margin-bottom:5%;margin-left:45%;background-color:#B21125;color:white" text="Send"></asp:button>
+                    <asp:button  runat="server" ID="btnSend" type="submit" CssClass="btn redbtn" style="margin-top:5%;margin-left:45%;" text="Send"></asp:button>
 
-                </div>
-
-
-
-
-
-
+                </fieldset>
             </div>
         </div>       
     </div>
