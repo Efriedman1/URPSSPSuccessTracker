@@ -45,7 +45,7 @@
                 </div>
                 <div class="col">
                     <table class="table">
-                        <thead class="bg-danger text-white">
+                        <thead class="text-white" style="background-color:#91182a">
                             <tr>
                                 <th scope="col">Year</th>
                                 <th scope="col">Semester</th>
