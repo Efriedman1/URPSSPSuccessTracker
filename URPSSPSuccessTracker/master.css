@@ -87,6 +87,11 @@ body {
 
 }
 
+.redbtn {
+    background-color: #91182a;
+    color: white;
+}
+
 /* MEDIA QUERIES */
 
 @media (min-width: 1200px) {
