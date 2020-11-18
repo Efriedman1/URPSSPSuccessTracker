@@ -18,23 +18,23 @@ namespace URPSSPSuccessTracker
         }
         protected void btnSelectTerm1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewStudentResearch.aspx");
+            Response.Redirect("StudentEnterResearch.aspx");
         }
         protected void btnSelectTerm2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewStudentResearch.aspx");
+            Response.Redirect("StudentEnterResearch.aspx");
         }
         protected void btnSelectTerm3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewStudentResearch.aspx");
+            Response.Redirect("StudentEnterResearch.aspx");
         }
         protected void btnSelectTerm4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewStudentResearch.aspx");
+            Response.Redirect("StudentEnterResearch.aspx");
         }
         protected void btnSelectTerm5_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewStudentResearch.aspx");
+            Response.Redirect("StudentEnterResearch.aspx");
         }
 
     }

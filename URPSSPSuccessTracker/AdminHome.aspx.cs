@@ -14,9 +14,18 @@ namespace URPSSPSuccessTracker
         {
             if (!IsPostBack)
             {
+<<<<<<< HEAD
                 this.Master.SetNavBar((String)Session["UserType"]);
                 tblPI.Style.Add("display","none");
+=======
+                pnlPI.Visible = false;
+>>>>>>> 132f9ec03ef4c600d38dbd547220609b2027aebc
                 btnStudent.Enabled = false;
+                lblUser.Text = "Students";
+
+                pnlStudentSearch.Visible = true;
+                pnlPISearch.Visible = false;
+
             }
 
         }
@@ -27,8 +36,11 @@ namespace URPSSPSuccessTracker
             lblUser.Text = "Students";
             btnStudent.Enabled = false;
             btnPI.Enabled = true;
-            tblStudent.Style.Add("display", "block");
-            tblPI.Style.Add("display", "none");
+            pnlStudent.Visible = true;
+            pnlPI.Visible = false;
+            pnlPISearch.Visible = false;
+            pnlStudentSearch.Visible = true;
+            
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -36,8 +48,20 @@ namespace URPSSPSuccessTracker
             lblUser.Text = "Principal Investigator";
             btnPI.Enabled = false;
             btnStudent.Enabled = true;
-            tblStudent.Style.Add("display", "none");
-            tblPI.Style.Add("display", "block");
+            pnlStudent.Visible = false;
+            pnlPI.Visible = true;
+            pnlStudentSearch.Visible = false;
+            pnlPISearch.Visible = true;
+        }
+
+        protected void btnEmail_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminSendEmail.aspx");
+        }
+
+        protected void btnEmailChecked_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminSendEmail.aspx");
         }
     }
 }

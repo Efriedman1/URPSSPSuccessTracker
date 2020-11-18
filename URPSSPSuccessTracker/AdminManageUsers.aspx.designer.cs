@@ -13,31 +13,31 @@ namespace URPSSPSuccessTracker {
     public partial class AdminManageUsers {
         
         /// <summary>
-        /// btnAddNewAdmin control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddNewAdmin;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// lblTUID control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTUID;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// txtTUID control.
+        /// AddAdminModal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTUID;
+        protected global::System.Web.UI.WebControls.Button AddAdminModal;
         
         /// <summary>
         /// tblAdministrators control.
