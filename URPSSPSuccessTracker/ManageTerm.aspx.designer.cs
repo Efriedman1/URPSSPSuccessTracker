@@ -10,33 +10,33 @@
 namespace URPSSPSuccessTracker {
     
     
-    public partial class PIViewResearch {
+    public partial class ManageTerm {
         
         /// <summary>
-        /// lblComments control.
+        /// ddlSemester control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblComments;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSemester;
         
         /// <summary>
-        /// tbComment control.
+        /// txtYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbComment;
+        protected global::System.Web.UI.WebControls.TextBox txtYear;
         
         /// <summary>
-        /// btnComment control.
+        /// btnCreateTerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnComment;
+        protected global::System.Web.UI.WebControls.Button btnCreateTerm;
     }
 }
