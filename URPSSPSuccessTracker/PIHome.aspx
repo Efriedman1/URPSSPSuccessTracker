@@ -55,7 +55,7 @@
 
                             <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                        <asp:Button ID="btnSelect" runat="server" Text="Select" style="redbtn"/>
+                         <asp:Button ID="btnStudent1" runat="server" Text="Select" style="redbtn" OnClick="btnStudent1_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Larry
@@ -69,17 +69,17 @@
                                 <asp:TableCell>
                                934789363
                                 </asp:TableCell>
-                                <asp:TableHeaderCell>
+                                <asp:TableCell>
                                 Fall
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell>
+                                </asp:TableCell>
+                                <asp:TableCell>
                                 2019
-                                </asp:TableHeaderCell>
+                                </asp:TableCell>
                             </asp:TableRow>
 
                               <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                        <asp:Button ID="Button1" runat="server" Text="Select" style="redbtn"/>
+                         <asp:Button ID="btnStudent2" runat="server" Text="Select" style="redbtn" OnClick="btnStudent2_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Jerry
@@ -93,17 +93,17 @@
                                 <asp:TableCell>
                                944888293
                                 </asp:TableCell>
-                                <asp:TableHeaderCell>
-                                2019
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell >
+                                <asp:TableCell>
                                 Spring
-                                </asp:TableHeaderCell>
+                                </asp:TableCell>
+                                <asp:TableCell >
+                                2019
+                                </asp:TableCell>
                             </asp:TableRow>
 
                                      <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                        <asp:Button ID="Button2" runat="server" Text="Select" style="redbtn"/>
+                         <asp:Button ID="btnStudent3" runat="server" Text="Select" style="redbtn" OnClick="btnStudent3_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 George
@@ -117,17 +117,17 @@
                                 <asp:TableCell>
                                945698763
                                 </asp:TableCell>
-                                <asp:TableHeaderCell>
-                                2019
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell>
+                                <asp:TableCell>
                                 Fall
-                                </asp:TableHeaderCell>
+                                </asp:TableCell>
+                                <asp:TableCell>
+                                2019
+                                </asp:TableCell>
                             </asp:TableRow>
 
                                 <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                        <asp:Button ID="Button3" runat="server" Text="Select" style="redbtn"/>
+                         <asp:Button ID="btnStudent4" runat="server" Text="Select" style="redbtn" OnClick="btnStudent4_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Cosmo
@@ -141,17 +141,17 @@
                                 <asp:TableCell>
                                994473392
                                 </asp:TableCell>
-                                <asp:TableHeaderCell>
+                                <asp:TableCell>
                                 Spring
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell>
+                                </asp:TableCell>
+                                <asp:TableCell>
                                 2018
-                                </asp:TableHeaderCell>
+                                </asp:TableCell>
                             </asp:TableRow>
 
                             <asp:TableRow>
                                 <asp:TableHeaderCell>
-                                        <asp:Button ID="Button4" runat="server" Text="Select" style="redbtn"/>
+                         <asp:Button ID="btnStudent5" runat="server" Text="Select" style="redbtn" OnClick="btnStudent5_Click"/>
                                 </asp:TableHeaderCell>
                                 <asp:TableCell>
                                 Elaine
@@ -165,12 +165,12 @@
                                 <asp:TableCell>
                                946739210
                                 </asp:TableCell>
-                                <asp:TableHeaderCell>
+                                <asp:TableCell>
                                 Summer
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell>
+                                </asp:TableCell>
+                                <asp:TableCell>
                                 2018
-                                </asp:TableHeaderCell>
+                                </asp:TableCell>
                             </asp:TableRow>
 
                         </asp:Table>
