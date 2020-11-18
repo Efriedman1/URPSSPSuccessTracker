@@ -12,11 +12,16 @@ namespace URPSSPSuccessTracker
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["UserType"] = "";
+            if (!IsPostBack)
+            {
+                this.Master.SetNavBar((String)Session["UserType"]);
+            }
         }
 
         protected void btnAdmin_Click(object sender, EventArgs e)
         {
             Session["UserType"] = "Admin";
+            this.Master.SetNavBar((String)Session["UserType"]);
             Response.Redirect("AdminHome.aspx");
 
         }
@@ -24,12 +29,14 @@ namespace URPSSPSuccessTracker
         protected void btnPI_Click(object sender, EventArgs e)
         {
             Session["UserType"] = "PI";
-            Response.Redirect("StudentHome.aspx");
+            this.Master.SetNavBar((String)Session["UserType"]);
+            Response.Redirect("PIHome.aspx");
         }
 
         protected void btnStudent_Click(object sender, EventArgs e)
         {
             Session["UserType"] = "Student";
+            this.Master.SetNavBar((String)Session["UserType"]);
             Response.Redirect("StudentHome.aspx");
         }
     }

@@ -1,7 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="URPSSPSuccessTracker.AdminHome" %>
+<%@ MasterType VirtualPath="~/Master.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
 
     <style>
        fieldset.scheduler-border {
@@ -11,7 +14,6 @@
     -webkit-box-shadow:  0px 0px 0px 0px #000;
             box-shadow:  0px 0px 0px 0px #000;
 }
-
     legend.scheduler-border {
         font-size: 1.2em !important;
         font-weight: bold !important;
@@ -19,9 +21,7 @@
         width:auto;
         padding:0 10px;
         border-bottom:none;
-
     }
-
     </style>
 
               <div class="container-fluid">

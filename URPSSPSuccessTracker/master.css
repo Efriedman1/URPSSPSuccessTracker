@@ -92,7 +92,10 @@ body {
     color: white;
 }
 
-
+    .redbtn:hover {
+        background-color: #740000;
+        color:white;
+    }
 
 /* MEDIA QUERIES */
 
