@@ -14,7 +14,7 @@ namespace URPSSPSuccessTracker
         {
             if (!IsPostBack)
             {
-                tblPI.Style.Add("display","none");
+                pnlPI.Visible = false;
                 btnStudent.Enabled = false;
             }
 
@@ -26,8 +26,8 @@ namespace URPSSPSuccessTracker
             lblUser.Text = "Students";
             btnStudent.Enabled = false;
             btnPI.Enabled = true;
-            tblStudent.Style.Add("display", "block");
-            tblPI.Style.Add("display", "none");
+            pnlStudent.Visible = true;
+            pnlPI.Visible = false;
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -35,8 +35,18 @@ namespace URPSSPSuccessTracker
             lblUser.Text = "Principal Investigator";
             btnPI.Enabled = false;
             btnStudent.Enabled = true;
-            tblStudent.Style.Add("display", "none");
-            tblPI.Style.Add("display", "block");
+            pnlStudent.Visible = false;
+            pnlPI.Visible = true;
+        }
+
+        protected void btnEmail_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminSendEmail.aspx");
+        }
+
+        protected void btnEmailChecked_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminSendEmail.aspx");
         }
     }
 }

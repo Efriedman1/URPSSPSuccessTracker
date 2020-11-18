@@ -27,6 +27,11 @@
               <div class="container-fluid">
                   <div class="row">
                       <div class="col-6">
+
+                          <div class="page-header">
+                            <h2>Search Research Information</h2>
+                           </div>
+                          <br />
                         <fieldset class="scheduler-border">
                             <legend class="scheduler-border">Instructions</legend>
                              You may search by any combination of first name, last name, major, student term, TUID,
@@ -82,7 +87,8 @@
                                 <asp:Label ID="lblUser" runat="server" Text="Principal Investigator"></asp:Label>
                             </legend>
 
-                            <asp:Table ID="tblPI" class="table w-100" runat="server">
+                            <asp:Panel ID="pnlPI" runat="server">
+                                 <asp:Table ID="tblPI" class="table w-100" runat="server">
                                  <asp:TableHeaderRow style="background-color:#B21125;color:white; ">
 
                             <asp:TableHeaderCell Scope="Column">
@@ -172,8 +178,11 @@
 
                             </asp:Table>
 
-                          
-                 <asp:Table ID="tblStudent" class="table w-100" runat="server">
+                            </asp:Panel>
+
+
+                            <asp:Panel ID="pnlStudent" runat="server">
+                                 <asp:Table ID="tblStudent" class="table w-100" runat="server">
                      <asp:TableHeaderRow style="background-color:#B21125;color:white; ">
 
                             <asp:TableHeaderCell Scope="Column">
@@ -236,20 +245,17 @@
                             </asp:TableCell>
                         </asp:TableRow>
 
-                               
-
-              </asp:Table>
-
-
+                     </asp:Table>
+                 </asp:Panel>
                             <p>
                           <br />
 
                             </p>
 
                             <div style="margin-left: 40%">
-                                <asp:Button class="btn-danger" ID="btnExport" runat="server" Text="Export" />&nbsp;
-                                <asp:Button class="btn-danger" ID="btnEmail" runat="server" Text="Email All" />&nbsp;
-                                <asp:Button class="btn-danger" ID="btnEmailChecked" runat="server" Text="Email Selected" />
+                                <asp:Button class="btn-danger" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />&nbsp;
+                                <asp:Button class="btn-danger" CssClass="btn redbtn" ID="btnEmail" runat="server" Text="Email All" OnClick="btnEmail_Click" />&nbsp;
+                                <asp:Button class="btn-danger" CssClass="btn redbtn" ID="btnEmailChecked" runat="server" Text="Email Selected" OnClick="btnEmailChecked_Click" />
                             </div>
 
                         </fieldset>
