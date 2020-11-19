@@ -1,4 +1,5 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PIHome.aspx.cs" Inherits="URPSSPSuccessTracker.PIHome" %>
+
 <%@ MasterType VirtualPath="~/Master.Master" %>
 
 
@@ -10,9 +11,10 @@
         <div class="row text-center">
             <div class="col-md-4 md-offset-">
                 <h5>Instructions</h5>
-                <div class="border border-secondary" style="border-radius: 5px;">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Instructions</legend>
                     You are a Principal Investigator: View your student list below to monitor their research success!
-                </div>
+                </fieldset>
             </div>
             <div class="col-md-4 justify-content-center">
                 <img src="images/ProfilePic.jpg" class="rounded-circle center-block border border-secondary" style="width: 125px; height: 125px; border-radius: 5px;" /><br />

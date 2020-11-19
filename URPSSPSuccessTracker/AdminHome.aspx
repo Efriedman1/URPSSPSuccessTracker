@@ -31,9 +31,7 @@
                               <asp:ListItem>SPRING 2020</asp:ListItem>
                               <asp:ListItem>FALL 2019</asp:ListItem>
                           </asp:DropDownList>
-                          </div>
-
-                          
+                          </div>                          
 
                           </div>                                                        
                       <div class="col-6 col">
