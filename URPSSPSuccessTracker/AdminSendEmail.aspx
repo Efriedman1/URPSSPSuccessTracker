@@ -56,7 +56,7 @@
 
         <div class="row"  >
             <div class="col-sm-12 col-sm-12 col-lg-5 col-lg-5 " >
-                <fieldset class="scheduler-border col-8 col-sm-6 col-lg-12 col-lg-12 table_scroll" style="height:550px">
+                <fieldset class="scheduler-border col-8 col-sm-6 col-lg-12 col-lg-12 table_scroll" style="height:630px">
                     <legend class="scheduler-border">Receipients</legend>
 
                     <asp:Table ID="tblStudentEmail" runat="server" CssClass="table table-striped" >
@@ -242,7 +242,7 @@
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
-                    <asp:Button runat="server" CssClass="btn redbtn" ID="btnAddStudent" Text="Add More Students" style="margin-bottom:20px"/>
+                    <asp:Button runat="server" CssClass="btn redbtn" ID="btnAddStudent" Text="Add More Students" OnClick="btnAddStudent_Click" style="margin-bottom:20px"/>
                  </fieldset>    
 
             </div>
@@ -251,7 +251,7 @@
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Write Email</legend>
 
-     
+
                   <div class="col-8 col-sm-6 col-lg-12 col-lg-12" >
                     <asp:label ID="lblSubject" runat="server" CssClass="col-form-label-lg">Subject</asp:label>                  
                     <asp:TextBox ID="txtEmailSubject" runat="server" CssClass="form-control" placeholder="Enter your subject here"></asp:TextBox>
@@ -261,7 +261,26 @@
                     <asp:label ID="lblBody" runat="server" CssClass="col-form-label-lg">Body</asp:label>
                     <asp:TextBox ID="txtEmailBody" runat="server" CssClass="form-control" placeholder="Enter your email here" TextMode="MultiLine" Rows="12" ></asp:TextBox>
                   </div>
-                    <asp:button  runat="server" ID="btnSend" type="submit" CssClass="btn redbtn" style="margin-top:5%;margin-left:45%;" text="Send"></asp:button>
+
+<%--                  <div class="col-8 col-sm-6 col-lg-12 col-lg-12">
+                    <asp:Label runat="server" ID="lblEmailSent" Visible="false" Text="Email Sent" Font-Size="Large"></asp:Label>
+                  </div>
+                  <div class="col-8 col-sm-6 col-lg-12 col-lg-12">
+                    <asp:button  runat="server" ID="btnSend" type="submit" CssClass="btn redbtn" style="margin-top:5%;margin-left:45%;" text="Send" OnClick="btnSend_Click"></asp:button>
+                  </div>--%>
+
+                    <br />
+                <div class="row">
+                    <div class="col-8 col-sm-6 col-lg-4 col-lg-4">
+                    <asp:Label runat="server" ID="lblEmailSent" Visible="false" Text="Email Sent" Font-Size="Large"></asp:Label>
+
+                    </div>
+                    <div class="col-8 col-sm-6 col-lg-5 col-lg-5">
+                    <asp:button  runat="server" ID="btnSend" type="submit" CssClass="btn redbtn" style="margin-top:5%;margin-left:45%;" text="Send" OnClick="btnSend_Click"></asp:button>
+
+                    </div>
+
+                </div>
 
                 </fieldset>
             </div>

@@ -54,6 +54,16 @@ namespace URPSSPSuccessTracker
             Response.Redirect("AdminSendEmail.aspx");
         }
 
+        protected void btnSelected_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PIHome.aspx");
+        }
+
+        protected void btnSelected2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PIViewStudentResearch.aspx");
+        }
+
         protected void btnEmailChecked_Click(object sender, EventArgs e)
         {
             Response.Redirect("AdminSendEmail.aspx");

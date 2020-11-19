@@ -21,7 +21,9 @@
             </div>
         </div>
         <div class="row text-center mt-3">
-            <div class="col-md-4 md-offset-">
+                        <div class="col-md-2">
+            </div>
+            <div class="col-md-2 md-offset-">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Instructions</legend>
                     Here are the terms you have participated in for the URP/SSP Programs. Please select a term to view your research or make any changes.
@@ -33,7 +35,7 @@
                     <asp:Label ID="Label1" runat="server" Text="John Doe" Style="font-size: 30px;"></asp:Label>
                 </p>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-2 text-center">
                 <p>
                     <asp:Label ID="Label8" runat="server" Text="TUID:  " Style="font-size: 20px;"></asp:Label>
                     <asp:Label ID="Label9" runat="server" Text="914 274 289" Style="font-size: 20px;"></asp:Label>
@@ -46,6 +48,8 @@
                     <asp:Label ID="Label12" runat="server" Text="Major:  " Style="font-size: 20px;"></asp:Label>
                     <asp:Label ID="Label13" runat="server" Text="Computer Science" Style="font-size: 20px;"></asp:Label>
                 </p>
+            </div>
+            <div class="col-md-2">
             </div>
         </div>
     </div>
@@ -68,7 +72,7 @@
                                 Last Update
                         </asp:TableHeaderCell>
                         <asp:TableHeaderCell Scope="Column">
-                                Select
+                                Action
                         </asp:TableHeaderCell>
                     </asp:TableHeaderRow>
 
@@ -86,7 +90,7 @@
                                 Not Updated
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="Button1" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm1_Click" />
+                            <asp:Button ID="Button1" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm1_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -98,13 +102,13 @@
                                 2019
                         </asp:TableCell>
                         <asp:TableCell>
-                                Johnny Appleseed
+                                Bill Perkins
                         </asp:TableCell>
                         <asp:TableCell>
                                 12/15/2019
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="Button2" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm2_Click" />
+                            <asp:Button ID="Button2" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm2_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -122,7 +126,7 @@
                                 11/20/2018
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="Button3" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm3_Click" />
+                            <asp:Button ID="Button3" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm3_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -140,7 +144,7 @@
                                 04/07/2017
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="Button4" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm4_Click" />
+                            <asp:Button ID="Button4" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm4_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -158,7 +162,7 @@
                                 11/12/2017
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="Button5" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnSelectTerm5_Click" />
+                            <asp:Button ID="Button5" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm5_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
                 </asp:Table>

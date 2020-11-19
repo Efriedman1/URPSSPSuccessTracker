@@ -218,6 +218,27 @@
                                     </asp:TableCell>
                                 </asp:TableRow>
 
+                                 <asp:TableRow>
+                                    <asp:TableHeaderCell>
+                                        <asp:CheckBox ID="CheckBox9" runat="server" />
+                                    </asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>
+                                918467732
+                                    </asp:TableHeaderCell>
+                                    <asp:TableCell>
+                                Bill
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                Perkins
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                IST
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Button CssClass="btn redbtn" ID="btnSelected" runat="server"  Text="Button" OnClick="btnSelected_Click"/>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+
                             </asp:Table>
 
                         </asp:Panel>
@@ -354,13 +375,13 @@
                                         <asp:CheckBox ID="CheckBox7" runat="server" />
                                     </asp:TableHeaderCell>
                                     <asp:TableHeaderCell>
-                                987455266
+                                914274289
                                     </asp:TableHeaderCell>
                                     <asp:TableCell>
-                                Terry
+                                John
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                Berry
+                                Doe
                                     </asp:TableCell>
                                     <asp:TableCell>
                                 CHEM
@@ -369,13 +390,13 @@
                                 SSP
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                Iwan Haliday
+                                Bill Perkins
                                     </asp:TableCell>
                                     <asp:TableCell ForeColor="Red">
-                                Incomplete
+                                Complete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button7" runat="server" Text="Select" />
+                                        <asp:Button CssClass="btn redbtn" ID="btnSelected2" runat="server" Text="Select" OnClick="btnSelected2_Click"/>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
