@@ -271,7 +271,7 @@
 
                     <br />
                 <div class="row">
-                    <div class="col-8 col-sm-6 col-lg-3 col-lg-3">
+                    <div class="col-8 col-sm-6 col-lg-4 col-lg-4">
                     <asp:Label runat="server" ID="lblEmailSent" Visible="false" Text="Email Sent" Font-Size="Large"></asp:Label>
 
                     </div>
