@@ -50,7 +50,7 @@
                 <input type="text" class="form-control" placeholder="StudentTemplate.xlsx" />
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-danger p-2 mr-3 ml-3 ">Upload</button>
+                <button type="button" class="btn redbtn p-2 mr-3 ml-3 ">Upload</button>
             </div>
         </div>
     </div>
