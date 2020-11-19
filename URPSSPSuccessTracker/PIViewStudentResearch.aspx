@@ -144,7 +144,7 @@
                         <div class="md-form">
                             <asp:Label ID="lblUser" CssClass="control-label" runat="server" Text="Link(s)"></asp:Label>
                             <%--<label for="links">Link(s)</label>--%>
-                            <asp:TextBox ID="txtLinks" CssClass="form-control input-lg" runat="server" Enabled="False" TextMode="Url">chemistry-conferences.com/</asp:TextBox>
+                            <asp:TextBox ID="txtLinks" CssClass="form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">www.chemistry-conferences.com/</asp:TextBox>
                             
                         </div>
 
