@@ -14,7 +14,6 @@ namespace URPSSPSuccessTracker
 
         }
 
-
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session["UserType"] = "";
@@ -39,7 +38,7 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = false;
                 btnSearch.Visible = false;
                 btnUploadUsers.Visible = false;
-                lblUserName.Text = "John Student";
+                lblUserName.Text = "Johnny Doe";
                 lblUserType.Text = "Student";
             }
 
@@ -65,7 +64,7 @@ namespace URPSSPSuccessTracker
 
         protected void btnUploadUsers_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminDownload1.aspx");
+            Response.Redirect("AdminDownload.aspx");
         }
 
         protected void btnManageUsers_Click(object sender, EventArgs e)

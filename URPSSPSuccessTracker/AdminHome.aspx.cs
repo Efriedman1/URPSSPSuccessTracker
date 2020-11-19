@@ -40,7 +40,7 @@ namespace URPSSPSuccessTracker
 
         protected void Button5_Click(object sender, EventArgs e)
         {
-            lblUser.Text = "Principal Investigator";
+            lblUser.Text = "Principal Investigators";
             btnPI.Enabled = false;
             btnStudent.Enabled = true;
             pnlStudent.Visible = false;
