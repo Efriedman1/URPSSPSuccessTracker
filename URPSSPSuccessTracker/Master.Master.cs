@@ -65,17 +65,17 @@ namespace URPSSPSuccessTracker
 
         protected void btnUploadUsers_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("AdminDownload1.aspx");
         }
 
         protected void btnManageUsers_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AdminManageUsers.aspx");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AdminHome.aspx");
         }
     }
 }
