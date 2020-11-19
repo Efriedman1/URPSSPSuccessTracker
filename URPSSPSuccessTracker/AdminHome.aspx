@@ -6,8 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-
-
               <div class="container-fluid">
                   <div class="row">
                       <div class="col-6">
@@ -21,7 +19,7 @@
                              You may search by any combination of first name, last name, major, student term, TUID,
                             and status. Select no parameters to view all profiles. Select the Student or PI button to view Student or PI profiles.
                         </fieldset>
-
+                          
 
                           &nbsp;&nbsp;&nbsp;
                           &nbsp;&nbsp;&nbsp;
@@ -146,7 +144,7 @@
                             </legend>
 
                             <asp:Panel ID="pnlPI" runat="server">
-                                 <asp:Table ID="tblPI" class=" table-responsive-lg m-auto w-100" runat="server">
+                                 <asp:Table ID="tblPI" class="table table-striped table-responsive-lg m-auto w-100" runat="server">
                                  <asp:TableHeaderRow style="background-color:#91182a;color:white; ">
 
                             <asp:TableHeaderCell Scope="Column">
@@ -240,7 +238,7 @@
 
 
                             <asp:Panel ID="pnlStudent" runat="server">
-                                 <asp:Table ID="tblStudent" class=" table-responsive-lg m-auto w-100" runat="server">
+                                 <asp:Table ID="tblStudent" class="table table-striped table-responsive-lg m-auto w-100" runat="server">
                      <asp:TableHeaderRow style="background-color:#91182a;color:white; ">
 
                             <asp:TableHeaderCell Scope="Column">
@@ -302,7 +300,130 @@
                                  <asp:Button CssClass="btn redbtn" ID="Button3" runat="server" Text="Button" />
                             </asp:TableCell>
                         </asp:TableRow>
-
+                     <%--  --%>
+                                     <asp:TableRow>
+                            <asp:TableHeaderCell>
+                                 <asp:CheckBox ID="CheckBox5" runat="server" />
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell>
+                                958623144
+                            </asp:TableHeaderCell>
+                            <asp:TableCell>
+                                Jane
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                Norton
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                CS
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                SSP/URP
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Bill Wascher
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Incomplete
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                 <asp:Button CssClass="btn redbtn" ID="Button4" runat="server" Text="Button" />
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    <%--  --%>
+                          <%--  --%>
+                                     <asp:TableRow>
+                            <asp:TableHeaderCell>
+                                 <asp:CheckBox ID="CheckBox6" runat="server" />
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell>
+                                982631569
+                            </asp:TableHeaderCell>
+                            <asp:TableCell>
+                                Sahar
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                Mayo
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                CS
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                SSP
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Jann Mann
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Complete
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                 <asp:Button CssClass="btn redbtn" ID="Button5" runat="server" Text="Button" />
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    <%--  --%>
+                                       <%--  --%>
+                                     <asp:TableRow>
+                            <asp:TableHeaderCell>
+                                 <asp:CheckBox ID="CheckBox7" runat="server" />
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell>
+                                987455266
+                            </asp:TableHeaderCell>
+                            <asp:TableCell>
+                                Terry
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                Berry
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                CHEM
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                SSP
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Iwan Haliday
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Incomplete
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                 <asp:Button CssClass="btn redbtn" ID="Button7" runat="server" Text="Button" />
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    <%--  --%>
+                                       <%--  --%>
+                                     <asp:TableRow>
+                            <asp:TableHeaderCell>
+                                 <asp:CheckBox ID="CheckBox8" runat="server" />
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell>
+                                963015548
+                            </asp:TableHeaderCell>
+                            <asp:TableCell>
+                                Nida
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                Reeves
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                HST
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                SSP/URP
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Malik Benton
+                            </asp:TableCell>
+                               <asp:TableCell>
+                                Incomplete
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                 <asp:Button CssClass="btn redbtn" ID="Button8" runat="server" Text="Button" />
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    <%--  --%>
                      </asp:Table>
                  </asp:Panel>
                             <p>
