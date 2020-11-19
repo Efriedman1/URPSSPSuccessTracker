@@ -53,10 +53,11 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+            <div class="bg-light page-footer">
+                <div style="background-color:#f8f9fa; position: fixed;left: 0;bottom: 0;width: 100%;padding: 10px 50px;"><h6> © 2020 Copyright | URP/SSP Student Research Success Tracker</h6></div>
+      
+    </div>
     </form>
-    <footer class="bg-light">
-        URP/SSP Student Research Success Tracker
-    </footer>
 </body>
 
 </html>

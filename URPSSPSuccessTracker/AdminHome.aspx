@@ -171,7 +171,7 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button6" runat="server" Text="Select" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button6" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -192,7 +192,7 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button1" runat="server" Text="Select" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button1" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -214,7 +214,7 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button2" runat="server" Text="Select" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button2" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -235,7 +235,7 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="btnSelected" runat="server"  Text="Button" OnClick="btnSelected_Click"/>
+                                        <asp:Button CssClass="btn redbtn" ID="btnSelected" runat="server"  Text="View" OnClick="btnSelected_Click"/>
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -304,7 +304,7 @@
                                 Complete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button3" runat="server" Text="Select" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button3" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -334,7 +334,7 @@
                                 Incomplete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button4" runat="server" Text="Select" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button4" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -365,7 +365,7 @@
                                 Complete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button5" runat="server" Text="Select" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button5" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -396,7 +396,7 @@
                                 Complete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="btnSelected2" runat="server" Text="Select" OnClick="btnSelected2_Click"/>
+                                        <asp:Button CssClass="btn redbtn" ID="btnSelected2" runat="server" Text="View" OnClick="btnSelected2_Click"/>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -427,7 +427,7 @@
                                 Incomplete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button8" runat="server" Text="Select" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button8" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
