@@ -14,7 +14,7 @@
    <div class="row">
 
        <div class="col-md-8">
-           <h2 class="h1-responsive text-left my-4"><b>John Doe</b> 915 112 112</h2>
+           <h2 class="h2-responsive text-left my-4"><b>John Doe</b> 915 112 112</h2>
        </div>
        <div class="col-md-4 float-right ">
             <asp:Label CssClass="termLabel" ID="lblTerm" runat="server" Text="Term: "></asp:Label>
@@ -144,8 +144,7 @@
                         <div class="md-form">
                             <asp:Label ID="lblUser" CssClass="control-label" runat="server" Text="Link(s)"></asp:Label>
                             <%--<label for="links">Link(s)</label>--%>
-                            <textarea id="links" name="links" rows="2" class="form-control md-textarea" disabled="disabled">https://www.chemistry-conferences.com/
-https://www.acs.org/content/acs/en/meetings.html</textarea>
+                            <asp:TextBox ID="txtLinks" CssClass="form-control input-lg" runat="server" Enabled="False" TextMode="Url">chemistry-conferences.com/</asp:TextBox>
                             
                         </div>
 
@@ -162,7 +161,8 @@ https://www.acs.org/content/acs/en/meetings.html</textarea>
                         <div class="md-form">
                             <asp:Label ID="Label1" CssClass="control-label" runat="server" Text="Journal"></asp:Label>
                             <%--<label for="Journal">Journal</label>--%>
-                            <textarea id="Journal" name="Journal" rows="2" class="form-control md-textarea" disabled="disabled">Journal of Physical Chemistry A</textarea>
+                             <asp:TextBox ID="txtJournal" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">Journal of Physical Chemistry A</asp:TextBox>
+                            <%--<textarea id="Journal" name="Journal" rows="2" class="form-control md-textarea" disabled="disabled">Journal of Physical Chemistry A</textarea>--%>
                             
                         </div>
 
@@ -179,8 +179,8 @@ https://www.acs.org/content/acs/en/meetings.html</textarea>
                         <div class="md-form">
                             <asp:Label ID="Label2" CssClass="control-label" runat="server" Text="Conference Information"></asp:Label>
                             <%--<label for="info">Conference Information</label>--%>
-                            <textarea id="info" name="info" rows="2" class="form-control md-textarea" disabled="disabled">-Undergraduate Computational Chemistry Symposium
-                            -Theoretical Analysis of the UV Photolysis</textarea>
+                            <asp:TextBox ID="txtInfo" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">Undergraduate Computational Chemistry Symposium</asp:TextBox>
+                          <%--  <textarea id="info" name="info" rows="2" class="form-control md-textarea" disabled="disabled">Undergraduate Computational Chemistry Symposium</textarea>--%>
                             
                         </div>
 
@@ -197,8 +197,8 @@ https://www.acs.org/content/acs/en/meetings.html</textarea>
                         <div class="md-form">
                             <asp:Label ID="Label3" runat="server" Text="Description"></asp:Label>
                            <%-- <label for="description">Description</label>--%>
-                            <textarea id="description" name="description" rows="2" class="form-control md-textarea" disabled="disabled">This is a brief description of my research. This field is optional.</textarea>
-                            
+                            <asp:TextBox ID="txtDescription" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">This is a brief description of my research. This field is optional.</asp:TextBox>
+                           <%-- <textarea id="description" name="description" rows="2" class="form-control md-textarea" disabled="disabled">This is a brief description of my research. This field is optional.</textarea>--%>
                         </div>
 
                     </div>
@@ -206,8 +206,8 @@ https://www.acs.org/content/acs/en/meetings.html</textarea>
                 <!--Grid row-->
             <div class="row" style="justify-content: center !important;">
                 <div class="col p-3 btn-toolbar m-4" style="justify-content: center !important;">
-                    <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnEdit" runat="server" Text="Edit" />
-                    <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnSave" runat="server" Text="Save" />
+                    <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
+                    <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
                 </div>
             </div>
             <div class="status"></div>
