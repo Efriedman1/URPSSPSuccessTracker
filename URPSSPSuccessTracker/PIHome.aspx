@@ -28,7 +28,7 @@
             <div class="col-md-4 justify-content-center">
                 <img src="images/ProfilePic.jpg" class="rounded-circle center-block border border-secondary" style="width: 125px; height: 125px; border-radius: 5px;" /><br />
                 <p class="text-center mt-3">
-                    <asp:Label ID="Label1" runat="server" Text="Steve The PI" Style="font-size: 30px;"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Bill Perkins" Style="font-size: 30px;"></asp:Label>
                 </p>
             </div>
             <div class="col-md-4 text-center">
@@ -38,7 +38,7 @@
                 </p>
                 <p class="mt-2">
                     <asp:Label ID="Label10" runat="server" Text="Email:  " Style="font-size: 20px;"></asp:Label>
-                    <asp:Label ID="Label11" runat="server" Text="StevethePI@temple.edu" Style="font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label11" runat="server" Text="BPerkins@temple.edu" Style="font-size: 20px;"></asp:Label>
                 </p>
             </div>
         </div>
@@ -74,16 +74,16 @@
 
                     <asp:TableRow>
                         <asp:TableCell>
-                                Larry
+                                John
                         </asp:TableCell>
                         <asp:TableCell>
-                                David
+                                Doe
                         </asp:TableCell>
                         <asp:TableCell>
-                                IS&T
+                                CHEM
                         </asp:TableCell>
                         <asp:TableCell>
-                               934789363
+                               914274289
                         </asp:TableCell>
                         <asp:TableCell>
                                 Fall
