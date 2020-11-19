@@ -5,7 +5,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div class="flex-container m-5">
         <div class="d-flex justify-content-between">
             <h2>Search Research Information</h2>
@@ -17,7 +16,7 @@
                 </asp:DropDownList>
             </div>
         </div>
-    <div class="row mt-3">
+        <div class="row mt-3">
             <div class="col-6">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Instructions</legend>
@@ -428,4 +427,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </asp:Content>
