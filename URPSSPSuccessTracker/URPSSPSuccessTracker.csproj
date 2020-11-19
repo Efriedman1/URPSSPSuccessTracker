@@ -183,6 +183,7 @@
     <Content Include="Master.Master" />
     <Content Include="fonts\AvanirNext.otf" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\URPSSPSuccessTracker - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
