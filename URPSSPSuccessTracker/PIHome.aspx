@@ -19,7 +19,8 @@
             </div>
         </div>
         <div class="row text-center mt-3">
-            <div class="col-md-4 md-offset-">
+            <div class="col-md-2"></div>
+            <div class="col-md-2 md-offset-">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Instructions</legend>
                     You are a Principal Investigator: View your student list below to monitor their research success!
@@ -31,7 +32,7 @@
                     <asp:Label ID="Label1" runat="server" Text="Bill Perkins" Style="font-size: 30px;"></asp:Label>
                 </p>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-2 text-center">
                 <p class="mt-4">
                     <asp:Label ID="Label8" runat="server" Text="TUID:  " Style="font-size: 20px;"></asp:Label>
                     <asp:Label ID="Label9" runat="server" Text="918 467 732" Style="font-size: 20px;"></asp:Label>
@@ -41,6 +42,7 @@
                     <asp:Label ID="Label11" runat="server" Text="BPerkins@temple.edu" Style="font-size: 20px;"></asp:Label>
                 </p>
             </div>
+                        <div class="col-md-2"></div>
         </div>
     </div>
     <div class="container mt-4">
@@ -68,7 +70,7 @@
                                 Year
                         </asp:TableHeaderCell>
                         <asp:TableHeaderCell Scope="Column">
-                                Select
+                                Action
                         </asp:TableHeaderCell>
                     </asp:TableHeaderRow>
 
@@ -92,7 +94,7 @@
                                 2019
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent1" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent1_Click" />
+                            <asp:Button ID="btnStudent1" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent1_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -116,7 +118,7 @@
                                 2019
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent2" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent2_Click" />
+                            <asp:Button ID="btnStudent2" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent2_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -140,7 +142,7 @@
                                 2019
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent3" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent3_Click" />
+                            <asp:Button ID="btnStudent3" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent3_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -164,7 +166,7 @@
                                 2018
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent4" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent4_Click" />
+                            <asp:Button ID="btnStudent4" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent4_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -188,7 +190,7 @@
                                 2018
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent5" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent5_Click" />
+                            <asp:Button ID="btnStudent5" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent5_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
                 </asp:Table>
