@@ -16,5 +16,31 @@ namespace URPSSPSuccessTracker
                 this.Master.SetNavBar((String)Session["UserType"]);
             }
         }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            display(true);
+        }
+
+        public void display(Boolean tf)
+        {
+            txtName.Enabled = tf;
+            txtDept.Enabled = tf;
+            txtEmail.Enabled = tf;
+            txtMethod.Enabled = tf;
+            txtStatus.Enabled = tf;
+            txtTitle.Enabled = tf;
+            txtType.Enabled = tf;
+            txtLinks.Enabled = tf;
+            txtJournal.Enabled = tf;
+            txtInfo.Enabled = tf;
+            txtDescription.Enabled = tf;
+
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            display(false);
+        }
     }
 }
