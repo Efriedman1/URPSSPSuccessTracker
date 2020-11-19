@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminDownload.aspx.cs" Inherits="URPSSPSuccessTracker.AdminDownload" %>
+<%@ MasterType VirtualPath="~/Master.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -29,8 +31,8 @@
                 <asp:Label ID="lblSingleDirection" runat="server" Text="Please select URP/SSP Student or Principal Investigator. Fill out the textbox for upload. All blanks can be empty, except Assessnet."  CssClass="p-2 mr-3 ml-3"></asp:Label>
             </div>
             <div class="d-flex flex-row">
-                <button type="button" class="btn btn-danger p-2 mr-3 ml-3 ">URP/SSP Student Template</button>
-                <button type="button" class="btn btn-danger p-2 mr-3 ml-3 ">Principal Investigator Template</button>
+                <button type="button" class="btn redbtn p-2 mr-3 ml-3 ">URP/SSP Student Template</button>
+                <button type="button" class="btn redbtn p-2 mr-3 ml-3 ">Principal Investigator Template</button>
             </div>
         </div>
 
@@ -40,11 +42,11 @@
                 <asp:Label ID="lblUpDirections" runat="server" Text="Please Select a User Type for Upload:"  CssClass="p-2 mr-3 ml-3"></asp:Label>
             </div>   
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-danger p-2 mr-3 ml-3 ">Student</button>
+                <button type="button" class="btn redbtn p-2 mr-3 ml-3 ">Student</button>
                 <button type="button" class="btn btn-light p-2 mr-3 ml-3 ">Principal Investigator</button>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-danger p-2 mr-3 ml-3 ">Browse</button>
+                <button type="button" class="btn redbtn p-2 mr-3 ml-3 ">Browse</button>
                 <input type="text" class="form-control" placeholder="StudentTemplate.xlsx" />
             </div>
             <div class="d-flex justify-content-center">

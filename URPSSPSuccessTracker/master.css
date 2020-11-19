@@ -1,6 +1,7 @@
 ﻿/*@import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);*/
 
 body {
+    font-family:AvanirNext;
 }
 
 .container{
@@ -95,8 +96,10 @@ body {
     color: white;
 }
 
-
-
+@font-face {
+    font-family: 'AvanirNext';
+    src: url('fonts/AvanirNext.otf') format('opentype');
+}
 /*Made for PIViewStudentResearch*/
 
 .btnSize{

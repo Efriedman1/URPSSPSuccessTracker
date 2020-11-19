@@ -22,12 +22,12 @@
             </div>
             <div class="col-md-4 text-center">
                 <p class="mt-4">
-                    <asp:Label ID="Label8" runat="server" Text="TUID:  " Style="font-family: Avenir Next; font-size: 20px;"></asp:Label>
-                    <asp:Label ID="Label9" runat="server" Text="918 467 732" Style="font-family: Avenir Next; font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label8" runat="server" Text="TUID:  " Style="font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label9" runat="server" Text="918 467 732" Style="font-size: 20px;"></asp:Label>
                 </p>
                 <p class="mt-2">
-                    <asp:Label ID="Label10" runat="server" Text="Email:  " Style="font-family: Avenir Next; font-size: 20px;"></asp:Label>
-                    <asp:Label ID="Label11" runat="server" Text="Johnny.Appleseed@temple.edu" Style="font-family: Avenir Next; font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label10" runat="server" Text="Email:  " Style="font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label11" runat="server" Text="Johnny.Appleseed@temple.edu" Style="font-size: 20px;"></asp:Label>
                 </p>
             </div>
         </div>
