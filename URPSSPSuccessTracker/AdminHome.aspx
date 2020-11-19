@@ -9,7 +9,7 @@
         <div class="d-flex justify-content-between">
             <h2>Search Research Information</h2>
             <div>
-                <asp:DropDownList ID="DropDownList1" runat="server">
+                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                     <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
                     <asp:ListItem>SPRING 2020</asp:ListItem>
                     <asp:ListItem>FALL 2019</asp:ListItem>
@@ -28,8 +28,6 @@
                 &nbsp;&nbsp;&nbsp;
                           &nbsp;&nbsp;&nbsp;
 
-
-
             </div>
             <div class="col-6 col">
                 <asp:Panel ID="pnlPISearch" runat="server">
@@ -38,23 +36,22 @@
                         <div class="row">
                             <div class="col-auto">
                                 <asp:Label ID="lblParam1" runat="server" Text="TUID: "></asp:Label><br />
-                                <asp:TextBox ID="txtTUID" CssClass=" form-control-sm" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtTUID" CssClass=" form-control" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-auto">
                                 <asp:Label ID="lblDepartment" runat="server" Text="Department: "></asp:Label><br />
-                                <asp:TextBox ID="txtDepartment" CssClass="form-control-sm" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtDepartment" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-auto">
                                 <asp:Label ID="lblFirst" runat="server" Text="First Name: "></asp:Label><br />
-                                <asp:TextBox ID="txtFirst" CssClass="form-control-sm" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFirst" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
-
                             <div class="col-auto">
                                 <asp:Label ID="lblLast" runat="server" Text="Last Name: "></asp:Label><br />
-                                <asp:TextBox ID="txtLast" CssClass="form-control-sm" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtLast" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div class="mb-5">
@@ -62,7 +59,6 @@
                             <asp:Button CssClass="btn redbtn m-2" ID="btnClear" runat="server" Text="Clear" />
                         </div>
                     </div>
-
                 </asp:Panel>
 
 
@@ -74,11 +70,11 @@
                         <div class="row">
                             <div class="col-auto">
                                 <asp:Label ID="Label4" runat="server" Text="TUID: "></asp:Label><br />
-                                <asp:TextBox ID="TextBox5" CssClass=" form-control-sm" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox5" CssClass=" form-control" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-auto">
                                 <asp:Label ID="lblProgram" runat="server" Text="Program : "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownList3" CssClass="form-control-sm" runat="server">
+                                <asp:DropDownList ID="DropDownList3" CssClass="form-control" runat="server">
                                     <asp:ListItem></asp:ListItem>
                                     <asp:ListItem>SSP</asp:ListItem>
                                     <asp:ListItem>SSP/URP</asp:ListItem>
@@ -89,12 +85,12 @@
                         <div class="row">
                             <div class="col-auto">
                                 <asp:Label ID="Label2" runat="server" Text="First Name: "></asp:Label><br />
-                                <asp:TextBox ID="TextBox2" CssClass="form-control-sm" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
 
                             <div class="col-auto">
                                 <asp:Label ID="Label3" runat="server" Text="Last Name: "></asp:Label><br />
-                                <asp:TextBox ID="TextBox3" CssClass="form-control-sm" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox3" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
 
@@ -102,11 +98,11 @@
                         <div class="row">
                             <div class="col-auto">
                                 <asp:Label ID="Label1" runat="server" Text="Major: "></asp:Label><br />
-                                <asp:TextBox ID="TextBox1" CssClass="form-control-sm" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-auto">
                                 <asp:Label ID="lblStatus" runat="server" Text="Status: "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownList2" CssClass="form-control-sm" runat="server">
+                                <asp:DropDownList ID="DropDownList2" CssClass="form-control" runat="server">
                                     <asp:ListItem>Complete</asp:ListItem>
                                     <asp:ListItem>Incomplete</asp:ListItem>
                                 </asp:DropDownList>

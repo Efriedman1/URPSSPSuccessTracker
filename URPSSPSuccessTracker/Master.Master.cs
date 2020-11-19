@@ -14,7 +14,6 @@ namespace URPSSPSuccessTracker
 
         }
 
-
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session["UserType"] = "";
@@ -65,17 +64,17 @@ namespace URPSSPSuccessTracker
 
         protected void btnUploadUsers_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("AdminDownload.aspx");
         }
 
         protected void btnManageUsers_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AdminManageUsers.aspx");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AdminHome.aspx");
         }
     }
 }

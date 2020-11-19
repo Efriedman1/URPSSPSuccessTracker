@@ -33,13 +33,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
+                        <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
+                    </li>
+                    <li class="nav-item">
                         <asp:Button ID="btnUploadUsers" runat="server" Text="Upload Users" OnClick="btnUploadUsers_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
                     </li>
                     <li class="nav-item">
-                        <asp:Button ID="btnManageUsers" runat="server" Text="Manage Users" OnClick="btnManageUsers_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
-                    </li>
-                    <li class="nav-item">
-                        <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
+                        <asp:Button ID="btnManageUsers" runat="server" Text="Manage Admins" OnClick="btnManageUsers_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
                     </li>
                 </ul>
                 <div class="form-inline my-2 my-lg-0">
