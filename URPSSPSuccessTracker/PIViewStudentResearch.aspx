@@ -10,18 +10,7 @@
         <!--Section: Contact v.2-->
         <section class="mb-4">
             <div class="d-flex justify-content-between mt-3">
-                <h2>Student Research information</h2>
-                <div>
-                    <asp:Label CssClass="termLabel" ID="Label4" runat="server" Text="Term: "></asp:Label>
-                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
-                        <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
-                        <asp:ListItem>SPRING 2020</asp:ListItem>
-                        <asp:ListItem>FALL 2019</asp:ListItem>
-                        <asp:ListItem>SPRING 2019</asp:ListItem>
-                        <asp:ListItem>FALL 2018</asp:ListItem>
-                        <asp:ListItem>SPRING 2018</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
+                <h2>Student Research information</h2>                
             </div>
             <!--Section heading-->
             <div class="row">
