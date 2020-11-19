@@ -8,11 +8,15 @@
     <div class="flex-container m-5 justify-content-center">
         <div class="d-flex justify-content-between">
             <h2>Student Dashboard</h2>
-            <div>
-                <asp:DropDownList ID="DropDownList1" runat="server">
+            <div class="row">
+                <label>Term: </label>
+                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                     <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
                     <asp:ListItem>SPRING 2020</asp:ListItem>
                     <asp:ListItem>FALL 2019</asp:ListItem>
+                    <asp:ListItem>SPRING 2019</asp:ListItem>
+                    <asp:ListItem>FALL 2018</asp:ListItem>
+                    <asp:ListItem>SPRING 2018</asp:ListItem>
                 </asp:DropDownList>
             </div>
         </div>
