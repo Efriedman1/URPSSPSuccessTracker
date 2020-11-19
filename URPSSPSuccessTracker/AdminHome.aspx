@@ -8,11 +8,15 @@
     <div class="flex-container m-5">
         <div class="d-flex justify-content-between">
             <h2>Search Research Information</h2>
-            <div>
+            <div class="row">
+                <label>Term: </label>
                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                     <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
                     <asp:ListItem>SPRING 2020</asp:ListItem>
                     <asp:ListItem>FALL 2019</asp:ListItem>
+                    <asp:ListItem>SPRING 2019</asp:ListItem>
+                    <asp:ListItem>FALL 2018</asp:ListItem>
+                    <asp:ListItem>SPRING 2018</asp:ListItem>
                 </asp:DropDownList>
             </div>
         </div>
@@ -414,10 +418,12 @@
 
                         </p>
 
-                        <div style="margin-left: 40%">
-                            <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />&nbsp;
-                                <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" runat="server" Text="Email All" OnClick="btnEmail_Click" />&nbsp;
+                        <div class="d-flex justify-content-between"">
+                            <div>
+                                <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" runat="server" Text="Email All" OnClick="btnEmail_Click" />
                                 <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" runat="server" Text="Email Selected" OnClick="btnEmailChecked_Click" />
+                            </div>
+                            <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />
                         </div>
                     </div>
                 </div>
