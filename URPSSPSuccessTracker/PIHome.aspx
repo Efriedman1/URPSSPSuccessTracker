@@ -1,4 +1,5 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PIHome.aspx.cs" Inherits="URPSSPSuccessTracker.PIHome" %>
+
 <%@ MasterType VirtualPath="~/Master.Master" %>
 
 
@@ -6,37 +7,47 @@
     <title>PI Home</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container md-auto justify-content-center mt-5">
-        <div class="row text-center">
+    <div class="flex-container m-5 justify-content-center">
+        <div class="d-flex justify-content-between">
+            <h2>PI Dashboard</h2>
+            <div>
+                <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
+                    <asp:ListItem>SPRING 2020</asp:ListItem>
+                    <asp:ListItem>FALL 2019</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div class="row text-center mt-3">
             <div class="col-md-4 md-offset-">
-                <h5>Instructions</h5>
-                <div class="border border-secondary" style="border-radius: 5px;">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Instructions</legend>
                     You are a Principal Investigator: View your student list below to monitor their research success!
-                </div>
+                </fieldset>
             </div>
             <div class="col-md-4 justify-content-center">
                 <img src="images/ProfilePic.jpg" class="rounded-circle center-block border border-secondary" style="width: 125px; height: 125px; border-radius: 5px;" /><br />
                 <p class="text-center mt-3">
-                    <asp:Label ID="Label1" runat="server" Text="Johnny Appleseed" Style="font-family: Avenir Next; font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Steve The PI" Style="font-size: 30px;"></asp:Label>
                 </p>
             </div>
             <div class="col-md-4 text-center">
                 <p class="mt-4">
-                    <asp:Label ID="Label8" runat="server" Text="TUID:  " Style="font-family: Avenir Next; font-size: 20px;"></asp:Label>
-                    <asp:Label ID="Label9" runat="server" Text="918 467 732" Style="font-family: Avenir Next; font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label8" runat="server" Text="TUID:  " Style="font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label9" runat="server" Text="918 467 732" Style="font-size: 20px;"></asp:Label>
                 </p>
                 <p class="mt-2">
-                    <asp:Label ID="Label10" runat="server" Text="Email:  " Style="font-family: Avenir Next; font-size: 20px;"></asp:Label>
-                    <asp:Label ID="Label11" runat="server" Text="Johnny.Appleseed@temple.edu" Style="font-family: Avenir Next; font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label10" runat="server" Text="Email:  " Style="font-size: 20px;"></asp:Label>
+                    <asp:Label ID="Label11" runat="server" Text="StevethePI@temple.edu" Style="font-size: 20px;"></asp:Label>
                 </p>
             </div>
         </div>
     </div>
     <div class="container mt-4">
-        <div class="row justify-content-center text-center">
+        <h3 class="mt-2">Research Terms</h3>
+        <div class="row text-center">
             <div class="col-md-11">
                 <asp:Table ID="tblAdministrators" runat="server" CssClass="table table-striped">
-
                     <asp:TableHeaderRow Style="background-color: #91182a; color: white;">
                         <asp:TableHeaderCell Scope="Column">
                                 First Name
