@@ -23,8 +23,6 @@ namespace URPSSPSuccessTracker
             txtEmailSubject.Text = "";
             txtEmailBody.Text = "";
             lblEmailSent.Visible = true;
-
-            //lblEmailSent.Text = "Email Sent";
         }
 
         protected void btnAddStudent_Click(object sender, EventArgs e)
