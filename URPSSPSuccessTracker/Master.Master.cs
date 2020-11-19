@@ -37,7 +37,7 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = false;
                 btnSearch.Visible = false;
                 btnUploadUsers.Visible = false;
-                lblUserName.Text = "Johnny Doe";
+                lblUserName.Text = "John Doe";
             }
 
             if (userType == "PI")
@@ -46,7 +46,7 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = false;
                 btnSearch.Visible = false;
                 btnUploadUsers.Visible = false;
-                lblUserName.Text = "Steve the PI";
+                lblUserName.Text = "Bill Perkins";
             }
 
             if (userType == "")

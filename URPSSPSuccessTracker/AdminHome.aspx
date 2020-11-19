@@ -21,16 +21,15 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-6">
+            <div class="col-6 mb-4">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Instructions</legend>
                     You may search by any combination of first name, last name, major, student term, TUID,
                             and status. Select no parameters to view all profiles. Select the Student or PI button to view Student or PI profiles.
+                            Below the search results table, you will find several buttons. Use "Export" to export these students to a spreadsheet,
+                            Use "Email Selected" to email the students you selected on the table using the checkboxes. Use "Email All" to send an
+                            Email to all students in the table.
                 </fieldset>
-
-
-                &nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;
 
             </div>
             <div class="col-6 col">
@@ -172,7 +171,7 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button6" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button6" runat="server" Text="Select" />
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -193,7 +192,7 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button1" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button1" runat="server" Text="Select" />
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -215,7 +214,7 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button2" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button2" runat="server" Text="Select" />
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -284,7 +283,7 @@
                                 Complete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button3" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button3" runat="server" Text="Select" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -314,7 +313,7 @@
                                 Incomplete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button4" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button4" runat="server" Text="Select" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -345,7 +344,7 @@
                                 Complete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button5" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button5" runat="server" Text="Select" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -376,7 +375,7 @@
                                 Incomplete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button7" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button7" runat="server" Text="Select" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -407,7 +406,7 @@
                                 Incomplete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button8" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button8" runat="server" Text="Select" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>

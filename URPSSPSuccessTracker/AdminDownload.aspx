@@ -24,6 +24,7 @@
             <div class="d-flex justiy-content-between">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Instructions</legend>
+                    <p>Please select a user type between the "Student" or "Principal Investigator" buttons. Then proceed to follow the below instructions depending on whether you would like to multiple or a single user.</p>
                     <div class="d-flex flex-row">
                         <asp:Label ID="Label3" runat="server" Text="Excel Upload:" CssClass="p-2 mr-3 ml-4 h6"></asp:Label>
                     </div>
@@ -43,8 +44,8 @@
                 </fieldset>
                 <div class="col-6">
                     <asp:Label ID="lblUpload" runat="server" Text="Upload Users" CssClass="p-2 mr-3 ml-3 mb-3 h3"></asp:Label>
-                    <div>
-                        <asp:Label ID="lblUpDirections" runat="server" Text="Please Select a User Type for Upload:" CssClass="p-2 mr-3 ml-3"></asp:Label>
+                    <div class="d-flex justify-content-center">
+                        <asp:Label ID="lblUpDirections" runat="server" Text="User Type:" CssClass="p-2 mr-3 ml-3"></asp:Label>
                     </div>
                     <div class="d-flex justify-content-center mt-2">
                         <button type="button" class="btn redbtn p-2 mr-3 ml-3 ">Student</button>
