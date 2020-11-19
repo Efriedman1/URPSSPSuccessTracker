@@ -39,7 +39,7 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = false;
                 btnSearch.Visible = false;
                 btnUploadUsers.Visible = false;
-                lblUserName.Text = "John Student";
+                lblUserName.Text = "Johnny Doe";
                 lblUserType.Text = "Student";
             }
 

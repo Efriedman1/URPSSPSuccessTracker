@@ -5,9 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="d-flex flex-row mt-2">
-        <asp:Label ID="lblName" runat="server" Text="Download Template" CssClass="p-2 mr-3 ml-3 h3"></asp:Label>
-    </div>
+    <h2 class="m-5">Upload Users</h2>
     <asp:DropDownList ID="DropDownList3" CssClass="form-control-sm" runat="server">
         <asp:ListItem>FALL</asp:ListItem>
         <asp:ListItem>SPRING</asp:ListItem>
@@ -16,9 +14,6 @@
         <div class="d-flex flex-row mt-2">
             <fieldset class="scheduler-border">
                 <legend class="scheduler-border">Instructions</legend>
-                <div class="d-flex flex-row-reverse">
-                    <asp:Label ID="Label2" runat="server" Text="Term"></asp:Label>
-                </div>
                 <div class="d-flex flex-row">
                     <asp:Label ID="Label3" runat="server" Text="Excel Upload:" CssClass="p-2 mr-3 ml-3"></asp:Label>
                 </div>
@@ -36,7 +31,7 @@
                     <button type="button" class="btn redbtn p-2 mr-3 ml-3 ">Principal Investigator Template</button>
                 </div>
             </fieldset>
-            <div class="col-xl-6 border border-secondary rounded">
+            <div class="col-xl-6">
                 <asp:Label ID="lblUpload" runat="server" Text="Upload Users" CssClass="p-2 mr-3 ml-3 h5"></asp:Label>
                 <div class="d-flex justify-content-center">
                     <asp:Label ID="lblUpDirections" runat="server" Text="Please Select a User Type for Upload:" CssClass="p-2 mr-3 ml-3"></asp:Label>
