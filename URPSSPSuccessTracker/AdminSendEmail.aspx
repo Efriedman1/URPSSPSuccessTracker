@@ -262,13 +262,25 @@
                     <asp:TextBox ID="txtEmailBody" runat="server" CssClass="form-control" placeholder="Enter your email here" TextMode="MultiLine" Rows="12" ></asp:TextBox>
                   </div>
 
-                  <div class="col-8 col-sm-6 col-lg-12 col-lg-12">
-                    <asp:Label runat="server" ID="lblEmailSent" Visible="false" Text="Email Sent"></asp:Label>
+<%--                  <div class="col-8 col-sm-6 col-lg-12 col-lg-12">
+                    <asp:Label runat="server" ID="lblEmailSent" Visible="false" Text="Email Sent" Font-Size="Large"></asp:Label>
                   </div>
                   <div class="col-8 col-sm-6 col-lg-12 col-lg-12">
                     <asp:button  runat="server" ID="btnSend" type="submit" CssClass="btn redbtn" style="margin-top:5%;margin-left:45%;" text="Send" OnClick="btnSend_Click"></asp:button>
+                  </div>--%>
 
-                  </div>
+                    <br />
+                <div class="row">
+                    <div class="col-8 col-sm-6 col-lg-3 col-lg-3">
+                    <asp:Label runat="server" ID="lblEmailSent" Visible="false" Text="Email Sent" Font-Size="Large"></asp:Label>
+
+                    </div>
+                    <div class="col-8 col-sm-6 col-lg-5 col-lg-5">
+                    <asp:button  runat="server" ID="btnSend" type="submit" CssClass="btn redbtn" style="margin-top:5%;margin-left:45%;" text="Send" OnClick="btnSend_Click"></asp:button>
+
+                    </div>
+
+                </div>
 
                 </fieldset>
             </div>
