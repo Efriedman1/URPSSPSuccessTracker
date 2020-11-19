@@ -11,7 +11,7 @@ namespace URPSSPSuccessTracker {
     
     
     public partial class AdminHome {
-        
+
         /// <summary>
         /// btnStudent control.
         /// </summary>
@@ -482,5 +482,6 @@ namespace URPSSPSuccessTracker {
                 return ((URPSSPSuccessTracker.Master)(base.Master));
             }
         }
+
     }
 }
