@@ -8,7 +8,7 @@
     <div class="flex-container m-5">
         <div class="d-flex justify-content-between">
             <h2>Search Research Information</h2>
-            <div class="row">
+            <%--<div class="row">
                 <label>Term: </label>
                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                     <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
@@ -18,7 +18,7 @@
                     <asp:ListItem>FALL 2018</asp:ListItem>
                     <asp:ListItem>SPRING 2018</asp:ListItem>
                 </asp:DropDownList>
-            </div>
+            </div>--%>
         </div>
         <div class="row mt-3">
             <div class="col-6 mb-4">
@@ -122,12 +122,25 @@
                 <div class="d-flex justify-content-between mt-2 mb-2">
                     <div>
                         <asp:Label ID="lblUser" runat="server" Text="Principal Investigator" CssClass="h3 mt-5 mb-2"></asp:Label>
-                    </div>
+                        
+                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                    <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
+                    <asp:ListItem>SPRING 2020</asp:ListItem>
+                    <asp:ListItem>FALL 2019</asp:ListItem>
+                    <asp:ListItem>SPRING 2019</asp:ListItem>
+                    <asp:ListItem>FALL 2018</asp:ListItem>
+                    <asp:ListItem>SPRING 2018</asp:ListItem>
+                </asp:DropDownList>
+                    </div> 
+
                     <div>
                         <asp:Button class="btn p-2" CssClass="btn redbtn" ID="btnStudent" runat="server" Text="Student" OnClick="Button4_Click" />
                         <asp:Button class="btn ml-3" CssClass="btn redbtn" ID="btnPI" runat="server" Text="Principal Investigator" OnClick="Button5_Click" />
                     </div>
                 </div>
+                
+                
+            
                 <div class="row">
                     <div class="col-12 table-responsive">
                         <asp:Panel ID="pnlPI" runat="server">
@@ -249,7 +262,7 @@
                                 <asp:TableHeaderRow Style="background-color: #91182a; color: white;">
 
                                     <asp:TableHeaderCell Scope="Column">
-                                
+                                Select
                                     </asp:TableHeaderCell>
                                     <asp:TableHeaderCell Scope="Column">
                                 TUID
@@ -264,7 +277,7 @@
                                 Major
                                     </asp:TableHeaderCell>
                                     <asp:TableHeaderCell Scope="Column">
-                                Program
+                                Type
                                     </asp:TableHeaderCell>
                                     <asp:TableHeaderCell Scope="Column">
                                 Principal Investigator
@@ -392,7 +405,7 @@
                                     <asp:TableCell>
                                 Bill Perkins
                                     </asp:TableCell>
-                                    <asp:TableCell ForeColor="Red">
+                                    <asp:TableCell>
                                 Complete
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -423,7 +436,7 @@
                                     <asp:TableCell>
                                 Malik Benton
                                     </asp:TableCell>
-                                    <asp:TableCell>
+                                    <asp:TableCell ForeColor="Red">
                                 Incomplete
                                     </asp:TableCell>
                                     <asp:TableCell>
