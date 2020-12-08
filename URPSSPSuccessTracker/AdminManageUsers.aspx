@@ -8,93 +8,106 @@
     <div class="container" style="margin-top: 2%">
         <div class="page-header">
             <h2>Admin Management</h2>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12 col-sm-12 col-md-6 col-lg-6">
-                <fieldset class="scheduler-border">
-                    <legend class="scheduler-border">Instructions</legend>
-                    <h6>Manage Admin Users:</h6>
-                    <p>To add a new admin user, enter their TUID in the TUID box and click "Add". Use the table to select an admin and edit their status or delete them with the dropdown menu. </p>
-                    <h6>Manage Term</h6>
-                    <p>Fill out the year and semester for a term you'd like to add, and click "Add" to add it to the system.</p>
-                </fieldset>
+            <div>
+                <button type="button" class="btn redbtn p-2 mr-3 ml-3 mt-4 mb-4" data-toggle="modal" data-target="#resultModal">Instructions</button>
+            </div>
+            <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="InstructionsModal">Instructions</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h6>Manage Admin Users:</h6>
+                            <p>To add a new admin user, enter their TUID in the TUID box and click "Add". Use the table to select an admin and edit their status or delete them with the dropdown menu. </p>
+                            <h6>Manage Term</h6>
+                            <p>Fill out the year and semester for a term you'd like to add, and click "Add" to add it to the system.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <h3 class="mt-3">Manage Admin Users</h3>
-        <div class="row">
-            <div class="col-4">
-                <div class="col-sm-10 " style="margin-top: 3px">
-                    <asp:Label ID="Label1" runat="server" CssClass="col-form-label">TUID</asp:Label>
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control mb-2 col-8" placeholder="9 Digit TUID" BackColor="#FAFAFA"></asp:TextBox>
-                </div>
-                <div class="col-sm-12 col-sm-12">
-                    <asp:Button ID="AddAdminModal" runat="server" Text="Add New Admin" CssClass="btn redbtn" data-toggle="modal" data-target="#modal1" OnClientClick="return false" />
+    <div class="card">
+        <div class="container">
+            <h3 class="mt-3">Manage Admin Users</h3>
+            <div class="row">
+                <div class="col-4">
+                    <div class="col-sm-10 " style="margin-top: 3px">
+                        <asp:Label ID="Label1" runat="server" CssClass="col-form-label">TUID</asp:Label>
+                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control mb-2 col-8" placeholder="9 Digit TUID" BackColor="#FAFAFA"></asp:TextBox>
+                    </div>
+                    <div class="col-sm-12 col-sm-12">
+                        <asp:Button ID="AddAdminModal" runat="server" Text="Add New Admin" CssClass="btn redbtn" data-toggle="modal" data-target="#modal1" OnClientClick="return false" />
 
-                    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Is this the person?</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <b>TUID:</b> 956324895
+                        <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Is this the person?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>TUID:</b> 956324895
                                     <br />
-                                    <b>First Name:</b> Cody
+                                        <b>First Name:</b> Cody
                                     <br />
-                                    <b>Last Name:</b> Guevara
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn redbtn" data-dismiss="modal">Confirm and Add</button>
+                                        <b>Last Name:</b> Guevara
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn redbtn" data-dismiss="modal">Confirm and Add</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-8">
-                <div class="col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="col-12 col-sm-12 col-lg-12 col-lg-12" style="margin-top: 2%;">
-                        <asp:Table ID="tblAdministrators" runat="server" CssClass="table table-striped">
+                <div class="col-8">
+                    <div class="col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="col-12 col-sm-12 col-lg-12 col-lg-12" style="margin-top: 2%;">
+                            <asp:Table ID="tblAdministrators" runat="server" CssClass="table table-striped">
 
-                            <asp:TableHeaderRow Style="background-color: #91182A; color: white;">
-                                <asp:TableHeaderCell Scope="Column">
+                                <asp:TableHeaderRow Style="background-color: #91182A; color: white;">
+                                    <asp:TableHeaderCell Scope="Column">
                                     TUID
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell Scope="Column">
+                                    </asp:TableHeaderCell>
+                                    <asp:TableHeaderCell Scope="Column">
                                     First Name
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell Scope="Column">
+                                    </asp:TableHeaderCell>
+                                    <asp:TableHeaderCell Scope="Column">
                                     Last Name
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell Scope="Column">
+                                    </asp:TableHeaderCell>
+                                    <asp:TableHeaderCell Scope="Column">
                                     Active
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell Scope="Column">
+                                    </asp:TableHeaderCell>
+                                    <asp:TableHeaderCell Scope="Column">
                                     Actions
-                                </asp:TableHeaderCell>
-                            </asp:TableHeaderRow>
+                                    </asp:TableHeaderCell>
+                                </asp:TableHeaderRow>
 
-                            <asp:TableRow>
-                                <asp:TableHeaderCell>
+                                <asp:TableRow>
+                                    <asp:TableHeaderCell>
                                     956324895
-                                </asp:TableHeaderCell>
-                                <asp:TableCell>
+                                    </asp:TableHeaderCell>
+                                    <asp:TableCell>
                                     Cody
-                                </asp:TableCell>
-                                <asp:TableCell>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                     Guevara
-                                </asp:TableCell>
-                                <asp:TableCell ForeColor="Green">
+                                    </asp:TableCell>
+                                    <asp:TableCell ForeColor="Green">
                                     Yes
-                                </asp:TableCell>
-                                <asp:TableCell>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                     <div class="dropdown">
                                       <button class="btn dropdown-toggle redbtn" type="button" id="ddlAction1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Action
@@ -104,23 +117,23 @@
                                         <a class="dropdown-item" href="#">Delete</a>
                                       </div>
                                     </div>
-                                </asp:TableCell>
-                            </asp:TableRow>
+                                    </asp:TableCell>
+                                </asp:TableRow>
 
-                            <asp:TableRow>
-                                <asp:TableHeaderCell>
+                                <asp:TableRow>
+                                    <asp:TableHeaderCell>
                                     955655487
-                                </asp:TableHeaderCell>
-                                <asp:TableCell>
+                                    </asp:TableHeaderCell>
+                                    <asp:TableCell>
                                     Willy
-                                </asp:TableCell>
-                                <asp:TableCell>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                     Smith
-                                </asp:TableCell>
-                                <asp:TableCell ForeColor="red">
+                                    </asp:TableCell>
+                                    <asp:TableCell ForeColor="red">
                                     No
-                                </asp:TableCell>
-                                <asp:TableCell>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                     <div class="dropdown">
                                       <button class="btn dropdown-toggle redbtn" type="button" id="ddlAction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                         Action
@@ -130,21 +143,22 @@
                                         <a class="dropdown-item" href="#">Delete</a>
                                       </div>
                                     </div>
-                                </asp:TableCell>
-                            </asp:TableRow>
-                        </asp:Table>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>
+                        </div>
+
+
                     </div>
 
-
+                    <%--            ~~~Dropdown Button Style~~~--%>
+                    <style>
+                        .dropdown-item.active, .dropdown-item:active {
+                            color: white;
+                            background-color: #91182A;
+                        }
+                    </style>
                 </div>
-
-                <%--            ~~~Dropdown Button Style~~~--%>
-                <style>
-                    .dropdown-item.active, .dropdown-item:active {
-                        color: white;
-                        background-color: #91182A;
-                    }
-                </style>
             </div>
         </div>
     </div>

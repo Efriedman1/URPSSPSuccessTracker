@@ -15,6 +15,7 @@
         <div class="col-8">
             <div class="card">
                 <div class="container">
+                    <asp:Label runat="server" ID="lblTerm" Text="SPRING 2019" CssClass="h3"></asp:Label>
                     <div class="row mt-4">
                         <div class="col">
                             <label for="txtFirstName">Principal Investigator</label>

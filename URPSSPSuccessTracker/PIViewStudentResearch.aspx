@@ -8,22 +8,33 @@
     <link rel="stylesheet" href="master.css" />
     <div class="container">
         <!--Section: Contact v.2-->
-        <section class="mb-4">
-            <div class="d-flex justify-content-between mt-3">
-                <h2>Student Research information</h2>                
+        <section class="mb-2">
+            <div class="d-flex justify-content-between mt-3 mb-4">
+                <h2>Student Research information</h2>
+                <div class="row">
+                    <label>Term: </label>
+                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                        <asp:ListItem Selected="True">FALL 2019</asp:ListItem>
+                        <asp:ListItem>SPRING 2020</asp:ListItem>
+                        <asp:ListItem>FALL 2019</asp:ListItem>
+                        <asp:ListItem>SPRING 2019</asp:ListItem>
+                        <asp:ListItem>FALL 2018</asp:ListItem>
+                        <asp:ListItem>SPRING 2018</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
             </div>
             <!--Section heading-->
             <div class="row">
 
                 <div class="col-md-8">
-                    <h2 class="h2-responsive text-left my-4"><b>John Doe</b> 915 112 112</h2>
+                    <h3 class="h3-responsive text-left"><b>John Doe</b> 915 112 112</h3>
+                    <asp:Label runat="server" ID="lblTerm" Text="FALL 2019" CssClass="h3 mb-4"></asp:Label>
                 </div>
                 <div class="col-md-4 float-right ">
                 </div>
             </div>
 
-
-            <div class="row">
+            <div class="row mt-3">
 
                 <!--Grid column-->
                 <div class="col-md-7 mb-md-0 mb-5 h4">
@@ -91,7 +102,7 @@
                         <!--Grid column-->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
-                                <asp:Label ID="lblType" CssClass="control-label" runat="server" Text="Resesarch Type"></asp:Label>
+                                <asp:Label ID="lblType" CssClass="control-label" runat="server" Text="Research Type"></asp:Label>
 
                                 <asp:TextBox ID="txtType" CssClass="form-control input-lg" runat="server" Enabled="False">URP</asp:TextBox>
 
@@ -160,6 +171,7 @@
                                 <asp:TextBox ID="txtJournal" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">Journal of Physical Chemistry A</asp:TextBox>
                                 <%--<textarea id="Journal" name="Journal" rows="2" class="form-control md-textarea" disabled="disabled">Journal of Physical Chemistry A</textarea>--%>
                             </div>
+                            <asp:Button ID="btnAddJournal" runat="server" CssClass="btn btn-light" Text="Add +" />
 
                         </div>
                     </div>
@@ -175,9 +187,9 @@
                                 <asp:Label ID="Label2" CssClass="control-label" runat="server" Text="Conference Information"></asp:Label>
                                 <%--<label for="info">Conference Information</label>--%>
                                 <asp:TextBox ID="txtInfo" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">Undergraduate Computational Chemistry Symposium</asp:TextBox>
-                                <%--  <textarea id="info" name="info" rows="2" class="form-control md-textarea" disabled="disabled">Undergraduate Computational Chemistry Symposium</textarea>--%>
+                                <%--<textarea id="info" name="info" rows="2" class="form-control md-textarea" disabled="disabled">Undergraduate Computational Chemistry Symposium</textarea>--%>
                             </div>
-
+                            <asp:Button ID="Button1" runat="server" CssClass="btn btn-light" Text="Add +" />
                         </div>
                     </div>
                     <!--Grid row-->
@@ -194,6 +206,7 @@
                                 <asp:TextBox ID="txtDescription" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">This is a brief description of my research. This field is optional.</asp:TextBox>
                                 <%-- <textarea id="description" name="description" rows="2" class="form-control md-textarea" disabled="disabled">This is a brief description of my research. This field is optional.</textarea>--%>
                             </div>
+                            <asp:Button ID="Button2" runat="server" CssClass="btn btn-light" Text="Add +" />
 
                         </div>
                     </div>
@@ -256,7 +269,8 @@
                             <div class="form-group ">
 
                                 <p>
-                                    <asp:TextBox ID="tbComment" runat="server" class="form-control my-2 my-sm-0" Width="450px" TextMode="MultiLine"></asp:TextBox></p>
+                                    <asp:TextBox ID="tbComment" runat="server" class="form-control my-2 my-sm-0" Width="450px" TextMode="MultiLine"></asp:TextBox>
+                                </p>
                             </div>
                             <div class="form-group text-center">
                                 <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn redbtn my-2 my-sm-0 btnSize" />
