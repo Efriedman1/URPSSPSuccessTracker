@@ -70,6 +70,7 @@
     <Content Include="AdminDownload.aspx" />
     <Content Include="AdminDownload1.aspx" />
     <Content Include="AdminHome.aspx" />
+    <Content Include="default.aspx" />
     <Content Include="images\ProfilePic.jpg" />
     <Content Include="AdminSearchStudent.aspx" />
     <Content Include="AdminManageUsers.aspx" />
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="AdminSendEmail.aspx.designer.cs">
       <DependentUpon>AdminSendEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageTerm.aspx.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
