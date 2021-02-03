@@ -7,39 +7,69 @@
     <title>PI Home</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="flex-container m-5 justify-content-center">
-        <div class="d-flex justify-content-between">
-            <h2>PI Dashboard</h2>
-            <div>
-                <asp:DropDownList ID="DropDownList1" runat="server">
-                    <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
-                    <asp:ListItem>SPRING 2020</asp:ListItem>
-                    <asp:ListItem>FALL 2019</asp:ListItem>
-                </asp:DropDownList>
+    <div class="flex-container m-5">
+        <div class="row mt-3">
+            <div class="col-md-2 md-offset-">
+                <h2>PI Dashboard</h2>
             </div>
+            <div class="col-md-2 mt-2">
+                <asp:Label ID="Label8" runat="server" Text="TUID:  " Style="font-size: 20px;"></asp:Label>
+                <asp:Label ID="Label9" runat="server" Text="918467732" Style="font-size: 20px;"></asp:Label>
+            </div>
+            <div class="col-md-3 mt-2">
+                <asp:Label ID="Label3" runat="server" Text="Email:  " Style="font-size: 20px;"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="BPerkins@temple.edu" Style="font-size: 20px;"></asp:Label>
+            </div>
+            <div class="col-md-2"></div>
         </div>
         <div class="row text-center mt-3">
-            <div class="col-md-4 md-offset-">
-                <fieldset class="scheduler-border">
-                    <legend class="scheduler-border">Instructions</legend>
-                    You are a Principal Investigator: View your student list below to monitor their research success!
-                </fieldset>
-            </div>
+            <!--
             <div class="col-md-4 justify-content-center">
                 <img src="images/ProfilePic.jpg" class="rounded-circle center-block border border-secondary" style="width: 125px; height: 125px; border-radius: 5px;" /><br />
                 <p class="text-center mt-3">
-                    <asp:Label ID="Label1" runat="server" Text="Steve The PI" Style="font-size: 30px;"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Bill Perkins" Style="font-size: 30px;"></asp:Label>
                 </p>
             </div>
-            <div class="col-md-4 text-center">
-                <p class="mt-4">
-                    <asp:Label ID="Label8" runat="server" Text="TUID:  " Style="font-size: 20px;"></asp:Label>
-                    <asp:Label ID="Label9" runat="server" Text="918 467 732" Style="font-size: 20px;"></asp:Label>
-                </p>
-                <p class="mt-2">
-                    <asp:Label ID="Label10" runat="server" Text="Email:  " Style="font-size: 20px;"></asp:Label>
-                    <asp:Label ID="Label11" runat="server" Text="StevethePI@temple.edu" Style="font-size: 20px;"></asp:Label>
-                </p>
+            -->
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row text-center mt-3">
+                        <div class="col-md-2"></div>
+            <div class="col-md-2 md-offset-">
+                <div class="row">
+                    <label>Term: </label>
+                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                        <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
+                        <asp:ListItem>SPRING 2020</asp:ListItem>
+                        <asp:ListItem>FALL 2019</asp:ListItem>
+                        <asp:ListItem>SPRING 2019</asp:ListItem>
+                        <asp:ListItem>FALL 2018</asp:ListItem>
+                        <asp:ListItem>SPRING 2018</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+            </div>
+            <div class="col-md-2 md-offset-">
+                <div class="d-flex justify-content-center mt-2">
+                    <button type="button" class="btn redbtn p-2 mr-3 ml-3 mt-4" data-toggle="modal" data-target="#resultModal">Instructions</button>
+                </div>
+                <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Student Upload Results</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                You are a Principal Investigator, manage and access your students research success below.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -68,22 +98,22 @@
                                 Year
                         </asp:TableHeaderCell>
                         <asp:TableHeaderCell Scope="Column">
-                                Select
+                                Action
                         </asp:TableHeaderCell>
                     </asp:TableHeaderRow>
 
                     <asp:TableRow>
                         <asp:TableCell>
-                                Larry
+                                John
                         </asp:TableCell>
                         <asp:TableCell>
-                                David
+                                Doe
                         </asp:TableCell>
                         <asp:TableCell>
-                                IS&T
+                                CHEM
                         </asp:TableCell>
                         <asp:TableCell>
-                               934789363
+                               914274289
                         </asp:TableCell>
                         <asp:TableCell>
                                 Fall
@@ -92,7 +122,7 @@
                                 2019
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent1" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent1_Click" />
+                            <asp:Button ID="btnStudent1" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent1_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -116,7 +146,7 @@
                                 2019
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent2" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent2_Click" />
+                            <asp:Button ID="btnStudent2" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent2_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -140,7 +170,7 @@
                                 2019
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent3" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent3_Click" />
+                            <asp:Button ID="btnStudent3" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent3_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -164,7 +194,7 @@
                                 2018
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent4" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent4_Click" />
+                            <asp:Button ID="btnStudent4" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent4_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
 
@@ -188,7 +218,7 @@
                                 2018
                         </asp:TableCell>
                         <asp:TableHeaderCell>
-                            <asp:Button ID="btnStudent5" runat="server" Text="Select" CssClass=" btn redbtn" OnClick="btnStudent5_Click" />
+                            <asp:Button ID="btnStudent5" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnStudent5_Click" />
                         </asp:TableHeaderCell>
                     </asp:TableRow>
                 </asp:Table>

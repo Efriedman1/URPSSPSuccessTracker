@@ -39,7 +39,7 @@
                         <asp:Button ID="btnUploadUsers" runat="server" Text="Upload Users" OnClick="btnUploadUsers_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
                     </li>
                     <li class="nav-item">
-                        <asp:Button ID="btnManageUsers" runat="server" Text="Manage Admins" OnClick="btnManageUsers_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
+                        <asp:Button ID="btnManageUsers" runat="server" Text="Manage" OnClick="btnManageUsers_Click" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
                     </li>
                 </ul>
                 <div class="form-inline my-2 my-lg-0">
@@ -53,10 +53,11 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+            <div class="bg-light page-footer">
+                <div style="background-color:#f8f9fa; position: fixed;left: 0;bottom: 0;width: 100%;padding: 10px 50px;"><h6> © 2020 Copyright | URP/SSP Student Research Success Tracker</h6></div>
+      
+    </div>
     </form>
-    <footer class="bg-light">
-        URP/SSP Student Research Success Tracker
-    </footer>
 </body>
 
 </html>

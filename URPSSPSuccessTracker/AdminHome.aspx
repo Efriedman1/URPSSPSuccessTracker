@@ -8,25 +8,28 @@
     <div class="flex-container m-5">
         <div class="d-flex justify-content-between">
             <h2>Search Research Information</h2>
-            <div>
+            <%--<div class="row">
+                <label>Term: </label>
                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                     <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
                     <asp:ListItem>SPRING 2020</asp:ListItem>
                     <asp:ListItem>FALL 2019</asp:ListItem>
+                    <asp:ListItem>SPRING 2019</asp:ListItem>
+                    <asp:ListItem>FALL 2018</asp:ListItem>
+                    <asp:ListItem>SPRING 2018</asp:ListItem>
                 </asp:DropDownList>
-            </div>
+            </div>--%>
         </div>
         <div class="row mt-3">
-            <div class="col-6">
+            <div class="col-6 mb-4">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Instructions</legend>
                     You may search by any combination of first name, last name, major, student term, TUID,
                             and status. Select no parameters to view all profiles. Select the Student or PI button to view Student or PI profiles.
+                            Below the search results table, you will find several buttons. Use "Export" to export these students to a spreadsheet,
+                            Use "Email Selected" to email the students you selected on the table using the checkboxes. Use "Email All" to send an
+                            Email to all students in the table.
                 </fieldset>
-
-
-                &nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;
 
             </div>
             <div class="col-6 col">
@@ -119,12 +122,25 @@
                 <div class="d-flex justify-content-between mt-2 mb-2">
                     <div>
                         <asp:Label ID="lblUser" runat="server" Text="Principal Investigator" CssClass="h3 mt-5 mb-2"></asp:Label>
-                    </div>
+                        
+                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                    <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
+                    <asp:ListItem>SPRING 2020</asp:ListItem>
+                    <asp:ListItem>FALL 2019</asp:ListItem>
+                    <asp:ListItem>SPRING 2019</asp:ListItem>
+                    <asp:ListItem>FALL 2018</asp:ListItem>
+                    <asp:ListItem>SPRING 2018</asp:ListItem>
+                </asp:DropDownList>
+                    </div> 
+
                     <div>
                         <asp:Button class="btn p-2" CssClass="btn redbtn" ID="btnStudent" runat="server" Text="Student" OnClick="Button4_Click" />
                         <asp:Button class="btn ml-3" CssClass="btn redbtn" ID="btnPI" runat="server" Text="Principal Investigator" OnClick="Button5_Click" />
                     </div>
                 </div>
+                
+                
+            
                 <div class="row">
                     <div class="col-12 table-responsive">
                         <asp:Panel ID="pnlPI" runat="server">
@@ -168,7 +184,7 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button6" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button6" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -189,7 +205,7 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button1" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button1" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -211,7 +227,28 @@
                                 IST
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button2" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button2" runat="server" Text="View" />
+                                    </asp:TableCell>
+                                </asp:TableRow>
+
+                                 <asp:TableRow>
+                                    <asp:TableHeaderCell>
+                                        <asp:CheckBox ID="CheckBox9" runat="server" />
+                                    </asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>
+                                918467732
+                                    </asp:TableHeaderCell>
+                                    <asp:TableCell>
+                                Bill
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                Perkins
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                IST
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Button CssClass="btn redbtn" ID="btnSelected" runat="server"  Text="View" OnClick="btnSelected_Click"/>
                                     </asp:TableCell>
                                 </asp:TableRow>
 
@@ -225,7 +262,7 @@
                                 <asp:TableHeaderRow Style="background-color: #91182a; color: white;">
 
                                     <asp:TableHeaderCell Scope="Column">
-                                
+                                Select
                                     </asp:TableHeaderCell>
                                     <asp:TableHeaderCell Scope="Column">
                                 TUID
@@ -240,7 +277,7 @@
                                 Major
                                     </asp:TableHeaderCell>
                                     <asp:TableHeaderCell Scope="Column">
-                                Program
+                                Type
                                     </asp:TableHeaderCell>
                                     <asp:TableHeaderCell Scope="Column">
                                 Principal Investigator
@@ -280,7 +317,7 @@
                                 Complete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button3" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button3" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -310,7 +347,7 @@
                                 Incomplete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button4" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button4" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -341,7 +378,7 @@
                                 Complete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button5" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button5" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -351,13 +388,13 @@
                                         <asp:CheckBox ID="CheckBox7" runat="server" />
                                     </asp:TableHeaderCell>
                                     <asp:TableHeaderCell>
-                                987455266
+                                914274289
                                     </asp:TableHeaderCell>
                                     <asp:TableCell>
-                                Terry
+                                John
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                Berry
+                                Doe
                                     </asp:TableCell>
                                     <asp:TableCell>
                                 CHEM
@@ -366,13 +403,13 @@
                                 SSP
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                Iwan Haliday
-                                    </asp:TableCell>
-                                    <asp:TableCell ForeColor="Red">
-                                Incomplete
+                                Bill Perkins
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button7" runat="server" Text="Button" />
+                                Complete
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Button CssClass="btn redbtn" ID="btnSelected2" runat="server" Text="View" OnClick="btnSelected2_Click"/>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -399,11 +436,11 @@
                                     <asp:TableCell>
                                 Malik Benton
                                     </asp:TableCell>
-                                    <asp:TableCell>
+                                    <asp:TableCell ForeColor="Red">
                                 Incomplete
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Button CssClass="btn redbtn" ID="Button8" runat="server" Text="Button" />
+                                        <asp:Button CssClass="btn redbtn" ID="Button8" runat="server" Text="View" />
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%--  --%>
@@ -414,10 +451,12 @@
 
                         </p>
 
-                        <div style="margin-left: 40%">
-                            <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />&nbsp;
-                                <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" runat="server" Text="Email All" OnClick="btnEmail_Click" />&nbsp;
+                        <div class="d-flex justify-content-between"">
+                            <div>
+                                <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" runat="server" Text="Email All" OnClick="btnEmail_Click" />
                                 <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" runat="server" Text="Email Selected" OnClick="btnEmailChecked_Click" />
+                            </div>
+                            <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />
                         </div>
                     </div>
                 </div>

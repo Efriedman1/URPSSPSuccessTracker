@@ -141,12 +141,12 @@ body {
     }
 
 
-footer {
+.app-footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    padding:8px;
+    padding: 10px 50px;
 }
 
 /*Css from AdminHome*/

@@ -29,7 +29,6 @@ namespace URPSSPSuccessTracker
                 btnSearch.Visible = true;
                 btnUploadUsers.Visible = true;
                 lblUserName.Text = "Rose McGinnis";
-                lblUserType.Text = "Admin";
             }
 
             if (userType == "Student")
@@ -38,8 +37,7 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = false;
                 btnSearch.Visible = false;
                 btnUploadUsers.Visible = false;
-                lblUserName.Text = "Johnny Doe";
-                lblUserType.Text = "Student";
+                lblUserName.Text = "John Doe";
             }
 
             if (userType == "PI")
@@ -48,9 +46,9 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = false;
                 btnSearch.Visible = false;
                 btnUploadUsers.Visible = false;
-                lblUserName.Text = "Steve the PI";
-                lblUserType.Text = "Principal Investigator";
+                lblUserName.Text = "Bill Perkins";
             }
+
             if (userType == "")
             {
                 btnLogout.Visible = false;

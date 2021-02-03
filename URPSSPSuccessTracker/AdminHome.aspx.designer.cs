@@ -13,15 +13,6 @@ namespace URPSSPSuccessTracker {
     public partial class AdminHome {
         
         /// <summary>
-        /// DropDownList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-        
-        /// <summary>
         /// pnlPISearch control.
         /// </summary>
         /// <remarks>
@@ -265,6 +256,15 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Label lblUser;
         
         /// <summary>
+        /// DropDownList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        
+        /// <summary>
         /// btnStudent control.
         /// </summary>
         /// <remarks>
@@ -355,6 +355,24 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
+        /// CheckBox9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox9;
+        
+        /// <summary>
+        /// btnSelected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSelected;
+        
+        /// <summary>
         /// pnlStudent control.
         /// </summary>
         /// <remarks>
@@ -436,13 +454,13 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.CheckBox CheckBox7;
         
         /// <summary>
-        /// Button7 control.
+        /// btnSelected2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button7;
+        protected global::System.Web.UI.WebControls.Button btnSelected2;
         
         /// <summary>
         /// CheckBox8 control.
@@ -463,15 +481,6 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Button Button8;
         
         /// <summary>
-        /// btnExport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExport;
-        
-        /// <summary>
         /// btnEmail control.
         /// </summary>
         /// <remarks>
@@ -488,6 +497,15 @@ namespace URPSSPSuccessTracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEmailChecked;
+        
+        /// <summary>
+        /// btnExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExport;
         
         /// <summary>
         /// Master property.
