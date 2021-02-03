@@ -62,12 +62,18 @@
                         <%-- <button type="button" class="btn redbtn p-2 mr-3 ml-3 ">Browse</button>
                         <input type="text" class="form-control col-10" placeholder="StudentTemplate.xlsx" />--%>
                         <asp:FileUpload class="p-2 mr-3 ml-3" ID="fileUploadTemplate" runat="server" />
-                        <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Only .xls format is allowed" ControlToValidate="fileUploadTemplate" ValidationExpression="^.*\.(xls|xlsx|csv)$"></asp:RegularExpressionValidator>--%>
+
+                        <asp:RegularExpressionValidator ID="validateTemplate" runat="server" ErrorMessage="Only .xls format is allowed" ControlToValidate="fileUploadTemplate" ValidationExpression="^.*\.(xls|xlsx|csv)$"></asp:RegularExpressionValidator>
                     </div>
                     <div class="d-flex justify-content-center mt-2">
 <%--                        <button type="button" class="btn redbtn p-2 mr-3 ml-3 " data-toggle="modal" data-target="#resultModal">Upload</button>--%>
                         <asp:Button  class="btn redbtn p-2 mr-3 ml-3 " ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
+                        <br />
+
+                        <asp:Label ID="lblError" runat="server" Text="Error" Visible="False"></asp:Label>
                     </div>
+
+                   
                 </div>
             </div>
         

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,18 +23,31 @@ namespace URPSSPSuccessTracker
             //Check if the file is an xls file
             if (fileUploadTemplate.HasFile)
             {
-                //if it is then begin to read the file
+                //if the file includes xls then use it
+                if (validateTemplate.IsValid)
+                {
+                    //the file uploaded is valid and begin reading file
 
-                //if it is not then show error message
+                }
+               
+                else
+                {
+                    //the file is not valid/ show error message
+                    lblError.Text = "Must upload a valid formatted '.xls' file";
+                    lblError.Visible = true;
+                }
+                
             }
+
             //If no file was uploaded then put error message
             else
             {
-
+                lblError.Text = "Must upload a valid formatted '.xls' file";
+                lblError.Visible = true;
             }
 
            
 
-        }
+        }//end of btnUpload Click
     }
 }

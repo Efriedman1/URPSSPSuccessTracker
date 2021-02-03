@@ -121,6 +121,15 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.FileUpload fileUploadTemplate;
         
         /// <summary>
+        /// validateTemplate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validateTemplate;
+        
+        /// <summary>
         /// btnUpload control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace URPSSPSuccessTracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpload;
+        
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
         /// Master property.
