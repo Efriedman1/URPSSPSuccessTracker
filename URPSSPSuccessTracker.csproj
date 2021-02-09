@@ -129,6 +129,12 @@
     <Compile Include="AdminSendEmail.aspx.designer.cs">
       <DependentUpon>AdminSendEmail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Connection.cs" />
+    <Compile Include="Classes\Email.cs" />
+    <Compile Include="Classes\SqlProcedures.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\Utility.cs" />
+    <Compile Include="Classes\Validation.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
