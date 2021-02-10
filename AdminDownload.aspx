@@ -50,11 +50,11 @@
                         <%--<asp:Button class="btn redbtn p-2 mr-3 ml-3 " ID="Button1" runat="server" Text="Student" />
                         <button type="button" class="btn btn-light p-2 mr-3 ml-3 ">Principal Investigator</button>--%>
                         <asp:Label class="btn btn-outline-danger" ID="Label1" runat="server" Text="Students: ">
-                            <asp:RadioButton ID="RadioButton1" runat="server" GroupName="UserType" />
+                            <asp:RadioButton ID="optStudent" runat="server" GroupName="UserType" />
                         </asp:Label>
                         &nbsp;
                         <asp:Label class="btn btn-outline-danger" ID="Label2" runat="server" Text="Principal Investigators: ">
-                            <asp:RadioButton ID="RadioButton2" runat="server" GroupName="UserType" />
+                            <asp:RadioButton ID="optPI" runat="server" GroupName="UserType" />
                         </asp:Label>
 
                     </div>
