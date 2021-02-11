@@ -44,15 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
->>>>>>> 7ab6340445f6706714f33d725760f80849a5a96f
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -347,11 +344,8 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\VBCSCompiler.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\URPSSPSuccessTracker - Web Deploy.pubxml" />
-<<<<<<< HEAD
     <Content Include="Web.config" />
-=======
     <Content Include="URP_SSP_UploadTemplate.xlsx" />
->>>>>>> 7ab6340445f6706714f33d725760f80849a5a96f
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
