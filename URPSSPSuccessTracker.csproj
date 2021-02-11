@@ -176,7 +176,6 @@
     <Content Include="PIViewStudentResearch.aspx" />
     <Content Include="TempLogin.aspx" />
     <Content Include="ViewStudentResearch.aspx" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDownload.aspx.cs">
@@ -345,6 +344,7 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\VBCSCompiler.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\URPSSPSuccessTracker - Web Deploy.pubxml" />
+    <Content Include="Web.config" />
     <Content Include="URP_SSP_UploadTemplate.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
