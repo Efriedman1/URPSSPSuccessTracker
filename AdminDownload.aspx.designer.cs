@@ -85,13 +85,13 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// RadioButton1 control.
+        /// optStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
+        protected global::System.Web.UI.WebControls.RadioButton optStudent;
         
         /// <summary>
         /// Label2 control.
@@ -103,13 +103,13 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// RadioButton2 control.
+        /// optPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
+        protected global::System.Web.UI.WebControls.RadioButton optPI;
         
         /// <summary>
         /// fileUploadTemplate control.
