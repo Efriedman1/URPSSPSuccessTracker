@@ -9,7 +9,6 @@ namespace URPSSPSuccessTracker.Classes
     public class Utility
     {
         Connection urpDB;
-
-        public Utility();
+        
     }
 }

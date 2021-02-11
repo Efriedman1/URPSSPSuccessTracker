@@ -5,8 +5,7 @@ using System.Web;
 
 namespace URPSSPSuccessTracker.Classes
 {
-    public class User
+    public class Student
     {
-
     }
 }

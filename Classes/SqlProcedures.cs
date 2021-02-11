@@ -55,13 +55,13 @@ namespace URPSSPSuccessTracker.Classes
         }
         
         //Load admins
-        public Boolean LoadAdministrator()
+        public DataSet LoadAdministrator()
         {
             SqlCommand adminCommand = new SqlCommand();
             adminCommand.CommandType = CommandType.StoredProcedure;
             adminCommand.CommandText = "LoadAdministrator";
 
-            return urpDB.GetDataSetUsingCmdObj(adminCommand) > 0;
+            return urpDB.GetDataSetUsingCmdObj(adminCommand);
         }
 
         //====================
@@ -102,7 +102,7 @@ namespace URPSSPSuccessTracker.Classes
             studentCommand.Parameters.AddWithValue("@major", major);
             studentCommand.Parameters.AddWithValue("@status", status);
 
-            return urpDB.GetDataSetUsingCmgObj(studentCommand);
+            return urpDB.GetDataSetUsingCmdObj(studentCommand);
         }
 
         //====================
@@ -152,7 +152,7 @@ namespace URPSSPSuccessTracker.Classes
             piCommand.Parameters.AddWithValue("@firstName", firstName);
             piCommand.Parameters.AddWithValue("@lastName", lastName);
 
-            return urpDB.GetDataSetUsingCmgObj(piCommand);
+            return urpDB.GetDataSetUsingCmdObj(piCommand);
         }
 
         //====================
@@ -185,7 +185,7 @@ namespace URPSSPSuccessTracker.Classes
             departmentCommand.CommandText = "CheckDepartment";
             departmentCommand.Parameters.AddWithValue("@DepartmentName", departmentName);
 
-            return urpDB.DoUpdateUsingCmdObj(departmentName) > 0;
+            return urpDB.DoUpdateUsingCmdObj(departmentCommand) > 0;
         }
 
         //get department id
@@ -196,7 +196,9 @@ namespace URPSSPSuccessTracker.Classes
             departmentCommand.CommandText = "GetDepartmentID";
             departmentCommand.Parameters.AddWithValue("@DepartmentName", departmentName);
 
-            return urpDB.GetDataSetUsingCmdObj(departmentCommand);
+            DataSet dsDepartment = urpDB.GetDataSetUsingCmdObj(departmentCommand);
+
+            return (int)dsDepartment.Tables[0].Rows[0][0];
         }
 
         //====================
@@ -228,7 +230,7 @@ namespace URPSSPSuccessTracker.Classes
             instructionCommand.CommandText = "InsertInstructions";
             instructionCommand.Parameters.AddWithValue("@Body", body);
 
-            return urpDB.GetDataSetUsingCmdObj(instructionCommand);
+            return urpDB.DoUpdateUsingCmdObj(instructionCommand) > 0;
         }
 
         //load instructions
@@ -259,12 +261,12 @@ namespace URPSSPSuccessTracker.Classes
         //====================
 
             //check major
-        public DatSet CheckMajor(string major)
+        public DataSet CheckMajor(string major)
         {
             SqlCommand majorCommand = new SqlCommand();
             majorCommand.CommandType = CommandType.StoredProcedure;
             majorCommand.CommandText = "CheckMajor";
-            majorCommand.Parameters.AddWithValue("@DepartmentName", departmentName);
+            majorCommand.Parameters.AddWithValue("@Major", major);
 
             return urpDB.GetDataSetUsingCmdObj(majorCommand);
         }
