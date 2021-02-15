@@ -57,7 +57,43 @@
 
                     <!--Begin of Principal Investigator Profile-->
                     <!--Grid row-->
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Principal Investigator's Information</legend>
+                        <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <asp:Label ID="lblPI" CssClass="control-label" runat="server" Text="Principal Investigator" Enabled="False"></asp:Label>
+                                <asp:TextBox ID="txtName" CssClass="form-control input-lg" runat="server" Enabled="False">Bill Perkins</asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <asp:Label ID="lblPIEmail" CssClass="control-label" runat="server" Text="Email"></asp:Label>
+                                <asp:TextBox ID="txtEmail" CssClass="form-control input-lg" runat="server" Enabled="False">billperkins@temple.edu</asp:TextBox>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                    <!--Grid row-->
                     <div class="row">
+                        <div class="col-md-12" style="padding-top: 20px;">
+                            <div class="md-form mb-0">
+                                <asp:Label ID="lblDept" CssClass="control-label" runat="server" Text="Department"></asp:Label>
+                                <asp:TextBox ID="txtDept" CssClass="form-control input-lg" runat="server" Enabled="False">Chemistry</asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                    </fieldset>
+                    <%--<div class="row">
 
                         <!--Grid column-->
                         <div class="col-md-6">
@@ -88,7 +124,7 @@
                                 <asp:TextBox ID="txtDept" CssClass="form-control input-lg" runat="server" Enabled="False">Chemistry</asp:TextBox>
                             </div>
                         </div>
-                    </div>
+                    </div>--%>
 
                     <!--End of Principal Investigator Profile-->
                     <!--Grid row-->
@@ -218,7 +254,56 @@
                     <!--Grid row-->
                     <div class="row" style="justify-content: center !important;">
                         <div class="col p-3 btn-toolbar m-4" style="justify-content: center !important;">
-                            <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnAdd" runat="server" Text="Add Documentation" OnClick="btnAdd_Click"/>
+<%--                            <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnAdd" runat="server" Text="Add Documentation" data-target="addDocumentationModal" OnClick="btnAdd_Click"/>--%>
+
+                    <div class="col-sm-12 col-sm-12">
+                    <asp:Button ID="AddDocumentation" runat="server" Text="Add New Documentation" class="btn redbtn text-lg-center btnSize" data-toggle="modal" data-target="#AddDocumentation1" OnClientClick="return false" />
+                    <div class="modal fade" id="AddDocumentation1" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">                        
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="ModalLabel">Add Documentation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <asp:DropDownList ID="ddlAddDoc" runat="server" CssClass="dropdown-toggle">
+                                        <asp:ListItem Value="">Please select a document type</asp:ListItem>
+                                        <asp:ListItem Value="Journal">Journal</asp:ListItem>
+                                        <asp:ListItem Value="Conference">Conference</asp:ListItem>
+                                        <asp:ListItem Value="Paper">Paper</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+
+                                    <div class="row">
+                                        <asp:Label ID="lblDocTitle" runat="server">Document Title:</asp:Label>
+                                        <asp:TextBox ID="txtDocTitle" runat="server"></asp:TextBox>
+                                    </div>
+
+                                    <div class="row">
+                                        <asp:Label ID="lblDocDesc" runat="server">Description:</asp:Label>
+                                        <asp:TextBox ID="TxtDocDesc" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
+                                    </div>
+
+                                    
+
+
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn redbtn" data-dismiss="modal">Confirm and Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                             <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
                             <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
                         </div>
