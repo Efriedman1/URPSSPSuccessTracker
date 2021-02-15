@@ -176,6 +176,7 @@
     <Content Include="PIViewStudentResearch.aspx" />
     <Content Include="TempLogin.aspx" />
     <Content Include="ViewStudentResearch.aspx" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDownload.aspx.cs">
@@ -220,6 +221,12 @@
     <Compile Include="AdminSendEmail.aspx.designer.cs">
       <DependentUpon>AdminSendEmail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Connection.cs" />
+    <Compile Include="Classes\Email.cs" />
+    <Compile Include="Classes\SqlProcedures.cs" />
+    <Compile Include="Classes\Student.cs" />
+    <Compile Include="Classes\Utility.cs" />
+    <Compile Include="Classes\Validation.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,6 +234,7 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Library\WebService.cs" />
     <Compile Include="ManageTerm.aspx.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -344,7 +352,6 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\VBCSCompiler.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\URPSSPSuccessTracker - Web Deploy.pubxml" />
-    <Content Include="Web.config" />
     <Content Include="URP_SSP_UploadTemplate.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
