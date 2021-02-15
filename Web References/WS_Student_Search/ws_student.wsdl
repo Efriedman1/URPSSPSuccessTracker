@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://wsw.temple.edu/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://wsw.temple.edu/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://wsw.temple.edu/">
+      <s:element name="GetCurrentTerm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentTermResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentTermResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Result">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Terms" type="tns:ArrayOfTerm" />
+          <s:element minOccurs="0" maxOccurs="1" name="Students" type="tns:ArrayOfStudent" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeritScholar" type="tns:ArrayOfMeritScholarEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTerm">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Term" nillable="true" type="tns:Term" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Term">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStudent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Student" nillable="true" type="tns:Student" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Student">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="suffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="middleInitial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="personalCellNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="college" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="degree" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="admitTerm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="major1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="department1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="major2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="department2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="minor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="expectedGraduationTerm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="collegeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="degreeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="major1Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="department1Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="major2Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="department2Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="minorCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMeritScholarEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MeritScholarEntry" nillable="true" type="tns:MeritScholarEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MeritScholarEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="tuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eligibility" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTermByTermCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="termCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTermByTermCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTermByTermCodeResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTermByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTermByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTermByDateResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonalInfoByAccessNet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessNet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonalInfoByAccessNetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersonalInfoByAccessNetResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAcademicInfoByTUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAcademicInfoByTUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAcademicInfoByTUIDResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactInfoByTUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactInfoByTUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContactInfoByTUIDResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMeritScholarEligibleStudents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMeritScholarEligibleStudentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMeritScholarEligibleStudentsResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMeritScholarEligibilityByTUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMeritScholarEligibilityByTUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckMeritScholarEligibilityByTUIDResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentsRegisteredCourseByCrnAndTerm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="term" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="crns" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentsRegisteredCourseByCrnAndTermResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStudentsRegisteredCourseByCrnAndTermResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCurrentTermSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentTerm" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentTermSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTermByTermCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTermByTermCode" />
+  </wsdl:message>
+  <wsdl:message name="GetTermByTermCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTermByTermCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTermByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTermByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetTermByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTermByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonalInfoByAccessNetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersonalInfoByAccessNet" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonalInfoByAccessNetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonalInfoByAccessNetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAcademicInfoByTUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAcademicInfoByTUID" />
+  </wsdl:message>
+  <wsdl:message name="GetAcademicInfoByTUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAcademicInfoByTUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactInfoByTUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContactInfoByTUID" />
+  </wsdl:message>
+  <wsdl:message name="GetContactInfoByTUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactInfoByTUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMeritScholarEligibleStudentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMeritScholarEligibleStudents" />
+  </wsdl:message>
+  <wsdl:message name="GetMeritScholarEligibleStudentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMeritScholarEligibleStudentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckMeritScholarEligibilityByTUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckMeritScholarEligibilityByTUID" />
+  </wsdl:message>
+  <wsdl:message name="CheckMeritScholarEligibilityByTUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckMeritScholarEligibilityByTUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsRegisteredCourseByCrnAndTermSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStudentsRegisteredCourseByCrnAndTerm" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsRegisteredCourseByCrnAndTermSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStudentsRegisteredCourseByCrnAndTermResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_StudentSoap">
+    <wsdl:operation name="GetCurrentTerm">
+      <wsdl:input message="tns:GetCurrentTermSoapIn" />
+      <wsdl:output message="tns:GetCurrentTermSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTermByTermCode">
+      <wsdl:input message="tns:GetTermByTermCodeSoapIn" />
+      <wsdl:output message="tns:GetTermByTermCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTermByDate">
+      <wsdl:input message="tns:GetTermByDateSoapIn" />
+      <wsdl:output message="tns:GetTermByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalInfoByAccessNet">
+      <wsdl:input message="tns:GetPersonalInfoByAccessNetSoapIn" />
+      <wsdl:output message="tns:GetPersonalInfoByAccessNetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAcademicInfoByTUID">
+      <wsdl:input message="tns:GetAcademicInfoByTUIDSoapIn" />
+      <wsdl:output message="tns:GetAcademicInfoByTUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactInfoByTUID">
+      <wsdl:input message="tns:GetContactInfoByTUIDSoapIn" />
+      <wsdl:output message="tns:GetContactInfoByTUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeritScholarEligibleStudents">
+      <wsdl:input message="tns:GetMeritScholarEligibleStudentsSoapIn" />
+      <wsdl:output message="tns:GetMeritScholarEligibleStudentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMeritScholarEligibilityByTUID">
+      <wsdl:input message="tns:CheckMeritScholarEligibilityByTUIDSoapIn" />
+      <wsdl:output message="tns:CheckMeritScholarEligibilityByTUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsRegisteredCourseByCrnAndTerm">
+      <wsdl:input message="tns:GetStudentsRegisteredCourseByCrnAndTermSoapIn" />
+      <wsdl:output message="tns:GetStudentsRegisteredCourseByCrnAndTermSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_StudentSoap" type="tns:WS_StudentSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentTerm">
+      <soap:operation soapAction="http://wsw.temple.edu/GetCurrentTerm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTermByTermCode">
+      <soap:operation soapAction="http://wsw.temple.edu/GetTermByTermCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTermByDate">
+      <soap:operation soapAction="http://wsw.temple.edu/GetTermByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalInfoByAccessNet">
+      <soap:operation soapAction="http://wsw.temple.edu/GetPersonalInfoByAccessNet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAcademicInfoByTUID">
+      <soap:operation soapAction="http://wsw.temple.edu/GetAcademicInfoByTUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactInfoByTUID">
+      <soap:operation soapAction="http://wsw.temple.edu/GetContactInfoByTUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeritScholarEligibleStudents">
+      <soap:operation soapAction="http://wsw.temple.edu/GetMeritScholarEligibleStudents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMeritScholarEligibilityByTUID">
+      <soap:operation soapAction="http://wsw.temple.edu/CheckMeritScholarEligibilityByTUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsRegisteredCourseByCrnAndTerm">
+      <soap:operation soapAction="http://wsw.temple.edu/GetStudentsRegisteredCourseByCrnAndTerm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_StudentSoap12" type="tns:WS_StudentSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentTerm">
+      <soap12:operation soapAction="http://wsw.temple.edu/GetCurrentTerm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTermByTermCode">
+      <soap12:operation soapAction="http://wsw.temple.edu/GetTermByTermCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTermByDate">
+      <soap12:operation soapAction="http://wsw.temple.edu/GetTermByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalInfoByAccessNet">
+      <soap12:operation soapAction="http://wsw.temple.edu/GetPersonalInfoByAccessNet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAcademicInfoByTUID">
+      <soap12:operation soapAction="http://wsw.temple.edu/GetAcademicInfoByTUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactInfoByTUID">
+      <soap12:operation soapAction="http://wsw.temple.edu/GetContactInfoByTUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeritScholarEligibleStudents">
+      <soap12:operation soapAction="http://wsw.temple.edu/GetMeritScholarEligibleStudents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMeritScholarEligibilityByTUID">
+      <soap12:operation soapAction="http://wsw.temple.edu/CheckMeritScholarEligibilityByTUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsRegisteredCourseByCrnAndTerm">
+      <soap12:operation soapAction="http://wsw.temple.edu/GetStudentsRegisteredCourseByCrnAndTerm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_Student">
+    <wsdl:port name="WS_StudentSoap" binding="tns:WS_StudentSoap">
+      <soap:address location="https://preprod-wsw.temple.edu/ws_student/ws_student.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_StudentSoap12" binding="tns:WS_StudentSoap12">
+      <soap12:address location="https://preprod-wsw.temple.edu/ws_student/ws_student.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
