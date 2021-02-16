@@ -95,35 +95,30 @@
     </Compile>
     <Compile Include="AdminDownload1.aspx.cs">
       <DependentUpon>AdminDownload1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminDownload1.aspx.designer.cs">
       <DependentUpon>AdminDownload1.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminSearchStudent.aspx.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminSearchStudent.aspx.designer.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminManageUsers.aspx.cs">
       <DependentUpon>AdminManageUsers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminManageUsers.aspx.designer.cs">
       <DependentUpon>AdminManageUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminSendEmail.aspx.cs">
       <DependentUpon>AdminSendEmail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminSendEmail.aspx.designer.cs">
       <DependentUpon>AdminSendEmail.aspx</DependentUpon>
@@ -136,35 +131,30 @@
     <Compile Include="Classes\Validation.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageTerm.aspx.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManageTerm.aspx.designer.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="PIHome.aspx.cs">
       <DependentUpon>PIHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PIHome.aspx.designer.cs">
       <DependentUpon>PIHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="PIViewStudentResearch.aspx.cs">
       <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PIViewStudentResearch.aspx.designer.cs">
       <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
@@ -172,21 +162,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentHome.aspx.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="StudentHome.aspx.designer.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="TempLogin.aspx.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TempLogin.aspx.designer.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewStudentResearch.aspx.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewStudentResearch.aspx.designer.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
@@ -195,6 +182,7 @@
   <ItemGroup>
     <Content Include="Master.Master" />
     <Content Include="fonts\AvanirNext.otf" />
+    <Content Include="appSettings.config" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\URPSSPSuccessTracker - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
