@@ -44,10 +44,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -95,30 +102,35 @@
     </Compile>
     <Compile Include="AdminDownload1.aspx.cs">
       <DependentUpon>AdminDownload1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminDownload1.aspx.designer.cs">
       <DependentUpon>AdminDownload1.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminSearchStudent.aspx.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminSearchStudent.aspx.designer.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminManageUsers.aspx.cs">
       <DependentUpon>AdminManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminManageUsers.aspx.designer.cs">
       <DependentUpon>AdminManageUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminSendEmail.aspx.cs">
       <DependentUpon>AdminSendEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminSendEmail.aspx.designer.cs">
       <DependentUpon>AdminSendEmail.aspx</DependentUpon>
@@ -126,35 +138,39 @@
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\Email.cs" />
     <Compile Include="Classes\SqlProcedures.cs" />
-    <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Utility.cs" />
     <Compile Include="Classes\Validation.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageTerm.aspx.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManageTerm.aspx.designer.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="PIHome.aspx.cs">
       <DependentUpon>PIHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PIHome.aspx.designer.cs">
       <DependentUpon>PIHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="PIViewStudentResearch.aspx.cs">
       <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PIViewStudentResearch.aspx.designer.cs">
       <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
@@ -162,18 +178,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentHome.aspx.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="StudentHome.aspx.designer.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="TempLogin.aspx.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TempLogin.aspx.designer.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewStudentResearch.aspx.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewStudentResearch.aspx.designer.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>

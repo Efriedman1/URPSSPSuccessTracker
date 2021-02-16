@@ -68,7 +68,7 @@ namespace URPSSPSuccessTracker.Classes
         //Student
         //====================
 
-            //add student
+        //add student
         public Boolean AddStudent(int tuid, string firstName, string lastName, string email, string program, string status, string major, string gender, string ethnicity, string graduationDate, string lastUpdate)
         {
             SqlCommand studentCommand = new SqlCommand();
