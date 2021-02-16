@@ -176,6 +176,21 @@
     <Content Include="PIViewStudentResearch.aspx" />
     <Content Include="TempLogin.aspx" />
     <Content Include="ViewStudentResearch.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WS_LDAP_Search\ldap_search.disco" />
+    <None Include="Web References\WS_Programs_And_Degrees\ProgramsAndDegrees.disco" />
+    <Content Include="Web References\WS_Student_Search\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\WS_Student_Search\Result.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\WS_Student_Search\ws_student.disco" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDownload.aspx.cs">
@@ -220,6 +235,12 @@
     <Compile Include="AdminSendEmail.aspx.designer.cs">
       <DependentUpon>AdminSendEmail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Connection.cs" />
+    <Compile Include="Classes\Email.cs" />
+    <Compile Include="Classes\SqlProcedures.cs" />
+    <Compile Include="Classes\Student.cs" />
+    <Compile Include="Classes\Utility.cs" />
+    <Compile Include="Classes\Validation.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,6 +248,7 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Library\WebService.cs" />
     <Compile Include="ManageTerm.aspx.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -259,6 +281,11 @@
       <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="StudentHome.aspx.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -279,6 +306,21 @@
     </Compile>
     <Compile Include="ViewStudentResearch.aspx.designer.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WS_LDAP_Search\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WS_Programs_And_Degrees\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WS_Student_Search\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -344,8 +386,24 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\VBCSCompiler.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\URPSSPSuccessTracker - Web Deploy.pubxml" />
-    <Content Include="Web.config" />
     <Content Include="URP_SSP_UploadTemplate.xlsx" />
+    <None Include="Web References\WS_LDAP_Search\ldap_search.wsdl" />
+    <Content Include="Web References\WS_LDAP_Search\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\WS_LDAP_Search\TempleLDAPEntry.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\WS_Programs_And_Degrees\ProgramsAndDegrees.wsdl" />
+    <Content Include="Web References\WS_Programs_And_Degrees\ProgramsAndDegreesEntry.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WS_Programs_And_Degrees\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\WS_Student_Search\ws_student.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -355,6 +413,47 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://preprod-wsw.temple.edu/programsanddegrees/ProgramsAndDegrees.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WS_Programs_And_Degrees\</RelPath>
+      <UpdateFromURL>https://preprod-wsw.temple.edu/programsanddegrees/ProgramsAndDegrees.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>URPSSPSuccessTracker_WS_Programs_And_Degrees_ProgramsAndDegrees</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://preprod-wsw.temple.edu/ws_ldapsearch/ldap_search.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WS_LDAP_Search\</RelPath>
+      <UpdateFromURL>https://preprod-wsw.temple.edu/ws_ldapsearch/ldap_search.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>URPSSPSuccessTracker_WS_LDAP_Search_LDAP_Search</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://preprod-wsw.temple.edu/ws_student/ws_student.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WS_Student_Search\</RelPath>
+      <UpdateFromURL>https://preprod-wsw.temple.edu/ws_student/ws_student.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>URPSSPSuccessTracker_WS_Student_Search_WS_Student</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

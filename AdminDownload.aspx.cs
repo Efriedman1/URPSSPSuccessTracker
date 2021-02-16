@@ -15,6 +15,8 @@ namespace URPSSPSuccessTracker
             {
                 this.Master.SetNavBar((String)Session["UserType"]);
             }
+
+            
         }
     }
 }
