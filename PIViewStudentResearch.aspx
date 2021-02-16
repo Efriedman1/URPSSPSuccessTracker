@@ -93,40 +93,8 @@
                     </div>
 
                     </fieldset>
-                    <%--<div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-md-6">
-                            <div class="md-form mb-0">
-                                <asp:Label ID="lblPI" CssClass="control-label" runat="server" Text="Principal Investigator" Enabled="False"></asp:Label>
-                                <asp:TextBox ID="txtName" CssClass="form-control input-lg" runat="server" Enabled="False">Bill Perkins</asp:TextBox>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-md-6">
-                            <div class="md-form mb-0">
-                                <asp:Label ID="lblPIEmail" CssClass="control-label" runat="server" Text="Principal Investigator's Email"></asp:Label>
-                                <asp:TextBox ID="txtEmail" CssClass="form-control input-lg" runat="server" Enabled="False">billperkins@temple.edu</asp:TextBox>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-
-                    </div>
-                    <!--Grid row-->
-
-                    <!--Grid row-->
-                    <div class="row">
-                        <div class="col-md-12" style="padding-top: 20px;">
-                            <div class="md-form mb-0">
-                                <asp:Label ID="lblDept" CssClass="control-label" runat="server" Text="Principal Investigator's Department"></asp:Label>
-                                <asp:TextBox ID="txtDept" CssClass="form-control input-lg" runat="server" Enabled="False">Chemistry</asp:TextBox>
-                            </div>
-                        </div>
-                    </div>--%>
-
                     <!--End of Principal Investigator Profile-->
+
                     <!--Grid row-->
                     <br />
                     <br />
@@ -188,73 +156,10 @@
                     </div>
                     <!--Grid row-->
 
-<%--                    <div class="row>">
-                        <asp:Button class="btn redbtn text-lg-center btnSize" ID="BtnAdd" runat="server" Text="Add Documentation" OnClick="BtnAdd_Click" />
-                    </div>--%>
-
-
-                    <!--Grid row-->
-                   <%-- <div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-md-12" style="padding-top: 20px;">
-
-                            <div class="md-form">
-                                <asp:Label ID="lblUser" CssClass="control-label" runat="server" Text="Link(s)"></asp:Label>                                
-                                <asp:TextBox ID="txtLinks" CssClass="form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">www.chemistry-conferences.com/</asp:TextBox>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--Grid row-->
-
-                    <!--Grid row-->
-                    <div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-md-12" style="padding-top: 20px;">
-
-                            <div class="md-form">
-                                <asp:Label ID="Label1" CssClass="control-label" runat="server" Text="Journal"></asp:Label>
-                                <asp:TextBox ID="txtJournal" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">Journal of Physical Chemistry A</asp:TextBox>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--Grid row-->
-
-                    <!--Grid row-->
-                    <div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-md-12" style="padding-top: 20px;">
-                            <div class="md-form">
-                                <asp:Label ID="Label2" CssClass="control-label" runat="server" Text="Conference Information"></asp:Label>                            
-                                <asp:TextBox ID="txtInfo" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">Undergraduate Computational Chemistry Symposium</asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Grid row-->
-
-                    <!--Grid row-->
-                    <div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-md-12" style="padding-top: 20px;">
-
-                            <div class="md-form">
-                                <asp:Label ID="Label3" runat="server" Text="Description"></asp:Label>                                
-                                <asp:TextBox ID="txtDescription" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine">This is a brief description of my research. This field is optional.</asp:TextBox>
-                            </div>
-
-                        </div>
-                    </div>--%>
 
                     <!--Grid row-->
                     <div class="row" style="justify-content: center !important;">
                         <div class="col p-3 btn-toolbar m-4" style="justify-content: center !important;">
-<%--                            <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnAdd" runat="server" Text="Add Documentation" data-target="addDocumentationModal" OnClick="btnAdd_Click"/>--%>
 
                     <div class="col-sm-12 col-sm-12">
                     <asp:Button ID="AddDocumentation" runat="server" Text="Add New Documentation" class="btn redbtn text-lg-center btnSize" data-toggle="modal" data-target="#AddDocumentation1" OnClientClick="return false" />
