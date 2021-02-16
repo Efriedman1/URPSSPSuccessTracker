@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://np-wsw.temple.edu/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://np-wsw.temple.edu/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://np-wsw.temple.edu/">
+      <s:element name="GetExact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataField" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExactResult" type="tns:ArrayOfProgramsAndDegreesEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProgramsAndDegreesEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProgramsAndDegreesEntry" nillable="true" type="tns:ProgramsAndDegreesEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProgramsAndDegreesEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="major" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="majorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="level" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="levelCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="degree" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="degreeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sobcurrProgram" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="college" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="collegeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="about" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="academicPlan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalCreditHours" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tags" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tagInstances" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bulletinUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="calculatorUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="careers" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="applyUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="requestInfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="visitUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="relatedPrograms" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="onlineInd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="firstLetterOfMajor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStartsWith">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataField" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStartsWithResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStartsWithResult" type="tns:ArrayOfProgramsAndDegreesEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirstLettersMajor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirstLettersMajorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirstLettersMajorResult" type="tns:ArrayOfProgramsAndDegreesEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult" type="tns:ArrayOfProgramsAndDegreesEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDegrees">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDegreesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDegreesResult" type="tns:ArrayOfProgramsAndDegreesEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllPrograms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllProgramsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllProgramsResult" type="tns:ArrayOfProgramsAndDegreesEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTags">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTagsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTagsResult" type="tns:ArrayOfProgramsAndDegreesEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllColleges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCollegesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCollegesResult" type="tns:ArrayOfProgramsAndDegreesEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetExactSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExact" />
+  </wsdl:message>
+  <wsdl:message name="GetExactSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExactResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStartsWithSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStartsWith" />
+  </wsdl:message>
+  <wsdl:message name="GetStartsWithSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStartsWithResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirstLettersMajorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirstLettersMajor" />
+  </wsdl:message>
+  <wsdl:message name="GetFirstLettersMajorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirstLettersMajorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDegreesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDegrees" />
+  </wsdl:message>
+  <wsdl:message name="GetDegreesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDegreesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllProgramsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllPrograms" />
+  </wsdl:message>
+  <wsdl:message name="GetAllProgramsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllProgramsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTagsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTags" />
+  </wsdl:message>
+  <wsdl:message name="GetTagsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCollegesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllColleges" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCollegesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCollegesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProgramsAndDegreesSoap">
+    <wsdl:operation name="GetExact">
+      <wsdl:input message="tns:GetExactSoapIn" />
+      <wsdl:output message="tns:GetExactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStartsWith">
+      <wsdl:input message="tns:GetStartsWithSoapIn" />
+      <wsdl:output message="tns:GetStartsWithSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirstLettersMajor">
+      <wsdl:input message="tns:GetFirstLettersMajorSoapIn" />
+      <wsdl:output message="tns:GetFirstLettersMajorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDegrees">
+      <wsdl:input message="tns:GetDegreesSoapIn" />
+      <wsdl:output message="tns:GetDegreesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPrograms">
+      <wsdl:input message="tns:GetAllProgramsSoapIn" />
+      <wsdl:output message="tns:GetAllProgramsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTags">
+      <wsdl:input message="tns:GetTagsSoapIn" />
+      <wsdl:output message="tns:GetTagsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllColleges">
+      <wsdl:input message="tns:GetAllCollegesSoapIn" />
+      <wsdl:output message="tns:GetAllCollegesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProgramsAndDegreesSoap" type="tns:ProgramsAndDegreesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetExact">
+      <soap:operation soapAction="http://np-wsw.temple.edu/GetExact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartsWith">
+      <soap:operation soapAction="http://np-wsw.temple.edu/GetStartsWith" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirstLettersMajor">
+      <soap:operation soapAction="http://np-wsw.temple.edu/GetFirstLettersMajor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://np-wsw.temple.edu/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDegrees">
+      <soap:operation soapAction="http://np-wsw.temple.edu/GetDegrees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPrograms">
+      <soap:operation soapAction="http://np-wsw.temple.edu/GetAllPrograms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTags">
+      <soap:operation soapAction="http://np-wsw.temple.edu/GetTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllColleges">
+      <soap:operation soapAction="http://np-wsw.temple.edu/GetAllColleges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProgramsAndDegreesSoap12" type="tns:ProgramsAndDegreesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetExact">
+      <soap12:operation soapAction="http://np-wsw.temple.edu/GetExact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartsWith">
+      <soap12:operation soapAction="http://np-wsw.temple.edu/GetStartsWith" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirstLettersMajor">
+      <soap12:operation soapAction="http://np-wsw.temple.edu/GetFirstLettersMajor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="http://np-wsw.temple.edu/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDegrees">
+      <soap12:operation soapAction="http://np-wsw.temple.edu/GetDegrees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPrograms">
+      <soap12:operation soapAction="http://np-wsw.temple.edu/GetAllPrograms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTags">
+      <soap12:operation soapAction="http://np-wsw.temple.edu/GetTags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllColleges">
+      <soap12:operation soapAction="http://np-wsw.temple.edu/GetAllColleges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProgramsAndDegrees">
+    <wsdl:port name="ProgramsAndDegreesSoap" binding="tns:ProgramsAndDegreesSoap">
+      <soap:address location="https://preprod-wsw.temple.edu/programsanddegrees/ProgramsAndDegrees.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProgramsAndDegreesSoap12" binding="tns:ProgramsAndDegreesSoap12">
+      <soap12:address location="https://preprod-wsw.temple.edu/programsanddegrees/ProgramsAndDegrees.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
