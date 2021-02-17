@@ -52,6 +52,7 @@
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.IO.Compression" />
@@ -76,10 +77,13 @@
     <Content Include="AdminDownload.aspx" />
     <Content Include="AdminDownload1.aspx" />
     <Content Include="AdminHome.aspx" />
+    <Content Include="AdminHomeDatatable.aspx" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="bin\URPSSPSuccessTracker.dll" />
     <Content Include="bin\URPSSPSuccessTracker.pdb" />
+    <Content Include="data\arrays.txt" />
+    <Content Include="data\studentArrays.txt" />
     <Content Include="default.aspx" />
     <Content Include="images\ProfilePic.jpg" />
     <Content Include="AdminSearchStudent.aspx" />
@@ -176,6 +180,7 @@
     <Content Include="PIViewStudentResearch.aspx" />
     <Content Include="TempLogin.aspx" />
     <Content Include="ViewStudentResearch.aspx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -191,6 +196,12 @@
     </Content>
     <None Include="Web References\WS_Student_Search\ws_student.disco" />
     <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDownload.aspx.cs">
@@ -213,6 +224,13 @@
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminHomeDatatable.aspx.cs">
+      <DependentUpon>AdminHomeDatatable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminHomeDatatable.aspx.designer.cs">
+      <DependentUpon>AdminHomeDatatable.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminSearchStudent.aspx.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
@@ -404,12 +422,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <None Include="Web References\WS_Student_Search\ws_student.wsdl" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
