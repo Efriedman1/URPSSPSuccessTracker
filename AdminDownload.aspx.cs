@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ExcelDataReader;
+using URPSSPSuccessTracker.Library;
 
 
 namespace URPSSPSuccessTracker
@@ -65,6 +66,26 @@ namespace URPSSPSuccessTracker
                             string entry = dr[0].ToString() + "," + dr[2].ToString();
                             entryList.Add(entry);
                         }
+
+                        string[] entryArray = entryList[0].Split(',');
+
+                        WebService.StudentObj student = WebService.Webservice.getStudentInfo(entryArray[0]);
+
+                        lblError.Text = student.firstName + ", " + student.lastName;
+
+                        //Now that all the entries have been added to the list
+                        //seperate the tuid and the other parameter that are joined with ','
+                        //foreach (string entry in entryList)
+                        //{
+                        //   string[] entryArray =  entry.Split(',');
+
+                        //    WebService.StudentObj student = WebService.Webservice.getStudentInfo(entryArray[0]);
+
+
+                        //}
+
+                        //
+
 
                     }
 
