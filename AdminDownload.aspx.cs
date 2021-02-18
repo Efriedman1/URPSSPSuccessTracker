@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Net;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ExcelDataReader;
 using URPSSPSuccessTracker.Library;
+using Newtonsoft.Json;
 
 
 namespace URPSSPSuccessTracker
@@ -61,33 +63,37 @@ namespace URPSSPSuccessTracker
 
 
                         //else, that means the PI checkbox is selected, get the tuid and department
-                        if (optPI.Checked == true)
+                        else if (optPI.Checked == true)
                         {
                             string entry = dr[0].ToString() + "," + dr[2].ToString();
                             entryList.Add(entry);
                         }
 
-                        string[] entryArray = entryList[0].Split(',');
-
-                        WebService.StudentObj student = WebService.Webservice.getStudentInfo(entryArray[0]);
-
-                        lblError.Text = student.firstName + ", " + student.lastName;
-
-                        //Now that all the entries have been added to the list
-                        //seperate the tuid and the other parameter that are joined with ','
-                        //foreach (string entry in entryList)
-                        //{
-                        //   string[] entryArray =  entry.Split(',');
-
-                        //    WebService.StudentObj student = WebService.Webservice.getStudentInfo(entryArray[0]);
-
-
-                        //}
-
-                        //
-
-
+                      
                     }
+
+                    string[] entryArray = entryList[1].Split(',');
+
+                    object student = WebService.Webservice.getStudentInfo(entryArray[0]);
+
+
+                    lblError.Text = JsonConvert.SerializeObject(student, Formatting.Indented).ToString();
+                    lblError.Visible = true;
+
+                    //Now that all the entries have been added to the list
+                    //seperate the tuid and the other parameter that are joined with ','
+                    //foreach (string entry in entryList)
+                    //{
+                    //   string[] entryArray =  entry.Split(',');
+
+                    //    WebService.StudentObj student = WebService.Webservice.getStudentInfo(entryArray[0]);
+
+
+                    //}
+
+                    //
+
+
 
                 }
 
