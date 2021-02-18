@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using URPSSPSuccessTracker.Classes;
 
 namespace URPSSPSuccessTracker
 {
@@ -14,6 +15,11 @@ namespace URPSSPSuccessTracker
             if (!IsPostBack)
             {
                 this.Master.SetNavBar((String)Session["UserType"]);
+
+                //Update instruction label
+                SqlProcedures sqlProcedures = new SqlProcedures();
+                Instruction instruction = sqlProcedures.LoadInstructions(2);
+                lblInstructions.Text = instruction.Body;
             }
         }
     }

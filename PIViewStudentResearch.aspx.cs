@@ -35,12 +35,11 @@ namespace URPSSPSuccessTracker
             txtJournal.Enabled = tf;
             txtInfo.Enabled = tf;
             txtDescription.Enabled = tf;
-
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            display(false);
+                        
         }
     }
 }

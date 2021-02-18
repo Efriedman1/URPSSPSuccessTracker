@@ -16,6 +16,11 @@ namespace URPSSPSuccessTracker.Classes
             urpDB = new Connection();
         }
 
+        public Boolean TestConnection()
+        {
+            return urpDB.Open();
+        }
+
         //====================
         //Administrator
         //====================
@@ -234,14 +239,18 @@ namespace URPSSPSuccessTracker.Classes
         }
 
         //load instructions
-        public DataSet LoadInstructions(int instructionID)
+        public Instruction LoadInstructions(int instructionID)
         {
             SqlCommand instructionCommand = new SqlCommand();
             instructionCommand.CommandType = CommandType.StoredProcedure;
             instructionCommand.CommandText = "LoadInstructions";
             instructionCommand.Parameters.AddWithValue("@InstructionID", instructionID);
 
-            return urpDB.GetDataSetUsingCmdObj(instructionCommand);
+            DataSet ds = urpDB.GetDataSetUsingCmdObj(instructionCommand);
+
+            Instruction instruction = new Instruction(ds.Tables[0].Rows[0][1].ToString(), (int)ds.Tables[0].Rows[0][0]);
+
+            return instruction;
         }
 
         //update instructions

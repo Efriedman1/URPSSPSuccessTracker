@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using URPSSPSuccessTracker.Classes;
 
 namespace URPSSPSuccessTracker
 {
@@ -21,6 +22,11 @@ namespace URPSSPSuccessTracker
 
                 pnlStudentSearch.Visible = true;
                 pnlPISearch.Visible = false;
+
+                //Update instruction label
+                SqlProcedures sqlProcedures = new SqlProcedures();
+                Instruction instruction = sqlProcedures.LoadInstructions(1);
+                lblInstructions.Text = instruction.Body;
             }
 
         }
