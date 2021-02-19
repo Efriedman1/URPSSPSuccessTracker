@@ -31,6 +31,32 @@
             padding:0 10px;
             border-bottom:none;
         }
+
+
+        .modal-header{
+            padding: 2px 16px;
+            background-color: #91182a;
+            color: white;
+        }
+        .modal-body{
+            padding:2px 16px;
+        }
+        .modal-content {
+          position: relative;
+          background-color: #fefefe;
+          margin: auto;
+          padding: 2px;
+          border: 1px solid #888;
+          width: 100%;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+          animation-name: animatetop;
+          animation-duration: 0.4s
+        }
+        .modal-footer{
+            display:flex;
+            justify-content:center;
+        }
+
     </style>
 
     <div class="container">
@@ -96,7 +122,7 @@
                     <!--End of Principal Investigator Profile-->
 
                     <!--Grid row-->
-                    <br />
+                  
                     <br />
                     <!--Grid row-->
                     <div class="row">
@@ -156,12 +182,52 @@
                     </div>
                     <!--Grid row-->
 
+                    <br />
+                    
+
+
+
+                    <asp:Panel ID="pnlResearchDocument" runat="server">
+
+<%--                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <asp:Label ID="lblDocTitle" CssClass="control-label" runat="server" Text="Title"></asp:Label>
+                                    <asp:TextBox ID="txtDocTitle" CssClass="form-control input-lg" runat="server" Enabled="False"></asp:TextBox>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <div class="row">
+                            <!--Grid column-->
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <asp:Label ID="lblDocDescrip" CssClass="control-label" runat="server" Text="Journal Description"></asp:Label>
+                                    <asp:TextBox ID="txtDocDescrip" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine" Rows="5"></asp:TextBox>
+
+                                </div>
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <!--Grid row-->--%>
+                    </asp:Panel>
+
+
+
+                    <div id="divTextBox" style="border-color:Background; border-width:thick;" runat="server"></div>
+
+
+
+
+
 
                     <!--Grid row-->
                     <div class="row" style="justify-content: center !important;">
                         <div class="col p-3 btn-toolbar m-4" style="justify-content: center !important;">
 
-                    <div class="col-sm-12 col-sm-12">
+                    
                     <asp:Button ID="AddDocumentation" runat="server" Text="Add New Documentation" class="btn redbtn text-lg-center btnSize" data-toggle="modal" data-target="#AddDocumentation1" OnClientClick="return false" />
                     <div class="modal fade" id="AddDocumentation1" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">                        
                         <div class="modal-dialog">
@@ -175,8 +241,13 @@
                                 
                                 <div class="modal-body">
                                     <div class="row">
-                                        <asp:DropDownList ID="ddlAddDoc" runat="server" CssClass="dropdown-toggle">
-                                        <asp:ListItem Value="">Please select a document type</asp:ListItem>
+                                        <asp:Label ID="lblDocType" runat="server" CssClass="font-weight-bold">Document Type:</asp:Label> 
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <asp:DropDownList ID="ddlAddDoc" runat="server" CssClass="dropdown-toggle" Width="100%">
+                                            
+                                        <asp:ListItem Selected="true" Value="" disabled="disabled">Please select a document type</asp:ListItem>
                                         <asp:ListItem Value="Journal">Journal</asp:ListItem>
                                         <asp:ListItem Value="Conference">Conference</asp:ListItem>
                                         <asp:ListItem Value="Paper">Paper</asp:ListItem>
@@ -184,13 +255,16 @@
                                     </div>
 
                                     <div class="row">
-                                        <asp:Label ID="lblDocTitle" runat="server">Document Title:</asp:Label>
-                                        <asp:TextBox ID="txtDocTitle" runat="server"></asp:TextBox>
+                                        <asp:Label ID="lblModDocTitle" runat="server" CssClass="font-weight-bold">Document Title:</asp:Label>                                      
                                     </div>
-
                                     <div class="row">
-                                        <asp:Label ID="lblDocDesc" runat="server">Description:</asp:Label>
-                                        <asp:TextBox ID="TxtDocDesc" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
+                                        <asp:TextBox ID="txtModDocTitle" runat="server" Width="100%"></asp:TextBox>
+                                    </div>
+                                    <div class="row">
+                                        <asp:Label ID="lblModDocDesc" runat="server" CssClass="font-weight-bold">Description:</asp:Label>                                      
+                                    </div>
+                                    <div class="row">
+                                        <asp:TextBox ID="TxtModDocDesc" runat="server" Width="100%" TextMode="MultiLine" Rows="5"></asp:TextBox>
                                     </div>
 
                                     
@@ -200,14 +274,14 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn redbtn" data-dismiss="modal">Confirm and Add</button>
+                                    <button type="button" runat="server" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+<%--                                    <button type="button" runat="server" class="btn redbtn" data-dismiss="modal" onclick="btnModAdd_Click">Confirm and Add</button>--%>
+                                    <asp:Button CssClass="btn redbtn" runat="server" OnClick="btnModAdd_Click" Text="Confirm and Add" UseSubmitBehavior="false" data-dismiss="modal" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
+               
 
                             <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
                             <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />

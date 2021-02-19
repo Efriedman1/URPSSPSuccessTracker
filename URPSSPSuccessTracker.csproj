@@ -176,6 +176,7 @@
     <Content Include="PIViewStudentResearch.aspx" />
     <Content Include="TempLogin.aspx" />
     <Content Include="ViewStudentResearch.aspx" />
+    <Content Include="appSettings.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -190,7 +191,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <None Include="Web References\WS_Student_Search\ws_student.disco" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDownload.aspx.cs">
@@ -326,7 +329,6 @@
   <ItemGroup>
     <Content Include="Master.Master" />
     <Content Include="fonts\AvanirNext.otf" />
-    <Content Include="appSettings.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\URPSSPSuccessTracker.csproj.CopyComplete" />
