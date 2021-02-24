@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using URPSSPSuccessTracker.Library;
+
 
 namespace URPSSPSuccessTracker.Classes
 {
@@ -29,6 +31,29 @@ namespace URPSSPSuccessTracker.Classes
             PhoneNumber = phonenumber;
             Email = email;
             LastUpdate = lastupdate;
+        }
+
+        private WebService.LDAPuser ldap;
+
+
+        //null Constructor
+        public PrincipalInvestigator()
+        {
+
+        }
+
+        public PrincipalInvestigator(WebService.LDAPuser ldap, string department)
+        {
+            this.ldap = ldap;
+            this.Department = department;
+
+        }
+
+
+        public WebService.LDAPuser LDAP
+        {
+            get { return ldap; }
+            set { ldap = value; }
         }
     }
 }
