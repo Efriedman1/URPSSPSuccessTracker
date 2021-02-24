@@ -4,6 +4,7 @@
 ##user added
 *.config
 URPSSPSuccessTracker.csproj
+URPSSPSuccessTracker.csproj~54ecb1750401848dc390c5a9aa63919e06f933c5
 
 # User-specific files
 *.suo
