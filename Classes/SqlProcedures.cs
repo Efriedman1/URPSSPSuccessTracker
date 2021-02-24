@@ -68,9 +68,9 @@ namespace URPSSPSuccessTracker.Classes
             adminCommand.CommandType = CommandType.StoredProcedure;
             adminCommand.CommandText = "LoadAdministrator";
 
-            DataSet adminData = urpDB.GetDataSetUsingCmdObj(studentCommand);
+            DataSet adminData = urpDB.GetDataSetUsingCmdObj(adminCommand);
             int count = adminData.Tables[0].Rows.Count;
-            for (int i = 0; i < count, i++)
+            for (int i = 0; i < count; i++)
             {
                 Administrator newAdmin = new Administrator((int)adminData.Tables[0].Rows[i][0], adminData.Tables[0].Rows[i][1].ToString(), adminData.Tables[0].Rows[i][2].ToString(), adminData.Tables[0].Rows[i][3].ToString(),
                      adminData.Tables[0].Rows[i][4].ToString());
@@ -130,7 +130,7 @@ namespace URPSSPSuccessTracker.Classes
             studentCommand.CommandText = "LoadStudents";
             DataSet studentData = urpDB.GetDataSetUsingCmdObj(studentCommand);
             int count = studentData.Tables[0].Rows.Count;
-            for (int i = 0; i < count, i++)
+            for (int i = 0; i < count; i++)
             {
                 Student newStudent = new Student((int)studentData.Tables[0].Rows[i][0], studentData.Tables[0].Rows[i][1].ToString(), studentData.Tables[0].Rows[i][2].ToString(), studentData.Tables[0].Rows[i][3].ToString(),
                      studentData.Tables[0].Rows[i][4].ToString(), studentData.Tables[0].Rows[i][5].ToString(), studentData.Tables[0].Rows[i][6].ToString(), (DateTime)studentData.Tables[0].Rows[i][7]);
@@ -176,7 +176,7 @@ namespace URPSSPSuccessTracker.Classes
             piCommand.CommandText = "LoadPrincipalInvestigator";
             DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
             int count = piData.Tables[0].Rows.Count;
-            for (int i = 0; i < count, i++)
+            for (int i = 0; i < count; i++)
             {
                 PrincipalInvestigator newPI = new PrincipalInvestigator((int)piData.Tables[0].Rows[i][0], piData.Tables[0].Rows[i][1].ToString(), piData.Tables[0].Rows[i][2].ToString(), piData.Tables[0].Rows[i][3].ToString(),
                      piData.Tables[0].Rows[i][4].ToString(), piData.Tables[0].Rows[i][5].ToString(), piData.Tables[0].Rows[i][6].ToString(), piData.Tables[0].Rows[i][6].ToString(), (DateTime)piData.Tables[0].Rows[i][8]);
@@ -227,7 +227,7 @@ namespace URPSSPSuccessTracker.Classes
             commentCommand.CommandText = "LoadComments";
             DataSet commentData = urpDB.GetDataSetUsingCmdObj(commentCommand);
             int count = commentData.Tables[0].Rows.Count;
-            for (int i = 0; i < count, i++)
+            for (int i = 0; i < count; i++)
             {
                 Comment newComment = new Comment((int)commentData.Tables[0].Rows[i][0], (int)commentData.Tables[0].Rows[i][1], commentData.Tables[0].Rows[i][2].ToString(), commentData.Tables[0].Rows[i][3].ToString(),
                       (DateTime)commentData.Tables[0].Rows[i][4]);

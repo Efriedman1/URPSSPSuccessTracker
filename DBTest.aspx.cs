@@ -24,7 +24,7 @@ namespace URPSSPSuccessTracker
             {
                 lblTest.Text = "urpDB connection established";
                 DataSet testData = new DataSet();
-                testData = UrpSqlProcedures.LoadAdministrator();
+                //testData = UrpSqlProcedures.LoadAdministrator();
                 StringBuilder sbTest = new StringBuilder();
                 for (int i = 0; i < testData.Tables[0].Rows.Count; i++)
                 {
