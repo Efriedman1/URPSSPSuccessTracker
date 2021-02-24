@@ -3,6 +3,7 @@
 
 ##user added
 *.config
+URPSSPSuccessTracker.csproj
 
 # User-specific files
 *.suo

@@ -10,90 +10,69 @@
 namespace URPSSPSuccessTracker {
     
     
-    public partial class AdminManageUsers {
+    public partial class AdminHomeDatatable {
         
         /// <summary>
-        /// Label1 control.
+        /// btnStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button btnStudent;
         
         /// <summary>
-        /// TextBox1 control.
+        /// btnPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Button btnPI;
         
         /// <summary>
-        /// AddAdminModal control.
+        /// pnlStudents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddAdminModal;
+        protected global::System.Web.UI.WebControls.Panel pnlStudents;
         
         /// <summary>
-        /// tblAdministrators control.
+        /// pnlPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblAdministrators;
+        protected global::System.Web.UI.WebControls.Panel pnlPI;
         
         /// <summary>
-        /// ddlSemester control.
+        /// btnEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSemester;
+        protected global::System.Web.UI.WebControls.Button btnEmail;
         
         /// <summary>
-        /// txtYear control.
+        /// btnEmailChecked control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtYear;
+        protected global::System.Web.UI.WebControls.Button btnEmailChecked;
         
         /// <summary>
-        /// btnCreateTerm control.
+        /// btnExport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateTerm;
-        
-        /// <summary>
-        /// gvTerms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTerms;
-        
-        /// <summary>
-        /// Master property.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated property.
-        /// </remarks>
-        public new URPSSPSuccessTracker.Master Master {
-            get {
-                return ((URPSSPSuccessTracker.Master)(base.Master));
-            }
-        }
+        protected global::System.Web.UI.WebControls.Button btnExport;
     }
 }

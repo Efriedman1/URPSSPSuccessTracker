@@ -5,22 +5,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="flex-container m-5">
+    <div class="flex-container m-5">        
+        <div class="row"><asp:Label ID="lblInfo" Text="" runat="server" /></div>
         <div class="row mt-3">
             <div class="col-md-2 md-offset-">
                 <h2>Student Dashboard</h2>
             </div>
             <div class="col-md-2 mt-2">
                 <asp:Label ID="Label2" runat="server" Text="TUID:  " Style="font-size: 20px;"></asp:Label>
-                <asp:Label ID="Label3" runat="server" Text="914274289" Style="font-size: 20px;"></asp:Label>
+                <asp:Label ID="lblTUID" runat="server" Text="914274289" Style="font-size: 20px;"></asp:Label>
             </div>
             <div class="col-md-3 mt-2">
                 <asp:Label ID="Label4" runat="server" Text="Email:  " Style="font-size: 20px;"></asp:Label>
-                <asp:Label ID="Label5" runat="server" Text="John.Doe@temple.edu" Style="font-size: 20px;"></asp:Label>
+                <asp:Label ID="lblEmail" runat="server" Text="John.Doe@temple.edu" Style="font-size: 20px;"></asp:Label>
             </div>
             <div class="col-md-3 mt-2">
                 <asp:Label ID="Label6" runat="server" Text="Major:  " Style="font-size: 20px;"></asp:Label>
-                <asp:Label ID="Label7" runat="server" Text="Computer Science" Style="font-size: 20px;"></asp:Label>
+                <asp:Label ID="lblMajor" runat="server" Text="Computer Science" Style="font-size: 20px;"></asp:Label>
             </div>
             <div class="col-md-2"></div>
         </div>

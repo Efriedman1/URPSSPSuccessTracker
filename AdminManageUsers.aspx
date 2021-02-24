@@ -151,7 +151,7 @@
 
 
     <div class="container">
-        <h3 class="mt-4">Manage Terms</h3>
+        <h3 class="mt-4">Manage Terms</h3>        
         <div class="row mt-5">
             <div class="col">
                 <div class="row mt-5">
@@ -174,38 +174,25 @@
                     </div>
                 </div>
                 <div class="mt-5 text-center mb-5">
-                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn redbtn" />
+                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn redbtn" OnClick="btnCreateTerm_Click" />
                 </div>
             </div>
             <div class="col">
-                <table class="table">
-                    <thead class="text-white" style="background-color: #91182a">
-                        <tr>
-                            <th scope="col">Year</th>
-                            <th scope="col">Semester</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">2019</th>
-                            <td>FALL</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2020</th>
-                            <td>SPRING</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2020</th>
-                            <td>FALL</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2021</th>
-                            <td>SPRING</td>
-                        </tr>
-                    </tbody>
-                </table>
+                
+                <div class="row">            
+                <asp:GridView runat="server" ID="gvTerms" DataKeyNames="TermID" AutoGenerateColumns="false" OnRowDeleting="gvTerms_RowDeleting" CssClass="table table-borderless" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White">
+                    <Columns>
+                        <asp:BoundField DataField="TermID" HeaderText="TermID" Visible="false"/>
+                        <asp:BoundField DataField="Semester" HeaderText="Semester" />
+                        <asp:BoundField DataField="Year" HeaderText="Year" />
+                        <asp:BoundField DataField="Status" HeaderText="Status" />             
+                        <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn btn-danger"/>
+                    </Columns>
+                </asp:GridView>
+        </div>
             </div>
         </div>
 
     </div>
+    <div style="padding:20px;"></div>
 </asp:Content>
