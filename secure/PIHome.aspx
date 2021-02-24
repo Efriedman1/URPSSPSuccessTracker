@@ -49,6 +49,11 @@
                 </div>
             </div>
             <div class="col-md-2 md-offset-">
+                 <div class="d-flex justify-content-center mt-2">
+                    <button type="button" class="btn redbtn p-2 mr-3 ml-3 mt-4" >Search</button>
+                </div>
+            </div>
+            <div class="col-md-2 md-offset-">
                 <div class="d-flex justify-content-center mt-2">
                     <button type="button" class="btn redbtn p-2 mr-3 ml-3 mt-4" data-toggle="modal" data-target="#resultModal">Instructions</button>
                 </div>

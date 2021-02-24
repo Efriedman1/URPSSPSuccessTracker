@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="URPSSPSuccessTracker.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="URPSSPSuccessTracker_WS_LDAP_Search_LDAP_Search" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://preprod-wsw.temple.edu/ws_ldapsearch/ldap_search.asmx</Value>
+    </Setting>
+    <Setting Name="URPSSPSuccessTracker_WS_Programs_And_Degrees_ProgramsAndDegrees" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://preprod-wsw.temple.edu/programsanddegrees/ProgramsAndDegrees.asmx</Value>
+    </Setting>
+    <Setting Name="URPSSPSuccessTracker_WS_Student_Search_WS_Student" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://preprod-wsw.temple.edu/ws_student/ws_student.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

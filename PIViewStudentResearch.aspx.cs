@@ -31,15 +31,22 @@ namespace URPSSPSuccessTracker
             txtStatus.Enabled = tf;
             txtTitle.Enabled = tf;
             txtType.Enabled = tf;
-            txtLinks.Enabled = tf;
-            txtJournal.Enabled = tf;
-            txtInfo.Enabled = tf;
-            txtDescription.Enabled = tf;
+
+            //txtLinks.Enabled = tf;
+            //txtJournal.Enabled = tf;
+            //txtInfo.Enabled = tf;
+            //txtDescription.Enabled = tf;
+
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
                         
         }
+
+        //protected void btnAdd_Click(object sender, EventArgs e)
+        //{
+        //    display(false);
+        //}
     }
 }
