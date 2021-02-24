@@ -41,7 +41,7 @@ namespace URPSSPSuccessTracker.Classes
         public Student(WebService.StudentObj studentObj, string program)
         {
             this.studentObj = studentObj;
-            this.program = program;
+            this.Program = program;
         }
 
 

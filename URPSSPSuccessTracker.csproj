@@ -77,8 +77,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminDownload.aspx" />
-    <Content Include="AdminDownload1.aspx" />
+    <Content Include="secure\AdminDownload.aspx" />
     <Content Include="AdminHomeDatatable.aspx" />
     <Content Include="bin\ExcelDataReader.DataSet.dll" />
     <Content Include="bin\ExcelDataReader.DataSet.pdb" />
@@ -134,7 +133,7 @@
     <Content Include="default.aspx" />
     <Content Include="images\ProfilePic.jpg" />
     <Content Include="AdminSearchStudent.aspx" />
-    <Content Include="AdminManageUsers.aspx" />
+    <Content Include="secure\AdminManageUsers.aspx" />
     <Content Include="images\templeulogo.png" />
     <Content Include="images\urpssp.png" />
     <Content Include="ManageTerm.aspx" />
@@ -307,19 +306,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminDownload.aspx.cs">
+    <Compile Include="secure\AdminDownload.aspx.cs">
       <DependentUpon>AdminDownload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminDownload.aspx.designer.cs">
+    <Compile Include="secure\AdminDownload.aspx.designer.cs">
       <DependentUpon>AdminDownload.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminDownload1.aspx.cs">
-      <DependentUpon>AdminDownload1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminDownload1.aspx.designer.cs">
-      <DependentUpon>AdminDownload1.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminHomeDatatable.aspx.cs">
       <DependentUpon>AdminHomeDatatable.aspx</DependentUpon>
@@ -335,11 +327,11 @@
     <Compile Include="AdminSearchStudent.aspx.designer.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminManageUsers.aspx.cs">
+    <Compile Include="secure\AdminManageUsers.aspx.cs">
       <DependentUpon>AdminManageUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminManageUsers.aspx.designer.cs">
+    <Compile Include="secure\AdminManageUsers.aspx.designer.cs">
       <DependentUpon>AdminManageUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\Administrator.cs" />
