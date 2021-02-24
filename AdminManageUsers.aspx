@@ -14,10 +14,7 @@
             <div class="col-sm-12 col-sm-12 col-md-6 col-lg-6">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Instructions</legend>
-                    <h6>Manage Admin Users:</h6>
-                    <p>To add a new admin user, enter their TUID in the TUID box and click "Add". Use the table to select an admin and edit their status or delete them with the dropdown menu. </p>
-                    <h6>Manage Term</h6>
-                    <p>Fill out the year and semester for a term you'd like to add, and click "Add" to add it to the system.</p>
+                    <asp:Label runat="server" ID="lblInstructions" Text="null"></asp:Label>
                 </fieldset>
             </div>
         </div>

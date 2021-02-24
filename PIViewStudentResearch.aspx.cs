@@ -37,6 +37,7 @@ namespace URPSSPSuccessTracker
             txtStatus.Enabled = tf;
             txtTitle.Enabled = tf;
             txtType.Enabled = tf;
+
             //txtLinks.Enabled = tf;
             //txtJournal.Enabled = tf;
             //txtInfo.Enabled = tf;
@@ -46,7 +47,7 @@ namespace URPSSPSuccessTracker
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            display(false);
+                        
         }
 
         class click

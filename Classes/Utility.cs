@@ -7,8 +7,6 @@ using URPSSPSuccessTracker.Classes;
 namespace URPSSPSuccessTracker.Classes
 {    
     public class Utility
-    {
-        Connection urpDB;
-        
+    {              
     }
 }
