@@ -259,6 +259,7 @@
     </Compile>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\Email.cs" />
+    <Compile Include="Classes\PrincipalInvestigator.cs" />
     <Compile Include="Classes\SqlProcedures.cs" />
     <Compile Include="Classes\Student.cs" />
     <Compile Include="Classes\Utility.cs" />
