@@ -220,7 +220,21 @@ namespace URPSSPSuccessTracker.Classes
 
         public List<Comment> LoadComments()
         {
-            
+            List<Comment> commentList = new List<Comment>();
+
+            SqlCommand commentCommand = new SqlCommand();
+            commentCommand.CommandType = CommandType.StoredProcedure;
+            commentCommand.CommandText = "LoadComments";
+            DataSet commentData = urpDB.GetDataSetUsingCmdObj(commentCommand);
+            int count = commentData.Tables[0].Rows.Count;
+            for (int i = 0; i < count, i++)
+            {
+                Comment newComment = new Comment((int)commentData.Tables[0].Rows[i][0], (int)commentData.Tables[0].Rows[i][1], commentData.Tables[0].Rows[i][2].ToString(), commentData.Tables[0].Rows[i][3].ToString(),
+                      (DateTime)commentData.Tables[0].Rows[i][4]);
+                commentList.Add(newComment);
+            }
+
+            return commentList;
         }
 
         //====================
@@ -293,7 +307,7 @@ namespace URPSSPSuccessTracker.Classes
 
             DataSet ds = urpDB.GetDataSetUsingCmdObj(instructionCommand);
 
-            Instruction instruction = new Instruction(ds.Tables[0].Rows[0][1].ToString(), (int)ds.Tables[0].Rows[0][0]);
+            Instruction instruction = new Instruction((int)ds.Tables[0].Rows[0][0], ds.Tables[0].Rows[0][1].ToString());
 
             return instruction;
         }

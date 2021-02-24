@@ -8,11 +8,11 @@ namespace URPSSPSuccessTracker.Classes
     public class Instruction
     {
         public string Body { get; set; }
-        public int Id { get; set; }
-        public Instruction (string body, int id)
+        public int InstructionId { get; set; }
+        public Instruction(int id, string body)
         {
             Body = body;
-            Id = id;
+            InstructionId = id;
         }
     }
 }
