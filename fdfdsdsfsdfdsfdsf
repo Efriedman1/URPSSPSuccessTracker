@@ -1,0 +1,1109 @@
+[33mcommit 4b8204557a097050bce6f2aeb2f76d357122a5d6[m[33m ([m[1;36mHEAD -> [m[1;32mtuf53874[m[33m)[m
+Author: Hoffman Zhang <tuf53874@temple.edu>
+Date:   Mon Feb 22 14:18:01 2021 -0500
+
+    changed
+
+ create mode 100644 secure/AdminHome.aspx
+ create mode 100644 secure/AdminHome.aspx.cs
+ create mode 100644 secure/AdminHome.aspx.designer.cs
+ create mode 100644 secure/PIHome.aspx
+ create mode 100644 secure/PIHome.aspx.cs
+ create mode 100644 secure/PIHome.aspx.designer.cs
+ create mode 100644 secure/StudentHome.aspx
+ create mode 100644 secure/StudentHome.aspx.cs
+ create mode 100644 secure/StudentHome.aspx.designer.cs
+ create mode 100644 secure/default.aspx
+ create mode 100644 secure/default.aspx.cs
+ create mode 100644 secure/default.aspx.designer.cs
+ create mode 100644 secure/images/ProfilePic.jpg
+ create mode 100644 secure/images/templeulogo.png
+ create mode 100644 secure/images/urpssp.png
+
+[33mcommit 52db7596cdd8a3cec757c3e98a61835812cdd7b8[m[33m ([m[1;31morigin/PullInfo[m[33m)[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Tue Feb 16 11:17:11 2021 -0500
+
+    Re added template upload, it got overwritten during last pull
+
+
+[33mcommit ab1010f76b6b62c73bf783ee48ae597b5e3924aa[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Mon Feb 15 20:05:37 2021 -0500
+
+    changes
+
+
+[33mcommit 0ff1d3ff579a1b415cbd432e1db858c9cc5b7b41[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Mon Feb 15 16:32:57 2021 -0500
+
+    Added web service references
+
+ create mode 100644 Properties/Settings.Designer.cs
+ create mode 100644 Properties/Settings.settings
+ create mode 100644 Web References/WS_LDAP_Search/Reference.cs
+ create mode 100644 Web References/WS_LDAP_Search/Reference.map
+ create mode 100644 Web References/WS_LDAP_Search/TempleLDAPEntry.datasource
+ create mode 100644 Web References/WS_LDAP_Search/ldap_search.disco
+ create mode 100644 Web References/WS_LDAP_Search/ldap_search.wsdl
+ create mode 100644 Web References/WS_Programs_And_Degrees/ProgramsAndDegrees.disco
+ create mode 100644 Web References/WS_Programs_And_Degrees/ProgramsAndDegrees.wsdl
+ create mode 100644 Web References/WS_Programs_And_Degrees/ProgramsAndDegreesEntry.datasource
+ create mode 100644 Web References/WS_Programs_And_Degrees/Reference.cs
+ create mode 100644 Web References/WS_Programs_And_Degrees/Reference.map
+ create mode 100644 Web References/WS_Student_Search/Reference.cs
+ create mode 100644 Web References/WS_Student_Search/Reference.map
+ create mode 100644 Web References/WS_Student_Search/Result.datasource
+ create mode 100644 Web References/WS_Student_Search/ws_student.disco
+ create mode 100644 Web References/WS_Student_Search/ws_student.wsdl
+
+[33mcommit 7aa2770d6010314cfe8b3570b615fd074032b3e9[m
+Author: alittl29 <57717932+alittl29@users.noreply.github.com>
+Date:   Mon Feb 15 16:01:39 2021 -0500
+
+    Add files via upload
+
+ create mode 100644 Classes/WebService.cs
+
+[33mcommit 6c7781cef90588a2b2df678e1952b6d982811010[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Mon Feb 15 15:56:06 2021 -0500
+
+    Library Folder added
+
+ create mode 100644 Library/WebService.cs
+
+[33mcommit c881a67e4fa7c216e22168d8ed4be12c4fe43655[m
+Author: Bin Liang <tuh35516@temple.edu>
+Date:   Mon Feb 15 13:38:38 2021 -0500
+
+    Added Modal, changed comment layout
+
+
+[33mcommit dfbf0aa358be6be425ce1df17a1a911f06c44f32[m[33m ([m[1;31morigin/backend[m[33m)[m
+Author: John W Novak <tuf97957@temple.edu>
+Date:   Thu Feb 11 17:01:13 2021 -0500
+
+    test
+
+ create mode 100644 URPSSPSuccessTracker.csproj~54ecb1750401848dc390c5a9aa63919e06f933c5
+
+[33mcommit d81dc094e58c0b1f8ffa9f90d412a37a8f4805ed[m
+Author: Bin Liang <tuh35516@temple.edu>
+Date:   Thu Feb 11 16:43:35 2021 -0500
+
+    Update student page
+
+
+[33mcommit 3de681f20f09633687337736b1e32e3f78b0e91e[m
+Author: John W Novak <tuf97957@temple.edu>
+Date:   Thu Feb 11 16:06:01 2021 -0500
+
+    ready to merge
+
+ rename Classes/{User.cs => Student.cs} (84%)
+
+[33mcommit b063ef31a83e1a1425e70d4049b1c67f629a1244[m
+Author: Bin Liang <tuh35516@temple.edu>
+Date:   Wed Feb 10 13:07:34 2021 -0500
+
+    Changed comment section
+
+
+[33mcommit 42c9a160bccd7478e7fde86f9799c26b3109fc3f[m[33m ([m[1;31morigin/ExcelUpload[m[33m)[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Feb 10 12:28:35 2021 -0500
+
+    reverted back to dot net com 2.00 since it causes an error if upgradded
+
+
+[33mcommit e1d7bac0f9758a5aa3b5ab165b8414e3dea7b8ec[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Feb 10 12:16:24 2021 -0500
+
+    added update to dotnet compiler
+
+
+[33mcommit 2d7ae48f0c7aa19e32582d74e7314947679b5fb3[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Feb 10 11:59:30 2021 -0500
+
+    Added packages: excel reader and excel.dataset
+    added abiluty to read an xlsx file and get the data from it.
+    Changed admin download code to remove  namespace error
+
+ create mode 100644 URPSSPSuccessTracker/URPSSPSuccessTracker.csproj
+
+[33mcommit c4d54d547bc9896584c19daeded21cd7fd6cc9b4[m
+Author: John W Novak <tuf97957@temple.edu>
+Date:   Tue Feb 9 14:03:59 2021 -0500
+
+    more functions
+
+
+[33mcommit 3408ec48fd9bd8e8babe30ba637c5bb8874210db[m
+Author: John W Novak <tuf97957@temple.edu>
+Date:   Tue Feb 9 13:33:00 2021 -0500
+
+    added stored procedure class with functions
+
+ rename URPSSPSuccessTracker/AdminDownload.aspx => AdminDownload.aspx (100%)
+ rename URPSSPSuccessTracker/AdminDownload.aspx.cs => AdminDownload.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminDownload.aspx.designer.cs => AdminDownload.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminDownload1.aspx => AdminDownload1.aspx (100%)
+ rename URPSSPSuccessTracker/AdminDownload1.aspx.cs => AdminDownload1.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminDownload1.aspx.designer.cs => AdminDownload1.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminHome.aspx => AdminHome.aspx (100%)
+ rename URPSSPSuccessTracker/AdminHome.aspx.cs => AdminHome.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminHome.aspx.designer.cs => AdminHome.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminManageUsers.aspx => AdminManageUsers.aspx (100%)
+ rename URPSSPSuccessTracker/AdminManageUsers.aspx.cs => AdminManageUsers.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminManageUsers.aspx.designer.cs => AdminManageUsers.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminSearchStudent.aspx => AdminSearchStudent.aspx (100%)
+ rename URPSSPSuccessTracker/AdminSearchStudent.aspx.cs => AdminSearchStudent.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminSearchStudent.aspx.designer.cs => AdminSearchStudent.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminSendEmail.aspx => AdminSendEmail.aspx (100%)
+ rename URPSSPSuccessTracker/AdminSendEmail.aspx.cs => AdminSendEmail.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminSendEmail.aspx.designer.cs => AdminSendEmail.aspx.designer.cs (100%)
+ rename {URPSSPSuccessTracker/Classes => Classes}/Connection.cs (96%)
+ rename {URPSSPSuccessTracker/Classes => Classes}/Email.cs (96%)
+ create mode 100644 Classes/SqlProcedures.cs
+ rename {URPSSPSuccessTracker/Classes => Classes}/User.cs (98%)
+ rename {URPSSPSuccessTracker/Classes => Classes}/Utility.cs (63%)
+ rename {URPSSPSuccessTracker/Classes => Classes}/Validation.cs (96%)
+ rename URPSSPSuccessTracker/ManageTerm.aspx => ManageTerm.aspx (100%)
+ rename URPSSPSuccessTracker/ManageTerm.aspx.cs => ManageTerm.aspx.cs (100%)
+ rename URPSSPSuccessTracker/ManageTerm.aspx.designer.cs => ManageTerm.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/Master.Master => Master.Master (100%)
+ rename URPSSPSuccessTracker/Master.Master.cs => Master.Master.cs (100%)
+ rename URPSSPSuccessTracker/Master.Master.designer.cs => Master.Master.designer.cs (100%)
+ rename URPSSPSuccessTracker/PIHome.aspx => PIHome.aspx (100%)
+ rename URPSSPSuccessTracker/PIHome.aspx.cs => PIHome.aspx.cs (100%)
+ rename URPSSPSuccessTracker/PIHome.aspx.designer.cs => PIHome.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/PIViewStudentResearch.aspx => PIViewStudentResearch.aspx (100%)
+ rename URPSSPSuccessTracker/PIViewStudentResearch.aspx.cs => PIViewStudentResearch.aspx.cs (100%)
+ rename URPSSPSuccessTracker/PIViewStudentResearch.aspx.designer.cs => PIViewStudentResearch.aspx.designer.cs (100%)
+ rename {URPSSPSuccessTracker/Properties => Properties}/AssemblyInfo.cs (100%)
+ rename {URPSSPSuccessTracker/Properties => Properties}/PublishProfiles/URPSSPSuccessTracker - Web Deploy.pubxml (100%)
+ rename URPSSPSuccessTracker/StudentEnterResearch.aspx => StudentEnterResearch.aspx (100%)
+ rename URPSSPSuccessTracker/StudentEnterResearch.aspx.cs => StudentEnterResearch.aspx.cs (100%)
+ rename URPSSPSuccessTracker/StudentEnterResearch.aspx.designer.cs => StudentEnterResearch.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/StudentHome.aspx => StudentHome.aspx (100%)
+ rename URPSSPSuccessTracker/StudentHome.aspx.cs => StudentHome.aspx.cs (100%)
+ rename URPSSPSuccessTracker/StudentHome.aspx.designer.cs => StudentHome.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/TempLogin.aspx => TempLogin.aspx (100%)
+ rename URPSSPSuccessTracker/TempLogin.aspx.cs => TempLogin.aspx.cs (100%)
+ rename URPSSPSuccessTracker/TempLogin.aspx.designer.cs => TempLogin.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/URPSSPSuccessTracker.csproj => URPSSPSuccessTracker.csproj (97%)
+ rename URPSSPSuccessTracker/ViewStudentResearch.aspx => ViewStudentResearch.aspx (100%)
+ rename URPSSPSuccessTracker/ViewStudentResearch.aspx.cs => ViewStudentResearch.aspx.cs (100%)
+ rename URPSSPSuccessTracker/ViewStudentResearch.aspx.designer.cs => ViewStudentResearch.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/Web.Debug.config => Web.Debug.config (100%)
+ rename URPSSPSuccessTracker/Web.Release.config => Web.Release.config (100%)
+ rename URPSSPSuccessTracker/Web.config => Web.config (100%)
+ rename URPSSPSuccessTracker/default.aspx => default.aspx (100%)
+ rename URPSSPSuccessTracker/default.aspx.cs => default.aspx.cs (100%)
+ rename URPSSPSuccessTracker/default.aspx.designer.cs => default.aspx.designer.cs (100%)
+ rename {URPSSPSuccessTracker/fonts => fonts}/AvanirNext.otf (100%)
+ rename {URPSSPSuccessTracker/images => images}/ProfilePic.jpg (100%)
+ rename {URPSSPSuccessTracker/images => images}/templeulogo.png (100%)
+ rename {URPSSPSuccessTracker/images => images}/urpssp.png (100%)
+ rename URPSSPSuccessTracker/master.css => master.css (100%)
+ rename URPSSPSuccessTracker/packages.config => packages.config (100%)
+
+[33mcommit 1456e522c94018582002ab1ff15e73d00263d0bc[m[33m ([m[1;31morigin/FileStructure[m[33m)[m
+Author: Eric S Friedman <tug45244@temple.edu>
+Date:   Thu Feb 4 16:02:53 2021 -0500
+
+    updates
+
+ rename URPSSPSuccessTracker/AdminDownload.aspx => AdminDownload.aspx (100%)
+ rename URPSSPSuccessTracker/AdminDownload.aspx.cs => AdminDownload.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminDownload.aspx.designer.cs => AdminDownload.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminDownload1.aspx => AdminDownload1.aspx (100%)
+ rename URPSSPSuccessTracker/AdminDownload1.aspx.cs => AdminDownload1.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminDownload1.aspx.designer.cs => AdminDownload1.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminHome.aspx => AdminHome.aspx (100%)
+ rename URPSSPSuccessTracker/AdminHome.aspx.cs => AdminHome.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminHome.aspx.designer.cs => AdminHome.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminManageUsers.aspx => AdminManageUsers.aspx (100%)
+ rename URPSSPSuccessTracker/AdminManageUsers.aspx.cs => AdminManageUsers.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminManageUsers.aspx.designer.cs => AdminManageUsers.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminSearchStudent.aspx => AdminSearchStudent.aspx (100%)
+ rename URPSSPSuccessTracker/AdminSearchStudent.aspx.cs => AdminSearchStudent.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminSearchStudent.aspx.designer.cs => AdminSearchStudent.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/AdminSendEmail.aspx => AdminSendEmail.aspx (100%)
+ rename URPSSPSuccessTracker/AdminSendEmail.aspx.cs => AdminSendEmail.aspx.cs (100%)
+ rename URPSSPSuccessTracker/AdminSendEmail.aspx.designer.cs => AdminSendEmail.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/ManageTerm.aspx => ManageTerm.aspx (100%)
+ rename URPSSPSuccessTracker/ManageTerm.aspx.cs => ManageTerm.aspx.cs (100%)
+ rename URPSSPSuccessTracker/ManageTerm.aspx.designer.cs => ManageTerm.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/Master.Master => Master.Master (100%)
+ rename URPSSPSuccessTracker/Master.Master.cs => Master.Master.cs (100%)
+ rename URPSSPSuccessTracker/Master.Master.designer.cs => Master.Master.designer.cs (100%)
+ rename URPSSPSuccessTracker/PIHome.aspx => PIHome.aspx (100%)
+ rename URPSSPSuccessTracker/PIHome.aspx.cs => PIHome.aspx.cs (100%)
+ rename URPSSPSuccessTracker/PIHome.aspx.designer.cs => PIHome.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/PIViewStudentResearch.aspx => PIViewStudentResearch.aspx (100%)
+ rename URPSSPSuccessTracker/PIViewStudentResearch.aspx.cs => PIViewStudentResearch.aspx.cs (100%)
+ rename URPSSPSuccessTracker/PIViewStudentResearch.aspx.designer.cs => PIViewStudentResearch.aspx.designer.cs (100%)
+ rename {URPSSPSuccessTracker/Properties => Properties}/AssemblyInfo.cs (100%)
+ rename {URPSSPSuccessTracker/Properties => Properties}/PublishProfiles/URPSSPSuccessTracker - Web Deploy.pubxml (100%)
+ rename URPSSPSuccessTracker/StudentEnterResearch.aspx => StudentEnterResearch.aspx (100%)
+ rename URPSSPSuccessTracker/StudentEnterResearch.aspx.cs => StudentEnterResearch.aspx.cs (100%)
+ rename URPSSPSuccessTracker/StudentEnterResearch.aspx.designer.cs => StudentEnterResearch.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/StudentHome.aspx => StudentHome.aspx (100%)
+ rename URPSSPSuccessTracker/StudentHome.aspx.cs => StudentHome.aspx.cs (100%)
+ rename URPSSPSuccessTracker/StudentHome.aspx.designer.cs => StudentHome.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/TempLogin.aspx => TempLogin.aspx (100%)
+ rename URPSSPSuccessTracker/TempLogin.aspx.cs => TempLogin.aspx.cs (100%)
+ rename URPSSPSuccessTracker/TempLogin.aspx.designer.cs => TempLogin.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/URPSSPSuccessTracker.csproj => URPSSPSuccessTracker.csproj (100%)
+ rename URPSSPSuccessTracker/ViewStudentResearch.aspx => ViewStudentResearch.aspx (100%)
+ rename URPSSPSuccessTracker/ViewStudentResearch.aspx.cs => ViewStudentResearch.aspx.cs (100%)
+ rename URPSSPSuccessTracker/ViewStudentResearch.aspx.designer.cs => ViewStudentResearch.aspx.designer.cs (100%)
+ rename URPSSPSuccessTracker/default.aspx => default.aspx (100%)
+ rename URPSSPSuccessTracker/default.aspx.cs => default.aspx.cs (100%)
+ rename URPSSPSuccessTracker/default.aspx.designer.cs => default.aspx.designer.cs (100%)
+ rename {URPSSPSuccessTracker/fonts => fonts}/AvanirNext.otf (100%)
+ rename {URPSSPSuccessTracker/images => images}/ProfilePic.jpg (100%)
+ rename {URPSSPSuccessTracker/images => images}/templeulogo.png (100%)
+ rename {URPSSPSuccessTracker/images => images}/urpssp.png (100%)
+ rename URPSSPSuccessTracker/master.css => master.css (100%)
+
+[33mcommit fd87a3b1fde66bc4fc3b0151a0b66da5766e6146[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Feb 3 16:05:11 2021 -0500
+
+    Fixed app config file, stopped program from crashing
+
+
+[33mcommit 316d68b0705ddcd6528921d9ca3bd9e12c30b0b5[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Feb 3 15:27:12 2021 -0500
+
+    Readded the validation control and fixed error
+
+ create mode 100644 URPSSPSuccessTracker/appSettings.config
+
+[33mcommit 6c2fb7e1364c35f4cb9eb6a8ac92f40a0240e83b[m
+Author: alittl29 <57717932+alittl29@users.noreply.github.com>
+Date:   Wed Feb 3 15:22:41 2021 -0500
+
+    Added Excel Upload Template for students and PIs
+
+ create mode 100644 URP_SSP_UploadTemplate.xlsx
+
+[33mcommit 494cf3e3b6ec57db082399641e3b4f4c0515001d[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Feb 3 12:43:17 2021 -0500
+
+    Add files via upload
+    
+    Added template classes
+
+ create mode 100644 URPSSPSuccessTracker/Classes/Connection.cs
+ create mode 100644 URPSSPSuccessTracker/Classes/Email.cs
+ create mode 100644 URPSSPSuccessTracker/Classes/Validation.cs
+
+[33mcommit 33ebb7315cb68f0d7ca60d8ced329602bb2821c7[m
+Author: John W Novak <tuf97957@temple.edu>
+Date:   Wed Feb 3 12:39:04 2021 -0500
+
+    classes
+
+ create mode 100644 URPSSPSuccessTracker/Classes/User.cs
+ rename URPSSPSuccessTracker/{ => Classes}/Utility.cs (76%)
+
+[33mcommit e70c672d4134902d1a47c78b5487d76c3c729b8f[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Feb 3 12:34:41 2021 -0500
+
+    Added git ignore file, and added info for web services
+
+
+[33mcommit fd5759302d8ba7d42c83b3369e34ae185cd5f704[m
+Author: John W Novak <tuf97957@temple.edu>
+Date:   Wed Feb 3 11:50:34 2021 -0500
+
+    initial commit to new branch
+
+ create mode 100644 URPSSPSuccessTracker/Utility.cs
+
+[33mcommit f0e7d0f1cdd32403f9405df666207747e2812441[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Feb 3 11:43:20 2021 -0500
+
+    pseudo code for reading file
+
+
+[33mcommit ef386b6e90d5926aebc1d75907def668f4fa93c0[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Mon Feb 1 13:37:05 2021 -0500
+
+    Replaced button and input field with an actual file upload control. Added regular expression validator to show error if wrong file type is uploaded
+
+
+[33mcommit 94a23e3ea0bbf2e9cb60eddf1fa59121a756cf33[m[33m ([m[1;31morigin/Matt3[m[33m)[m
+Author: Matthew Wilson <tuf94621@temple.edu>
+Date:   Tue Dec 8 10:42:34 2020 -0800
+
+    student and pi home, modals and slide content to left
+
+
+[33mcommit 40ebce1d68ada281050a5766923c55688066c6ad[m[33m ([m[1;31morigin/Anthony[m[33m)[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Tue Dec 8 12:33:24 2020 -0500
+
+    Changes to Admin Homepage
+
+
+[33mcommit 37005486b20d68ead379c90a5268a95c4cf89937[m[33m ([m[1;31morigin/Eric[m[33m)[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 19 15:12:45 2020 -0500
+
+    style updates
+
+
+[33mcommit 00fd278d89079f501c8cff17ef9475c837fd9f2d[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Thu Nov 19 14:59:00 2020 -0500
+
+    done
+
+
+[33mcommit bbbafb6486e81daf8f159922003c45b2c33d5dc7[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Thu Nov 19 14:46:36 2020 -0500
+
+    combined manage term with manage users
+
+
+[33mcommit c65bf3921b96f367e3e08dd735ff5bf4a241e2d0[m
+Author: Matthew Wilson <tuf94621@temple.edu>
+Date:   Thu Nov 19 11:41:01 2020 -0800
+
+    centered content and changed table buttons and header
+
+
+[33mcommit e13f8b573b675ecf28b35567f4e782101ff25037[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Thu Nov 19 14:18:43 2020 -0500
+
+    Changed PI name in master, Added records to table in Admin Home, Changed records in StudentHome and PIHome
+
+
+[33mcommit d8db2f25bf4e941e2a2f6a1461bbf1de3ea24593[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Thu Nov 19 14:11:27 2020 -0500
+
+    Changed formatting in various pages
+
+
+[33mcommit e7a5cd44047611f08322a3866793476988f9ec26[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 19 13:40:51 2020 -0500
+
+    Update README.md
+
+
+[33mcommit ea5a3353231e0e993e157f00fbb6dfef2357e0c1[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 19 13:39:21 2020 -0500
+
+    footer updates
+
+
+[33mcommit 690a0b1bfb67113b7e704741a0c8d9d7fbcd4bed[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 19 13:26:20 2020 -0500
+
+    test
+
+ create mode 100644 URPSSPSuccessTracker/default.aspx
+ create mode 100644 URPSSPSuccessTracker/default.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/default.aspx.designer.cs
+
+[33mcommit 6107fe0eae3e3e2ccaa1df29b8c5f58b64b4bc11[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Thu Nov 19 13:17:26 2020 -0500
+
+    email buttons
+
+
+[33mcommit d75ee5c6d3947c14b429c55fabacf42c6155beb3[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Thu Nov 19 13:16:00 2020 -0500
+
+    Email send button and label
+
+
+[33mcommit aa90732bfc929fd2945f5822f469e4296ed1c38e[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Thu Nov 19 13:09:06 2020 -0500
+
+    Send Email Label
+
+
+[33mcommit e62459e5946ef6a8bdb82ad9ed8d2d7a80f5d841[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Thu Nov 19 13:02:50 2020 -0500
+
+    Email send button clears textbox and label "Email sent"
+
+
+[33mcommit 18e0e36cec39ecee9771e5eef75b8f11ff41b41e[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Thu Nov 19 13:01:35 2020 -0500
+
+    minor fixes
+
+
+[33mcommit e56a11784d1932392f45c7abadb4c2f74fe76077[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 19 12:31:11 2020 -0500
+
+    student research page update
+
+
+[33mcommit 1d794b86e37c5233fad3f993622f8386971428b9[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 19 12:28:52 2020 -0500
+
+    student research page updates
+
+
+[33mcommit 0402764e330214f4cb0da258481f1e499c4fd838[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 23:01:16 2020 -0500
+
+    modified admin download
+
+
+[33mcommit c11cd3e07e7e22c029f66df0c3af6c44a7e1cd1e[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 22:50:23 2020 -0500
+
+    Changed formatting in various pages
+
+
+[33mcommit d99c95d4986822d333e200b3a7701f3ed8967432[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 21:45:40 2020 -0500
+
+    edit webconfig
+
+ create mode 100644 URPSSPSuccessTracker/Properties/PublishProfiles/URPSSPSuccessTracker - Web Deploy.pubxml
+
+[33mcommit da7236df198a96302e063ad4f85d2c7031aac9dc[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 21:19:59 2020 -0500
+
+    added footer
+
+
+[33mcommit ef0b1bf1523f7795501ac11c4556209629513d33[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Nov 18 20:53:18 2020 -0500
+
+    Added redirects in the mster header to admin download, search, and manage users pages
+
+
+[33mcommit 5d1a25b4b693238f9881fa693ada4781d79803a2[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 20:37:03 2020 -0500
+
+    styling on admindownload
+
+
+[33mcommit 349e12b2b34aaa28e35841355e80e3bf7ceed26f[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 20:30:10 2020 -0500
+
+    css updates
+
+
+[33mcommit 5f576fec97c911c8da6fd9596bb29de44635c947[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 20:13:18 2020 -0500
+
+    some styling changes, added new font
+
+ create mode 100644 URPSSPSuccessTracker/fonts/AvanirNext.otf
+
+[33mcommit 114f5282ca936a63963fae783d5f6d2c0753ae51[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Nov 18 20:05:26 2020 -0500
+
+    added entries to table, rounded border of instructions fieldset
+
+
+[33mcommit b925e134bd8d687c9818fdbf72a1a1e77a046040[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 19:01:37 2020 -0500
+
+    new
+
+
+[33mcommit 6d62f2b6beda81c1bf30317a3f18d66acb65d6f4[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 18:59:44 2020 -0500
+
+    fixed conflicts
+
+
+[33mcommit 7490df91a3c1e20748ffa4e8a750aa79116d8283[m[33m ([m[1;31morigin/Max[m[33m)[m
+Author: max robins <tug78217@temple.edu>
+Date:   Wed Nov 18 15:20:17 2020 -0500
+
+    admindownload
+
+ create mode 100644 URPSSPSuccessTracker/AdminDownload.aspx
+ create mode 100644 URPSSPSuccessTracker/AdminDownload.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/AdminDownload.aspx.designer.cs
+ create mode 100644 URPSSPSuccessTracker/AdminDownload1.aspx
+ create mode 100644 URPSSPSuccessTracker/AdminDownload1.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/AdminDownload1.aspx.designer.cs
+
+[33mcommit 98f082db11adbeea9b90e07ef25ecc127054a933[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 15:13:30 2020 -0500
+
+    Update master.css
+
+
+[33mcommit 84c712cfc501f1dd82ad5bde842c2a5ad81799b1[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 15:11:22 2020 -0500
+
+    fix admin home
+
+
+[33mcommit b4a623f12811423a07495afe63f8852c6adb1466[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 15:02:30 2020 -0500
+
+    fix conflicts
+
+
+[33mcommit 75030b3787903b8b336a24ff0fed0ebc8c903317[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 14:57:13 2020 -0500
+
+    Update master.css
+
+
+[33mcommit 18be54463673146fa48a06290af584174c70c837[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 14:56:50 2020 -0500
+
+    Update PIHome.aspx
+
+
+[33mcommit 5a38787ef23ed28763e87c1ccbadad72036dedcd[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 14:56:29 2020 -0500
+
+    Update Master.Master
+
+
+[33mcommit d5f15999ec80e8b69fc168cc1b49f068e9e73eb9[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 14:56:02 2020 -0500
+
+    Update AdminSendEmail.aspx
+
+
+[33mcommit ae997439717ebbd6142df510d79cf58199b02307[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 14:55:11 2020 -0500
+
+    Update AdminHome.aspx.cs
+
+
+[33mcommit 22e96660656c6f306b4b29bd6592af14797ca8f0[m
+Author: Matthew-T-Wilson <tuf94621@temple.edu >
+Date:   Wed Nov 18 14:26:48 2020 -0500
+
+    fix merge conflict
+
+
+[33mcommit 7dc66831cc12d0de42f275d902cb275be96bc2e4[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Wed Nov 18 13:54:46 2020 -0500
+
+    Manage Users / Email
+
+
+[33mcommit 5cf747f75e65066db2766a282808f4d3182b39e6[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Nov 18 13:45:35 2020 -0500
+
+    Search Params are aligned and responsive. Table header color changed
+
+
+[33mcommit 14414ad1628e9c78e2bf9e16d5469c5c27578e62[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 13:42:53 2020 -0500
+
+    reverted changes to AdminHome.aspx to resemble main
+
+
+[33mcommit bbb83b645b53dbda55ab214be5100e6b42250e78[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Wed Nov 18 13:42:40 2020 -0500
+
+    updates
+
+
+[33mcommit 857388dee7b00f84af5fa987a0df5d0da3ef3db5[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 13:37:30 2020 -0500
+
+    reverted changes to AdminHome.aspx to resemble main
+
+
+[33mcommit 2c77710ab894a09018cc23d54a3f92c3347e965e[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 13:34:27 2020 -0500
+
+    resolved issue with text showing up on login navbar
+
+
+[33mcommit 49b6102920e220d138fc04b8e778472498747f89[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 13:32:36 2020 -0500
+
+    added hover styling to master.css
+
+
+[33mcommit ed2d8b0e6fa021498a40a5064354ec0cf7d8251c[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Wed Nov 18 13:22:44 2020 -0500
+
+    Changed border style
+
+
+[33mcommit c48dc544c883d0ec8f002b395c87ba0215cdd7a3[m
+Author: Matthew-T-Wilson <tuf94621@temple.edu >
+Date:   Wed Nov 18 12:30:56 2020 -0500
+
+    completely reworked ui for PiHome and studenthome
+
+
+[33mcommit df00a7cf82b08b7b0b4561189433f7a982755181[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 12:15:51 2020 -0500
+
+    Added Session management for proper navbar functionality
+
+
+[33mcommit 14866251274065418b7e16003c21108690dae1ef[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 11:36:05 2020 -0500
+
+    changed navbar links to asp:Buttons
+
+
+[33mcommit 18dd25efda9281d524a720bdf9cea87f1241fb10[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Wed Nov 18 11:21:36 2020 -0500
+
+    Changes to manage users and email page
+
+
+[33mcommit d23d09540a3f87ffc0ed039f7bbebb2caba76c75[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 11:18:01 2020 -0500
+
+    updated color
+
+
+[33mcommit 21b99ecf3ee0a888a4f4801e9c7999510da20703[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 18 11:11:09 2020 -0500
+
+    test
+
+
+[33mcommit 7083fd09dbad5ec251976e3856845eb13d70f5c3[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Wed Nov 18 10:33:14 2020 -0500
+
+    Tables fixed. Now retain sizing when switching tables
+
+
+[33mcommit fd1e2d0947e02839605c65b5383d0b5d1f2b8191[m
+Author: Matthew-T-Wilson <tuf94621@temple.edu >
+Date:   Wed Nov 18 00:10:43 2020 -0500
+
+    fixed button styling, fixed link to student research, uncommented out master page styling
+
+
+[33mcommit 830faa4bffc0668c4990bdec8a94421fdc94f956[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 23:14:49 2020 -0500
+
+    UI updates
+
+
+[33mcommit bede665e8d91ea1fbf72beefd10a7ce5eff100a5[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Tue Nov 17 23:09:18 2020 -0500
+
+    Updated Tables, Can Delete AdminSearch StudentPage
+
+
+[33mcommit ae0c9ea5d4709d88035ec09290dccaf5610b6c74[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Tue Nov 17 23:01:58 2020 -0500
+
+    Fixed v2
+
+
+[33mcommit 754afe0bd8a76de9a3af33499e450ffda757f66c[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Tue Nov 17 22:57:14 2020 -0500
+
+    Fixed conflicts
+
+
+[33mcommit 8e97f76bc1d71b7b3e041ab36c51ab8e3a90190c[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 22:45:42 2020 -0500
+
+    Revert "Finished Session Management for different users"
+
+
+[33mcommit b07fb578281eedb53b9427aa432ac8842c71e2f3[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 22:39:44 2020 -0500
+
+    Update StudentHome.aspx
+
+
+[33mcommit 63fc5cda100a57e0267c01632bba4f8f9a930386[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Tue Nov 17 22:33:53 2020 -0500
+
+    Finished Session Management for different users
+
+
+[33mcommit 52d41cac932178d009656b9684e0fdf5c9f57452[m
+Author: Matthew-T-Wilson <tuf94621@temple.edu >
+Date:   Tue Nov 17 22:12:35 2020 -0500
+
+    added button connectivity, corrected table styling, added two columns into PIHome Term and Year
+
+
+[33mcommit 7ee24f0077f1ad274b1b39069f1d81b6d90f5c6c[m
+Author: Matthew-T-Wilson <tuf94621@temple.edu >
+Date:   Tue Nov 17 21:43:22 2020 -0500
+
+    Added PI Homepage, altered tables to be uniform with the rest of the project and added button styling
+
+ create mode 100644 URPSSPSuccessTracker/PIHome.aspx
+ create mode 100644 URPSSPSuccessTracker/PIHome.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/PIHome.aspx.designer.cs
+
+[33mcommit f40d35ad416e4ba66d5a7c2f5467b9680e0c735a[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Tue Nov 17 21:19:48 2020 -0500
+
+    extra changes I can't remember. Not much
+
+
+[33mcommit cd65eb6c11e21511476974a03f81a7261c58a96c[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Tue Nov 17 17:50:50 2020 -0500
+
+    updated CSS for button styling
+
+
+[33mcommit 7e47e5e5948f7e1bc4996fcbfcc66d88cea2905e[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 17:13:43 2020 -0500
+
+    temp login redirects
+
+
+[33mcommit 24ece1a11ad2d85808868fadf10da9b2a9527a4f[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 17:07:18 2020 -0500
+
+    temporary login page
+
+ create mode 100644 URPSSPSuccessTracker/images/templeulogo.png
+
+[33mcommit c3065c52b0e01cff25d6c7cbb34e53ce8fcf37bf[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 16:44:21 2020 -0500
+
+    media query templates
+
+ create mode 100644 URPSSPSuccessTracker/TempLogin.aspx
+ create mode 100644 URPSSPSuccessTracker/TempLogin.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/TempLogin.aspx.designer.cs
+
+[33mcommit dec800e386928dfa17d646191a9ef6d982da538d[m
+Author: Matthew-T-Wilson <tuf94621@temple.edu >
+Date:   Tue Nov 17 14:34:01 2020 -0500
+
+    Added Default Profile Image and Deleted problematic breaks and nbsp
+
+ create mode 100644 URPSSPSuccessTracker/images/ProfilePic.jpg
+
+[33mcommit 216550284dfe637404c6b105e07832299de8b248[m
+Author: Matthew-T-Wilson <tuf94621@temple.edu >
+Date:   Tue Nov 17 14:17:47 2020 -0500
+
+    First Commit
+
+
+[33mcommit 267fa9e6027ade374c9abb317b059eb0d1c66c14[m
+Author: Matthew-T-Wilson <tuf94621@temple.edu >
+Date:   Tue Nov 17 14:15:19 2020 -0500
+
+    This works
+
+ create mode 100644 URPSSPSuccessTracker/StudentHome.aspx
+ create mode 100644 URPSSPSuccessTracker/StudentHome.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/StudentHome.aspx.designer.cs
+
+[33mcommit a149364d7d7650bd434e4777037c5e0b7c4bf8e8[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 13:15:10 2020 -0500
+
+    PIViewStudentResearch update
+
+
+[33mcommit b030eb12c71947ae43810982620588647cd50e5d[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 13:11:07 2020 -0500
+
+    code consolidation test
+
+ create mode 100644 URPSSPSuccessTracker/ManageTerm.aspx
+ create mode 100644 URPSSPSuccessTracker/ManageTerm.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/ManageTerm.aspx.designer.cs
+ create mode 100644 URPSSPSuccessTracker/ViewStudentResearch.aspx
+ create mode 100644 URPSSPSuccessTracker/ViewStudentResearch.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/ViewStudentResearch.aspx.designer.cs
+
+[33mcommit cc1e2744f9195ae9098c52955d411d4165531ba7[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 12:59:47 2020 -0500
+
+    Revert "code consolidation"
+
+
+[33mcommit 0c33e848c0e4a6796da73ea20c7dddc288ca3058[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 12:51:14 2020 -0500
+
+    Revert "Revert "John""
+
+ create mode 100644 URPSSPSuccessTracker/AdminSearchStudent.aspx
+ create mode 100644 URPSSPSuccessTracker/AdminSearchStudent.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/AdminSearchStudent.aspx.designer.cs
+ create mode 100644 URPSSPSuccessTracker/ManageTerm.aspx
+ create mode 100644 URPSSPSuccessTracker/ManageTerm.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/ManageTerm.aspx.designer.cs
+ create mode 100644 URPSSPSuccessTracker/ViewStudentResearch.aspx
+ create mode 100644 URPSSPSuccessTracker/ViewStudentResearch.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/ViewStudentResearch.aspx.designer.cs
+
+[33mcommit 095c84d4d8e12f4d2fa8124422a613f977a14fc5[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 12:14:31 2020 -0500
+
+    code consolidation
+
+
+[33mcommit 4b13747937fd52c0a464a3c3fd3ff524ace39f9b[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 12:05:23 2020 -0500
+
+    Revert "John"
+
+
+[33mcommit d4df17e029df808d5eb59c05ed6be3d32c02925a[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Tue Nov 17 11:49:13 2020 -0500
+
+    Revert "John"
+
+
+[33mcommit dc0cba9fe719de0320ae54ae987ef84464059c94[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Mon Nov 16 19:49:32 2020 -0500
+
+    finished up ManageTerm.aspx
+
+
+[33mcommit 79545feb40e155bd164ae0159b37e31051ce47d1[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Mon Nov 16 13:28:10 2020 -0500
+
+    ...extra changes, can't remember what they are
+
+
+[33mcommit a36c551c262b036b07ac6b2ca286c3b888620dbc[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Sun Nov 15 23:51:01 2020 -0500
+
+    StudentEnterResearch page updates
+
+ create mode 100644 URPSSPSuccessTracker/PIViewStudentResearch.aspx
+ create mode 100644 URPSSPSuccessTracker/PIViewStudentResearch.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/PIViewStudentResearch.aspx.designer.cs
+ create mode 100644 URPSSPSuccessTracker/StudentEnterResearch.aspx
+ create mode 100644 URPSSPSuccessTracker/StudentEnterResearch.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/StudentEnterResearch.aspx.designer.cs
+
+[33mcommit 547427a4fcecfffa8656b97f6fdaeed72a4167d7[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Sun Nov 15 14:29:12 2020 -0500
+
+    Student and PI buttons redirect to new page, sample table data added.
+
+ create mode 100644 URPSSPSuccessTracker/AdminSearchStudent.aspx
+ create mode 100644 URPSSPSuccessTracker/AdminSearchStudent.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/AdminSearchStudent.aspx.designer.cs
+
+[33mcommit 95d2dc826588905e36727b84068feb9166da9cda[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Sat Nov 14 19:38:53 2020 -0500
+
+    Added table search options, export and email buttons
+
+
+[33mcommit 2615da51ed3e602ba1ebcc5be7341d446c60ff8f[m
+Author: Anthony Nathan Littlejohn <tuh40168@temple.edu>
+Date:   Sat Nov 14 18:23:50 2020 -0500
+
+    Admin Homepage created. Table added, Instructions added, Student/PI buttons added
+
+
+[33mcommit 886395052f7f85ed27ff4c2f240e90b4aa39e076[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Thu Nov 12 12:40:19 2020 -0500
+
+    Admin manage users page
+
+ create mode 100644 URPSSPSuccessTracker/AdminManageUsers.aspx
+ rename URPSSPSuccessTracker/{PIViewStudent.aspx.cs => AdminManageUsers.aspx.cs} (80%)
+ rename URPSSPSuccessTracker/{PIViewStudent.aspx.designer.cs => AdminManageUsers.aspx.designer.cs} (73%)
+
+[33mcommit 279c6fb6e14498d9f83831842c17c5a81484ff2d[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Wed Nov 11 12:06:08 2020 -0500
+
+    Send email page reworked
+
+
+[33mcommit 840d17c267bb7da8a968111eefa794d74e39689b[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 11 10:56:32 2020 -0500
+
+    added View Research Page
+
+ create mode 100644 URPSSPSuccessTracker/ManageTerm.aspx
+ rename URPSSPSuccessTracker/{PIPersonalInformation.aspx.cs => ManageTerm.aspx.cs} (79%)
+ create mode 100644 URPSSPSuccessTracker/ManageTerm.aspx.designer.cs
+ create mode 100644 URPSSPSuccessTracker/ViewStudentResearch.aspx
+ create mode 100644 URPSSPSuccessTracker/ViewStudentResearch.aspx.cs
+ rename URPSSPSuccessTracker/{PIPersonalInformation.aspx.designer.cs => ViewStudentResearch.aspx.designer.cs} (99%)
+
+[33mcommit db1c2b3579b139159c3a05f165f469a17ad9fb19[m
+Author: jnovak96 <47129558+jnovak96@users.noreply.github.com>
+Date:   Wed Nov 11 09:59:42 2020 -0500
+
+    added PI Info Page
+
+ create mode 100644 URPSSPSuccessTracker/PIPersonalInformation.aspx
+ create mode 100644 URPSSPSuccessTracker/PIPersonalInformation.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/PIPersonalInformation.aspx.designer.cs
+
+[33mcommit 594612eb3063ca4e1435306eaa4835ae04180dbd[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Wed Nov 11 09:30:52 2020 -0500
+
+    pi view student
+
+
+[33mcommit 26412ce51a3ec43583bac110000cc02e760fc030[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Wed Nov 11 09:22:41 2020 -0500
+
+    Send Email Page v1
+
+ create mode 100644 URPSSPSuccessTracker/AdminSendEmail.aspx
+ create mode 100644 URPSSPSuccessTracker/AdminSendEmail.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/AdminSendEmail.aspx.designer.cs
+ create mode 100644 URPSSPSuccessTracker/PIViewStudent.aspx
+ create mode 100644 URPSSPSuccessTracker/PIViewStudent.aspx.cs
+ create mode 100644 URPSSPSuccessTracker/PIViewStudent.aspx.designer.cs
+
+[33mcommit 5eea3157dc99aa6d0131a0dcd4c20c029d350ac0[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Thu Nov 5 21:06:48 2020 -0500
+
+    demo
+
+
+[33mcommit 07d4e33c9ba095c6ff3309247a4c5c5f8ec328b5[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Thu Nov 5 21:06:13 2020 -0500
+
+    demo
+
+
+[33mcommit f68eaadb049896b58259adf204819bd72893d811[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 5 17:22:54 2020 -0500
+
+    nav bar updates
+
+ create mode 100644 URPSSPSuccessTracker/master.css
+
+[33mcommit 853113e06048b51b9d152cdd4f67b4df98cd42dc[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Thu Nov 5 16:50:44 2020 -0500
+
+    Student name label
+
+
+[33mcommit 95e45c1f297a094ee8d5f8ec22b4967e8e002522[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 5 16:50:01 2020 -0500
+
+    testing
+
+
+[33mcommit 02ef983696a5e465e482c63fabd0c08e626f471e[m
+Author: BinLiang6 <72415251+BinLiang6@users.noreply.github.com>
+Date:   Thu Nov 5 16:44:30 2020 -0500
+
+    label demo
+
+
+[33mcommit 79f4e9350b975b890508b3a845898547d7f51b31[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 5 16:43:09 2020 -0500
+
+    nav bar style
+
+ create mode 100644 URPSSPSuccessTracker/images/urpssp.png
+
+[33mcommit 8fe76a514c6f63170667be82f3ed62a5c1342c04[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 5 16:24:30 2020 -0500
+
+    test commit
+
+
+[33mcommit cb5d64798a89157374f62dc5bbd35ea1807ca5f7[m
+Author: Eric Friedman <ericsean01@gmail.com>
+Date:   Thu Nov 5 16:12:25 2020 -

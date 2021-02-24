@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://wsw.temple.edu/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://wsw.temple.edu/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://wsw.temple.edu/">
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attribute" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult" type="tns:ArrayOfTempleLDAPEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTempleLDAPEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TempleLDAPEntry" nillable="true" type="tns:TempleLDAPEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TempleLDAPEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="givenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eduPersonAffiliation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eduPersonPrimaryAffiliation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="error" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="creatorsName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="displayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="gidNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="homeDirectory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="l" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="loginShell" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailAlternateAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailHost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailRoutingAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="manager" type="tns:ManagerLDAPEntry" />
+          <s:element minOccurs="0" maxOccurs="1" name="modifiersName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="modifyTimestamp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="o" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="objectClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ou" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="postOfficeBox" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="postalAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telephoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduDateOfBirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduDepartmentPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduEmployeeDepartment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduEmployeeDepartmentCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduGivenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduJobClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduNamePrefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduOrganizationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduPrimaryOU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduPrimaryOUCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduSN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUNA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUNIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUStPr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUStreet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUZPC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduWorkPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="uidNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ManagerLDAPEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="givenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eduPersonAffiliation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eduPersonPrimaryAffiliation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="creatorsName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="displayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="gidNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="homeDirectory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="l" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="loginShell" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailAlternateAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailHost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailRoutingAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="modifiersName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="modifyTimestamp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="o" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="objectClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ou" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="postOfficeBox" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="postalAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telephoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduDateOfBirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduDepartmentPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduEmployeeDepartment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduEmployeeDepartmentCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduGivenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduJobClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduNamePrefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduOrganizationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduPrimaryOU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduPrimaryOUCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduSN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUNA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUNIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUStPr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUStreet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduTUZPC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templeEduWorkPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="uidNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LDAP_SearchSoap">
+    <wsdl:operation name="Search">
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LDAP_SearchSoap" type="tns:LDAP_SearchSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://wsw.temple.edu/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LDAP_SearchSoap12" type="tns:LDAP_SearchSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="http://wsw.temple.edu/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LDAP_Search">
+    <wsdl:port name="LDAP_SearchSoap" binding="tns:LDAP_SearchSoap">
+      <soap:address location="https://preprod-wsw.temple.edu/ws_ldapsearch/ldap_search.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LDAP_SearchSoap12" binding="tns:LDAP_SearchSoap12">
+      <soap12:address location="https://preprod-wsw.temple.edu/ws_ldapsearch/ldap_search.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
