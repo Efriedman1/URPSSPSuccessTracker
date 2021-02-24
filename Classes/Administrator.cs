@@ -16,7 +16,11 @@ namespace URPSSPSuccessTracker.Classes
 
         public Administrator(int tuid, string firstname, string lastname, string email, string active)
         {
-
+            TUID = tuid;
+            FirstName = firstname;
+            LastName = lastname;
+            Email = email;
+            Active = active;
         }
     }
 }
