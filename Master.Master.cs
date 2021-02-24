@@ -17,7 +17,7 @@ namespace URPSSPSuccessTracker
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session["UserType"] = "";
-            Response.Redirect("TempLogin.aspx");
+            Response.Redirect("../TempLogin.aspx");
         }
 
         public void SetNavBar(String userType)
