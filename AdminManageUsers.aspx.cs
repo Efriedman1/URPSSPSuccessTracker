@@ -17,7 +17,6 @@ namespace URPSSPSuccessTracker
             {
                 this.Master.SetNavBar((String)Session["UserType"]);
 
-
                 //Update instruction label
                 SqlProcedures sqlProcedures = new SqlProcedures();
                 Instruction instruction = sqlProcedures.LoadInstructions(2);

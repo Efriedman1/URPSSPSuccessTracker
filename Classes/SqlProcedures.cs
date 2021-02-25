@@ -218,13 +218,14 @@ namespace URPSSPSuccessTracker.Classes
             return urpDB.DoUpdateUsingCmdObj(commentCommand) > 0;
         }
 
-        public List<Comment> LoadComments()
+        public List<Comment> LoadComments(int researchID)
         {
             List<Comment> commentList = new List<Comment>();
 
             SqlCommand commentCommand = new SqlCommand();
             commentCommand.CommandType = CommandType.StoredProcedure;
             commentCommand.CommandText = "LoadComments";
+            commentCommand.Parameters.AddWithValue("@ResearchID", researchID);
             DataSet commentData = urpDB.GetDataSetUsingCmdObj(commentCommand);
             int count = commentData.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
@@ -233,7 +234,6 @@ namespace URPSSPSuccessTracker.Classes
                       (DateTime)commentData.Tables[0].Rows[i][4]);
                 commentList.Add(newComment);
             }
-
             return commentList;
         }
 

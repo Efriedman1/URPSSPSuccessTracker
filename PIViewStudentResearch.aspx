@@ -322,80 +322,9 @@
                         </div>
 
                         <div class="actionBox">
-                            <ul class="commentList">
-                               <li>
-<%--                                    <div class="commenterImage">
-                                        <img src="http://placekitten.com/50/50" />
-                                    </div>--%>
-                                    <div class="commentText">
-                                        <h4>Bill Perkins</h4>
-                                        <p class="">Hello this is a test comment.</p>
-                                        <span class="date sub-text">on November 15th, 2020</span>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commentText">
-                                        <h4>Bill Perkins</h4>
-                                        <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p>
-                                        <span class="date sub-text">on November 15th, 2020</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commentText">
-                                        <h4>Bill Perkins</h4>
-                                        <p class="">Hello this is a test comment.</p>
-                                        <span class="date sub-text">on November 15th, 2020</span>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commentText">
-                                        <h4>Bill Perkins</h4>
-                                        <p class="">Hello this is a test comment.</p>
-                                        <span class="date sub-text">on November 15th, 2020</span>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commentText">
-                                        <h4>Bill Perkins</h4>
-                                        <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p>
-                                        <span class="date sub-text">on November 15th, 2020</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commentText">
-                                        <h4>Bill Perkins</h4>
-                                        <p class="">Hello this is a test comment.</p>
-                                        <span class="date sub-text">on November 15th, 2020</span>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commentText">
-                                        <h4>Bill Perkins</h4>
-                                        <p class="">Hello this is a test comment.</p>
-                                        <span class="date sub-text">on November 15th, 2020</span>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commentText">
-                                        <h4>Bill Perkins</h4>
-                                        <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p>
-                                        <span class="date sub-text">on November 15th, 2020</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commentText">
-                                        <h4>Bill Perkins</h4>
-                                        <p class="">Hello this is a test comment.</p>
-                                        <span class="date sub-text">on November 15th, 2020</span>
-
-                                    </div>
-                                </li>
-                            </ul>
+                            <asp:Panel runat="server" ID="pnlComments" CssClass="commentList" >
+                               <!--Comments will be inserted here-->
+                            </asp:Panel>
                         </div>
 
                     </div>
@@ -405,7 +334,7 @@
                         </div>
 
                         <div class="form-group text-center">
-                            <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn redbtn my-2 my-sm-0 btnSize" />
+                            <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn redbtn my-2 my-sm-0 btnSize" OnClick="btnComment_Click" />
                         </div>
                 </div>
                 <!--Grid column-->
