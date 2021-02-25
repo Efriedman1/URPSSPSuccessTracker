@@ -46,12 +46,15 @@
   <ItemGroup>
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -78,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="secure\AdminDownload.aspx" />
-    <Content Include="AdminHomeDatatable.aspx" />
+    <Content Include="secure\AdminHomeDatatable.aspx" />
     <Content Include="bin\ExcelDataReader.DataSet.dll" />
     <Content Include="bin\ExcelDataReader.DataSet.pdb" />
     <Content Include="bin\ExcelDataReader.DataSet.xml" />
@@ -132,11 +135,11 @@
     <Content Include="DBTest.aspx" />
     <Content Include="default.aspx" />
     <Content Include="images\ProfilePic.jpg" />
-    <Content Include="AdminSearchStudent.aspx" />
+    <Content Include="secure\AdminSearchStudent.aspx" />
     <Content Include="secure\AdminManageUsers.aspx" />
     <Content Include="images\templeulogo.png" />
     <Content Include="images\urpssp.png" />
-    <Content Include="ManageTerm.aspx" />
+    <Content Include="secure\ManageTerm.aspx" />
     <Content Include="master.css" />
     <Content Include="packages\ExcelDataReader.3.6.0\lib\net20\ExcelDataReader.dll" />
     <Content Include="packages\ExcelDataReader.3.6.0\lib\net20\ExcelDataReader.pdb" />
@@ -234,7 +237,7 @@
     <Content Include="packages\Newtonsoft.Json.12.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
     <Content Include="packages\Newtonsoft.Json.12.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
     <Content Include="packages\Newtonsoft.Json.12.0.3\packageIcon.png" />
-    <Content Include="PIViewStudentResearch.aspx" />
+    <Content Include="secure\PIViewStudentResearch.aspx" />
     <Content Include="secure\AdminHome.aspx" />
     <Content Include="secure\AdminSendEmail.aspx" />
     <Content Include="secure\default.aspx" />
@@ -243,10 +246,10 @@
     <Content Include="secure\images\urpssp.png" />
     <Content Include="secure\PIHome.aspx" />
     <Content Include="secure\StudentHome.aspx" />
-    <Content Include="StudentEnterResearch.aspx" />
+    <Content Include="secure\StudentEnterResearch.aspx" />
     <Content Include="TempLogin.aspx" />
     <Content Include="UpgradeLog.htm" />
-    <Content Include="ViewStudentResearch.aspx" />
+    <Content Include="secure\ViewStudentResearch.aspx" />
     <Content Include="packages\ExcelDataReader.3.6.0\.signature.p7s" />
     <Content Include="packages\ExcelDataReader.3.6.0\ExcelDataReader.3.6.0.nupkg" />
     <Content Include="packages\ExcelDataReader.DataSet.3.6.0\.signature.p7s" />
@@ -299,11 +302,14 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\URPSSPSuccessTracker.dll.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings" />
     <None Include="Web References\WS_LDAP_Search\ldap_search.disco" />
     <None Include="Web References\WS_Programs_And_Degrees\ProgramsAndDegrees.disco" />
     <None Include="Web References\WS_Student_Search\ws_student.disco" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="secure\AdminDownload.aspx.cs">
@@ -313,18 +319,18 @@
     <Compile Include="secure\AdminDownload.aspx.designer.cs">
       <DependentUpon>AdminDownload.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminHomeDatatable.aspx.cs">
+    <Compile Include="secure\AdminHomeDatatable.aspx.cs">
       <DependentUpon>AdminHomeDatatable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminHomeDatatable.aspx.designer.cs">
+    <Compile Include="secure\AdminHomeDatatable.aspx.designer.cs">
       <DependentUpon>AdminHomeDatatable.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminSearchStudent.aspx.cs">
+    <Compile Include="secure\AdminSearchStudent.aspx.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminSearchStudent.aspx.designer.cs">
+    <Compile Include="secure\AdminSearchStudent.aspx.designer.cs">
       <DependentUpon>AdminSearchStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="secure\AdminManageUsers.aspx.cs">
@@ -359,11 +365,11 @@
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Library\WebService.cs" />
-    <Compile Include="ManageTerm.aspx.cs">
+    <Compile Include="secure\ManageTerm.aspx.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ManageTerm.aspx.designer.cs">
+    <Compile Include="secure\ManageTerm.aspx.designer.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
@@ -376,11 +382,11 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="PIViewStudentResearch.aspx.cs">
+    <Compile Include="secure\PIViewStudentResearch.aspx.cs">
       <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PIViewStudentResearch.aspx.designer.cs">
+    <Compile Include="secure\PIViewStudentResearch.aspx.designer.cs">
       <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -420,11 +426,11 @@
     <Compile Include="secure\StudentHome.aspx.designer.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>
     </Compile>
-    <Compile Include="StudentEnterResearch.aspx.cs">
+    <Compile Include="secure\StudentEnterResearch.aspx.cs">
       <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StudentEnterResearch.aspx.designer.cs">
+    <Compile Include="secure\StudentEnterResearch.aspx.designer.cs">
       <DependentUpon>StudentEnterResearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="TempLogin.aspx.cs">
@@ -434,11 +440,11 @@
     <Compile Include="TempLogin.aspx.designer.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewStudentResearch.aspx.cs">
+    <Compile Include="secure\ViewStudentResearch.aspx.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewStudentResearch.aspx.designer.cs">
+    <Compile Include="secure\ViewStudentResearch.aspx.designer.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\WS_LDAP_Search\Reference.cs" />
@@ -449,7 +455,6 @@
     <Content Include="Master.Master" />
     <Content Include="fonts\AvanirNext.otf" />
     <Content Include="appSettings.config" />
-    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\URPSSPSuccessTracker - Web Deploy.pubxml" />
     <Content Include="UploadTemplate - Test.xlsx" />
     <Content Include="URP_SSP_UploadTemplate.xlsx" />

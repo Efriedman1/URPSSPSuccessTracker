@@ -71,12 +71,12 @@ namespace URPSSPSuccessTracker
                         else
                         {
                             Console.WriteLine(employeeNumber + " is NOT a student! REDIRECT BACK");
-                            Response.Redirect("~/default.aspx");
+                            //Response.Redirect("~/default.aspx");
                         }
                     }
                     else
                     {
-                        Response.Redirect("~/default.aspx");
+                        ///Response.Redirect("~/default.aspx");
                     }
                 }
 

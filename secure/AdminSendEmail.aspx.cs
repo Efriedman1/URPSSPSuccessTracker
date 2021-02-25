@@ -41,7 +41,7 @@ namespace URPSSPSuccessTracker
 
         protected void btnAddStudent_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminSearchStudent.aspx");
+            Response.Redirect("AdminHome.aspx");
         }
 
         protected void sendEmail(string subject, string body, List<string> emailList)
