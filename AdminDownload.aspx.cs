@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ExcelDataReader;
 using URPSSPSuccessTracker.Library;
+using URPSSPSuccessTracker.Classes;
 using Newtonsoft.Json;
 
 
@@ -16,6 +17,11 @@ namespace URPSSPSuccessTracker
 {
     public partial class AdminDownload : System.Web.UI.Page
     {
+        //create a list of student objects created after calling web services
+        List<Student> studentList;
+        List<Student> failedUploads;
+        SqlProcedures sql = new SqlProcedures();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -35,6 +41,12 @@ namespace URPSSPSuccessTracker
                 //if the file includes xls then use it
                 if (validateTemplate.IsValid)
                 {
+
+                    //create a new instance of the studentList to hold every student that was uplaoded from the template
+                    studentList = new List<Student>();
+                    failedUploads = new List<Student>();
+                    Classes.Student student;
+
                     //the file uploaded is valid and begin reading file
                     //the file uploaded is valid and begin reading file
 
@@ -59,6 +71,7 @@ namespace URPSSPSuccessTracker
                         {
                             string entry = dr[0].ToString() + "," + dr[1].ToString();
                             entryList.Add(entry);
+
                         }
 
 
@@ -72,27 +85,50 @@ namespace URPSSPSuccessTracker
                       
                     }
 
-                    string[] entryArray = entryList[1].Split(',');
+                    if (optStudent.Checked == true)
+                    {
+                        for (int i = 1; i < entryList.Count; i++)
+                        {
+                            string[] entryArray = entryList[i].Split(',');
+                            WebService.StudentObj studentObj = WebService.Webservice.getStudentInfo(entryArray[0]);
+                            string program = entryArray[1];
 
-                    object student = WebService.Webservice.getStudentInfo(entryArray[0]);
+                            //create a student object and add the object from web services and the program
+                            student = new Student(studentObj, program);
 
+                            //add this new student object to a list of all students uploaded from the template
+                            studentList.Add(student);
 
-                    lblError.Text = JsonConvert.SerializeObject(student, Formatting.Indented).ToString();
-                    lblError.Visible = true;
+                            //upload to the database
+                            //foreach (Student s in studentList)
+                            //{
 
-                    //Now that all the entries have been added to the list
-                    //seperate the tuid and the other parameter that are joined with ','
-                    //foreach (string entry in entryList)
-                    //{
-                    //   string[] entryArray =  entry.Split(',');
+                            //    string tuid = s.StudentObj.tuid;
+                            //    string firstName = s.StudentObj.firstName;
+                            //    string lastName = s.StudentObj.lastName;
+                            //    string email = s.StudentObj.email;
+                            //    string program = s.Program;
+                            //    string
 
-                    //    WebService.StudentObj student = WebService.Webservice.getStudentInfo(entryArray[0]);
+                            //    bool addStudent = sql.AddStudent();
 
+                            //    if (addStudent == false)
+                            //    {
+                            //        failedUploads.Add(s);
+                            //    }
+                            //}
 
-                    //}
+                        }
+                    }
 
-                    //
+                    else if (optPI.Checked == true)
+                    {
 
+                    }
+                   
+
+                   
+                   
 
 
                 }

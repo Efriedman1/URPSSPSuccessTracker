@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using URPSSPSuccessTracker.Library;
 
 namespace URPSSPSuccessTracker.Classes
 {
     public class Student
     {
+
         public int TUID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -26,6 +28,27 @@ namespace URPSSPSuccessTracker.Classes
             Status = status;
             Major = major;
             LastUpdate = lastupdate;
+        }
+
+        private WebService.StudentObj studentObj;
+
+        //null Constructor
+        public Student()
+        {
+
+        }
+
+        public Student(WebService.StudentObj studentObj, string program)
+        {
+            this.studentObj = studentObj;
+            this.Program = program;
+        }
+
+
+        public WebService.StudentObj StudentObj
+        {
+            get { return studentObj; }
+            set { studentObj = value; }
         }
     }
 }
