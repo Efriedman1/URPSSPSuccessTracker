@@ -151,7 +151,7 @@
         <h3 class="mt-4">Manage Terms</h3>        
         <div class="row mt-5">
             <div class="col">
-                <div class="row mt-5">
+                <div class="row col-6">
                     <div class="col">
                         <label>
                             Semester
@@ -170,20 +170,20 @@
                         </asp:TextBox>
                     </div>
                 </div>
-                <div class="mt-5 text-center mb-5">
-                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn redbtn" OnClick="btnCreateTerm_Click" />
+                <div class="col-sm-12 mt-2">
+                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn redbtn btn-lg"  OnClick="btnCreateTerm_Click" />
                 </div>
             </div>
-            <div class="col">
+            <div class="col-12">
                 
-                <div class="row">            
-                <asp:GridView runat="server" ID="gvTerms" DataKeyNames="TermID" AutoGenerateColumns="false" OnRowDeleting="gvTerms_RowDeleting" CssClass="table table-borderless" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White">
+                <div class="col-12 col-sm-12 col-lg-12 col-lg-12" style="margin-top: 2%; margin-bottom:10%">            
+                <asp:GridView runat="server" ID="gvTerms" DataKeyNames="TermID" AutoGenerateColumns="false" OnRowDeleting="gvTerms_RowDeleting" CssClass="table table-borderless text-center table-striped" BorderStyle="None" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="X-Large" Font-Size="X-Large">
                     <Columns>
                         <asp:BoundField DataField="TermID" HeaderText="TermID" Visible="false"/>
                         <asp:BoundField DataField="Semester" HeaderText="Semester" />
                         <asp:BoundField DataField="Year" HeaderText="Year" />
                         <asp:BoundField DataField="Status" HeaderText="Status" />             
-                        <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn btn-danger"/>
+                        <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn redbtn"/>
                     </Columns>
                 </asp:GridView>
         </div>
