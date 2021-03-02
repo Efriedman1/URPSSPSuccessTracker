@@ -29,6 +29,10 @@
         width:80%;
         table-layout:fixed;
         }
+        th:last-child{
+            color:white;
+            pointer-events:none;
+        }
     </style>
 
      <script>
@@ -53,7 +57,7 @@
                     "columnDefs": [ {
                     "targets": -1,
                     "data": null,
-                    "defaultContent": "<button>Click!</button>"
+                    "defaultContent": "<a class='btn btn-outline-secondary' href='AdminSendEmail.aspx'>View</a>"
                 } ]
             });
 
@@ -68,7 +72,8 @@
             });
 
         $('#table2 thead tr').clone(true).appendTo( '#table2 thead' );
-        $('#table2 thead tr:eq(1) th').each( function (i) {
+        //$('#table2 thead tr:eq(1) th').each( function (i) {
+        $('table2 thead tr:eq(1) th:not(:last-child)').each(function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
  
@@ -101,7 +106,7 @@
                     "columnDefs": [ {
                     "targets": -1,
                     "data": null,
-                    "defaultContent": "<button>Click!</button>"
+                    "defaultContent": "<a class='btn btn-outline-secondary' href='AdminSendEmail.aspx'>View</a>"
                 } ]
             } );
  
@@ -119,7 +124,7 @@
             
 
         $('#example thead tr').clone(true).appendTo( '#example thead' );
-        $('#example thead tr:eq(1) th').each( function (i) {
+        $('#example thead tr:eq(1) th:not(:last-child)').each( function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
  
@@ -214,5 +219,4 @@
                 </div>
                 <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />
             </div>
-
 </asp:Content>
