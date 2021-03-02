@@ -207,7 +207,7 @@
                 </table>
                 </asp:Panel>
         </div>
-        <div class="d-flex justify-content-between"">
+        <div class="d-flex justify-content-between">
                 <div>
                     <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" runat="server" Text="Email All"  />
                     <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" runat="server" Text="Email Selected" />
