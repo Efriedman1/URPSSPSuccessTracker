@@ -237,6 +237,7 @@
     <Content Include="packages\Newtonsoft.Json.12.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
     <Content Include="packages\Newtonsoft.Json.12.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
     <Content Include="packages\Newtonsoft.Json.12.0.3\packageIcon.png" />
+    <Content Include="secure\PIHomeDatatable.aspx" />
     <Content Include="secure\PIViewStudentResearch.aspx" />
     <Content Include="secure\AdminHome.aspx" />
     <Content Include="secure\AdminSendEmail.aspx" />
@@ -382,6 +383,13 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="secure\PIHomeDatatable.aspx.cs">
+      <DependentUpon>PIHomeDatatable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="secure\PIHomeDatatable.aspx.designer.cs">
+      <DependentUpon>PIHomeDatatable.aspx</DependentUpon>
+    </Compile>
     <Compile Include="secure\PIViewStudentResearch.aspx.cs">
       <DependentUpon>PIViewStudentResearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
