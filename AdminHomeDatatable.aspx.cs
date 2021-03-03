@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace URPSSPSuccessTracker
 {
@@ -25,6 +26,11 @@ namespace URPSSPSuccessTracker
         {
             pnlPI.Visible = false;
             pnlStudents.Visible = true;
+        }
+
+        protected void populateArrayFile()
+        {
+            //using (StreamWriter file = File.CreateText())
         }
     }
 
