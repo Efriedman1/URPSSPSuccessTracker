@@ -86,7 +86,7 @@
 
                 select: true,*/
 
-                "ajax": "data/arrays.txt",
+                "ajax": "arrays.txt",
 
                 "columnDefs": [ {
 
@@ -94,7 +94,7 @@
 
                     "data": null,
 
-                    "defaultContent": "<a class='btn btn-outline-secondary' href='datatables5.aspx'>View</a>"
+                    "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
 
                 } ]
 

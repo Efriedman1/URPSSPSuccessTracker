@@ -53,11 +53,11 @@
                     'selectCells'
                 ],
                 select: true,
-                    "ajax": "data/arrays.txt",/*PI*/
+                    "ajax": "arrays.txt",/*PI*/
                     "columnDefs": [ {
                     "targets": -1,
                     "data": null,
-                    "defaultContent": "<a class='btn btn-outline-secondary' href='AdminSendEmail.aspx'>View</a>"
+                    "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
                 } ]
             });
 
@@ -102,11 +102,11 @@
                     'selectCells'
                 ],
                 select: true,
-                    "ajax": "data/studentArrays.txt",/*students*/
+                    "ajax": "studentArrays.txt",/*students*/
                     "columnDefs": [ {
                     "targets": -1,
                     "data": null,
-                    "defaultContent": "<a class='btn btn-outline-secondary' href='AdminSendEmail.aspx'>View</a>"
+                    "defaultContent": "<a class='btn btn-outline-secondary' href='ViewStudentResearch.aspx'>View</a>"
                 } ]
             } );
  
