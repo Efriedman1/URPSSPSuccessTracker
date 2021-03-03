@@ -52,7 +52,7 @@ namespace URPSSPSuccessTracker
                 else
                 {
                     number = int.TryParse(Session["SSO_Attribute_employeeNumber"].ToString(), out employeeNumber);
-
+                    
                     if ((String)Session["UserType"] == "PI" && number)
                     {
                         // Search for employeeNumber in student table to see if user is a valid student
@@ -66,7 +66,7 @@ namespace URPSSPSuccessTracker
                         }
                         else
                         {
-                            Response.Redirect("~/default.aspx");
+                            //Response.Redirect("~/default.aspx");
                         }
                     }
                     else

@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace URPSSPSuccessTracker
+namespace URPSSPSuccessTracker.secure
 {
-    public partial class AdminDownload1 : System.Web.UI.Page
+    public partial class PIHomeDatatable : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

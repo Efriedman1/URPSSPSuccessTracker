@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using URPSSPSuccessTracker.Library;
 
 namespace URPSSPSuccessTracker.secure
 {
@@ -123,6 +124,8 @@ namespace URPSSPSuccessTracker.secure
                 switch (userType)
                 {
                     case "Admin":
+                        Console.WriteLine("admin");
+                
                         Response.Redirect("AdminHome.aspx");
                         break;
 
@@ -131,6 +134,7 @@ namespace URPSSPSuccessTracker.secure
                         break;
 
                     case "Student":
+                        Console.WriteLine("student");
                         Response.Redirect("StudentHome.aspx");
                         break;
                 }
