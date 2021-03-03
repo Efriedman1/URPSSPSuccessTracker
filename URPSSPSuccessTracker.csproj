@@ -130,8 +130,8 @@
     <Content Include="bin\System.IO.Compression.dll" />
     <Content Include="bin\URPSSPSuccessTracker.dll" />
     <Content Include="bin\URPSSPSuccessTracker.pdb" />
-    <Content Include="data\arrays.txt" />
-    <Content Include="data\studentArrays.txt" />
+    <Content Include="secure\arrays.txt" />
+    <Content Include="secure\studentArrays.txt" />
     <Content Include="DBTest.aspx" />
     <Content Include="default.aspx" />
     <Content Include="images\ProfilePic.jpg" />
@@ -482,7 +482,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="data\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
