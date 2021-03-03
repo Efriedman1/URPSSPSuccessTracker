@@ -12,6 +12,10 @@ namespace URPSSPSuccessTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                this.Master.SetNavBar((String)Session["UserType"]);
+            }
             pnlPI.Visible = false;
             pnlStudents.Visible = true;
         }
@@ -31,6 +35,16 @@ namespace URPSSPSuccessTracker
         protected void populateArrayFile()
         {
             //using (StreamWriter file = File.CreateText())
+        }
+
+        protected void btnEmail_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminSendEmail.aspx");
+        }
+
+        protected void btnEmailChecked_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminSendEmail.aspx");
         }
     }
 

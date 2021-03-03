@@ -21,11 +21,8 @@ namespace URPSSPSuccessTracker
                 populateCommentSection();
                 populateResearch();
             }
-
-        }
-
-
-
+            populateCommentSection();
+        }      
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
@@ -138,7 +135,14 @@ namespace URPSSPSuccessTracker
         protected void btnModAdd_Click(object sender, EventArgs e)
         {
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            urpSqlProcedures.InsertResearchDocuments(6, ddlAddDoc.SelectedValue, txtModDocTitle.Text, TxtModDocDesc.Text);
+            if (urpSqlProcedures.InsertResearchDocuments(6, ddlAddDoc.SelectedValue, txtModDocTitle.Text, TxtModDocDesc.Text))
+            {
+                populateResearch();
+            }
+            else
+            {
+                //update fail
+            }
 
             ////int i;
             ////for (i = 0; i < Total; i++)

@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminHomeDatatable.aspx.cs" Inherits="URPSSPSuccessTracker.AdminHomeDatatable" %>
+
+<%@ MasterType VirtualPath="~/Master.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -106,7 +109,7 @@
                     "columnDefs": [ {
                     "targets": -1,
                     "data": null,
-                    "defaultContent": "<a class='btn btn-outline-secondary' href='ViewStudentResearch.aspx'>View</a>"
+                    "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
                 } ]
             } );
  
@@ -214,8 +217,8 @@
         </div>
         <div class="d-flex justify-content-between">
                 <div>
-                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" runat="server" Text="Email All"  />
-                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" runat="server" Text="Email Selected" />
+                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All"  />
+                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" OnClick="btnEmailChecked_Click" runat="server" Text="Email Selected" />
                 </div>
                 <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />
             </div>
