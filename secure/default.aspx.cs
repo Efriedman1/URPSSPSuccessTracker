@@ -126,7 +126,7 @@ namespace URPSSPSuccessTracker.secure
                     case "Admin":
                         Console.WriteLine("admin");
                 
-                        Response.Redirect("AdminHome.aspx");
+                        Response.Redirect("AdminHomeDatatable.aspx");
                         break;
 
                     case "PI":
