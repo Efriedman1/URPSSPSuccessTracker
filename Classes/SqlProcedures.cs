@@ -218,13 +218,14 @@ namespace URPSSPSuccessTracker.Classes
             return urpDB.DoUpdateUsingCmdObj(commentCommand) > 0;
         }
 
-        public List<Comment> LoadComments()
+        public List<Comment> LoadComments(int researchID)
         {
             List<Comment> commentList = new List<Comment>();
 
             SqlCommand commentCommand = new SqlCommand();
             commentCommand.CommandType = CommandType.StoredProcedure;
             commentCommand.CommandText = "LoadComments";
+            commentCommand.Parameters.AddWithValue("@ResearchID", researchID);
             DataSet commentData = urpDB.GetDataSetUsingCmdObj(commentCommand);
             int count = commentData.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
@@ -233,7 +234,6 @@ namespace URPSSPSuccessTracker.Classes
                       (DateTime)commentData.Tables[0].Rows[i][4]);
                 commentList.Add(newComment);
             }
-
             return commentList;
         }
 
@@ -344,14 +344,22 @@ namespace URPSSPSuccessTracker.Classes
         //====================
 
             //check research projects
-        public Boolean CheckResearchProjects(int researchID)
+        public List<ResearchDocument> LoadResearchDocuments(int researchID)
         {
+            List<ResearchDocument> researchList = new List<ResearchDocument>();
+
             SqlCommand researchCommand = new SqlCommand();
             researchCommand.CommandType = CommandType.StoredProcedure;
-            researchCommand.CommandText = "CheckResearchProjects";
+            researchCommand.CommandText = "LoadResearchDocuments";
             researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
 
-            return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
+            for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
+            {
+                ResearchDocument newResearch = new ResearchDocument(researchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString());
+                researchList.Add(newResearch);
+            }
+            return researchList;
         }
 
         public Boolean UpdateResearchProject(int researchID, int studentTUID, int piTUID, int termID, string title, string description, string link, string researchMethod, string status, string typeOfResearch, DateTime lastUpdate)
@@ -370,6 +378,19 @@ namespace URPSSPSuccessTracker.Classes
             researchCommand.Parameters.AddWithValue("@Status", status);
             researchCommand.Parameters.AddWithValue("@TypeOfResearch", typeOfResearch);
             researchCommand.Parameters.AddWithValue("@LastUpdate", lastUpdate);
+
+            return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
+        }
+
+        public Boolean InsertResearchDocuments(int researchID, string documentType, string documentTitle, string description)
+        {
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "InsertResearchDocuments";
+            researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
+            researchCommand.Parameters.AddWithValue("@DocumentType", documentType);
+            researchCommand.Parameters.AddWithValue("@DocumentTitle", documentTitle);
+            researchCommand.Parameters.AddWithValue("@Description", description);
 
             return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
         }

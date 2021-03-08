@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminHomeDatatable.aspx.cs" Inherits="URPSSPSuccessTracker.AdminHomeDatatable" %>
+
+<%@ MasterType VirtualPath="~/Master.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -29,6 +32,10 @@
         width:80%;
         table-layout:fixed;
         }
+        th:last-child{
+            color:white;
+            pointer-events:none;
+        }
     </style>
 
      <script>
@@ -49,11 +56,11 @@
                     'selectCells'
                 ],
                 select: true,
-                    "ajax": "data/arrays.txt",/*PI*/
+                    "ajax": "arrays.txt",/*PI*/
                     "columnDefs": [ {
                     "targets": -1,
                     "data": null,
-                    "defaultContent": "<button>Click!</button>"
+                    "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
                 } ]
             });
 
@@ -68,7 +75,8 @@
             });
 
         $('#table2 thead tr').clone(true).appendTo( '#table2 thead' );
-        $('#table2 thead tr:eq(1) th').each( function (i) {
+        //$('#table2 thead tr:eq(1) th').each( function (i) {
+        $('table2 thead tr:eq(1) th:not(:last-child)').each(function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
  
@@ -97,11 +105,11 @@
                     'selectCells'
                 ],
                 select: true,
-                    "ajax": "data/studentArrays.txt",/*students*/
+                    "ajax": "studentArrays.txt",/*students*/
                     "columnDefs": [ {
                     "targets": -1,
                     "data": null,
-                    "defaultContent": "<button>Click!</button>"
+                    "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
                 } ]
             } );
  
@@ -119,7 +127,7 @@
             
 
         $('#example thead tr').clone(true).appendTo( '#example thead' );
-        $('#example thead tr:eq(1) th').each( function (i) {
+        $('#example thead tr:eq(1) th:not(:last-child)').each( function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
  
@@ -209,10 +217,9 @@
         </div>
         <div class="d-flex justify-content-between">
                 <div>
-                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" runat="server" Text="Email All"  />
-                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" runat="server" Text="Email Selected" />
+                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All"  />
+                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" OnClick="btnEmailChecked_Click" runat="server" Text="Email Selected" />
                 </div>
                 <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />
             </div>
-
 </asp:Content>
