@@ -395,11 +395,30 @@ namespace URPSSPSuccessTracker.Classes
             return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
         }
 
+
+        public Boolean InsertResearchProject(ResearchProject researchProject, int termID, string researchMethod)
+        {
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "InsertResearchProject";
+            researchCommand.Parameters.AddWithValue("@StudentTUID", researchProject.StudentTUID);
+            researchCommand.Parameters.AddWithValue("@PITUID", researchProject.PITUID);
+            researchCommand.Parameters.AddWithValue("@TermID", termID);
+            researchCommand.Parameters.AddWithValue("@Tltle", researchProject.ResearchTitle);
+            researchCommand.Parameters.AddWithValue("@Description", researchProject.ResearchDescription);
+            researchCommand.Parameters.AddWithValue("@ResearchMethod", researchMethod);
+            researchCommand.Parameters.AddWithValue("@Status", "Incomplete");
+            researchCommand.Parameters.AddWithValue("@TypeOfResearch", researchProject.ResearchType);
+
+            return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
+        }
+
+
         //====================
         //Term
         //====================
 
-            //get term id
+        //get term id
         public Boolean GetTermID(string semester, int year)
         {
             SqlCommand termCommand = new SqlCommand();
