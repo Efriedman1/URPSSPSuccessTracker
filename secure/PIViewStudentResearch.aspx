@@ -60,6 +60,7 @@
             display: flex;
             justify-content: center;
         }
+
     </style>
 
     <div class="container">
@@ -278,7 +279,6 @@
                         </div>
                     </div>
                     <!--Grid row-->
-
 
                 </div>
                 <!--Grid column Comments-->
