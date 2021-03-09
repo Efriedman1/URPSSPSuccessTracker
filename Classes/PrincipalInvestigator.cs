@@ -9,31 +9,13 @@ namespace URPSSPSuccessTracker.Classes
 {
     public class PrincipalInvestigator
     {
-        public int TUID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string School { get; set; }
-        public string Department { get; set; }
-        public string Campus { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
-        public DateTime LastUpdate { get; set; }
 
-        public PrincipalInvestigator(int tuid, string firstname, string lastname, string school, string department, string campus, string phonenumber, string email, DateTime lastupdate)
-        {
-            TUID = tuid;
-            FirstName = firstname;
-            LastName = lastname;
-            Email = email;
-            School = school;
-            Department = department;
-            Campus = campus;
-            PhoneNumber = phonenumber;
-            Email = email;
-            LastUpdate = lastupdate;
-        }
-
-        private WebService.LDAPuser ldap;
+        private string tuid;
+        private string firstName;
+        private string lastName;
+        private string email;
+        private string department;
+        private DateTime lastUpdate;
 
 
         //null Constructor
@@ -42,18 +24,53 @@ namespace URPSSPSuccessTracker.Classes
 
         }
 
-        public PrincipalInvestigator(WebService.LDAPuser ldap, string department)
+        public PrincipalInvestigator(WebService.StudentObj studentObj, string department)
         {
-            this.ldap = ldap;
+            TUID = studentObj.tuid;
+            FirstName = studentObj.firstName;
+            LastName = studentObj.lastName;
+            Email = studentObj.email;
+            Department = department;
             this.Department = department;
-
+            LastUpdate = DateTime.Now;
+            
         }
 
-
-        public WebService.LDAPuser LDAP
+        public string TUID
         {
-            get { return ldap; }
-            set { ldap = value; }
+            get { return tuid; }
+            set { tuid = value; }
         }
+
+        public string FirstName
+        {
+            get { return firstName; }
+            set { firstName = value; }
+        }
+
+        public string LastName
+        {
+            get { return lastName; }
+            set { lastName = value; }
+        }
+
+        public string Department
+        {
+            get { return department; }
+            set { department = value; }
+        }
+
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+
+        public DateTime LastUpdate
+        {
+            get { return lastUpdate; }
+            set { lastUpdate = value; }
+        }
+
     }
 }
