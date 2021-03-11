@@ -19,7 +19,7 @@ namespace URPSSPSuccessTracker
     {
         //create a list of student objects created after calling web services
         List<Student> studentList;
-        List<Student> failedUploads;
+        List<string> failedUploads;
         SqlProcedures sql = new SqlProcedures();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace URPSSPSuccessTracker
 
                     //create a new instance of the studentList to hold every student that was uplaoded from the template
                     studentList = new List<Student>();
-                    failedUploads = new List<Student>();
+                    failedUploads = new List<string>();
                     Student student;
                     PrincipalInvestigator principalInvestigator;
                     ResearchProject researchProject;
@@ -102,7 +102,7 @@ namespace URPSSPSuccessTracker
                         principalInvestigator = new PrincipalInvestigator(piObj, department);
 
                         //create a new research project
-                        researchProject = new ResearchProject(researchTitle, program, researchDescription, piTUID,department, studentTUID);
+                        researchProject = new ResearchProject(researchTitle, program, researchDescription, piTUID, studentTUID);
 
                         //add this new student object to a list of all students uploaded from the template
                         studentList.Add(student);
@@ -111,18 +111,21 @@ namespace URPSSPSuccessTracker
                         //start with the student
                         SqlProcedures sqlProcedures = new SqlProcedures();
                         bool success = sqlProcedures.AddStudent(student);
-                        if (success == true)
+                        //if the upload fails then add the attempted tuid to a list of failed uploads
+                        if (success == false)
                         {
-
+                            failedUploads.Add(principalInvestigator.TUID);
                         }
 
                         //next add the principal investigator
                         sqlProcedures = new SqlProcedures();
-                        //success = sqlProcedures.AddPrincipalInvestigator(principalInvestigator);
+                        success = sqlProcedures.AddPrincipalInvestigator(principalInvestigator);
+                        
 
                         //Finally, add the the research project
+                        //remember to come back and change the term id to the drop down value
                         sqlProcedures = new SqlProcedures();
-                        //success = sqlProcedures.;
+                        success = sqlProcedures.InsertResearchProject(researchProject, 1);
 
                     }
 

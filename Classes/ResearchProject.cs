@@ -14,12 +14,15 @@ namespace URPSSPSuccessTracker.Classes
         private string researchDescription = "";
         //by default a new research project is set to incomplete
         private string status = "Incomplete";
+        private int termID;
         private string piTUID;
-        private string piDepartment;
         private string studentTUID;
+        private string researchMethod;
         private string researchPapers;
         private string researchJournals;
         private string researchConferences;
+        private string links;
+        private DateTime lastUpdate;
 
 
         public ResearchProject()
@@ -27,13 +30,12 @@ namespace URPSSPSuccessTracker.Classes
 
         }
 
-        public ResearchProject(string researchTitle, string researchType, string researchDescription, string piTUID, string piDepartment, string studentTUID)
+        public ResearchProject(string researchTitle, string researchType, string researchDescription, string piTUID, string studentTUID)
         {
             ResearchTitle = researchTitle;
             ResearchType = researchType;
             ResearchDescription = researchDescription;
             PITUID = piTUID;
-            PIDepartment = piDepartment;
             StudentTUID = studentTUID;
         }
 
@@ -56,11 +58,6 @@ namespace URPSSPSuccessTracker.Classes
         {
             get { return piTUID; }
             set { piTUID = value; }
-        }
-        public string PIDepartment
-        {
-            get { return piDepartment; }
-            set { piDepartment = value; }
         }
         public string StudentTUID
         {
