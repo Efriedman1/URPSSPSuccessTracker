@@ -108,7 +108,8 @@ namespace URPSSPSuccessTracker
                 foreach (DataRow row in dt.Rows)
                 {
                     Student student = new Student();
-                    student.TUID = Convert.ToInt32(row[0].ToString());
+                    //student.TUID = Convert.ToInt32(row[0].ToString());
+                    student.TUID = row[0].ToString();
                     student.FirstName = row[1].ToString();
                     student.LastName = row[2].ToString();
                     student.Email = row[3].ToString();
