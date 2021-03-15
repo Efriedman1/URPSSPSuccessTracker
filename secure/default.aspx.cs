@@ -124,7 +124,9 @@ namespace URPSSPSuccessTracker.secure
                 switch (userType)
                 {
                     case "Admin":
-                        Response.Redirect("AdminHome.aspx");
+                        Console.WriteLine("admin");
+                
+                        Response.Redirect("AdminHomeDatatable.aspx");
                         break;
 
                     case "PI":
@@ -132,6 +134,7 @@ namespace URPSSPSuccessTracker.secure
                         break;
 
                     case "Student":
+                        Console.WriteLine("student");
                         Response.Redirect("StudentHome.aspx");
                         break;
                 }

@@ -10,79 +10,70 @@
 namespace URPSSPSuccessTracker {
     
     
-    public partial class AdminSendEmail {
+    public partial class AdminHomeDatatable {
         
         /// <summary>
-        /// gvStudents control.
+        /// btnStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvStudents;
+        protected global::System.Web.UI.WebControls.Button btnStudent;
         
         /// <summary>
-        /// btnAddStudent control.
+        /// btnPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddStudent;
+        protected global::System.Web.UI.WebControls.Button btnPI;
         
         /// <summary>
-        /// lblSubject control.
+        /// pnlStudents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSubject;
+        protected global::System.Web.UI.WebControls.Panel pnlStudents;
         
         /// <summary>
-        /// txtEmailSubject control.
+        /// pnlPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailSubject;
+        protected global::System.Web.UI.WebControls.Panel pnlPI;
         
         /// <summary>
-        /// lblBody control.
+        /// btnEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBody;
+        protected global::System.Web.UI.WebControls.Button btnEmail;
         
         /// <summary>
-        /// txtEmailBody control.
+        /// btnEmailChecked control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailBody;
+        protected global::System.Web.UI.WebControls.Button btnEmailChecked;
         
         /// <summary>
-        /// lblEmailSent control.
+        /// btnExport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmailSent;
-        
-        /// <summary>
-        /// btnSend control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSend;
+        protected global::System.Web.UI.WebControls.Button btnExport;
         
         /// <summary>
         /// Master property.

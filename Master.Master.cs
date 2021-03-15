@@ -17,7 +17,9 @@ namespace URPSSPSuccessTracker
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session["UserType"] = "";
-            Response.Redirect("../TempLogin.aspx");
+            Session.Abandon();
+            Session.Clear();
+            Response.Redirect("~/default.aspx");
         }
 
         public void SetNavBar(String userType)
@@ -72,7 +74,7 @@ namespace URPSSPSuccessTracker
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminHome.aspx");
+            Response.Redirect("AdminHomeDatatable.aspx");
         }
     }
 }

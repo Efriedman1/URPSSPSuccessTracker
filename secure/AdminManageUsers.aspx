@@ -5,6 +5,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script>
+        function ShowPopup() {
+            $("#modal1").modal("show");
+        }
+    </script>
+
     <div class="container" style="margin-top: 2%">
         <div class="page-header">
             <h2>Admin Management</h2>
@@ -25,12 +31,16 @@
             <div class="col-4">
                 <div class="col-sm-10 " style="margin-top: 3px">
                     <asp:Label ID="Label1" runat="server" CssClass="col-form-label">TUID</asp:Label>
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control mb-2 col-8" placeholder="9 Digit TUID" BackColor="#FAFAFA"></asp:TextBox>
+                    <asp:TextBox ID="txtTUID" runat="server" CssClass="form-control mb-2 col-8" placeholder="9 Digit TUID" BackColor="#FAFAFA"></asp:TextBox>
                 </div>
+                <div class="col-sm-10 " style="margin-top: 3px">
+                    <asp:Label Text="No user found." runat="server" CssClass="text-danger" Visible="false" ID="lblNoUser"/>
+                </div>
+
                 <div class="col-sm-12 col-sm-12">
-                    <asp:Button ID="AddAdminModal" runat="server" Text="Add New Admin" CssClass="btn redbtn" data-toggle="modal" data-target="#modal1" OnClientClick="return false" />
-                    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                    <asp:Button ID="AddAdminModal" runat="server" Text="Add New Admin" CssClass="btn redbtn" data-toggle="modal" data-target="#modal" OnClick="AddAdminModal_Click" />
+                    <div class="modal fade" id="modal1" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Is this the person?</h5>
@@ -39,15 +49,15 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <b>TUID:</b> 956324895
+                                    <b>TUID:</b> <asp:Label Text="956324895" runat="server"  ID="lblTUID"/>
                                     <br />
-                                    <b>First Name:</b> Cody
-                                    <br />
-                                    <b>Last Name:</b> Guevara
+                                    <b>First Name:</b> <asp:Label Text="Cody" runat="server" ID="lblFirstName" />
+                                    <br /> 
+                                    <b>Last Name:</b> <asp:Label Text="Guevara" runat="server" ID="lblLastName"/>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn redbtn" data-dismiss="modal">Confirm and Add</button>
+                                    <asp:Button type="button" class="btn redbtn" runat="server" ID="btnModalAddAdmin" OnClick="btnModalAddAdmin_Click" Text="Confirm and Add"/>
                                 </div>
                             </div>
                         </div>
@@ -57,78 +67,26 @@
             <div class="col-8">
                 <div class="col-sm-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="col-12 col-sm-12 col-lg-12 col-lg-12" style="margin-top: 2%;">
-                        <asp:Table ID="tblAdministrators" runat="server" CssClass="table table-striped">
-
-                            <asp:TableHeaderRow Style="background-color: #91182A; color: white;">
-                                <asp:TableHeaderCell Scope="Column">
-                                    TUID
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell Scope="Column">
-                                    First Name
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell Scope="Column">
-                                    Last Name
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell Scope="Column">
-                                    Active
-                                </asp:TableHeaderCell>
-                                <asp:TableHeaderCell Scope="Column">
-                                    Actions
-                                </asp:TableHeaderCell>
-                            </asp:TableHeaderRow>
-
-                            <asp:TableRow>
-                                <asp:TableHeaderCell>
-                                    956324895
-                                </asp:TableHeaderCell>
-                                <asp:TableCell>
-                                    Cody
-                                </asp:TableCell>
-                                <asp:TableCell>
-                                    Guevara
-                                </asp:TableCell>
-                                <asp:TableCell ForeColor="Green">
-                                    Yes
-                                </asp:TableCell>
-                                <asp:TableCell>
-                                    <div class="dropdown">
-                                      <button class="btn dropdown-toggle redbtn" type="button" id="ddlAction1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Action
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                   
-                                        <a class="dropdown-item" href="#">Edit</a>
-                                        <a class="dropdown-item" href="#">Delete</a>
-                                      </div>
-                                    </div>
-                                </asp:TableCell>
-                            </asp:TableRow>
-
-                            <asp:TableRow>
-                                <asp:TableHeaderCell>
-                                    955655487
-                                </asp:TableHeaderCell>
-                                <asp:TableCell>
-                                    Willy
-                                </asp:TableCell>
-                                <asp:TableCell>
-                                    Smith
-                                </asp:TableCell>
-                                <asp:TableCell ForeColor="red">
-                                    No
-                                </asp:TableCell>
-                                <asp:TableCell>
-                                    <div class="dropdown">
-                                      <button class="btn dropdown-toggle redbtn" type="button" id="ddlAction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                        Action
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                   
-                                        <a class="dropdown-item" href="#">Edit</a>
-                                        <a class="dropdown-item" href="#">Delete</a>
-                                      </div>
-                                    </div>
-                                </asp:TableCell>
-                            </asp:TableRow>
-                        </asp:Table>
+                        <asp:GridView runat="server" ID="gvAdministrators" DataKeyNames="TUID" AutoGenerateColumns="false" OnRowCommand="gvAdministrators_RowCommand" CssClass="table table-borderless text-center table-striped" BorderStyle="None" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="X-Large" Font-Size="X-Large">
+                            <Columns>
+                                <asp:BoundField DataField="TUID" HeaderText="TUID"/>
+                                <asp:BoundField DataField="FirstName" HeaderText="FirstName" />
+                                <asp:BoundField DataField="LastName" HeaderText="LastName" />
+                                <asp:BoundField DataField="Email" HeaderText="Email" />             
+                                <asp:BoundField DataField="Active" HeaderText="Active" />             
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <div class="dropdown" >
+                                            <button id="dropdownbutton" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Actions</button>
+                                            <div class="dropdown-menu">
+                                            <asp:Button Text="Change Status" runat="server" CommandName="EditAdmin" CssClass="dropdown-item"/>
+                                            <asp:Button Text="Delete" runat="server" CommandName="DeleteAdmin" CssClass="dropdown-item"/>
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </div>
 
 
@@ -150,7 +108,7 @@
         <h3 class="mt-4">Manage Terms</h3>        
         <div class="row mt-5">
             <div class="col">
-                <div class="row mt-5">
+                <div class="row col-6">
                     <div class="col">
                         <label>
                             Semester
@@ -169,20 +127,25 @@
                         </asp:TextBox>
                     </div>
                 </div>
-                <div class="mt-5 text-center mb-5">
-                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn redbtn" OnClick="btnCreateTerm_Click" />
+                <div class="col-sm-12 mt-2">
+                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn redbtn btn-lg"  OnClick="btnCreateTerm_Click" />
                 </div>
             </div>
-            <div class="col">
+            <div class="col-12">
                 
-                <div class="row">            
-                <asp:GridView runat="server" ID="gvTerms" DataKeyNames="TermID" AutoGenerateColumns="false" OnRowDeleting="gvTerms_RowDeleting" CssClass="table table-borderless" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White">
+                <div class="col-12 col-sm-12 col-lg-12 col-lg-12" style="margin-top: 2%; margin-bottom:10%">            
+                <asp:GridView runat="server" ID="gvTerms" DataKeyNames="TermID" AutoGenerateColumns="false" OnRowCommand="gvTerms_RowCommand" OnRowDeleting="gvTerms_RowDeleting" CssClass="table table-borderless text-center table-striped" BorderStyle="None" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="X-Large" Font-Size="X-Large">
                     <Columns>
                         <asp:BoundField DataField="TermID" HeaderText="TermID" Visible="false"/>
                         <asp:BoundField DataField="Semester" HeaderText="Semester" />
                         <asp:BoundField DataField="Year" HeaderText="Year" />
-                        <asp:BoundField DataField="Status" HeaderText="Status" />             
-                        <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn btn-danger"/>
+                        <asp:BoundField DataField="Status" HeaderText="Status" />        
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button Text="Change Status" runat="server" CssClass="btn btn-primary" CommandName="EditStatus"/>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn redbtn"/>
                     </Columns>
                 </asp:GridView>
         </div>

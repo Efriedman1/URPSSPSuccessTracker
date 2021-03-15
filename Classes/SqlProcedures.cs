@@ -31,12 +31,25 @@ namespace URPSSPSuccessTracker.Classes
             SqlCommand adminCommand = new SqlCommand();
             adminCommand.CommandType = CommandType.StoredProcedure;
             adminCommand.CommandText = "AddAdministrator";
-            adminCommand.Parameters.AddWithValue("@tuid", tuid);
+            adminCommand.Parameters.AddWithValue("@TUID", tuid);
+            adminCommand.Parameters.AddWithValue("@FirstName", firstName);
+            adminCommand.Parameters.AddWithValue("@LastName", lastName);
+            adminCommand.Parameters.AddWithValue("@Email", email);
+            adminCommand.Parameters.AddWithValue("@Active", active);
 
             return urpDB.DoUpdateUsingCmdObj(adminCommand) > 0;
         }
 
         //Change admin active status
+        public Boolean ChangeAdministratorActive(int tuid)
+        {
+            SqlCommand adminCommand = new SqlCommand();
+            adminCommand.CommandType = CommandType.StoredProcedure;
+            adminCommand.CommandText = "ChangeAdministratorStatus";
+            adminCommand.Parameters.AddWithValue("@tuid", tuid);
+
+            return urpDB.DoUpdateUsingCmdObj(adminCommand) > 0;
+        }
         public Boolean ChangeAdministratorActive(int tuid, string active)
         {
             SqlCommand adminCommand = new SqlCommand();
@@ -60,7 +73,7 @@ namespace URPSSPSuccessTracker.Classes
         }
         
         //Load admins
-        public List<Administrator> LoadAdministrator()
+        public DataSet LoadAdministrator()
         {
             List<Administrator> adminList = new List<Administrator>();
 
@@ -68,16 +81,16 @@ namespace URPSSPSuccessTracker.Classes
             adminCommand.CommandType = CommandType.StoredProcedure;
             adminCommand.CommandText = "LoadAdministrator";
 
-            DataSet adminData = urpDB.GetDataSetUsingCmdObj(adminCommand);
+            DataSet adminData = urpDB.GetDataSetUsingCmdObj(adminCommand);/*
             int count = adminData.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
                 Administrator newAdmin = new Administrator((int)adminData.Tables[0].Rows[i][0], adminData.Tables[0].Rows[i][1].ToString(), adminData.Tables[0].Rows[i][2].ToString(), adminData.Tables[0].Rows[i][3].ToString(),
                      adminData.Tables[0].Rows[i][4].ToString());
                 adminList.Add(newAdmin);
-            }
+            }*/
 
-            return adminList;
+            return adminData;
         }
 
         //====================
@@ -125,21 +138,30 @@ namespace URPSSPSuccessTracker.Classes
         {
             List<Student> studentList = new List<Student>();
 
-            SqlCommand studentCommand = new SqlCommand();
-            studentCommand.CommandType = CommandType.StoredProcedure;
-            studentCommand.CommandText = "LoadStudents";
-            DataSet studentData = urpDB.GetDataSetUsingCmdObj(studentCommand);
-            int count = studentData.Tables[0].Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                Student newStudent = new Student((int)studentData.Tables[0].Rows[i][0], studentData.Tables[0].Rows[i][1].ToString(), studentData.Tables[0].Rows[i][2].ToString(), studentData.Tables[0].Rows[i][3].ToString(),
-                     studentData.Tables[0].Rows[i][4].ToString(), studentData.Tables[0].Rows[i][5].ToString(), studentData.Tables[0].Rows[i][6].ToString(), (DateTime)studentData.Tables[0].Rows[i][7]);
-                studentList.Add(newStudent);
-            }
+            //SqlCommand studentCommand = new SqlCommand();
+            //studentCommand.CommandType = CommandType.StoredProcedure;
+            //studentCommand.CommandText = "LoadStudents";
+            //DataSet studentData = urpDB.GetDataSetUsingCmdObj(studentCommand);
+            //int count = studentData.Tables[0].Rows.Count;
+            //for (int i = 0; i < count; i++)
+            //{
+            //    Student newStudent = new Student((string)studentData.Tables[0].Rows[i][0], studentData.Tables[0].Rows[i][1].ToString(), studentData.Tables[0].Rows[i][2].ToString(), studentData.Tables[0].Rows[i][3].ToString(),
+            //         studentData.Tables[0].Rows[i][4].ToString(), studentData.Tables[0].Rows[i][5].ToString(), studentData.Tables[0].Rows[i][6].ToString(), (DateTime)studentData.Tables[0].Rows[i][7]);
+            //    studentList.Add(newStudent);
+            //}
 
             return studentList;
         }
+        public DataSet GetAllStudents()
+        {
+            List<Student> studentList = new List<Student>();
 
+            SqlCommand studentCommand = new SqlCommand();
+            studentCommand.CommandType = CommandType.StoredProcedure;
+            studentCommand.CommandText = "GetAllStudents";
+            DataSet ds = urpDB.GetDataSetUsingCmdObj(studentCommand);
+            return ds;
+        }
         //====================
         //Principal Investigator
         //====================
@@ -171,17 +193,17 @@ namespace URPSSPSuccessTracker.Classes
         {
             List<PrincipalInvestigator> piList = new List<PrincipalInvestigator>();
 
-            SqlCommand piCommand = new SqlCommand();
-            piCommand.CommandType = CommandType.StoredProcedure;
-            piCommand.CommandText = "LoadPrincipalInvestigator";
-            DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
-            int count = piData.Tables[0].Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                PrincipalInvestigator newPI = new PrincipalInvestigator((int)piData.Tables[0].Rows[i][0], piData.Tables[0].Rows[i][1].ToString(), piData.Tables[0].Rows[i][2].ToString(), piData.Tables[0].Rows[i][3].ToString(),
-                     piData.Tables[0].Rows[i][4].ToString(), piData.Tables[0].Rows[i][5].ToString(), piData.Tables[0].Rows[i][6].ToString(), piData.Tables[0].Rows[i][6].ToString(), (DateTime)piData.Tables[0].Rows[i][8]);
-                piList.Add(newPI);
-            }
+            //SqlCommand piCommand = new SqlCommand();
+            //piCommand.CommandType = CommandType.StoredProcedure;
+            //piCommand.CommandText = "LoadPrincipalInvestigator";
+            //DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
+            //int count = piData.Tables[0].Rows.Count;
+            //for (int i = 0; i < count; i++)
+            //{
+            //    PrincipalInvestigator newPI = new PrincipalInvestigator((int)piData.Tables[0].Rows[i][0], piData.Tables[0].Rows[i][1].ToString(), piData.Tables[0].Rows[i][2].ToString(), piData.Tables[0].Rows[i][3].ToString(),
+            //         piData.Tables[0].Rows[i][4].ToString(), piData.Tables[0].Rows[i][5].ToString(), piData.Tables[0].Rows[i][6].ToString(), piData.Tables[0].Rows[i][6].ToString(), (DateTime)piData.Tables[0].Rows[i][8]);
+            //    piList.Add(newPI);
+            //}
 
             return piList;
         }
@@ -395,11 +417,30 @@ namespace URPSSPSuccessTracker.Classes
             return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
         }
 
+
+        public Boolean InsertResearchProject(ResearchProject researchProject, int termID, string researchMethod)
+        {
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "InsertResearchProject";
+            researchCommand.Parameters.AddWithValue("@StudentTUID", researchProject.StudentTUID);
+            researchCommand.Parameters.AddWithValue("@PITUID", researchProject.PITUID);
+            researchCommand.Parameters.AddWithValue("@TermID", termID);
+            researchCommand.Parameters.AddWithValue("@Tltle", researchProject.ResearchTitle);
+            researchCommand.Parameters.AddWithValue("@Description", researchProject.ResearchDescription);
+            researchCommand.Parameters.AddWithValue("@ResearchMethod", researchMethod);
+            researchCommand.Parameters.AddWithValue("@Status", "Incomplete");
+            researchCommand.Parameters.AddWithValue("@TypeOfResearch", researchProject.ResearchType);
+
+            return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
+        }
+
+
         //====================
         //Term
         //====================
 
-            //get term id
+        //get term id
         public Boolean GetTermID(string semester, int year)
         {
             SqlCommand termCommand = new SqlCommand();
@@ -439,6 +480,16 @@ namespace URPSSPSuccessTracker.Classes
 
             return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
 
+        }
+        public Boolean ChangeTermStatus(int termID)
+        {
+            SqlCommand termCommand = new SqlCommand();
+            termCommand.CommandType = CommandType.StoredProcedure;
+            termCommand.CommandText = "ChangeTermStatus";
+            termCommand.Parameters.AddWithValue("@TermID", termID);
+
+
+            return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
         }
     }
 }

@@ -9,28 +9,28 @@ namespace URPSSPSuccessTracker.Classes
     public class Student
     {
 
-        public int TUID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Program { get; set; }
-        public string Status { get; set; }
-        public string Major { get; set; }
-        public DateTime LastUpdate { get; set; }
+        private string tuid;
+        private string firstName;
+        private string lastName;
+        private string email;
+        private string program;
+        private string major;
+        private string gradDate;
+        private DateTime lastUpdate;
+   
 
-        public Student(int tuid, string firstname, string lastname, string email, string program, string status, string major, DateTime lastupdate)
-        {
-            TUID = tuid;
-            FirstName = firstname;
-            LastName = lastname;
-            Email = email;
-            Program = program;
-            Status = status;
-            Major = major;
-            LastUpdate = lastupdate;
-        }
+        //public Student(int tuid, string firstname, string lastname, string email, string program, string status, string major, DateTime lastupdate)
+        //{
+        //    TUID = tuid;
+        //    FirstName = firstname;
+        //    LastName = lastname;
+        //    Email = email;
+        //    Program = program;
+        //    Status = status;
+        //    Major = major;
+        //    LastUpdate = lastupdate;
+        //}
 
-        private WebService.StudentObj studentObj;
 
         //null Constructor
         public Student()
@@ -38,17 +38,64 @@ namespace URPSSPSuccessTracker.Classes
 
         }
 
-        public Student(WebService.StudentObj studentObj, string program)
+        public Student(WebService.StudentObj studentObj, string program, string gradDate)
         {
-            this.studentObj = studentObj;
+            TUID = studentObj.tuid;
+            FirstName = studentObj.firstName;
+            LastName = studentObj.lastName;
+            Email = studentObj.email;
+            Major = studentObj.major1;
             this.Program = program;
+            GradDate = gradDate;
+            LastUpdate = DateTime.Now;
+
         }
 
-
-        public WebService.StudentObj StudentObj
+        //Auto Implemented Properties
+        public String TUID
         {
-            get { return studentObj; }
-            set { studentObj = value; }
+            get { return tuid; }
+            set { tuid = value; }
         }
+
+        public string FirstName
+        {
+            get { return firstName; }
+            set { firstName = value; }
+        }
+        public string LastName
+        {
+            get { return lastName; }
+            set { lastName = value; }
+        }
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+        public string Program
+        {
+            get { return program; }
+            set { program = value; }
+        }
+
+        public string Major
+        {
+            get { return major; }
+            set { major = value; }
+        }
+
+        public string GradDate
+        {
+            get { return gradDate; }
+            set { gradDate = value; }
+        }
+
+        public DateTime LastUpdate
+        {
+            get { return lastUpdate; }
+            set { lastUpdate = value; }
+        }
+
     }
 }

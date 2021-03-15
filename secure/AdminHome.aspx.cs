@@ -18,14 +18,14 @@ namespace URPSSPSuccessTracker
             {
                 if (Session["Authenticated"] == null || Session["Authenticated"].ToString() == "false")
                 {
-                    Response.Redirect("~/default.aspx");
+                    //Response.Redirect("~/default.aspx");
                 }
 
             }
             catch (Exception ex)
             {
 
-                Response.Redirect("~/default.aspx");
+               // Response.Redirect("~/default.aspx");
             }
 
 
@@ -47,13 +47,14 @@ namespace URPSSPSuccessTracker
                     }
                     else
                     {
-                        Response.Redirect("~/default.aspx");
+                        //Response.Redirect("~/default.aspx");
                     }
                 }
                 else
                 {
                     number = int.TryParse(Session["SSO_Attribute_employeeNumber"].ToString(), out employeeNumber);
-
+                    Console.WriteLine(number);
+                    /*
                     if ((String)Session["UserType"] == "Admin" && number)
                     {
                         // Search for employeeNumber in student table to see if user is a valid student
@@ -67,13 +68,13 @@ namespace URPSSPSuccessTracker
                         }
                         else
                         {
-                            Response.Redirect("~/default.aspx");
+                            //Response.Redirect("~/default.aspx");
                         }
                     }
                     else
                     {
-                        Response.Redirect("~/default.aspx");
-                    }
+                        //Response.Redirect("~/default.aspx");
+                    }*/
                 }
 
                 this.Master.SetNavBar((String)Session["UserType"]);
@@ -128,6 +129,7 @@ namespace URPSSPSuccessTracker
 
         protected void btnEmailChecked_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("AdminSendEmail.aspx");
         }
 

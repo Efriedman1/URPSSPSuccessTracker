@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using URPSSPSuccessTracker.Classes;
+using URPSSPSuccessTracker.Library;
+using System.Configuration;
 
 namespace URPSSPSuccessTracker
 {
@@ -23,6 +25,7 @@ namespace URPSSPSuccessTracker
                 lblInstructions.Text = instruction.Body;
 
                 getTerms();
+                getAdmins();
             }
 
         }
@@ -58,6 +61,123 @@ namespace URPSSPSuccessTracker
             {
                 getTerms();
 
+            }
+        }
+
+        protected void AddAdminModal_Click(object sender, EventArgs e)
+        {
+            Administrator administrator = getProfileFromTUID(int.Parse(txtTUID.Text));
+            if (administrator == null)
+            {
+                lblNoUser.Visible = true;
+            }
+            else
+            {
+                int tuID = administrator.TUID;
+                string firstName = administrator.FirstName;
+                string lastName = administrator.LastName;
+                string email = administrator.Email;
+                string active = administrator.Active;
+
+                lblTUID.Text = tuID.ToString();
+                lblFirstName.Text = firstName;
+                lblLastName.Text = lastName;
+
+                ClientScript.RegisterStartupScript(this.GetType(), "modal1", "ShowPopup();", true);
+            }
+        }
+
+        protected Administrator getProfileFromTUID(int tuID)
+        {
+            WebService.LDAPuser Temple_Information = WebService.Webservice.getLDAPEntryByTUID(tuID.ToString());
+            Administrator administrator = null;
+
+            if (Temple_Information != null)
+            {
+                string firstName = Temple_Information.givenName;
+                string lastName = Temple_Information.sn;
+                string email = Temple_Information.mail;
+                string active = "True";
+
+                administrator = new Administrator(tuID, firstName, lastName, email, active);
+            }
+            return administrator;
+        }
+
+        protected void btnModalAddAdmin_Click(object sender, EventArgs e)
+        {
+            Administrator administrator = getProfileFromTUID(int.Parse(txtTUID.Text));
+
+            int tuID = administrator.TUID;
+            string firstName = administrator.FirstName;
+            string lastName = administrator.LastName;
+            string email = administrator.Email;
+            string active = administrator.Active;
+
+            SqlProcedures sqlProcedures = new SqlProcedures();
+            bool success = sqlProcedures.AddAdministrator(tuID, firstName, lastName, email, active);
+            if (success)
+            {
+                getAdmins();            
+            }
+            lblNoUser.Visible = false;
+            txtTUID.Text = "";
+        }
+
+        protected void getAdmins()
+        {
+            SqlProcedures sqlProcedures = new SqlProcedures();
+            DataSet administrators = sqlProcedures.LoadAdministrator();
+            gvAdministrators.DataSource = administrators;
+            gvAdministrators.DataBind();
+        }
+
+        protected void gvAdministrators_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int tuID = Convert.ToInt32(gvAdministrators.DataKeys[e.RowIndex].Value.ToString());
+            SqlProcedures sqlProcedures = new SqlProcedures();
+            bool success = sqlProcedures.DeleteAdministrator(tuID);
+            if (success)
+            {
+                getAdmins();
+            }
+        }
+        
+        protected void gvAdministrators_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GridViewRow row = (GridViewRow)((Button)e.CommandSource).NamingContainer;
+            int tuID = Convert.ToInt32(gvAdministrators.DataKeys[row.RowIndex].Value.ToString());
+            SqlProcedures sqlProcedures = new SqlProcedures();
+            bool success = false;
+            switch (e.CommandName)
+            {
+                case "DeleteAdmin":
+                    success = sqlProcedures.DeleteAdministrator(tuID);
+                    if (success)
+                    {
+                        getAdmins();
+                    }
+                    break;
+                case "EditAdmin":
+                    success = sqlProcedures.ChangeAdministratorActive(tuID);
+                    if (success)
+                    {
+                        getAdmins();
+                    }
+                    break;
+            }
+        }
+
+        protected void gvTerms_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GridViewRow row = (GridViewRow)((Button)e.CommandSource).NamingContainer;
+            int termID = Convert.ToInt32(gvTerms.DataKeys[row.RowIndex].Value.ToString());
+            SqlProcedures sqlProcedures = new SqlProcedures();
+            bool success = false;
+            success = sqlProcedures.ChangeTermStatus(termID);
+            if (success)
+            {
+                getTerms();
             }
         }
     }
