@@ -3,7 +3,7 @@
 
 #added files
 *.config
-*.csproj
+
 
 # User-specific files
 *.suo
