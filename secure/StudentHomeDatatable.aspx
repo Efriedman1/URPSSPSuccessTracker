@@ -54,6 +54,14 @@
           pointer-events:none;
 
         }
+        thead input{
+            width:100%;
+            padding:3px;
+            box-sizing:border-box;
+        }
+        body{
+            padding:1%;
+        }
 
     </style>
 

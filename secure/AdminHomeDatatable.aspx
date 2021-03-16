@@ -80,8 +80,7 @@
             });*/
 
         $('#table2 thead tr').clone(true).appendTo( '#table2 thead' );
-        //$('#table2 thead tr:eq(1) th').each( function (i) {
-        $('table2 thead tr:eq(1) th:not(:last-child)').each(function (i) {
+        $('#table2 thead tr:eq(1) th:not(:last-child)').each( function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
  
