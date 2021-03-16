@@ -31,7 +31,6 @@ namespace URPSSPSuccessTracker.Classes
             LastName = studentObj.lastName;
             Email = studentObj.email;
             Department = department;
-            this.Department = department;
             LastUpdate = DateTime.Now;
             
         }
