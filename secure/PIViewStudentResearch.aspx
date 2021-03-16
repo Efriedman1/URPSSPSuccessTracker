@@ -33,7 +33,6 @@
             border-bottom: none;
         }
 
-
         .modal-header {
             padding: 2px 16px;
             background-color: #91182a;
@@ -291,9 +290,15 @@
                         </div>
 
                         <div class="actionBox">
-                            <asp:Panel runat="server" ID="pnlComments" CssClass="commentList">
-                                <!--Comments will be inserted here-->
-                            </asp:Panel>
+                            <asp:ScriptManager ID="smComments" runat="server"></asp:ScriptManager>
+                            <asp:UpdatePanel runat="server" ID="upnlComments" CssClass="commentList" UpdateMode="Conditional">
+                                <ContentTemplate>
+                                    <!--Comments will be inserted here-->
+                                </ContentTemplate>                                
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger controlid="btnComment" EventName="Click"/>
+                                </Triggers>
+                            </asp:UpdatePanel>
                         </div>
 
                     </div>
@@ -305,6 +310,8 @@
                     <div class="form-group text-center">
                         <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn redbtn my-2 my-sm-0 btnSize" OnClick="btnComment_Click" />
                     </div>
+                    <asp:Label runat="server" ID="lblCharMax" Text="Characters: 0/500"></asp:Label>
+                    <asp:Label runat="server" ID="lblCommentError" Text=""></asp:Label>
                 </div>
                 <!--Grid column-->
         </section>

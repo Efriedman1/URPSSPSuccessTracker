@@ -22,7 +22,7 @@ namespace URPSSPSuccessTracker
                 populateResearch();
             }
             populateCommentSection();
-        }      
+        }
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
@@ -54,15 +54,24 @@ namespace URPSSPSuccessTracker
         protected void btnComment_Click(object sender, EventArgs e)
         {
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            if (urpSqlProcedures.AddComments(6, "Rose McGinnis", tbComment.Text, DateTime.Now))
+            Validation validation = new Validation();
+            if (validation.ValidateChaMinMax(tbComment.Text, 1, 500))
             {
-                populateCommentSection();
-                tbComment.Text = "";
+                if (urpSqlProcedures.AddComments(6, "Rose McGinnis", tbComment.Text, DateTime.Now))
+                {
+                    populateCommentSection();
+                    tbComment.Text = "";
+                }
+                else
+                {
+                    lblCommentError.Text = "Invalid Comment Length";
+                }
             }
-            else
-            {
-                //If comment post fails
-            }
+        }
+
+        protected void updateCharLimit()
+        {
+            int charCount = 0;
         }
 
         protected void populateCommentSection()
@@ -92,7 +101,7 @@ namespace URPSSPSuccessTracker
                 commentPanel.Controls.Add(dateTime);
                 commentPanel.CssClass = "col commentText";
                 li.Controls.Add(commentPanel);
-                pnlComments.Controls.Add(li);
+                upnlComments.ContentTemplateContainer.Controls.Add(li);
             }
         }
 

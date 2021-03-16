@@ -80,6 +80,11 @@ namespace URPSSPSuccessTracker.Classes
             return tbox.Length == length;
         }
 
+        public bool ValidateChaMinMax(string tbox, int min, int max)
+        {
+            return tbox.Length >= min && tbox.Length <= max;
+        }
+
         //Validate word count in a text field
         public bool ValidateWordCount(string tbox, int count)
         {

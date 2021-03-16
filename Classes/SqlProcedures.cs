@@ -121,23 +121,34 @@ namespace URPSSPSuccessTracker.Classes
             return urpDB.GetDataSetUsingCmdObj(studentCommand);
         }
 
-        public List<Student> LoadStudents()
+        //public List<Student> LoadStudents()
+        //{
+        //    List<Student> studentList = new List<Student>();
+
+        //    SqlCommand studentCommand = new SqlCommand();
+        //    studentCommand.CommandType = CommandType.StoredProcedure;
+        //    studentCommand.CommandText = "LoadStudents";
+        //    DataSet studentData = urpDB.GetDataSetUsingCmdObj(studentCommand);
+        //    int count = studentData.Tables[0].Rows.Count;
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        Student newStudent = new Student((string)studentData.Tables[0].Rows[i][0], studentData.Tables[0].Rows[i][1].ToString(), studentData.Tables[0].Rows[i][2].ToString(), studentData.Tables[0].Rows[i][3].ToString(),
+        //             studentData.Tables[0].Rows[i][4].ToString(), studentData.Tables[0].Rows[i][5].ToString(), studentData.Tables[0].Rows[i][6].ToString(), (DateTime)studentData.Tables[0].Rows[i][7]);
+        //        studentList.Add(newStudent);
+        //    }
+
+        //    return studentList;
+        //}
+
+        public DataSet LoadStudents()
         {
-            List<Student> studentList = new List<Student>();
+            SqlCommand studentCommand = new SqlCommand();
+            studentCommand.CommandType = CommandType.StoredProcedure;
+            studentCommand.CommandText = "LoadStudents";
+            DataSet studentData = urpDB.GetDataSetUsingCmdObj(studentCommand);
+            int count = studentData.Tables[0].Rows.Count;
 
-            //SqlCommand studentCommand = new SqlCommand();
-            //studentCommand.CommandType = CommandType.StoredProcedure;
-            //studentCommand.CommandText = "LoadStudents";
-            //DataSet studentData = urpDB.GetDataSetUsingCmdObj(studentCommand);
-            //int count = studentData.Tables[0].Rows.Count;
-            //for (int i = 0; i < count; i++)
-            //{
-            //    Student newStudent = new Student((string)studentData.Tables[0].Rows[i][0], studentData.Tables[0].Rows[i][1].ToString(), studentData.Tables[0].Rows[i][2].ToString(), studentData.Tables[0].Rows[i][3].ToString(),
-            //         studentData.Tables[0].Rows[i][4].ToString(), studentData.Tables[0].Rows[i][5].ToString(), studentData.Tables[0].Rows[i][6].ToString(), (DateTime)studentData.Tables[0].Rows[i][7]);
-            //    studentList.Add(newStudent);
-            //}
-
-            return studentList;
+            return studentData;
         }
 
         //====================
@@ -279,7 +290,7 @@ namespace URPSSPSuccessTracker.Classes
             emailCommand.Parameters.AddWithValue("@Receiver", receiver);
             emailCommand.Parameters.AddWithValue("@Time", time);
 
-            return urpDB.DoUpdateUsingCmdObj(emailCommand) > 0;
+            return urpDB.DoUpdateUsingCmdObj(emailCommand) > 0; 
         }
 
         //====================
@@ -412,7 +423,6 @@ namespace URPSSPSuccessTracker.Classes
 
             return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
         }
-
 
         //====================
         //Term
