@@ -31,12 +31,25 @@ namespace URPSSPSuccessTracker.Classes
             SqlCommand adminCommand = new SqlCommand();
             adminCommand.CommandType = CommandType.StoredProcedure;
             adminCommand.CommandText = "AddAdministrator";
-            adminCommand.Parameters.AddWithValue("@tuid", tuid);
+            adminCommand.Parameters.AddWithValue("@TUID", tuid);
+            adminCommand.Parameters.AddWithValue("@FirstName", firstName);
+            adminCommand.Parameters.AddWithValue("@LastName", lastName);
+            adminCommand.Parameters.AddWithValue("@Email", email);
+            adminCommand.Parameters.AddWithValue("@Active", active);
 
             return urpDB.DoUpdateUsingCmdObj(adminCommand) > 0;
         }
 
         //Change admin active status
+        public Boolean ChangeAdministratorActive(int tuid)
+        {
+            SqlCommand adminCommand = new SqlCommand();
+            adminCommand.CommandType = CommandType.StoredProcedure;
+            adminCommand.CommandText = "ChangeAdministratorStatus";
+            adminCommand.Parameters.AddWithValue("@tuid", tuid);
+
+            return urpDB.DoUpdateUsingCmdObj(adminCommand) > 0;
+        }
         public Boolean ChangeAdministratorActive(int tuid, string active)
         {
             SqlCommand adminCommand = new SqlCommand();
@@ -60,7 +73,7 @@ namespace URPSSPSuccessTracker.Classes
         }
         
         //Load admins
-        public List<Administrator> LoadAdministrator()
+        public DataSet LoadAdministrator()
         {
             List<Administrator> adminList = new List<Administrator>();
 
@@ -68,16 +81,16 @@ namespace URPSSPSuccessTracker.Classes
             adminCommand.CommandType = CommandType.StoredProcedure;
             adminCommand.CommandText = "LoadAdministrator";
 
-            DataSet adminData = urpDB.GetDataSetUsingCmdObj(adminCommand);
+            DataSet adminData = urpDB.GetDataSetUsingCmdObj(adminCommand);/*
             int count = adminData.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
                 Administrator newAdmin = new Administrator((int)adminData.Tables[0].Rows[i][0], adminData.Tables[0].Rows[i][1].ToString(), adminData.Tables[0].Rows[i][2].ToString(), adminData.Tables[0].Rows[i][3].ToString(),
                      adminData.Tables[0].Rows[i][4].ToString());
                 adminList.Add(newAdmin);
-            }
+            }*/
 
-            return adminList;
+            return adminData;
         }
 
         //====================
@@ -146,7 +159,16 @@ namespace URPSSPSuccessTracker.Classes
 
             return studentList;
         }
+        public DataSet GetAllStudents()
+        {
+            List<Student> studentList = new List<Student>();
 
+            SqlCommand studentCommand = new SqlCommand();
+            studentCommand.CommandType = CommandType.StoredProcedure;
+            studentCommand.CommandText = "GetAllStudents";
+            DataSet ds = urpDB.GetDataSetUsingCmdObj(studentCommand);
+            return ds;
+        }
         //====================
         //Principal Investigator
         //====================
@@ -467,6 +489,16 @@ namespace URPSSPSuccessTracker.Classes
 
             return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
 
+        }
+        public Boolean ChangeTermStatus(int termID)
+        {
+            SqlCommand termCommand = new SqlCommand();
+            termCommand.CommandType = CommandType.StoredProcedure;
+            termCommand.CommandText = "ChangeTermStatus";
+            termCommand.Parameters.AddWithValue("@TermID", termID);
+
+
+            return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
         }
     }
 }

@@ -129,6 +129,7 @@ namespace URPSSPSuccessTracker
 
         protected void btnEmailChecked_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("AdminSendEmail.aspx");
         }
 
