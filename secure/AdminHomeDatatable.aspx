@@ -5,9 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css" />
 
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
@@ -23,18 +23,20 @@
     <script type="text/javascript" src="https://hr.oop.cmu.ac.th/data/appointment/js/DataTable/media/js/jquery.dataTables.js"></script>
 
 
-    
+
     <style>
         div.dataTables_wrapper {
-        margin-bottom: 3em;
+            margin-bottom: 3em;
         }
+
         table {
-        width:80%;
-        table-layout:fixed;
+            width: 80%;
+            table-layout: fixed;
         }
-        th:last-child{
-            color:white;
-            pointer-events:none;
+
+        th:last-child {
+            color: white;
+            pointer-events: none;
         }
         thead input{
             width:100%;
@@ -46,7 +48,7 @@
         }
     </style>
 
-     <script>
+    <script>
         /*$(document).ready(function() {
             $('table.display').DataTable();
         });
@@ -64,18 +66,41 @@
                     'selectCells'
                 ],
                 select: true,
-                    "ajax": "arrays.txt",/*PI*/
-                    "columnDefs": [ {
+                "ajax": "arrays.txt",/*PI*/
+                "columnDefs": [{
                     "targets": -1,
                     "data": null,
                     "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
-                } ]
+                }]
             });
 
             $('#table2 tbody').on('click', 'tr', function () {
                 $(this).toggleClass('selected');
-            } ); 
+            });
 
+
+/* backend */
+           /* $('#table2 tbody').on('click', 'button', function () {
+                var data = table.row($(this).parents('tr')).data();
+                alert(data[0] + "'s salary is: " + data[5]);
+            });
+
+            $('#table2 thead tr').clone(true).appendTo('#table2 thead');
+            //$('#table2 thead tr:eq(1) th').each( function (i) {
+            $('table2 thead tr:eq(1) th:not(:last-child)').each(function (i) {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+
+                $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table
+                            .column(i)
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            }); */
+/* backend */
             
        /* $('#table2 tbody').on( 'click', 'button', function () {
             var data = table.row( $(this).parents('tr') ).data();
@@ -97,9 +122,9 @@
             } );
         } );
         });
-        
-        
-        $(document).ready(function() {
+
+
+        $(document).ready(function () {
             var table = $('#example').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
@@ -112,121 +137,123 @@
                     'selectCells'
                 ],
                 select: true,
-                    "ajax": "studentArrays.txt",/*students*/
-                    "columnDefs": [ {
+                "ajax": "studentArrays.txt",/*students*/
+                "columnDefs": [{
                     "targets": -1,
                     "data": null,
                     "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
-                } ]
-            } );
- 
-        $('#example tbody').on( 'click', 'button', function () {
-            var data = table.row( $(this).parents('tr') ).data();
-            alert( data[0] +"'s salary is: "+ data[ 5 ] );
+                }]
+            });
+
+            $('#example tbody').on('click', 'button', function () {
+                var data = table.row($(this).parents('tr')).data();
+                alert(data[0] + "'s salary is: " + data[5]);
             });
 
 
 
-        $('#example tbody').on( 'click', 'tr', function () {
-            $(this).toggleClass('selected');
-        } );
- 
-            
+            $('#example tbody').on('click', 'tr', function () {
+                $(this).toggleClass('selected');
+            });
 
-        $('#example thead tr').clone(true).appendTo( '#example thead' );
-        $('#example thead tr:eq(1) th:not(:last-child)').each( function (i) {
-            var title = $(this).text();
-            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
- 
-            $( 'input', this ).on( 'keyup change', function () {
-                if ( table.column(i).search() !== this.value ) {
-                    table
-                        .column(i)
-                        .search( this.value )
-                        .draw();
-                }
-            } );
-        } );
+
+
+            $('#example thead tr').clone(true).appendTo('#example thead');
+            $('#example thead tr:eq(1) th:not(:last-child)').each(function (i) {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+
+                $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table
+                            .column(i)
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
         });
-        
+
     </script>
 
-     <div class="d-flex justify-content-between">
-                <h2>Search Research Information</h2>
-            </div>
-        <div class="col-6 mb-4" contenteditable="true">
-                <fieldset class="border p-2 rounded">
-                    <legend class="w-auto">Instructions</legend>
-                    You may search by any combination of first name, last name, major, student term, TUID,
+    <div class="d-flex justify-content-between">
+        <h2>Search Research Information</h2>
+    </div>
+    <div class="col-6 mb-4" contenteditable="true">
+        <fieldset class="border p-2 rounded">
+            <legend class="w-auto">Instructions</legend>
+            You may search by any combination of first name, last name, major, student term, TUID,
                     and status. Select no parameters to view all profiles. Select the Student or PI button to view Student or PI profiles.
                     Below the search results table, you will find several buttons. Use "Export" to export these students to a spreadsheet,
                     Use "Email Selected" to email the students you selected on the table using the checkboxes. Use "Email All" to send an
                     Email to all students in the table.
-                </fieldset>
-                
-            </div>
-        <div>
+        </fieldset>
 
-            <asp:Button class="btn p-2" CssClass="btn redbtn" ID="btnStudent" runat="server" Text="Student" OnClick="btnStudent_Click" />
-            <asp:Button class="btn p-2" CssClass="btn redbtn" ID="btnPI" runat="server" Text="PI" OnClick="btnPI_Click"/>
-            
-            <asp:Panel ID="pnlStudents" runat="server">
-                 <table id="example" class="display" style="width:100%">
-        <thead> 
-            <tr>
-                <th>TUID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Major</th>
-                <th>Type</th>
-                <th>Principal Investigator</th>
-                <th>Status</th>
-                <th>View</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>TUID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Major</th>
-                <th>Type</th>
-                <th>Principal Investigator</th>
-                <th>Status</th>
-                <th>View</th>
-            </tr>
-        </tfoot>
-    </table>
-            </asp:Panel>
-            <asp:Panel ID="pnlPI" runat="server">
-                <table id="table2" class="display" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>TUID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Department</th>
-                            <th>View</th>
-                        </tr>
-                    </thead>
-                  
-                    <tfoot>
-                        <tr>
-                            <th>TUID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Department</th>
-                            <th>View</th>
-                        </tr>
-                    </tfoot>
-                </table>
-                </asp:Panel>
+    </div>
+    <div>
+
+        <asp:Button class="btn p-2" CssClass="btn redbtn" ID="btnStudent" runat="server" Text="Student" OnClick="btnStudent_Click" />
+        <asp:Button class="btn p-2" CssClass="btn redbtn" ID="btnPI" runat="server" Text="PI" OnClick="btnPI_Click" />
+
+        <asp:Panel ID="pnlStudents" runat="server">
+            <asp:GridView ID="example" runat="server" AutoGenerateColumns="true"></asp:GridView>
+
+            <%--<table id="example" class="display" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>TUID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Major</th>
+                        <th>Type</th>
+                        <th>Principal Investigator</th>
+                        <th>Status</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>TUID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Major</th>
+                        <th>Type</th>
+                        <th>Principal Investigator</th>
+                        <th>Status</th>
+                        <th>View</th>
+                    </tr>
+                </tfoot>
+            </table>--%>
+        </asp:Panel>
+        <asp:Panel ID="pnlPI" runat="server">
+            <table id="table2" class="display" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>TUID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Department</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+
+                <tfoot>
+                    <tr>
+                        <th>TUID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Department</th>
+                        <th>View</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </asp:Panel>
+    </div>
+    <div class="d-flex justify-content-between">
+        <div>
+            <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All" />
+            <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" OnClick="btnEmailChecked_Click" runat="server" Text="Email Selected" />
         </div>
-        <div class="d-flex justify-content-between">
-                <div>
-                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All"  />
-                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" OnClick="btnEmailChecked_Click" runat="server" Text="Email Selected" />
-                </div>
-                <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />
-            </div>
+        <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />
+    </div>
 </asp:Content>
