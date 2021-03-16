@@ -21,6 +21,9 @@ namespace URPSSPSuccessTracker
                 //Initial population of the comment section, newComment set to false because there is not a newly added comment to highlight
                 populateCommentSection(false);
                 populateResearch();
+
+                txtEditJournal.Visible = false;
+                btnSaveJournal.Visible = false;
             }
         }
 
@@ -29,6 +32,16 @@ namespace URPSSPSuccessTracker
             display(true);
         }
 
+
+
+
+        protected void btnSaveJournal_Click(object sender, EventArgs e)
+        {
+            RepeaterTabJournal.Visible = true;
+            txtEditJournal.Visible = false;
+            btnEditJournal.Visible = true;
+            btnSaveJournal.Visible = false;
+        }
         public void display(Boolean tf)
         {
             txtName.Enabled = tf;
@@ -38,6 +51,8 @@ namespace URPSSPSuccessTracker
             txtStatus.Enabled = tf;
             txtTitle.Enabled = tf;
             txtType.Enabled = tf;
+
+           
 
             //txtLinks.Enabled = tf;
             //txtJournal.Enabled = tf;
@@ -117,33 +132,66 @@ namespace URPSSPSuccessTracker
             }
         }
 
+        //protected void populateResearch()
+        //{
+        //    SqlProcedures urpSqlProcedures = new SqlProcedures();
+        //    List<ResearchDocument> researchList = urpSqlProcedures.LoadResearchDocuments(6);
+        //    for (int i = 0; i < researchList.Count; i++)
+        //    {
+        //        Panel pnlResearch = new Panel();
+        //        Label lblResearchType = new Label();
+        //        lblResearchType.Text = researchList[i].DocumentType + " - ";
+        //        Label lblResearchTitle = new Label();
+        //        lblResearchTitle.Text = researchList[i].DocumentTitle + " - ";
+        //        Label lblResearchDescription = new Label();
+        //        lblResearchDescription.Text = researchList[i].Description;
+
+        //        pnlResearch.Controls.Add(lblResearchTitle);
+        //        pnlResearch.Controls.Add(lblResearchType);
+        //        pnlResearch.Controls.Add(lblResearchDescription);
+
+        //        pnlResearchDocument.Controls.Add(pnlResearch);
+        //    }
+
+        //    Panel contentPanel = new Panel();
+        //    contentPanel.CssClass = "row";
+        //    Panel colPanel = new Panel();
+        //    colPanel.CssClass = "col-md-6";
+        //}
+
         protected void populateResearch()
         {
+            
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            List<ResearchDocument> researchList = urpSqlProcedures.LoadResearchDocuments(6);
-            for (int i = 0; i < researchList.Count; i++)
-            {
-                Panel pnlResearch = new Panel();
-                Label lblResearchType = new Label();
-                lblResearchType.Text = researchList[i].DocumentType + " - ";
-                Label lblResearchTitle = new Label();
-                lblResearchTitle.Text = researchList[i].DocumentTitle + " - ";
-                Label lblResearchDescription = new Label();
-                lblResearchDescription.Text = researchList[i].Description;
+            List<ResearchDocument> researchList = urpSqlProcedures.LoadResearchDocuments(6); 
 
-                pnlResearch.Controls.Add(lblResearchTitle);
-                pnlResearch.Controls.Add(lblResearchType);
-                pnlResearch.Controls.Add(lblResearchDescription);
+            RepeaterTabJournal.DataSource = urpSqlProcedures.LoadResearchDocuments(6);
+            RepeaterTabJournal.DataBind();
 
-                pnlResearchDocument.Controls.Add(pnlResearch);
-            }
 
-            Panel contentPanel = new Panel();
-            contentPanel.CssClass = "row";
-            Panel colPanel = new Panel();
-            colPanel.CssClass = "col-md-6";
+            RepeaterTabConference.DataSource = urpSqlProcedures.LoadResearchDocuments(6);
+            RepeaterTabConference.DataBind();
+
+
+            RepeaterPaper.DataSource = urpSqlProcedures.LoadResearchDocuments(6);
+            RepeaterPaper.DataBind();
+
+
         }
 
+        protected void btnEditJournal_Click(object sender, EventArgs e)
+        {
+            RepeaterTabJournal.Visible = false;
+            txtEditJournal.Visible = true;
+            btnEditJournal.Visible = false;
+            btnSaveJournal.Visible = true;
+
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+            List<ResearchDocument> researchList = urpSqlProcedures.GetJournal(6);
+
+            txtEditJournal.Text = Convert.ToString(researchList);
+            
+        }
         //protected void btnAdd_Click(object sender, EventArgs e)
         //{
         //    display(false);
@@ -155,15 +203,15 @@ namespace URPSSPSuccessTracker
 
         protected void btnModAdd_Click(object sender, EventArgs e)
         {
-            SqlProcedures urpSqlProcedures = new SqlProcedures();
-            if (urpSqlProcedures.InsertResearchDocuments(6, ddlAddDoc.SelectedValue, txtModDocTitle.Text, TxtModDocDesc.Text))
-            {
-                populateResearch();
-            }
-            else
-            {
-                //update fail
-            }
+            //SqlProcedures urpSqlProcedures = new SqlProcedures();
+            //if (urpSqlProcedures.InsertResearchDocuments(6, ddlAddDoc.SelectedValue, txtModDocTitle.Text, TxtModDocDesc.Text))
+            //{
+            //    populateResearch();
+            //}
+            //else
+            //{
+            //    //update fail
+            //}
 
             ////int i;
             ////for (i = 0; i < Total; i++)
