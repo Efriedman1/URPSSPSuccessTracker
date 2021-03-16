@@ -21,7 +21,6 @@ namespace URPSSPSuccessTracker
                 populateCommentSection();
                 populateResearch();
             }
-            populateCommentSection();
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -101,6 +100,8 @@ namespace URPSSPSuccessTracker
                 commentPanel.Controls.Add(dateTime);
                 commentPanel.CssClass = "col commentText";
                 li.Controls.Add(commentPanel);
+                if (i == commentList.Count - 1)
+                    commentPanel.CssClass = "bg-light";
                 upnlComments.ContentTemplateContainer.Controls.Add(li);
             }
         }
