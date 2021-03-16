@@ -91,12 +91,12 @@ namespace URPSSPSuccessTracker.Classes
             studentCommand.CommandType = CommandType.StoredProcedure;
             studentCommand.CommandText = "AddStudent";
             studentCommand.Parameters.AddWithValue("@TUID", student.TUID);
-            studentCommand.Parameters.AddWithValue("@FirstName", student.TUID);
-            studentCommand.Parameters.AddWithValue("@LastName", student.TUID);
-            studentCommand.Parameters.AddWithValue("@Email", student.TUID);
-            studentCommand.Parameters.AddWithValue("@Program", student.TUID);
-            studentCommand.Parameters.AddWithValue("@Major", student.TUID);
-            studentCommand.Parameters.AddWithValue("@GraduationDate", student.TUID);
+            studentCommand.Parameters.AddWithValue("@FirstName", student.FirstName);
+            studentCommand.Parameters.AddWithValue("@LastName", student.LastName);
+            studentCommand.Parameters.AddWithValue("@Email", student.Email);
+            studentCommand.Parameters.AddWithValue("@Program", student.Program);
+            studentCommand.Parameters.AddWithValue("@Major", student.Major);
+            studentCommand.Parameters.AddWithValue("@GraduationDate", student.GradDate);
 
 
             return urpDB.DoUpdateUsingCmdObj(studentCommand) > 0;
@@ -411,13 +411,12 @@ namespace URPSSPSuccessTracker.Classes
         {
             SqlCommand researchCommand = new SqlCommand();
             researchCommand.CommandType = CommandType.StoredProcedure;
-            researchCommand.CommandText = "InsertResearchProject";
+            researchCommand.CommandText = "InsertResearchProjects";
             researchCommand.Parameters.AddWithValue("@StudentTUID", researchProject.StudentTUID);
             researchCommand.Parameters.AddWithValue("@PITUID", researchProject.PITUID);
             researchCommand.Parameters.AddWithValue("@TermID", termID);
-            researchCommand.Parameters.AddWithValue("@Tltle", researchProject.ResearchTitle);
+            researchCommand.Parameters.AddWithValue("@Title", researchProject.ResearchTitle);
             researchCommand.Parameters.AddWithValue("@Description", researchProject.ResearchDescription);
-            researchCommand.Parameters.AddWithValue("@Status", "Incomplete");
             researchCommand.Parameters.AddWithValue("@TypeOfResearch", researchProject.ResearchType);
 
             return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;

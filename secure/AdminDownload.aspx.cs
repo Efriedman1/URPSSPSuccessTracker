@@ -104,9 +104,6 @@ namespace URPSSPSuccessTracker
                         //create a new research project
                         researchProject = new ResearchProject(researchTitle, program, researchDescription, piTUID, studentTUID);
 
-                        //add this new student object to a list of all students uploaded from the template
-                        studentList.Add(student);
-
                         //add the student, the PI, and the research project to the dtabase
                         //start with the student
                         SqlProcedures sqlProcedures = new SqlProcedures();
@@ -114,7 +111,7 @@ namespace URPSSPSuccessTracker
                         //if the upload fails then add the attempted tuid to a list of failed uploads
                         if (success == false)
                         {
-                            failedUploads.Add(principalInvestigator.TUID);
+                            failedUploads.Add(student.TUID);
                         }
 
                         //next add the principal investigator
@@ -128,6 +125,13 @@ namespace URPSSPSuccessTracker
                         success = sqlProcedures.InsertResearchProject(researchProject, 1);
 
                     }
+
+                    //finally add the upload successful label
+                    lblError.ForeColor = System.Drawing.Color.Green;
+                    lblError.Text = "Upload Successful";
+                    lblError.Visible = true;
+
+                 
 
                 }
 
@@ -146,6 +150,19 @@ namespace URPSSPSuccessTracker
                 lblError.Text = "Must upload a valid formatted '.xls' file";
                 lblError.Visible = true;
             }
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            string fileName = "URP_SSP_UploadTemplate.xlsx";
+            string filePath = Server.MapPath("~/" + fileName);
+            Response.Clear();
+            Response.ClearHeaders();
+            Response.ClearContent();
+            Response.AddHeader("Content-Disposition", "attachment; filename = " + fileName);
+            Response.Flush();
+            Response.TransmitFile(filePath);
+            Response.End();
         }
     }
 }
