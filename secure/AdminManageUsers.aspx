@@ -111,7 +111,7 @@
                 <div class="row col-6">
                     <div class="col">
                         <label>
-                            Semester
+                            Term
                         </label>
                         <asp:DropDownList ID="ddlSemester" runat="server" CssClass="form-control">
                             <asp:ListItem>SPRING</asp:ListItem>
@@ -137,7 +137,7 @@
                 <asp:GridView runat="server" ID="gvTerms" DataKeyNames="TermID" AutoGenerateColumns="false" OnRowCommand="gvTerms_RowCommand" OnRowDeleting="gvTerms_RowDeleting" CssClass="table table-borderless text-center table-striped" BorderStyle="None" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="X-Large" Font-Size="X-Large">
                     <Columns>
                         <asp:BoundField DataField="TermID" HeaderText="TermID" Visible="false"/>
-                        <asp:BoundField DataField="Semester" HeaderText="Semester" />
+                        <asp:BoundField DataField="Semester" HeaderText="Term" />
                         <asp:BoundField DataField="Year" HeaderText="Year" />
                         <asp:BoundField DataField="Status" HeaderText="Status" />        
                         <asp:TemplateField>

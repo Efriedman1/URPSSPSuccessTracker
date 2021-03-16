@@ -376,7 +376,24 @@ namespace URPSSPSuccessTracker.Classes
         //Research
         //====================
 
-            //check research projects
+        public List<ResearchDocument> GetJournal(int ResearchID)
+        {
+            List<ResearchDocument> researchList = new List<ResearchDocument>();
+            SqlCommand getJournal = new SqlCommand();
+            getJournal.CommandType = CommandType.StoredProcedure;
+            getJournal.CommandText = "GetJournal";
+            getJournal.Parameters.AddWithValue("@ResearchID", ResearchID);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(getJournal);
+            for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
+            {
+                ResearchDocument newResearch = new ResearchDocument(ResearchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString(), researchData.Tables[0].Rows[i][3].ToString(), researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][5].ToString());
+                researchList.Add(newResearch);
+            }
+
+            return researchList;
+        }
+
+        //check research projects
         public List<ResearchDocument> LoadResearchDocuments(int researchID)
         {
             List<ResearchDocument> researchList = new List<ResearchDocument>();
@@ -389,7 +406,7 @@ namespace URPSSPSuccessTracker.Classes
 
             for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
             {
-                ResearchDocument newResearch = new ResearchDocument(researchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString());
+                ResearchDocument newResearch = new ResearchDocument(researchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString(), researchData.Tables[0].Rows[i][3].ToString(), researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][5].ToString());
                 researchList.Add(newResearch);
             }
             return researchList;
