@@ -11,7 +11,7 @@
         }
     </script>
 
-    <div class="container" style="margin-top: 2%">
+    <div class="" style="margin-top: 2%">
         <div class="page-header">
             <h2>Admin Management</h2>
         </div>
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="">
         <h3 class="mt-3">Manage Admin Users</h3>
         <div class="row">
             <div class="col-4">
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="col-sm-12 col-sm-12">
-                    <asp:Button ID="AddAdminModal" runat="server" Text="Add New Admin" CssClass="btn redbtn" data-toggle="modal" data-target="#modal" OnClick="AddAdminModal_Click" />
+                    <asp:Button ID="AddAdminModal" runat="server" Text="Add New Admin" CssClass="button redbtn" data-toggle="modal" data-target="#modal" OnClick="AddAdminModal_Click" />
                     <div class="modal fade" id="modal1" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -104,7 +104,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="">
         <h3 class="mt-4">Manage Terms</h3>        
         <div class="row mt-5">
             <div class="col">
@@ -128,7 +128,7 @@
                     </div>
                 </div>
                 <div class="col-sm-12 mt-2">
-                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="btn redbtn btn-lg"  OnClick="btnCreateTerm_Click" />
+                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="button redbtn btn-lg"  OnClick="btnCreateTerm_Click" />
                 </div>
             </div>
             <div class="col-12">
