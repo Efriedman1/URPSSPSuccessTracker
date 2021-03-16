@@ -19,7 +19,7 @@ namespace URPSSPSuccessTracker
     {
         //create a list of student objects created after calling web services
         List<Student> studentList;
-        List<Student> failedUploads;
+        List<string> failedUploads;
         SqlProcedures sql = new SqlProcedures();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -44,8 +44,10 @@ namespace URPSSPSuccessTracker
 
                     //create a new instance of the studentList to hold every student that was uplaoded from the template
                     studentList = new List<Student>();
-                    failedUploads = new List<Student>();
-                    Classes.Student student;
+                    failedUploads = new List<string>();
+                    Student student;
+                    PrincipalInvestigator principalInvestigator;
+                    ResearchProject researchProject;
 
                     //the file uploaded is valid and begin reading file
                     //the file uploaded is valid and begin reading file
@@ -64,72 +66,72 @@ namespace URPSSPSuccessTracker
                     int columnCount = dt.Columns.Count;
 
 
+                    //Single upload, read through all the fields and create an entry
                     foreach (DataRow dr in dt.Rows)
                     {
-                        //if the student checkbox is selected, only get the tuid and student type
-                        if (optStudent.Checked == true)
-                        {
-                            string entry = dr[0].ToString() + "," + dr[1].ToString();
+
+                            string entry = dr[0].ToString() + "," + dr[1].ToString() + "," + dr[2].ToString() + "," + dr[3].ToString() + "," + dr[4].ToString() + "," + dr[5].ToString() + "," + dr[6].ToString();
                             entryList.Add(entry);
-
-                        }
-
-
-                        //else, that means the PI checkbox is selected, get the tuid and department
-                        else if (optPI.Checked == true)
-                        {
-                            string entry = dr[0].ToString() + "," + dr[2].ToString();
-                            entryList.Add(entry);
-                        }
-
-
+                        
                     }
 
-                    if (optStudent.Checked == true)
+                    //now that I have each entry, go through each one and create a student, a PI, and a research project
+                    
+                    for (int i = 1; i < entryList.Count; i++)
                     {
-                        for (int i = 1; i < entryList.Count; i++)
+                        string[] entryArray = entryList[i].Split(',');
+                        string studentTUID = entryArray[0];
+                        string piTUID = entryArray[2];
+
+                        //call webservices using the student tuid provided to get the student's information
+                        WebService.StudentObj studentObj = WebService.Webservice.getStudentInfo(studentTUID);
+                        //call webservices using the PI's tuid provided to get the PI's information
+                        WebService.StudentObj piObj = WebService.Webservice.getStudentInfo(piTUID);
+
+                        //get the other information needed from the tmplate
+                        string program = entryArray[1];
+                        string department = entryArray[3];
+                        string gradDate = entryArray[4];
+                        string researchTitle = entryArray[5];
+                        string researchDescription = entryArray[6];
+
+                        //create a student object and add the object from web services and the program
+                        student = new Student(studentObj, program, gradDate);
+
+                        //create a principal investigator object  from the web service object and department
+                        principalInvestigator = new PrincipalInvestigator(piObj, department);
+
+                        //create a new research project
+                        researchProject = new ResearchProject(researchTitle, program, researchDescription, piTUID, studentTUID);
+
+                        //add the student, the PI, and the research project to the dtabase
+                        //start with the student
+                        SqlProcedures sqlProcedures = new SqlProcedures();
+                        bool success = sqlProcedures.AddStudent(student);
+                        //if the upload fails then add the attempted tuid to a list of failed uploads
+                        if (success == false)
                         {
-                            string[] entryArray = entryList[i].Split(',');
-                            WebService.StudentObj studentObj = WebService.Webservice.getStudentInfo(entryArray[0]);
-                            string program = entryArray[1];
-
-                            //create a student object and add the object from web services and the program
-                            student = new Student(studentObj, program);
-
-                            //add this new student object to a list of all students uploaded from the template
-                            studentList.Add(student);
-
-                            //upload to the database
-                            //foreach (Student s in studentList)
-                            //{
-
-                            //    string tuid = s.StudentObj.tuid;
-                            //    string firstName = s.StudentObj.firstName;
-                            //    string lastName = s.StudentObj.lastName;
-                            //    string email = s.StudentObj.email;
-                            //    string program = s.Program;
-                            //    string
-
-                            //    bool addStudent = sql.AddStudent();
-
-                            //    if (addStudent == false)
-                            //    {
-                            //        failedUploads.Add(s);
-                            //    }
-                            //}
-
+                            failedUploads.Add(student.TUID);
                         }
+
+                        //next add the principal investigator
+                        sqlProcedures = new SqlProcedures();
+                        success = sqlProcedures.AddPrincipalInvestigator(principalInvestigator);
+                        
+
+                        //Finally, add the the research project
+                        //remember to come back and change the term id to the drop down value
+                        sqlProcedures = new SqlProcedures();
+                        success = sqlProcedures.InsertResearchProject(researchProject, 1);
+
                     }
 
-                    else if (optPI.Checked == true)
-                    {
+                    //finally add the upload successful label
+                    lblError.ForeColor = System.Drawing.Color.Green;
+                    lblError.Text = "Upload Successful";
+                    lblError.Visible = true;
 
-                    }
-
-
-
-
-
+                 
 
                 }
 
@@ -148,6 +150,19 @@ namespace URPSSPSuccessTracker
                 lblError.Text = "Must upload a valid formatted '.xls' file";
                 lblError.Visible = true;
             }
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            string fileName = "URP_SSP_UploadTemplate.xlsx";
+            string filePath = Server.MapPath("~/" + fileName);
+            Response.Clear();
+            Response.ClearHeaders();
+            Response.ClearContent();
+            Response.AddHeader("Content-Disposition", "attachment; filename = " + fileName);
+            Response.Flush();
+            Response.TransmitFile(filePath);
+            Response.End();
         }
     }
 }
