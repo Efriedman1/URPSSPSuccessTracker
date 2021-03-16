@@ -25,7 +25,7 @@
             <div class="col-4">
                 <div class="col-sm-10 " style="margin-top: 3px">
                     <asp:Label ID="Label1" runat="server" CssClass="col-form-label">TUID</asp:Label>
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control mb-2 col-8" placeholder="9 Digit TUID" BackColor="#FAFAFA"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control mb-2 col-8" placeholder="TUID" BackColor="#FAFAFA"></asp:TextBox>
                 </div>
                 <div class="col-sm-12 col-sm-12">
                     <asp:Button ID="AddAdminModal" runat="server" Text="Add New Admin" CssClass="btn redbtn" data-toggle="modal" data-target="#modal1" OnClientClick="return false" />
@@ -70,7 +70,7 @@
                                     Last Name
                                 </asp:TableHeaderCell>
                                 <asp:TableHeaderCell Scope="Column">
-                                    Active
+                                    Status
                                 </asp:TableHeaderCell>
                                 <asp:TableHeaderCell Scope="Column">
                                     Actions
@@ -88,7 +88,7 @@
                                     Guevara
                                 </asp:TableCell>
                                 <asp:TableCell ForeColor="Green">
-                                    Yes
+                                    Active
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="dropdown">
@@ -114,7 +114,7 @@
                                     Smith
                                 </asp:TableCell>
                                 <asp:TableCell ForeColor="red">
-                                    No
+                                    Inactive
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="dropdown">
@@ -122,8 +122,8 @@
                                         Action
                                       </button>
                                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                   
-                                        <a class="dropdown-item" href="#">Edit</a>
-                                        <a class="dropdown-item" href="#">Delete</a>
+                                        <a class="dropdown-item" href="#">Active</a>
+                                        <a class="dropdown-item" href="#">Inactive</a>
                                       </div>
                                     </div>
                                 </asp:TableCell>
@@ -153,7 +153,7 @@
                 <div class="row col-6">
                     <div class="col">
                         <label>
-                            Semester
+                            Term
                         </label>
                         <asp:DropDownList ID="ddlSemester" runat="server" CssClass="form-control">
                             <asp:ListItem>SPRING</asp:ListItem>
@@ -179,7 +179,7 @@
                 <asp:GridView runat="server" ID="gvTerms" DataKeyNames="TermID" AutoGenerateColumns="false" OnRowDeleting="gvTerms_RowDeleting" CssClass="table table-borderless text-center table-striped" BorderStyle="None" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="X-Large" Font-Size="X-Large">
                     <Columns>
                         <asp:BoundField DataField="TermID" HeaderText="TermID" Visible="false"/>
-                        <asp:BoundField DataField="Semester" HeaderText="Semester" />
+                        <asp:BoundField DataField="Semester" HeaderText="Term" />
                         <asp:BoundField DataField="Year" HeaderText="Year" />
                         <asp:BoundField DataField="Status" HeaderText="Status" />             
                         <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn redbtn"/>
