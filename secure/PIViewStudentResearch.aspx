@@ -59,7 +59,6 @@
             display: flex;
             justify-content: center;
         }
-
     </style>
 
     <div class="container">
@@ -237,7 +236,6 @@
 
                                             <div class="row">
                                                 <asp:DropDownList ID="ddlAddDoc" runat="server" CssClass="dropdown-toggle" Width="100%">
-
                                                     <asp:ListItem Selected="true" Value="" disabled="disabled">Please select a document type</asp:ListItem>
                                                     <asp:ListItem Value="Journal">Journal</asp:ListItem>
                                                     <asp:ListItem Value="Conference">Conference</asp:ListItem>
@@ -283,20 +281,21 @@
                 <!--Grid column Comments-->
 
                 <div class="col-md-5 text-left h4">
+                    <div class="titleBox">
+                        <asp:Label ID="lblComments" runat="server" Text="Comments" class="mr-md-2" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+                        <%-- <asp:Button ID="btnHome" runat="server" Text="Home" class="btn btn-outline-warning my-2 my-sm-0" />--%>
+                    </div>
                     <div class="detailBox table_scroll">
-                        <div class="titleBox">
-                            <asp:Label ID="lblComments" runat="server" Text="Comments" class="mr-md-2" Font-Bold="True" Font-Size="X-Large"></asp:Label>
-                            <%-- <asp:Button ID="btnHome" runat="server" Text="Home" class="btn btn-outline-warning my-2 my-sm-0" />--%>
-                        </div>
+
 
                         <div class="actionBox">
                             <asp:ScriptManager ID="smComments" runat="server"></asp:ScriptManager>
                             <asp:UpdatePanel runat="server" ID="upnlComments" CssClass="commentList" UpdateMode="Conditional">
                                 <ContentTemplate>
                                     <!--Comments will be inserted here-->
-                                </ContentTemplate>                                
+                                </ContentTemplate>
                                 <Triggers>
-                                    <asp:AsyncPostBackTrigger controlid="btnComment" EventName="Click"/>
+                                    <asp:AsyncPostBackTrigger ControlID="btnComment" EventName="Click" />
                                 </Triggers>
                             </asp:UpdatePanel>
                         </div>
@@ -304,7 +303,7 @@
                     </div>
 
                     <div class="form-group d-flex justify-content-center">
-                        <asp:TextBox ID="tbComment" runat="server" class="form-control" Width="650px" TextMode="MultiLine" Rows="5"></asp:TextBox>
+                        <asp:TextBox ID="tbComment" runat="server" class="form-control" Width="650px" TextMode="MultiLine" Rows="5" OnTextChanged="tbComment_TextChanged" MaxLength="500"></asp:TextBox>
                     </div>
 
                     <div class="form-group text-center">
