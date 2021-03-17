@@ -351,32 +351,47 @@ namespace URPSSPSuccessTracker.Classes
             getJournal.CommandText = "GetJournal";
             getJournal.Parameters.AddWithValue("@ResearchID", ResearchID);
             DataSet researchData = urpDB.GetDataSetUsingCmdObj(getJournal);
+
             for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
             {
-                ResearchDocument newResearch = new ResearchDocument(ResearchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString(), researchData.Tables[0].Rows[i][3].ToString(), researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][5].ToString());
+                ResearchDocument newResearch = new ResearchDocument(ResearchID, researchData.Tables[0].Rows[i][11].ToString(), researchData.Tables[0].Rows[i][12].ToString(), researchData.Tables[0].Rows[i][13].ToString());
                 researchList.Add(newResearch);
             }
+
+            //for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
+            //{
+            //    ResearchDocument newResearch = new ResearchDocument(ResearchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString(), researchData.Tables[0].Rows[i][3].ToString(), researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][5].ToString());
+            //    researchList.Add(newResearch);
+            //}
 
             return researchList;
         }
 
         //check research projects
-        public List<ResearchDocument> LoadResearchDocuments(int researchID)
+        public DataSet LoadResearchDocuments(int researchID)
         {
-            List<ResearchDocument> researchList = new List<ResearchDocument>();
+            //List<ResearchDocument> researchList = new List<ResearchDocument>();
+
+            //DataSet researchList = new DataSet();
 
             SqlCommand researchCommand = new SqlCommand();
             researchCommand.CommandType = CommandType.StoredProcedure;
-            researchCommand.CommandText = "LoadResearchDocuments";
+            researchCommand.CommandText = "GetJournal";
             researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
             DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
 
             for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
             {
-                ResearchDocument newResearch = new ResearchDocument(researchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString(), researchData.Tables[0].Rows[i][3].ToString(), researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][5].ToString());
-                researchList.Add(newResearch);
+                ResearchDocument newResearch = new ResearchDocument(ResearchID, researchData.Tables[0].Rows[i][11].ToString(), researchData.Tables[0].Rows[i][12].ToString(), researchData.Tables[0].Rows[i][13].ToString());
+                researchData.Add(newResearch);
             }
-            return researchList;
+
+                //for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
+                //{
+                //    ResearchDocument newResearch = new ResearchDocument(researchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString(), researchData.Tables[0].Rows[i][3].ToString(), researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][5].ToString());
+                //    researchList.Add(newResearch);
+                //}
+                return researchData;
         }
 
         public Boolean UpdateResearchProject(int researchID, int studentTUID, int piTUID, int termID, string title, string description, string link, string researchMethod, string status, string typeOfResearch, DateTime lastUpdate)

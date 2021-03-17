@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,8 @@ namespace URPSSPSuccessTracker
         {
             if (!IsPostBack)
             {
+                
+
                 this.Master.SetNavBar((String)Session["UserType"]);
                 populateCommentSection();
                 populateResearch();
@@ -32,7 +35,7 @@ namespace URPSSPSuccessTracker
             display(true);
         }
 
-
+        
 
 
         protected void btnSaveJournal_Click(object sender, EventArgs e)
@@ -142,35 +145,49 @@ namespace URPSSPSuccessTracker
         {
             
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            List<ResearchDocument> researchList = urpSqlProcedures.LoadResearchDocuments(6); 
+            List<ResearchDocument> researchList = urpSqlProcedures.GetJournal(6); 
 
-            RepeaterTabJournal.DataSource = urpSqlProcedures.LoadResearchDocuments(6);
+            
+
+            RepeaterTabJournal.DataSource = urpSqlProcedures.GetJournal(6);
             RepeaterTabJournal.DataBind();
 
 
-            RepeaterTabConference.DataSource = urpSqlProcedures.LoadResearchDocuments(6);
+            RepeaterTabConference.DataSource = urpSqlProcedures.GetJournal(6);
             RepeaterTabConference.DataBind();
 
 
-            RepeaterPaper.DataSource = urpSqlProcedures.LoadResearchDocuments(6);
+            RepeaterPaper.DataSource = urpSqlProcedures.GetJournal(6);
             RepeaterPaper.DataBind();
 
 
         }
+        
 
         protected void btnEditJournal_Click(object sender, EventArgs e)
         {
+            
+            
             RepeaterTabJournal.Visible = false;
             txtEditJournal.Visible = true;
             btnEditJournal.Visible = false;
             btnSaveJournal.Visible = true;
 
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            List<ResearchDocument> researchList = urpSqlProcedures.GetJournal(6);
+            //List<ResearchDocument> researchList = urpSqlProcedures.GetJournal(6);
 
-            txtEditJournal.Text = Convert.ToString(researchList);
             
+            DataSet ds = new DataSet();
+           // string items = ds.Tables[0].Rows[0]["Journal"].ToString();
+
+            string items = string.Join(Environment.NewLine, urpSqlProcedures.LoadResearchDocuments(6));
+
+
+           // txtEditJournal.Text = "hello";
+            txtEditJournal.Text = items;
         }
+
+
         //protected void btnAdd_Click(object sender, EventArgs e)
         //{
         //    display(false);

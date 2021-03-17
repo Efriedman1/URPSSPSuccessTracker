@@ -382,9 +382,12 @@
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-                                <asp:Textbox ID=txtEditJournal runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine"  Rows="5">
+
+                                <asp:Textbox id='txtEditJournal' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">
     
-                                </asp:Textbox>       
+                                </asp:Textbox>      
+
+
                                 </p>
                           </div>
 
