@@ -21,14 +21,14 @@ namespace URPSSPSuccessTracker
                 
 
                 this.Master.SetNavBar((String)Session["UserType"]);
-                populateCommentSection();
+                //Initial population of the comment section, newComment set to false because there is not a newly added comment to highlight
+                populateCommentSection(false);
                 populateResearch();
 
                 txtEditJournal.Visible = false;
                 btnSaveJournal.Visible = false;
             }
-            populateCommentSection();
-        }      
+        }
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
@@ -72,18 +72,28 @@ namespace URPSSPSuccessTracker
         protected void btnComment_Click(object sender, EventArgs e)
         {
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            if (urpSqlProcedures.AddComments(6, "Rose McGinnis", tbComment.Text, DateTime.Now))
+            Validation validation = new Validation();
+            if (validation.ValidateChaMinMax(tbComment.Text, 1, 500))
             {
-                populateCommentSection();
-                tbComment.Text = "";
-            }
-            else
-            {
-                //If comment post fails
+                if (urpSqlProcedures.AddComments(6, "Rose McGinnis", tbComment.Text, DateTime.Now))
+                {
+                    //Populate the comment section and highlight the newly added comment
+                    populateCommentSection(true);
+                    tbComment.Text = "";                    
+                }
+                else
+                {
+                    lblCommentError.Text = "Invalid Comment Length";
+                }
             }
         }
 
-        protected void populateCommentSection()
+        protected void updateCharLimit()
+        {
+            int charCount = 0;
+        }
+
+        protected void populateCommentSection(bool newComment)
         {
             SqlProcedures urpSqlProcedures = new SqlProcedures();
             List<Comment> commentList = urpSqlProcedures.LoadComments(6);
@@ -92,25 +102,36 @@ namespace URPSSPSuccessTracker
             {
                 HtmlGenericControl li = new HtmlGenericControl("li");
                 Panel commentPanel = new Panel();
+                Panel headerPanel = new Panel();
+                headerPanel.CssClass = "row mb-1";
 
                 Label name = new Label();
                 name.Text = commentList[i].Name;
-                name.CssClass = "row h4";
+                name.CssClass = "h5";
+                                
+                Label dateTime = new Label();
+                dateTime.Text = commentList[i].Date.ToString();
+                dateTime.CssClass = "date sub-text mt-1 ml-2";
+
+                headerPanel.Controls.Add(name);
+                headerPanel.Controls.Add(dateTime);
 
                 Label body = new Label();
                 body.Text = commentList[i].Body;
                 body.CssClass = "row lead mb-2";
+                
 
-                Label dateTime = new Label();
-                dateTime.Text = commentList[i].Date.ToString();
-                dateTime.CssClass = "row date sub-text";
-
-                commentPanel.Controls.Add(name);
+                commentPanel.Controls.Add(headerPanel);
                 commentPanel.Controls.Add(body);
-                commentPanel.Controls.Add(dateTime);
+
                 commentPanel.CssClass = "col commentText";
                 li.Controls.Add(commentPanel);
-                pnlComments.Controls.Add(li);
+                li.Attributes.Add("class", "card p-1");
+                li.Attributes.Add("style", "border-radius: 0");
+
+                if (i == 0 && newComment)
+                    li.Attributes.Add("class", "card p-1 bg-light");
+                upnlComments.ContentTemplateContainer.Controls.Add(li);
             }
         }
 
@@ -298,6 +319,11 @@ namespace URPSSPSuccessTracker
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             display(false);
+        }
+
+        protected void tbComment_TextChanged(object sender, EventArgs e)
+        {
+            lblCharMax.Text = "Characters: " + tbComment.Text.Length.ToString() + "/500";
         }
 
         //protected void btnModAdd_Click(object sender, EventArgs e)

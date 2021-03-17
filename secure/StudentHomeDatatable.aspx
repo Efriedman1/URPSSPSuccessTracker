@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PIHomeDatatable.aspx.cs" Inherits="URPSSPSuccessTracker.secure.PIHomeDatatable" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="StudentHomeDatatable.aspx.cs" Inherits="URPSSPSuccessTracker.StudentHomeDatatable" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"/>
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"/>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css"/>
 
@@ -29,6 +29,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
     <script type="text/javascript" src="https://hr.oop.cmu.ac.th/data/appointment/js/DataTable/media/js/jquery.dataTables.js"></script>
+
 
     <style>
 
@@ -94,7 +95,7 @@
 
                 select: true,*/
 
-                "ajax": "arrays.txt",
+                "ajax": "studentArrays.txt",
 
                 "columnDefs": [ {
 
@@ -102,7 +103,7 @@
 
                     "data": null,
 
-                    "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
+                    "defaultContent": "<a class='btn btn-outline-secondary' href='datatables5.aspx'>View</a>"
 
                 } ]
 
@@ -133,9 +134,11 @@
 
         //$('#example thead tr:eq(1) th').each( function (i) {
 
-            //$('example thead tr:eq(1) th:not(:last-child)').each( function (i) {
+            //$('#example thead tr:eq(1) th:not(:last-child)').each( function (i) {
         $('#example thead tr').clone(true).appendTo( '#example thead' );
         $('#example thead tr:eq(1) th:not(:last-child)').each( function (i) {
+
+
             var title = $(this).text();
 
             $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
@@ -165,14 +168,14 @@
         
 
     </script>
-
-         <div class="flex-container m-5">
+    
+ <div class="flex-container m-5">
 
         <div class="row mt-3">
 
             <div class="col-md-2 md-offset-">
 
-                <h2>PI Dashboard</h2>
+                <h2>Student Dashboard</h2>
 
             </div>
 
@@ -180,7 +183,7 @@
 
                 <asp:Label ID="Label8" runat="server" Text="TUID:  " Style="font-size: 20px;"></asp:Label>
 
-                <asp:Label ID="Label9" runat="server" Text="918467732" Style="font-size: 20px;"></asp:Label>
+                <asp:Label ID="Label9" runat="server" Text="123456789" Style="font-size: 20px;"></asp:Label>
 
             </div>
 
@@ -188,7 +191,7 @@
 
                 <asp:Label ID="Label3" runat="server" Text="Email:  " Style="font-size: 20px;"></asp:Label>
 
-                <asp:Label ID="Label4" runat="server" Text="BPerkins@temple.edu" Style="font-size: 20px;"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="John.Doe@temple.edu" Style="font-size: 20px;"></asp:Label>
 
             </div>
 
@@ -276,7 +279,7 @@
 
                             <div class="modal-body">
 
-                                You are a Principal Investigator, manage and access your students research success below.
+                                Here are the terms you have participated in for the URP/SSP Programs. Please select a term to view your research or make any changes.
 
                             </div>
 
@@ -308,13 +311,13 @@
 
                         <tr>
 
-                            <th>TUID</th>
+                            <th>Term</th>
 
-                            <th>First Name</th>
+                            <th>Year</th>
 
-                            <th>Last Name</th>
+                            <th>PI</th>
 
-                            <th>Department</th>
+                            <th>Last Update</th>
 
                             <th>View</th>
 
@@ -328,15 +331,7 @@
 
                         <tr>
 
-                            <th>TUID</th>
-
-                            <th>First Name</th>
-
-                            <th>Last Name</th>
-
-                            <th>Department</th>
-
-                            <th>View</th>
+                            
 
                         </tr>
 
@@ -348,18 +343,6 @@
 
         </div>
 
-        <div class="d-flex justify-content-between"">
 
-                <div>
-
-                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" runat="server" Text="Email All"  />
-
-                    <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" runat="server" Text="Email Selected" />
-
-                </div>
-
-                <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />
-
-            </div>
 
 </asp:Content>

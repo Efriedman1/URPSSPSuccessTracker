@@ -265,13 +265,22 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Label lblComments;
         
         /// <summary>
-        /// pnlComments control.
+        /// smComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlComments;
+        protected global::System.Web.UI.ScriptManager smComments;
+        
+        /// <summary>
+        /// upnlComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upnlComments;
         
         /// <summary>
         /// tbComment control.
@@ -290,6 +299,24 @@ namespace URPSSPSuccessTracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnComment;
+        
+        /// <summary>
+        /// lblCharMax control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCharMax;
+        
+        /// <summary>
+        /// lblCommentError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCommentError;
         
         /// <summary>
         /// Master property.
