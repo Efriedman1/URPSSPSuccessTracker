@@ -88,6 +88,7 @@
             display: flex;
             justify-content: center;
         }
+
     </style>
 
     <div class="container">
@@ -415,7 +416,9 @@
                           </div>
                         </div>
                     </div>
-                </div>
+
+                    <!--Grid row-->
+
 
                 </div>
 

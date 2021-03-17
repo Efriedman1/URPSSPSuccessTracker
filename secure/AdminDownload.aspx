@@ -38,7 +38,7 @@
                         <asp:Label ID="Label6" runat="server" Text="Please select URP/SSP Student or Principal Investigator. Fill out the textbox for upload. All blanks can be empty, except Assessnet." CssClass="p-2 mr-3 ml-3"></asp:Label>
                     </div>
                     <div class="d-flex flex-row mt-2">
-                        <asp:Button CssClass="btn redbtn p-2 mr-3 ml-3" ID="btnDownload" runat="server" Text="Download Template" OnClick="btnDownload_Click" />                       
+                        <asp:LinkButton CssClass="btn redbtn p-2 mr-3 ml-3" ID="btnDownload" runat="server" OnClick="btnDownload_Click">Download</asp:LinkButton>
                     </div>
                 </fieldset>
                 <div class="col-6">

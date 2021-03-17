@@ -62,7 +62,7 @@
             </asp:ContentPlaceHolder>
         </div>
             <div class="bg-light page-footer">
-                <div style="background-color:#f8f9fa; position: fixed;left: 0;bottom: 0;width: 100%;padding: 10px 50px;"><h6> © 2020 Copyright | URP/SSP Student Research Success Tracker</h6></div>
+                <div style="background-color:#f8f9fa; position: absolute;left: 0;bottom: 0;width: 100%;padding: 10px 50px;"><h6> © 2020 Copyright | URP/SSP Student Research Success Tracker</h6></div>
       
     </div>
     </form>
