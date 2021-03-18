@@ -38,6 +38,14 @@
             color: white;
             pointer-events: none;
         }
+        thead input{
+            width:100%;
+            padding:3px;
+            box-sizing:border-box;
+        }
+        body{
+            padding:1%;
+        }
     </style>
 
     <script>
@@ -71,7 +79,8 @@
             });
 
 
-            $('#table2 tbody').on('click', 'button', function () {
+/* backend */
+           /* $('#table2 tbody').on('click', 'button', function () {
                 var data = table.row($(this).parents('tr')).data();
                 alert(data[0] + "'s salary is: " + data[5]);
             });
@@ -90,7 +99,28 @@
                             .draw();
                     }
                 });
-            });
+            }); */
+/* backend */
+            
+       /* $('#table2 tbody').on( 'click', 'button', function () {
+            var data = table.row( $(this).parents('tr') ).data();
+            alert( data[0] +"'s salary is: "+ data[ 5 ] );
+            });*/
+
+        $('#table2 thead tr').clone(true).appendTo( '#table2 thead' );
+        $('#table2 thead tr:eq(1) th:not(:last-child)').each( function (i) {
+            var title = $(this).text();
+            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+ 
+            $( 'input', this ).on( 'keyup change', function () {
+                if ( table.column(i).search() !== this.value ) {
+                    table
+                        .column(i)
+                        .search( this.value )
+                        .draw();
+                }
+            } );
+        } );
         });
 
 
