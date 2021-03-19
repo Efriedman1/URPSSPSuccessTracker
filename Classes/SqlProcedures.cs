@@ -436,10 +436,16 @@ namespace URPSSPSuccessTracker.Classes
             for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
             {
                 ResearchProject newResearch = new ResearchProject(researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][9].ToString(), researchData.Tables[0].Rows[i][5].ToString(),
-                    researchData.Tables[0].Rows[i][2].ToString(), "", researchData.Tables[0].Rows[i][1].ToString());
+                    researchData.Tables[0].Rows[i][2].ToString(), "");
                 researchList.Add(newResearch);
             }
             return researchList;
+        }
+
+        public ResearchProject LoadResearchProjectByID(int id)
+        {
+            ResearchProject researchProject = new ResearchProject();
+            return researchProject;
         }
 
         //public ResearchProject(string researchTitle, string researchType, string researchDescription, string piTUID, string piDepartment, string studentTUID)

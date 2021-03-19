@@ -12,13 +12,29 @@ namespace URPSSPSuccessTracker
 {
     public partial class AdminSendEmail : System.Web.UI.Page
     {
+        List<string> SelectedTUIDs;
         protected void Page_Load(object sender, EventArgs e)
-        {          
+        {
             if (!IsPostBack)
             {
                 this.Master.SetNavBar((String)Session["UserType"]);
                 loadTable();
+                SelectedTUIDs = ParseQueryString();
+                foreach (string tuid in SelectedTUIDs)
+                {
+                    System.Diagnostics.Debug.Print(tuid);
+                }
             }
+        }
+
+        protected List<string> ParseQueryString()
+        {
+            List<string> values = new List<string>();
+            foreach(string key in Request.QueryString.AllKeys)
+            {
+                values.Add(Request.QueryString[key]);
+            }
+            return values;
         }
 
         protected void btnSend_Click(object sender, EventArgs e)
@@ -101,7 +117,7 @@ namespace URPSSPSuccessTracker
             SqlProcedures sqlProcedures = new SqlProcedures();
             List<Student> studentList = new List<Student>();
 
-            if (Session["Students"]==null)
+            if (Session["Students"] == null)
             {// email all
                 DataSet ds = sqlProcedures.GetAllStudents();
                 DataTable dt = ds.Tables[0];

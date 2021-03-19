@@ -38,17 +38,20 @@
             color: white;
             pointer-events: none;
         }
-        thead input{
-            width:100%;
-            padding:3px;
-            box-sizing:border-box;
+
+        thead input {
+            width: 100%;
+            padding: 3px;
+            box-sizing: border-box;
         }
-        body{
-            padding:1%;
+
+        body {
+            padding: 1%;
         }
     </style>
 
-    <script>
+
+    <script type="text/javascript">
         /*$(document).ready(function() {
             $('table.display').DataTable();
         });
@@ -79,15 +82,36 @@
             });
 
 
-/* backend */
-           /* $('#table2 tbody').on('click', 'button', function () {
-                var data = table.row($(this).parents('tr')).data();
-                alert(data[0] + "'s salary is: " + data[5]);
-            });
+            /* backend */
+            /* $('#table2 tbody').on('click', 'button', function () {
+                 var data = table.row($(this).parents('tr')).data();
+                 alert(data[0] + "'s salary is: " + data[5]);
+             });
+ 
+             $('#table2 thead tr').clone(true).appendTo('#table2 thead');
+             //$('#table2 thead tr:eq(1) th').each( function (i) {
+             $('table2 thead tr:eq(1) th:not(:last-child)').each(function (i) {
+                 var title = $(this).text();
+                 $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+ 
+                 $('input', this).on('keyup change', function () {
+                     if (table.column(i).search() !== this.value) {
+                         table
+                             .column(i)
+                             .search(this.value)
+                             .draw();
+                     }
+                 });
+             }); */
+            /* backend */
+
+            /* $('#table2 tbody').on( 'click', 'button', function () {
+                 var data = table.row( $(this).parents('tr') ).data();
+                 alert( data[0] +"'s salary is: "+ data[ 5 ] );
+                 });*/
 
             $('#table2 thead tr').clone(true).appendTo('#table2 thead');
-            //$('#table2 thead tr:eq(1) th').each( function (i) {
-            $('table2 thead tr:eq(1) th:not(:last-child)').each(function (i) {
+            $('#table2 thead tr:eq(1) th:not(:last-child)').each(function (i) {
                 var title = $(this).text();
                 $(this).html('<input type="text" placeholder="Search ' + title + '" />');
 
@@ -99,33 +123,13 @@
                             .draw();
                     }
                 });
-            }); */
-/* backend */
-            
-       /* $('#table2 tbody').on( 'click', 'button', function () {
-            var data = table.row( $(this).parents('tr') ).data();
-            alert( data[0] +"'s salary is: "+ data[ 5 ] );
-            });*/
-
-        $('#table2 thead tr').clone(true).appendTo( '#table2 thead' );
-        $('#table2 thead tr:eq(1) th:not(:last-child)').each( function (i) {
-            var title = $(this).text();
-            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
- 
-            $( 'input', this ).on( 'keyup change', function () {
-                if ( table.column(i).search() !== this.value ) {
-                    table
-                        .column(i)
-                        .search( this.value )
-                        .draw();
-                }
-            } );
-        } );
+            });
         });
 
+        var selectedTuids = [];
 
         $(document).ready(function () {
-            var table = $('#example').DataTable({
+            var table = $("[id*=gvStudents]").DataTable({
                 dom: 'Bfrtip',
                 buttons: [
                     'selected',
@@ -137,7 +141,7 @@
                     'selectCells'
                 ],
                 select: true,
-                "ajax": "studentArrays.txt",/*students*/
+                //"ajax": "studentArrays.txt",/*students*/
                 "columnDefs": [{
                     "targets": -1,
                     "data": null,
@@ -145,21 +149,32 @@
                 }]
             });
 
-            $('#example tbody').on('click', 'button', function () {
+            $('[id*=gvStudents] tbody').on('click', 'button', function () {
                 var data = table.row($(this).parents('tr')).data();
                 alert(data[0] + "'s salary is: " + data[5]);
             });
 
-
-
-            $('#example tbody').on('click', 'tr', function () {
+            $('[id*=gvStudents] tbody').on('click', 'tr', function () {
                 $(this).toggleClass('selected');
+                var data = table.row(this).data();
+                var count = selectedTuids.length;
+                var addFlag = true; //flag to check if we are adding or removing TUID
+                for (var i = 0; i < count; i++) {
+                    if (selectedTuids[i] == data[0]) {  //if TUID is already in array, aka if user is clicking an already selected user (deselecting), remove from array
+                        selectedTuids.splice(i, 1);
+                        addFlag = false;    //set flag to false to skip adding the TUID
+                    }
+                }
+                if (addFlag) {  //if we are still adding, add the TUID
+                    selectedTuids.push(data[0]);
+                }
+                //alert(selectedTuids);
+
+
             });
 
-
-
-            $('#example thead tr').clone(true).appendTo('#example thead');
-            $('#example thead tr:eq(1) th:not(:last-child)').each(function (i) {
+            $('[id*=gvStudents] thead tr').clone(true).appendTo('[id*=gvStudents] thead');
+            $('[id*=gvStudents] thead tr:eq(1) th:not(:last-child)').each(function (i) {
                 var title = $(this).text();
                 $(this).html('<input type="text" placeholder="Search ' + title + '" />');
 
@@ -174,6 +189,31 @@
             });
         });
 
+        function SelectedEmailClick() {
+            //$.ajax({
+            //    contentType: 'application/json; charset=utf-8',
+            //    type: "POST",
+            //    dataType: 'json',
+            //    url: "AdminHomeDatatable.aspx/Selected",
+            //    data: JSON.stringify({ selected: selectedTuids }),
+            //    success: function () {
+            //        alert("success");
+            //    },
+            //    error: function (response) {
+            //        alert(response);
+            //    }
+            //});
+
+            var query = "AdminSendEmail.aspx?";
+            for (var i = 0; i < selectedTuids.length; i++)
+            {
+                query += "id" + i + "=" + selectedTuids[i];
+                if (i != selectedTuids.length - 1)
+                    query += "&";
+            }
+            window.location = query;
+            return false;
+        }
     </script>
 
     <div class="d-flex justify-content-between">
@@ -196,7 +236,7 @@
         <asp:Button class="btn p-2" CssClass="btn redbtn" ID="btnPI" runat="server" Text="PI" OnClick="btnPI_Click" />
 
         <asp:Panel ID="pnlStudents" runat="server">
-            <asp:GridView ID="example" runat="server" AutoGenerateColumns="true"></asp:GridView>
+            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="true" OnRowDataBound="example_RowDataBound"></asp:GridView>
 
             <%--<table id="example" class="display" style="width: 100%">
                 <thead>
@@ -252,7 +292,7 @@
     <div class="d-flex justify-content-between">
         <div>
             <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All" />
-            <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" OnClick="btnEmailChecked_Click" runat="server" Text="Email Selected" />
+            <asp:Button class="btn" CssClass="btn redbtn" ID="btnEmailChecked" OnClientClick="return SelectedEmailClick()" runat="server" Text="Email Selected" />
         </div>
         <asp:Button class="btn" CssClass="btn redbtn" ID="btnExport" runat="server" Text="Export" />
     </div>

@@ -65,5 +65,22 @@ namespace URPSSPSuccessTracker.Classes
             set { studentTUID = value; }
         }
 
+        public string ResearchPapers
+        {
+            get { return researchPapers; }
+            set { researchPapers = value; }
+        }
+
+        public string ResearchJournals
+        {
+            get { return researchJournals; }
+            set { researchJournals = value; }
+        }
+
+        public string ResearchConferences
+        {
+            get { return researchConferences; }
+            set { researchConferences = value; }
+        }
     }
 }
