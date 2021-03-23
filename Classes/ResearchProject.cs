@@ -37,6 +37,7 @@ namespace URPSSPSuccessTracker.Classes
             ResearchDescription = researchDescription;
             PITUID = piTUID;
             StudentTUID = studentTUID;
+            
         }
 
         public string ResearchTitle
@@ -64,6 +65,28 @@ namespace URPSSPSuccessTracker.Classes
             get { return studentTUID; }
             set { studentTUID = value; }
         }
+        public string ResearchPapers
+        {
+            get { return researchPapers; }
+            set { researchPapers = value; }
+        }
+
+        public string ResearchJournals
+        {
+            get { return researchJournals; }
+            set { researchJournals = value; }
+        }
+        public string ResearchConferences
+        {
+            get { return researchConferences; }
+            set { researchConferences = value; }
+        }
+        public string Links
+        {
+            get { return links; }
+            set { links = value; }
+        }
+
 
     }
 }

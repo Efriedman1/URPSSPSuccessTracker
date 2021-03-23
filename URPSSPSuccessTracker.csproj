@@ -16,7 +16,7 @@
     <AssemblyName>URPSSPSuccessTracker</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -248,7 +248,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="UploadTemplate - Test.xlsx" />
+    <Content Include="UploadTemplate-Test.xlsx" />
     <None Include="Web References\WS_LDAP_Search\ldap_search.disco" />
     <None Include="Web References\WS_Programs_And_Degrees\ProgramsAndDegrees.disco" />
     <Content Include="Web References\WS_Student_Search\Reference.map">
