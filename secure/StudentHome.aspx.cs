@@ -14,74 +14,85 @@ namespace URPSSPSuccessTracker
     public partial class StudentHome : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {            
-            try
-            {
-                if (Session["Authenticated"]== null || Session["Authenticated"].ToString() == "false")
-                {
-                    Response.Redirect("~/default.aspx");
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                Response.Redirect("~/default.aspx");
-            }
-                       
+        {
 
             if (!IsPostBack)
             {
+               // validateStudent();
                 bool local = Session["Local"].ToString() == "true";
-                //get TUID from header after login
-                int employeeNumber;
-                bool number = false;
 
-                // check if running locally
-                if (local)
+                this.Master.SetNavBar((String)Session["UserType"]);
+            }
+        }
+        public void validateStudent()
+        {
+
+            //get TUID from header after login
+            int employeeNumber;
+            bool number = false;
+
+            // check if running locally
+            if (HttpContext.Current.Request.IsLocal.Equals(true))
+            {
+                number = int.TryParse(Session["employeeNumber"].ToString(), out employeeNumber);
+
+                if ((String)Session["UserType"] == "Student" && number)
                 {
-                    number = int.TryParse(Session["employeeNumber"].ToString(), out employeeNumber);
+                    //    lblEmail.Text = Session["mail"].ToString();
+                    //    lblTUID.Text = employeeNumber.ToString();
+                }
+                else
+                {
+                    Response.Redirect("~/default.aspx");
+                }
+            }
+            else
+            {
+                number = int.TryParse(Session["SSO_Attribute_employeeNumber"].ToString(), out employeeNumber);
 
-                    if ((String)Session["UserType"] == "Student" && number)
+                if ((String)Session["UserType"] == "Student" && number)
+                {
+                    // Search for employeeNumber in student table to see if user is a valid student
+                    SqlProcedures sqlProcedures = new SqlProcedures();
+                    DataSet ds = sqlProcedures.SearchStudent(employeeNumber, "", "", "", "", "");
+
+                    if (ds.Tables[0].Rows.Count > 0)
                     {
-                        lblEmail.Text = Session["mail"].ToString();
-                        lblTUID.Text = employeeNumber.ToString();
+                        Response.Write("<script>console.log(\"" + employeeNumber + " is Student\");</script>");
+                        Console.WriteLine(employeeNumber + " is a PI");
+                        // do something with the page
+
                     }
                     else
                     {
+                        Console.WriteLine(employeeNumber + " is NOT a Student! REDIRECT BACK");
+                        Response.Write("<script>console.log(\"" + employeeNumber + " is NOT a Student! REDIRECT BACK" + "\");</script>");
+
+                        Session["Authenticated"] = "";
+                        Session["UserType"] = "";
+                        Session.Abandon();
+                        Session.Clear();
+
+                        var master = Master as Master;
+                        master.logout();
                         Response.Redirect("~/default.aspx");
                     }
                 }
                 else
                 {
-                    number = int.TryParse(Session["SSO_Attribute_employeeNumber"].ToString(), out employeeNumber);
+                    Response.Write("<script>console.log(\"" + employeeNumber + "\");</script>");
 
-                    if ((String)Session["UserType"] == "Student" && number)
-                    {
-                        // Search for employeeNumber in student table to see if user is a valid student
-                        SqlProcedures sqlProcedures = new SqlProcedures();
-                        DataSet ds = sqlProcedures.SearchStudent(employeeNumber, "", "", "", "", "");
-                        if (ds.Tables[0].Rows.Count > 0)
-                        {
-                            lblInfo.Text = employeeNumber + " is a student";
-                            Console.WriteLine(employeeNumber + " is a student");
-                            // do something with the page
+                    Session["Authenticated"] = "";
+                    Session["UserType"] = "";
+                    Session.Abandon();
+                    Session.Clear();
 
-                        }
-                        else
-                        {
-                            Console.WriteLine(employeeNumber + " is NOT a student! REDIRECT BACK");
-                            //Response.Redirect("~/default.aspx");
-                        }
-                    }
-                    else
-                    {
-                        ///Response.Redirect("~/default.aspx");
-                    }
+                    var master = Master as Master;
+                    master.logout();
+                    Response.Redirect("~/default.aspx");
                 }
-
-                this.Master.SetNavBar((String)Session["UserType"]);
             }
+
         }
 
         protected void btnSelectTerm1_Click(object sender, EventArgs e)
@@ -104,6 +115,6 @@ namespace URPSSPSuccessTracker
         {
             Response.Redirect("PIViewStudentResearch.aspx");
         }
-        
+
     }
 }

@@ -24,7 +24,6 @@
             <div class="d-flex justiy-content-between">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Instructions</legend>
-                    <p>Please select a user type between the "Student" or "Principal Investigator" buttons. Then proceed to follow the below instructions depending on whether you would like to multiple or a single user.</p>
                     <div class="d-flex flex-row">
                         <asp:Label ID="Label3" runat="server" Text="Excel Upload:" CssClass="p-2 mr-3 ml-4 h6"></asp:Label>
                     </div>
@@ -35,7 +34,7 @@
                         <asp:Label ID="Label5" runat="server" Text="Single Person Upload:" CssClass="p-2 mr-3 ml-3 h6"></asp:Label>
                     </div>
                     <div class="d-flex flex-row">
-                        <asp:Label ID="Label6" runat="server" Text="Please select URP/SSP Student or Principal Investigator. Fill out the textbox for upload. All blanks can be empty, except Assessnet." CssClass="p-2 mr-3 ml-3"></asp:Label>
+                        <asp:Label ID="Label6" runat="server" Text="Fill out the textbox for upload. All Fields except Description must be filled in with valid information." CssClass="p-2 mr-3 ml-3"></asp:Label>
                     </div>
                     <div class="d-flex flex-row mt-2">
                         <asp:LinkButton CssClass="btn redbtn p-2 mr-3 ml-3" ID="btnDownload" runat="server" OnClick="btnDownload_Click">Download</asp:LinkButton>
@@ -44,20 +43,8 @@
                 <div class="col-6">
                     <asp:Label ID="lblUpload" runat="server" Text="Upload Users" CssClass="p-2 mr-3 ml-3 mb-3 h3"></asp:Label>
                     <div class="d-flex justify-content-center">
-                        <asp:Label ID="lblUpDirections" runat="server" Text="User Type:" CssClass="p-2 mr-3 ml-3"></asp:Label>
                     </div>
-                    <div class="d-flex justify-content-center mt-2">
-                        <%--<asp:Button class="btn redbtn p-2 mr-3 ml-3 " ID="Button1" runat="server" Text="Student" />
-                        <button type="button" class="btn btn-light p-2 mr-3 ml-3 ">Principal Investigator</button>--%>
-                        <asp:Label class="btn btn-outline-danger" ID="Label1" runat="server" Text="Students: ">
-                            <asp:RadioButton ID="optStudent" runat="server" GroupName="UserType" Checked="True" />
-                        </asp:Label>
-                        &nbsp;
-                        <asp:Label class="btn btn-outline-danger" ID="Label2" runat="server" Text="Principal Investigators: ">
-                            <asp:RadioButton ID="optPI" runat="server" GroupName="UserType" />
-                        </asp:Label>
 
-                    </div>
                     <div class="d-flex mt-2">
                         <%-- <button type="button" class="btn redbtn p-2 mr-3 ml-3 ">Browse</button>
                         <input type="text" class="form-control col-10" placeholder="StudentTemplate.xlsx" />--%>

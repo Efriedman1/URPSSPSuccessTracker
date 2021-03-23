@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace URPSSPSuccessTracker
 {
@@ -11,16 +12,66 @@ namespace URPSSPSuccessTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Secure_My_Session();
 
+            if (Session["Full_Name"] != null)
+            {
+                lblUserName.Text =  Session["Full_Name"].ToString();
+            }
+            else
+                lblUserName.Text = string.Empty;
+        }
+
+        protected void Secure_My_Session()
+        {
+            if (Response.Cookies.Count > 0)
+            {
+                foreach (string s in Response.Cookies.AllKeys)
+                {
+                    if (s == FormsAuthentication.FormsCookieName || s.ToLower() == "asp.net_sessionid")
+                    {
+                        Response.Cookies[s].Secure = true;
+                    }
+                }
+            }
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Session["UserType"] = "";
+            
             Session.Abandon();
             Session.Clear();
-            Response.Redirect("~/default.aspx");
+            if (HttpContext.Current.Request.IsLocal.Equals(false))
+            {
+                string domain = Request.Url.Host;
+                Response.Redirect("https://" + domain + "/Shibboleth.sso/Logout?return=https://" + GetFimEnvironment(domain) + ".temple.edu/idp/profile/Logout");
+            }
+            //Response.Redirect("~/default.aspx");
         }
+
+        public void logout()
+        {
+            Session.Abandon();
+            Session.Clear();
+            if (HttpContext.Current.Request.IsLocal.Equals(false))
+            {
+                string domain = Request.Url.Host;
+                Response.Redirect("https://" + domain + "/Shibboleth.sso/Logout?return=https://" + GetFimEnvironment(domain) + ".temple.edu/idp/profile/Logout");
+            }
+        }
+
+        private string GetFimEnvironment(string domain)
+        {
+            switch (domain)
+            {
+                case "np-stem.temple.edu":
+                case "pre-stem.temple.edu":
+                    return "np-fim";
+                default:
+                    return "fim";
+            }
+        }
+
 
         public void SetNavBar(String userType)
         {
@@ -30,7 +81,7 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = true;
                 btnSearch.Visible = true;
                 btnUploadUsers.Visible = true;
-                lblUserName.Text = "Rose McGinnis";
+                //lblUserName.Text = Session["Full_Name"].ToString();
             }
 
             if (userType == "Student")
@@ -39,7 +90,7 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = false;
                 btnSearch.Visible = false;
                 btnUploadUsers.Visible = false;
-                lblUserName.Text = "John Doe";
+                //lblUserName.Text = "John Doe";
             }
 
             if (userType == "PI")
@@ -48,7 +99,7 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = false;
                 btnSearch.Visible = false;
                 btnUploadUsers.Visible = false;
-                lblUserName.Text = "Bill Perkins";
+                //lblUserName.Text = "Bill Perkins";
             }
 
             if (userType == "")
@@ -57,8 +108,8 @@ namespace URPSSPSuccessTracker
                 btnManageUsers.Visible = false;
                 btnSearch.Visible = false;
                 btnUploadUsers.Visible = false;
-                lblUserName.Text = "";
-                lblUserType.Text = "";
+                //lblUserName.Text = "";
+                //lblUserType.Text = "";
             }
         }
 

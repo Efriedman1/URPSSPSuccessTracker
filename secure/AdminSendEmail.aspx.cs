@@ -12,42 +12,35 @@ namespace URPSSPSuccessTracker
 {
     public partial class AdminSendEmail : System.Web.UI.Page
     {
+        List<string> SelectedTUIDs;
         protected void Page_Load(object sender, EventArgs e)
-        {          
+        {
             if (!IsPostBack)
             {
                 this.Master.SetNavBar((String)Session["UserType"]);
                 loadTable();
+                SelectedTUIDs = ParseQueryString();
+                foreach (string tuid in SelectedTUIDs)
+                {
+                    System.Diagnostics.Debug.Print(tuid);
+                }
             }
+        }
+
+        protected List<string> ParseQueryString()
+        {
+            List<string> values = new List<string>();
+            foreach(string key in Request.QueryString.AllKeys)
+            {
+                values.Add(Request.QueryString[key]);
+            }
+            return values;
         }
 
         protected void btnSend_Click(object sender, EventArgs e)
         {
-            string subject = txtEmailSubject.Text;
-            string body = txtEmailBody.Text;
-            List<string> emailList = new List<string>();
-            //create 
-            foreach (GridViewRow row in gvStudents.Rows)
-            {
-                emailList.Add(row.Cells[2].Text.Trim());
-            }
-            List<string> testemail = new List<string>();
-            testemail.Add("tuf53874@temple.edu");
+            ScriptManager.RegisterStartupScript(this, GetType(), "Script", "emailPopup();", true);
 
-            testEmail();
-
-            /*
-            if (sendEmail(subject, body, testemail))
-            {
-                txtEmailSubject.Text = "";
-                txtEmailBody.Text = "";
-                lblEmailSent.Visible = true;
-                lblEmailSent.Text = "Email sent.";
-            }
-            else
-            {
-                lblEmailSent.Visible = true;
-            }*/
         }
 
         public void testEmail()
@@ -61,6 +54,7 @@ namespace URPSSPSuccessTracker
             Response.Redirect("AdminHome.aspx");
         }
 
+        //moved to email class
         protected bool sendEmail(string subject, string body, List<string> emailList)
         {
             try
@@ -69,16 +63,17 @@ namespace URPSSPSuccessTracker
                 string from = Session["mail"].ToString();
                 MailAddress mailAddress = new MailAddress("noreply@temple.edu", "URPSSP");
                 SmtpClient smtpClient = new SmtpClient("smtp.temple.edu", 25);
-
-                /*mailMessage.From = mailAddress;                
+                
+                mailMessage.From = mailAddress;      
+                /*
                 foreach (var item in emailList)
                 {
                     mailMessage.Bcc.Add(item);
-                }*/
+                }
+                */
 
                 //for testing
-                mailMessage.To.Add("tuf53874@temple.edu");
-                mailMessage.From = new MailAddress("tuf53874@temple.edu");
+                mailMessage.Bcc.Add("tuf53874@temple.edu");
 
                 mailMessage.Subject = subject;
                 mailMessage.Body = body;
@@ -92,6 +87,7 @@ namespace URPSSPSuccessTracker
             {
                 Console.WriteLine(ex);
                 lblEmailSent.Text = ex.ToString();
+
                 return false;
             }
         }
@@ -101,14 +97,13 @@ namespace URPSSPSuccessTracker
             SqlProcedures sqlProcedures = new SqlProcedures();
             List<Student> studentList = new List<Student>();
 
-            if (Session["Students"]==null)
+            if (Session["Students"] == null)
             {// email all
                 DataSet ds = sqlProcedures.GetAllStudents();
                 DataTable dt = ds.Tables[0];
                 foreach (DataRow row in dt.Rows)
                 {
                     Student student = new Student();
-                    //student.TUID = Convert.ToInt32(row[0].ToString());
                     student.TUID = row[0].ToString();
                     student.FirstName = row[1].ToString();
                     student.LastName = row[2].ToString();
@@ -135,6 +130,29 @@ namespace URPSSPSuccessTracker
             studentList.RemoveAt(rowIndex);
             Session["Students"] = studentList;
             loadTable();
+        }
+
+        protected void btnYes_Click(object sender, EventArgs e)
+        {
+            
+            string subject = txtEmailSubject.Text;
+            string body = txtEmailBody.Text;
+            List<string> emailList = new List<string>();
+            //create 
+            foreach (GridViewRow row in gvStudents.Rows)
+            {
+                emailList.Add(row.Cells[2].Text.Trim());
+            }
+
+            Email email = new Email();
+            if (email.SendNewMail(subject, body, emailList))
+            {
+                txtEmailSubject.Text = "";
+                txtEmailBody.Text = "";
+                lblEmailSent.Visible = true;
+                lblEmailSent.Text = "Email sent!!";
+                ScriptManager.RegisterStartupScript(this, GetType(), "Script", "emailSent();", true);
+            }
         }
     }
 }
