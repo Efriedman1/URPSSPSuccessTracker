@@ -33,11 +33,80 @@ namespace URPSSPSuccessTracker
 
         }
 
+        public void validAdmin()
+        {
+            //get TUID from header after login
+            int employeeNumber;
+            bool number = false;
+
+            // check if running locally
+            if (HttpContext.Current.Request.IsLocal.Equals(true))
+            {
+                number = int.TryParse(Session["employeeNumber"].ToString(), out employeeNumber);
+
+                if ((String)Session["UserType"] == "PI" && number)
+                {
+                    //    lblEmail.Text = Session["mail"].ToString();
+                    //    lblTUID.Text = employeeNumber.ToString();
+                }
+                else
+                {
+                    Response.Redirect("~/default.aspx");
+                }
+            }
+            else
+            {
+                number = int.TryParse(Session["SSO_Attribute_employeeNumber"].ToString(), out employeeNumber);
+
+                if ((String)Session["UserType"] == "PI" && number)
+                {
+                    // Search for employeeNumber in student table to see if user is a valid student
+                    SqlProcedures sqlProcedures = new SqlProcedures();
+                    DataSet ds = sqlProcedures.SearchAdministrator(employeeNumber);
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        Response.Write("<script>console.log(\"" + employeeNumber + " is admin\");</script>");
+                        Console.WriteLine(employeeNumber + " is a admin");
+                        // do something with the page
+
+                    }
+                    else
+                    {
+                        Console.WriteLine(employeeNumber + " is NOT a admin! REDIRECT BACK");
+                        Response.Write("<script>console.log(\"" + employeeNumber + " is NOT a admin! REDIRECT BACK" + "\");</script>");
+
+                        Session["Authenticated"] = "";
+                        Session["UserType"] = "";
+                        Session.Abandon();
+                        Session.Clear();
+
+                        var master = Master as Master;
+                        master.logout();
+                        Response.Redirect("~/default.aspx");
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>console.log(\"" + employeeNumber + "\");</script>");
+
+                    Session["Authenticated"] = "";
+                    Session["UserType"] = "";
+                    Session.Abandon();
+                    Session.Clear();
+
+                    var master = Master as Master;
+                    master.logout();
+                    Response.Redirect("~/default.aspx");
+                }
+            }
+        }
         protected void btnUpload_Click(object sender, EventArgs e)
         {
             //Check if the file is an xls file
             if (fileUploadTemplate.HasFile)
             {
+
                 //if the file includes xls then use it
                 if (validateTemplate.IsValid)
                 {

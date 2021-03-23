@@ -11,7 +11,7 @@ namespace URPSSPSuccessTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("TempLogin.aspx");
+            Response.Redirect("secure/default.aspx");
         }
     }
 }

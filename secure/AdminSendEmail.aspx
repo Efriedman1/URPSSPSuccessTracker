@@ -2,10 +2,24 @@
 <%@ MasterType VirtualPath="~/Master.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>   
+        function emailPopup() {
+            $('#modal1').modal("show");
+        };
+
+        function emailSent() {
+            $('#emailSentModal').modal("show");
+        };
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <script>
+        
+
+
       tinymce.init({
         selector: 'textarea#editor',
         menubar: false
@@ -49,6 +63,32 @@
 
 
     <div class="container" style="margin-top:2%">
+        <div class="modal fade" role="dialog" id="modal1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <asp:Label Text="Are you sure you want to send this email?" runat="server"/>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button Text="Cancel" runat="server" id="btnCancel" CssClass="btn btn-danger" data-dismiss="modal" /> 
+                        <asp:Button Text="Yes" runat="server" id="btnYes" CssClass="btn btn-success" OnClick="btnYes_Click"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" role="dialog" id="emailSentModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <asp:Label Text="Email was successfully sent!" runat="server" />
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button Text="Close" runat="server" id="Button1" CssClass="btn btn-danger" data-dismiss="modal" /> 
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="page-header">
           <h2>Send Email</h2>

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Web.UI.WebControls;
+
 
 namespace URPSSPSuccessTracker.Classes
 {
@@ -19,6 +21,39 @@ namespace URPSSPSuccessTracker.Classes
         private MailPriority priority = MailPriority.Normal;
         private String mailHost = "smtp.temple.edu";
         private int port = 25;
+
+        public bool SendNewMail(string subject, string body, List<string> emailList)
+        {
+            try
+            {
+                this.Sender = "noreply@temple.edu";
+                this.Subject = subject;
+                this.Message = body;
+
+                objMail.Bcc.Add("tuf53874@temple.edu");
+
+                foreach (string email in emailList)
+                {
+                    //objMail.Bcc.Add(email);
+                }
+                objMail.From = this.fromAddress;
+                objMail.Subject = this.subject;
+                objMail.Body = this.messageBody;
+
+
+                objMail.IsBodyHtml = this.isHTMLBody;
+                objMail.Priority = this.priority;
+
+                SmtpClient smtpMailClient = new SmtpClient(this.mailHost, this.port);
+                smtpMailClient.Send(objMail);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+        }
 
         /*Default Email Method*/
         public void SendMail(String recipient, String sender, String body, String subject)
