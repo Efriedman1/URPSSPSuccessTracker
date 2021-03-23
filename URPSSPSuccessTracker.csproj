@@ -16,7 +16,7 @@
     <AssemblyName>URPSSPSuccessTracker</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -149,6 +149,7 @@
     <Content Include="secure\AdminManageUsers.aspx" />
     <Content Include="images\templeulogo.png" />
     <Content Include="images\urpssp.png" />
+    <Content Include="secure\arrays.txt" />
     <Content Include="secure\ManageTerm.aspx" />
     <Content Include="master.css" />
     <Content Include="packages\ExcelDataReader.3.6.0\lib\net20\ExcelDataReader.dll" />
@@ -256,10 +257,11 @@
     <Content Include="secure\images\templeulogo.png" />
     <Content Include="secure\images\urpssp.png" />
     <Content Include="secure\PIHome.aspx" />
+    <Content Include="secure\studentArrays.txt" />
     <Content Include="secure\StudentHome.aspx" />
     <Content Include="secure\StudentEnterResearch.aspx" />
     <Content Include="secure\StudentHomeDatatable.aspx" />
-    <Content Include="TempLogin.aspx" />
+    <Content Include="secure\TempLogin.aspx" />
     <Content Include="UpgradeLog.htm" />
     <Content Include="secure\ViewStudentResearch.aspx" />
     <Content Include="packages\ExcelDataReader.3.6.0\.signature.p7s" />
@@ -270,7 +272,9 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
-    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\content\net45\app.config.install.xdt" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\content\net45\app.config.uninstall.xdt" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\content\net45\web.config.install.xdt" />
@@ -319,6 +323,7 @@
     <Content Include="URPSSPSuccessTracker\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="URPSSPSuccessTracker\obj\Debug\URPSSPSuccessTracker.csproj.CoreCompileInputs.cache" />
     <Content Include="URPSSPSuccessTracker\obj\Debug\URPSSPSuccessTracker.csprojAssemblyReference.cache" />
+    <Content Include="UploadTemplate-Test.xlsx" />
     <None Include="Web References\WS_LDAP_Search\ldap_search.disco" />
     <None Include="Web References\WS_Programs_And_Degrees\ProgramsAndDegrees.disco" />
     <None Include="Web References\WS_Student_Search\ws_student.disco" />
@@ -332,6 +337,7 @@
     <Compile Include="Classes\ResearchDocument.cs" />
     <Compile Include="Classes\ResearchProject.cs" />
     <Compile Include="Classes\UpdateProjectDocuments.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="secure\AdminDownload.aspx.cs">
       <DependentUpon>AdminDownload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -400,7 +406,6 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="secure\PIHomeDatatable.aspx.cs">
       <DependentUpon>PIHomeDatatable.aspx</DependentUpon>
@@ -467,11 +472,11 @@
     <Compile Include="secure\StudentHomeDatatable.aspx.designer.cs">
       <DependentUpon>StudentHomeDatatable.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TempLogin.aspx.cs">
+    <Compile Include="secure\TempLogin.aspx.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TempLogin.aspx.designer.cs">
+    <Compile Include="secure\TempLogin.aspx.designer.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="secure\ViewStudentResearch.aspx.cs">
@@ -481,9 +486,6 @@
     <Compile Include="secure\ViewStudentResearch.aspx.designer.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
     </Compile>
-    <Compile Include="URPSSPSuccessTracker\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="URPSSPSuccessTracker\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="URPSSPSuccessTracker\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Web References\WS_LDAP_Search\Reference.cs" />
     <Compile Include="Web References\WS_Programs_And_Degrees\Reference.cs" />
     <Compile Include="Web References\WS_Student_Search\Reference.cs" />
@@ -493,7 +495,6 @@
     <Content Include="fonts\AvanirNext.otf" />
     <Content Include="appSettings.config" />
     <None Include="Properties\PublishProfiles\URPSSPSuccessTracker - Web Deploy.pubxml" />
-    <Content Include="UploadTemplate - Test.xlsx" />
     <Content Include="URP_SSP_UploadTemplate.xlsx" />
     <None Include="Web References\WS_LDAP_Search\ldap_search.wsdl" />
     <Content Include="Web References\WS_LDAP_Search\Reference.map" />
