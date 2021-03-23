@@ -55,7 +55,8 @@
         */
         $(document).ready(function () {
             var table = $('#table2').DataTable({
-                dom: 'Bfrtip',
+                responsive:true, 
+                /*dom: 'Bfrtip',
                 buttons: [
                     'selected',
                     'selectedSingle',
@@ -65,7 +66,7 @@
                     'selectColumns',
                     'selectCells'
                 ],
-                select: true,
+                select: true,*/
                 "ajax": "arrays.txt",/*PI*/
                 "columnDefs": [{
                     "targets": -1,
@@ -126,7 +127,8 @@
 
         $(document).ready(function () {
             var table = $('#example').DataTable({
-                dom: 'Bfrtip',
+                responsive: true,
+                /*dom: 'Bfrtip',
                 buttons: [
                     'selected',
                     'selectedSingle',
@@ -136,7 +138,7 @@
                     'selectColumns',
                     'selectCells'
                 ],
-                select: true,
+                select: true,*/
                 "ajax": "studentArrays.txt",/*students*/
                 "columnDefs": [{
                     "targets": -1,

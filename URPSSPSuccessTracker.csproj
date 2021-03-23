@@ -233,6 +233,7 @@
     <Content Include="secure\studentArrays.txt" />
     <Content Include="secure\StudentEnterResearch.aspx" />
     <Content Include="secure\StudentHome.aspx" />
+    <Content Include="secure\StudentHomeDatatable.aspx" />
     <Content Include="secure\ViewStudentResearch.aspx" />
     <Content Include="TempLogin.aspx" />
     <Content Include="packages\ExcelDataReader.3.6.0\.signature.p7s" />
@@ -397,6 +398,13 @@
     </Compile>
     <Compile Include="secure\StudentHome.aspx.designer.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="secure\StudentHomeDatatable.aspx.cs">
+      <DependentUpon>StudentHomeDatatable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="secure\StudentHomeDatatable.aspx.designer.cs">
+      <DependentUpon>StudentHomeDatatable.aspx</DependentUpon>
     </Compile>
     <Compile Include="secure\ViewStudentResearch.aspx.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
