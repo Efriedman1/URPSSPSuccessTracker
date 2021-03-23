@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using URPSSPSuccessTracker.Classes;
 using URPSSPSuccessTracker.Library;
 
 namespace URPSSPSuccessTracker.secure
@@ -120,24 +122,41 @@ namespace URPSSPSuccessTracker.secure
                 }
 
                 /*Successful Login */
-                string userType = Session["UserType"].ToString();
-                switch (userType)
+                if (HttpContext.Current.Request.IsLocal.Equals(true))
                 {
-                    case "Admin":
-                        Console.WriteLine("admin");
-                
-                        Response.Redirect("AdminHomeDatatable.aspx");
-                        break;
-
-                    case "PI":
-                        Response.Redirect("PIHome.aspx");
-                        break;
-
-                    case "Student":
-                        Console.WriteLine("student");
-                        Response.Redirect("StudentHome.aspx");
-                        break;
+                    Response.Redirect("TempLogin.aspx");
                 }
+                else
+                {
+
+                    SqlProcedures sqlProcedures = new SqlProcedures();
+                    string ut = sqlProcedures.GetUserRole(employeeNumber);
+                    Response.Write("<script>console.log(\"" + employeeNumber + " \");</script>");
+                    Response.Write("<script>console.log(\"" + ut + " \");</script>");
+
+                    Session["UserType"] = ut;
+                    switch (ut)
+                    {
+                        case "Admin":
+                            Console.WriteLine("admin");
+
+                            Response.Redirect("AdminHomeDatatable.aspx");
+                            break;
+
+                        case "PI":
+                            Response.Redirect("PIHome.aspx");
+                            break;
+
+                        case "Student":
+                            Console.WriteLine("student");
+                            Response.Redirect("StudentHome.aspx");
+                            break;
+                        case "":
+                            Response.Redirect("~/default.aspx");
+                            break;
+                    }
+                }
+
             }
             else
             {
