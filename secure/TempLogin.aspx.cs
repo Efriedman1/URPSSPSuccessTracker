@@ -22,7 +22,7 @@ namespace URPSSPSuccessTracker
         {
             Session["UserType"] = "Admin";
             this.Master.SetNavBar((String)Session["UserType"]);
-            Response.Redirect("secure/default.aspx");
+            Response.Redirect("AdminHomeDatatable.aspx");
 
         }
 
@@ -30,14 +30,14 @@ namespace URPSSPSuccessTracker
         {
             Session["UserType"] = "PI";
             this.Master.SetNavBar((String)Session["UserType"]);
-            Response.Redirect("secure/default.aspx");
+            Response.Redirect("PiHome.aspx");
         }
 
         protected void btnStudent_Click(object sender, EventArgs e)
         {
             Session["UserType"] = "Student";
             this.Master.SetNavBar((String)Session["UserType"]);
-            Response.Redirect("secure/default.aspx");
+            Response.Redirect("StudentHome.aspx");
         }
     }
 }

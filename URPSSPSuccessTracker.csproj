@@ -291,7 +291,7 @@
     <Content Include="secure\StudentHome.aspx" />
     <Content Include="secure\StudentHomeDatatable.aspx" />
     <Content Include="secure\ViewStudentResearch.aspx" />
-    <Content Include="TempLogin.aspx" />
+    <Content Include="secure\TempLogin.aspx" />
     <Content Include="packages\ExcelDataReader.3.6.0\.signature.p7s" />
     <Content Include="packages\ExcelDataReader.3.6.0\ExcelDataReader.3.6.0.nupkg" />
     <Content Include="packages\ExcelDataReader.DataSet.3.6.0\.signature.p7s" />
@@ -503,11 +503,11 @@
     <Compile Include="secure\ViewStudentResearch.aspx.designer.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TempLogin.aspx.cs">
+    <Compile Include="secure\TempLogin.aspx.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TempLogin.aspx.designer.cs">
+    <Compile Include="secure\TempLogin.aspx.designer.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\WS_LDAP_Search\Reference.cs">

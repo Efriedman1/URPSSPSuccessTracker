@@ -38,7 +38,7 @@ namespace URPSSPSuccessTracker
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Session["UserType"] = "";
+            
             Session.Abandon();
             Session.Clear();
             if (HttpContext.Current.Request.IsLocal.Equals(false))
@@ -47,6 +47,17 @@ namespace URPSSPSuccessTracker
                 Response.Redirect("https://" + domain + "/Shibboleth.sso/Logout?return=https://" + GetFimEnvironment(domain) + ".temple.edu/idp/profile/Logout");
             }
             //Response.Redirect("~/default.aspx");
+        }
+
+        public void logout()
+        {
+            Session.Abandon();
+            Session.Clear();
+            if (HttpContext.Current.Request.IsLocal.Equals(false))
+            {
+                string domain = Request.Url.Host;
+                Response.Redirect("https://" + domain + "/Shibboleth.sso/Logout?return=https://" + GetFimEnvironment(domain) + ".temple.edu/idp/profile/Logout");
+            }
         }
 
         private string GetFimEnvironment(string domain)
