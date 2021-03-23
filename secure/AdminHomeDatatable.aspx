@@ -58,7 +58,8 @@
         */
         $(document).ready(function () {
             var table = $('#table2').DataTable({
-                dom: 'Bfrtip',
+                responsive:true, 
+                /*dom: 'Bfrtip',
                 buttons: [
                     'selected',
                     'selectedSingle',
@@ -68,7 +69,7 @@
                     'selectColumns',
                     'selectCells'
                 ],
-                select: true,
+                select: true,*/
                 "ajax": "arrays.txt",/*PI*/
                 "columnDefs": [{
                     "targets": -1,
@@ -129,8 +130,14 @@
         var selectedTuids = [];
 
         $(document).ready(function () {
+
+            var table = $('#example').DataTable({
+                responsive: true,
+                /*dom: 'Bfrtip',
+
             var table = $("[id*=gvStudents]").DataTable({
                 dom: 'Bfrtip',
+
                 buttons: [
                     'selected',
                     'selectedSingle',
@@ -140,8 +147,12 @@
                     'selectColumns',
                     'selectCells'
                 ],
-                select: true,
+
+                
                 //"ajax": "studentArrays.txt",/*students*/
+
+              select: true,
+              
                 "columnDefs": [{
                     "targets": -1,
                     "data": null,
