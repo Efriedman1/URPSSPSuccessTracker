@@ -9,11 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="master.css" />
 
-<%--    <script >
-      $( function() {
-        $( "#tabs" ).tabs();
-      } );
-    </script>--%>
+
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -291,8 +287,13 @@
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <asp:Label ID="lblStatus" CssClass="control-label" runat="server" Text="Status"></asp:Label>
-                                <asp:TextBox ID="txtStatus" CssClass="form-control input-lg" runat="server" Enabled="False">Concluded</asp:TextBox>
-
+                                <%--<asp:TextBox ID="txtStatus" CssClass="form-control input-lg" runat="server" Enabled="False">Concluded</asp:TextBox>--%>
+                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="dropdown-toggle form-control input-lg" Width="100%" >
+                                    <asp:ListItem Selected="true" Value="" disabled="disabled">Please Select Status</asp:ListItem>
+                                    <asp:ListItem Value="In-Progress">In-Progress</asp:ListItem>
+                                    <asp:ListItem Value="Complete">Complete</asp:ListItem>
+                                    
+                                </asp:DropDownList>
 
                             </div>
                         </div>
@@ -302,6 +303,12 @@
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <asp:Label ID="lblMethod" CssClass="control-label" runat="server" Text="Research Method"></asp:Label>
+                                <asp:DropDownList ID="ddlResearchMethod" runat="server" CssClass="dropdown-toggle form-control input-lg" Width="100%" >
+                                    <asp:ListItem Selected="true" Value="" disabled="disabled">Please select research method</asp:ListItem>
+                                    <asp:ListItem Value="Remote">Remote</asp:ListItem>
+                                    <asp:ListItem Value="In-Person">In-Person</asp:ListItem>
+                                    
+                                </asp:DropDownList>
 
                                 <asp:TextBox ID="txtMethod" CssClass="textbox form-control input-lg" runat="server" Enabled="False">Experimentation</asp:TextBox>
 
@@ -421,6 +428,12 @@
                                     Paper
                                  </a>
                             </li>
+                             <li>
+                                 <a href="#tab-Link">
+                                    Link
+                                 </a>
+                            </li>
+
                           </ul>
 
                           <div id="tab-Journal">
@@ -431,42 +444,79 @@
                                 <asp:Repeater ID="RepeaterTabJournal" runat="server">
                                     <ItemTemplate>
                                         <div id="tab_<%#Eval("ResearchID") %>">
-                                            <%#Eval("Journal") %>
+                                            <%--<%#Eval("Journal") %>--%>
+                                          <td><%# ((string)Eval ("Journal")).Replace(Environment.NewLine, "<br />") %></td>
 
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-
-                                <asp:Textbox id='txtEditJournal' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">
-    
+                                                                              
+                                <asp:Textbox id='txtEditJournal' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">   
                                 </asp:Textbox>      
-
 
                                 </p>
                           </div>
 
                           <div id="tab-Conference">
+                              <asp:Button id="btnEditConference" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditConference_Click"/>
+                              <asp:Button id="btnSaveConference" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveConference_Click" />
                               <p>
                                 <asp:Repeater ID="RepeaterTabConference" runat="server">
                                 <ItemTemplate>
                                     <div id="tab_<%#Eval("ResearchID") %>">
-                                        <%#Eval("Conference") %>
+                                       <%-- <%#Eval("Conference") %>--%>
+                                        <td><%# ((string)Eval ("Conference")).Replace(Environment.NewLine, "<br />") %></td>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
+                                <asp:Textbox id='txtEditConference' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">
+    
+                                </asp:Textbox>  
                               </p>  
                           </div>
+
+
                           <div id="tab-Paper">
+                              <asp:Button id="btnEditPaper" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditPaper_Click" />
+                              <asp:Button id="btnSavePaper" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSavePaper_Click"/>
                               <p>
-                                <asp:Repeater ID="RepeaterPaper" runat="server">
+                                <asp:Repeater ID="RepeaterTabPaper" runat="server">
                                     <ItemTemplate>
                                         <div id="tab_<%#Eval("ResearchID") %>">
-                                            <%#Eval("Paper") %>
+                                           <%-- <%#Eval("Paper") %>--%>
+                                             <td><%# ((string)Eval ("Paper")).Replace(Environment.NewLine, "<br />") %></td>
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
+                                <asp:Textbox id='txtEditPaper' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">
+    
+                                </asp:Textbox>  
+
                               </p>  
                           </div>
+
+                          <div id="tab-Link">
+                              <asp:Button id="btnEditLink" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditLink_Click" />
+                              <asp:Button id="btnSaveLink" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveLink_Click"/>
+                              <p>
+                                <asp:Repeater ID="RepeaterTabLink" runat="server">
+                                    <ItemTemplate>
+                                        <div id="tab_<%#Eval("ResearchID") %>">
+                                           <%-- <%#Eval("Paper") %>--%>
+                                             <td><%# ((string)Eval ("Link")).Replace(Environment.NewLine, "<br />") %></td>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <asp:Textbox id='txtEditLink' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">
+    
+                                </asp:Textbox>  
+
+                              </p>  
+                          </div>
+
+
+
+
                         </div>
                     </div>
 
@@ -501,7 +551,7 @@
                     </div>
 
                     <div class="form-group d-flex justify-content-center">
-                        <asp:TextBox ID="tbComment" runat="server" class="form-control" Width="650px" TextMode="MultiLine" Rows="5" OnTextChanged="tbComment_TextChanged" MaxLength="500"></asp:TextBox>
+                        <asp:TextBox ID="tbComment" runat="server" class="form-control" Width="650px" TextMode="MultiLine" Rows="5" MaxLength="500"></asp:TextBox>
                     </div>
 
                     <div class="form-group text-center">
