@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using System.Data;
+using URPSSPSuccessTracker.Classes;
 
 namespace URPSSPSuccessTracker
 {
@@ -12,9 +14,17 @@ namespace URPSSPSuccessTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlProcedures procedures = new SqlProcedures();
             if (!IsPostBack)
             {
                 this.Master.SetNavBar((String)Session["UserType"]);
+                DataSet studentData = procedures.LoadStudents();
+                if (studentData.Tables.Count > 0)
+                {
+                    example.DataSource = studentData;
+                    example.DataBind();
+                }
+                
             }
             pnlPI.Visible = false;
             pnlStudents.Visible = true;

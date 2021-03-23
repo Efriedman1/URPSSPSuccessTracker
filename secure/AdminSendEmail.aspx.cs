@@ -34,7 +34,24 @@ namespace URPSSPSuccessTracker
             List<string> testemail = new List<string>();
             testemail.Add("tuf53874@temple.edu");
 
-            testEmail();
+
+            MailMessage mailMessage = new MailMessage();
+            MailAddress mailAddress = new MailAddress("noreply@temple.edu", "URPSSP");
+            SmtpClient smtpClient = new SmtpClient("smtp.temple.edu", 25);
+
+        
+            mailMessage.To.Add("tuf53874@temple.edu");
+            mailMessage.From = mailAddress;
+
+            mailMessage.Subject = subject;
+            mailMessage.Body = body;
+            mailMessage.IsBodyHtml = true;
+            Session["Students"] = null;
+
+            smtpClient.Send(mailMessage);
+            //return true;
+
+            //testEmail();
 
             /*
             if (sendEmail(subject, body, testemail))
@@ -50,11 +67,11 @@ namespace URPSSPSuccessTracker
             }*/
         }
 
-        public void testEmail()
-        {
-            Email email = new Email();
-            email.SendMail("tuf53874@temple.edu", "tuf53874@temple.edu", "test", "test");
-        }
+        //public void testEmail()
+        //{
+        //    Email email = new Email();
+        //    email.SendMail("tuf53874@temple.edu", "noreply@temple.edu", "hello", "Manchester City are 2021 UEFA Champion!!!");
+        //}
 
         protected void btnAddStudent_Click(object sender, EventArgs e)
         {
