@@ -25,8 +25,20 @@ namespace URPSSPSuccessTracker
                 populateCommentSection(false);
                 populateResearch();
 
+                
+
                 txtEditJournal.Visible = false;
+                txtEditConference.Visible = false;
+                txtEditPaper.Visible = false;
+                txtEditLink.Visible = false;
+
                 btnSaveJournal.Visible = false;
+                btnSaveConference.Visible = false;
+                btnSavePaper.Visible = false;
+                btnSaveLink.Visible = false;
+
+
+
             }
         }
 
@@ -38,22 +50,17 @@ namespace URPSSPSuccessTracker
         
 
 
-        protected void btnSaveJournal_Click(object sender, EventArgs e)
-        {
-            RepeaterTabJournal.Visible = true;
-            txtEditJournal.Visible = false;
-            btnEditJournal.Visible = true;
-            btnSaveJournal.Visible = false;
-        }
+
         public void display(Boolean tf)
         {
             txtName.Enabled = tf;
             txtDept.Enabled = tf;
             txtEmail.Enabled = tf;
             txtMethod.Enabled = tf;
-            txtStatus.Enabled = tf;
+           // txtStatus.Enabled = tf;
             txtTitle.Enabled = tf;
             txtType.Enabled = tf;
+            
 
            
 
@@ -166,47 +173,173 @@ namespace URPSSPSuccessTracker
         {
             
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            List<ResearchDocument> researchList = urpSqlProcedures.GetJournal(6); 
+            List<ResearchDocument> researchList = urpSqlProcedures.GetProjectInfo(6);
 
+
+            RepeaterTabJournal.DataSource = urpSqlProcedures.GetProjectInfo(6);
+            RepeaterTabJournal.DataBind();        
             
 
-            RepeaterTabJournal.DataSource = urpSqlProcedures.GetJournal(6);
-            RepeaterTabJournal.DataBind();
-
-
-            RepeaterTabConference.DataSource = urpSqlProcedures.GetJournal(6);
+            RepeaterTabConference.DataSource = urpSqlProcedures.GetProjectInfo(6);
             RepeaterTabConference.DataBind();
 
 
-            RepeaterPaper.DataSource = urpSqlProcedures.GetJournal(6);
-            RepeaterPaper.DataBind();
+            RepeaterTabPaper.DataSource = urpSqlProcedures.GetProjectInfo(6);
+            RepeaterTabPaper.DataBind();
 
+
+            RepeaterTabLink.DataSource = urpSqlProcedures.GetProjectInfo(6);
+            RepeaterTabLink.DataBind();
 
         }
         
 
         protected void btnEditJournal_Click(object sender, EventArgs e)
-        {
-            
-            
+        {                    
             RepeaterTabJournal.Visible = false;
             txtEditJournal.Visible = true;
             btnEditJournal.Visible = false;
             btnSaveJournal.Visible = true;
+            btnEditLink.Visible = true;
+            btnSaveLink.Visible = false;
 
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            //List<ResearchDocument> researchList = urpSqlProcedures.GetJournal(6);
-
-            
+                       
             DataSet ds = new DataSet();
-           // string items = ds.Tables[0].Rows[0]["Journal"].ToString();
 
-            string items = string.Join(Environment.NewLine, urpSqlProcedures.LoadResearchDocuments(6));
+            string Journal = urpSqlProcedures.LoadResearchDocuments(6).Tables[0].Rows[0][0].ToString();
 
-
-           // txtEditJournal.Text = "hello";
-            txtEditJournal.Text = items;
+            txtEditJournal.Text = Journal;
         }
+        protected void btnSaveJournal_Click(object sender, EventArgs e)
+        {
+            RepeaterTabJournal.Visible = true;
+            txtEditJournal.Visible = false;
+            btnEditJournal.Visible = true;
+            btnSaveJournal.Visible = false;
+            btnSaveLink.Visible = false;
+            btnEditLink.Visible = true;
+
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+
+            int researchID = 6;
+            string journalinfo = txtEditJournal.Text;
+
+            urpSqlProcedures.UpdateJournal(researchID, journalinfo);
+        }
+
+        protected void btnEditConference_Click(object sender, EventArgs e)
+        {
+            RepeaterTabConference.Visible = false;
+            txtEditConference.Visible = true;
+            btnEditConference.Visible = false;
+            btnSaveConference.Visible = true;
+            btnSaveLink.Visible = false;
+            btnEditLink.Visible = true;
+
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+
+            DataSet ds = new DataSet();
+
+            string Conference = urpSqlProcedures.LoadResearchDocuments(6).Tables[0].Rows[0][1].ToString();
+
+            txtEditConference.Text = Conference;
+
+        }
+
+        protected void btnSaveConference_Click(object sender, EventArgs e)
+        {
+            RepeaterTabConference.Visible = true;
+            txtEditConference.Visible = false;
+            btnEditConference.Visible = true;
+            btnSaveConference.Visible = false;
+            btnSaveLink.Visible = false;
+            btnEditLink.Visible = true;
+
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+
+            int researchID = 6;
+            string conferenceinfo = txtEditConference.Text;
+
+            urpSqlProcedures.UpdateConference(researchID, conferenceinfo);
+        }
+
+        protected void btnEditPaper_Click(object sender, EventArgs e)
+        {
+            RepeaterTabPaper.Visible = false;
+            txtEditPaper.Visible = true;
+            btnEditPaper.Visible = false;
+            btnSavePaper.Visible = true;
+            btnSaveLink.Visible = false;
+            btnEditLink.Visible = true;
+
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+
+            DataSet ds = new DataSet();
+
+            string Paper = urpSqlProcedures.LoadResearchDocuments(6).Tables[0].Rows[0][2].ToString();
+
+            txtEditPaper.Text = Paper;
+        }
+
+        protected void btnSavePaper_Click(object sender, EventArgs e)
+        {
+            RepeaterTabPaper.Visible = true;
+            txtEditPaper.Visible = false;
+            btnEditPaper.Visible = true;
+            btnSavePaper.Visible = false;
+            btnSaveLink.Visible = false;
+            btnEditLink.Visible = true;
+
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+
+            int researchID = 6;
+            string paperinfo = txtEditPaper.Text;
+
+            urpSqlProcedures.UpdatePaper(researchID, paperinfo);
+        }
+
+        protected void btnEditLink_Click(object sender, EventArgs e)
+        {
+            RepeaterTabLink.Visible = false;
+            txtEditPaper.Visible = false;
+            btnEditPaper.Visible = false;
+            btnSavePaper.Visible = false;
+            btnSaveLink.Visible = true;
+            btnEditLink.Visible = false;
+            txtEditLink.Visible = true;
+           
+
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+
+            DataSet ds = new DataSet();
+
+            string Link = urpSqlProcedures.LoadResearchDocuments(6).Tables[0].Rows[0][3].ToString();
+
+            txtEditLink.Text = Link;
+        }
+
+        protected void btnSaveLink_Click(object sender, EventArgs e)
+        {
+            RepeaterTabLink.Visible = true;
+            txtEditPaper.Visible = false;
+            btnEditPaper.Visible = true;
+            btnSavePaper.Visible = false;
+            btnSaveLink.Visible = false;
+            btnEditLink.Visible = true;
+            txtEditLink.Visible = false;
+
+
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+
+            int researchID = 6;
+            string Linkinfo = txtEditLink.Text;
+
+            urpSqlProcedures.UpdateLink(researchID, Linkinfo);
+        }
+
+
+
 
 
         //protected void btnAdd_Click(object sender, EventArgs e)
@@ -321,10 +454,10 @@ namespace URPSSPSuccessTracker
             display(false);
         }
 
-        protected void tbComment_TextChanged(object sender, EventArgs e)
-        {
-            lblCharMax.Text = "Characters: " + tbComment.Text.Length.ToString() + "/500";
-        }
+        //protected void tbComment_TextChanged(object sender, EventArgs e)
+        //{
+        //    lblCharMax.Text = "Characters: " + tbComment.Text.Length.ToString() + "/500";
+        //}
 
         //protected void btnModAdd_Click(object sender, EventArgs e)
         //{

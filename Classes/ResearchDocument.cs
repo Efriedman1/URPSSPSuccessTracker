@@ -14,20 +14,20 @@ namespace URPSSPSuccessTracker.Classes
         public string Journal { get; set; }
         public string Conference { get; set; }
         public string Paper { get; set; }
-
+        public string Link { get; set; }
 
         public ResearchDocument()
         {
 
         }
 
-        public ResearchDocument(int researchID, string journal,string conference, string paper)
+        public ResearchDocument(int researchID, string journal,string conference, string paper, string link)
         {
             ResearchID = researchID;
             Journal = journal;
             Conference = conference;
             Paper = paper;
-
+            Link = link;
         }
     }
 }

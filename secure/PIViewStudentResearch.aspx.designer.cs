@@ -157,13 +157,13 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
-        /// txtStatus control.
+        /// ddlStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStatus;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         
         /// <summary>
         /// lblMethod control.
@@ -173,6 +173,15 @@ namespace URPSSPSuccessTracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMethod;
+        
+        /// <summary>
+        /// ddlResearchMethod control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlResearchMethod;
         
         /// <summary>
         /// txtMethod control.
@@ -238,6 +247,24 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.TextBox txtEditJournal;
         
         /// <summary>
+        /// btnEditConference control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditConference;
+        
+        /// <summary>
+        /// btnSaveConference control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveConference;
+        
+        /// <summary>
         /// RepeaterTabConference control.
         /// </summary>
         /// <remarks>
@@ -247,13 +274,85 @@ namespace URPSSPSuccessTracker {
         protected global::System.Web.UI.WebControls.Repeater RepeaterTabConference;
         
         /// <summary>
-        /// RepeaterPaper control.
+        /// txtEditConference control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterPaper;
+        protected global::System.Web.UI.WebControls.TextBox txtEditConference;
+        
+        /// <summary>
+        /// btnEditPaper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditPaper;
+        
+        /// <summary>
+        /// btnSavePaper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSavePaper;
+        
+        /// <summary>
+        /// RepeaterTabPaper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterTabPaper;
+        
+        /// <summary>
+        /// txtEditPaper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditPaper;
+        
+        /// <summary>
+        /// btnEditLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditLink;
+        
+        /// <summary>
+        /// btnSaveLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveLink;
+        
+        /// <summary>
+        /// RepeaterTabLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterTabLink;
+        
+        /// <summary>
+        /// txtEditLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditLink;
         
         /// <summary>
         /// lblComments control.

@@ -386,8 +386,52 @@ namespace URPSSPSuccessTracker.Classes
         //====================
         //Research
         //====================
+        
+        public Boolean UpdateLink(int ResearchID, string Body)
+        {
+            SqlCommand UpdateLink = new SqlCommand();
+            UpdateLink.CommandType = CommandType.StoredProcedure;
+            UpdateLink.CommandText = "UpdateLink";
+            UpdateLink.Parameters.AddWithValue("@ResearchID", ResearchID);
+            UpdateLink.Parameters.AddWithValue("@Link", Body);
 
-        public List<ResearchDocument> GetJournal(int ResearchID)
+            return urpDB.DoUpdateUsingCmdObj(UpdateLink) > 0;
+        }
+
+        public Boolean UpdateJournal(int ResearchID, string Body)
+        {
+            SqlCommand UpdateJournal = new SqlCommand();
+            UpdateJournal.CommandType = CommandType.StoredProcedure;
+            UpdateJournal.CommandText = "UpdateJournal";
+            UpdateJournal.Parameters.AddWithValue("@ResearchID", ResearchID);
+            UpdateJournal.Parameters.AddWithValue("@Journals", Body);
+
+            return urpDB.DoUpdateUsingCmdObj(UpdateJournal) > 0;
+        }
+
+        public Boolean UpdateConference(int ResearchID, string Body)
+        {
+            SqlCommand UpdateConference = new SqlCommand();
+            UpdateConference.CommandType = CommandType.StoredProcedure;
+            UpdateConference.CommandText = "UpdateConference";
+            UpdateConference.Parameters.AddWithValue("@ResearchID", ResearchID);
+            UpdateConference.Parameters.AddWithValue("@Conference", Body);
+
+            return urpDB.DoUpdateUsingCmdObj(UpdateConference) > 0;
+        }
+
+        public Boolean UpdatePaper(int ResearchID, string Body)
+        {
+            SqlCommand UpdatePaper = new SqlCommand();
+            UpdatePaper.CommandType = CommandType.StoredProcedure;
+            UpdatePaper.CommandText = "UpdatePaper";
+            UpdatePaper.Parameters.AddWithValue("@ResearchID", ResearchID);
+            UpdatePaper.Parameters.AddWithValue("@Paper", Body);
+
+            return urpDB.DoUpdateUsingCmdObj(UpdatePaper) > 0;
+        }
+
+        public List<ResearchDocument> GetProjectInfo(int ResearchID)
         {
             List<ResearchDocument> researchList = new List<ResearchDocument>();
             SqlCommand getJournal = new SqlCommand();
@@ -398,15 +442,10 @@ namespace URPSSPSuccessTracker.Classes
 
             for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
             {
-                ResearchDocument newResearch = new ResearchDocument(ResearchID, researchData.Tables[0].Rows[i][11].ToString(), researchData.Tables[0].Rows[i][12].ToString(), researchData.Tables[0].Rows[i][13].ToString());
+                ResearchDocument newResearch = new ResearchDocument(ResearchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString(), researchData.Tables[0].Rows[i][3].ToString());
                 researchList.Add(newResearch);
             }
 
-            //for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
-            //{
-            //    ResearchDocument newResearch = new ResearchDocument(ResearchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString(), researchData.Tables[0].Rows[i][3].ToString(), researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][5].ToString());
-            //    researchList.Add(newResearch);
-            //}
 
             return researchList;
         }
@@ -414,7 +453,7 @@ namespace URPSSPSuccessTracker.Classes
         //check research projects
         public DataSet LoadResearchDocuments(int researchID)
         {
-            //List<ResearchDocument> researchList = new List<ResearchDocument>();
+            List<ResearchDocument> researchList = new List<ResearchDocument>();
 
             //DataSet researchList = new DataSet();
 
@@ -424,18 +463,7 @@ namespace URPSSPSuccessTracker.Classes
             researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
             DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
 
-            for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
-            {
-                ResearchDocument newResearch = new ResearchDocument(ResearchID, researchData.Tables[0].Rows[i][11].ToString(), researchData.Tables[0].Rows[i][12].ToString(), researchData.Tables[0].Rows[i][13].ToString());
-                researchData.Add(newResearch);
-            }
-
-                //for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
-                //{
-                //    ResearchDocument newResearch = new ResearchDocument(researchID, researchData.Tables[0].Rows[i][0].ToString(), researchData.Tables[0].Rows[i][1].ToString(), researchData.Tables[0].Rows[i][2].ToString(), researchData.Tables[0].Rows[i][3].ToString(), researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][5].ToString());
-                //    researchList.Add(newResearch);
-                //}
-                return researchData;
+            return researchData;
         }
 
         public Boolean UpdateResearchProject(int researchID, int studentTUID, int piTUID, int termID, string title, string description, string link, string researchMethod, string status, string typeOfResearch, DateTime lastUpdate)
