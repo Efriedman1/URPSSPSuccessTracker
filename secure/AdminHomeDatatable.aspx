@@ -58,7 +58,7 @@
         */
         $(document).ready(function () {
             var table = $('#table2').DataTable({
-                responsive:true, 
+                responsive: true,
                 /*dom: 'Bfrtip',
                 buttons: [
                     'selected',
@@ -131,9 +131,9 @@
 
         $(document).ready(function () {
 
-            var table = $('#example').DataTable({
-                responsive: true,
-                /*dom: 'Bfrtip',
+            //var table = $('#example').DataTable({
+            //    responsive: true,
+            //    dom: 'Bfrtip',
 
             var table = $("[id*=gvStudents]").DataTable({
                 dom: 'Bfrtip',
@@ -148,11 +148,11 @@
                     'selectCells'
                 ],
 
-                
+
                 //"ajax": "studentArrays.txt",/*students*/
 
-              select: true,
-              
+                select: true,
+
                 "columnDefs": [{
                     "targets": -1,
                     "data": null,
@@ -216,8 +216,7 @@
             //});
 
             var query = "AdminSendEmail.aspx?";
-            for (var i = 0; i < selectedTuids.length; i++)
-            {
+            for (var i = 0; i < selectedTuids.length; i++) {
                 query += "id" + i + "=" + selectedTuids[i];
                 if (i != selectedTuids.length - 1)
                     query += "&";
@@ -227,17 +226,17 @@
         }
     </script>
 
-<!-- <<<<<<< Eric -->
+    <!-- <<<<<<< Eric -->
 
-         <div class="d-flex justify-content-between"  style="margin-top: 2%">
-              <div>
-                  <h2>Search Research Information</h2>
-              </div>
-            
-              <!-- Button trigger modal -->
-            <button type="button" class="button infobtn"  data-toggle="modal" data-target="#instructionsModal">Instructions</button>       
-         </div>
-       <%--<div class="col-xs-12 mb-4" contenteditable="true">
+    <div class="d-flex justify-content-between" style="margin-top: 2%">
+        <div>
+            <h2>Search Research Information</h2>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="button infobtn" data-toggle="modal" data-target="#instructionsModal">Instructions</button>
+    </div>
+    <%--<div class="col-xs-12 mb-4" contenteditable="true">
                 <fieldset class="border p-2 rounded">
                     <legend class="w-auto">Instructions</legend>
                     You may search by any combination of first name, last name, major, student term, TUID,
@@ -247,96 +246,71 @@
                     Email to all students in the table.
                 </fieldset>               
             </div> --%>
-        <div>
+    <div>
 
-           
 
-<!-- Modal -->
-<div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="instructionsModalLabel">Instructions</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        You may search by any combination of first name, last name, major, student term, TUID,
+
+        <!-- Modal -->
+        <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="instructionsModalLabel">Instructions</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        You may search by any combination of first name, last name, major, student term, TUID,
         and status. Select no parameters to view all profiles. Select the 'Student' or 'Principal Investigator' button to view Student or Principal Investigator profiles.
         Below the search results table, you will find several buttons. Use "Export" to export these students to a spreadsheet,
         Use "Email Selected" to email the students you selected on the table using the checkboxes. Use "Email All" to send an
         Email to all students in the table.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-            <asp:Button class="btn p-2" CssClass="button redbtn" ID="btnStudent" runat="server" Text="Student" OnClick="btnStudent_Click" />
-            <asp:Button class="btn p-2" CssClass="button redbtn" ID="btnPI" runat="server" Text="Principal Investigator" OnClick="btnPI_Click"/>
-            
-            <asp:Panel ID="pnlStudents" runat="server">
-              <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="true" OnRowDataBound="example_RowDataBound"></asp:GridView>
-<!--                  <table id="example" class="display" style="width:100%">
-        <thead> 
-            <tr>
-                <th>TUID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Major</th>
-                <th>Type</th>
-                <th>Principal Investigator</th>
-                <th>Status</th>
-                <th>View</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>TUID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Major</th>
-                <th>Type</th>
-                <th>Principal Investigator</th>
-                <th>Status</th>
-                <th>View</th>
-            </tr>
-        </tfoot>
-    </table>
-            </asp:Panel>
-            <asp:Panel ID="pnlPI" runat="server">
-                <table id="table2" class="display" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>TUID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Department</th>
-                            <th>View</th>
-                        </tr>
-                    </thead>
-                  
-                    <tfoot>
-                        <tr>
-                            <th>TUID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Department</th>
-                            <th>View</th>
-                        </tr>
-                    </tfoot>
-                </table> -->
-                </asp:Panel>
-        </div>
-        <div class="d-flex justify-content-between">
-                <div>
-                    <asp:Button class="btn" CssClass="button redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All"  />
-                    <asp:Button class="btn" CssClass="button redbtn" ID="btnEmailChecked" OnClick="btnEmailChecked_Click" runat="server" Text="Email Selected" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <asp:Button class="btn" CssClass="button redbtn" ID="btnExport" runat="server" Text="Export" />
             </div>
+        </div>
+
+        <asp:Button class="btn p-2" CssClass="button redbtn" ID="btnStudent" runat="server" Text="Student" OnClick="btnStudent_Click" />
+        <asp:Button class="btn p-2" CssClass="button redbtn" ID="btnPI" runat="server" Text="Principal Investigator" OnClick="btnPI_Click" />
+
+        <asp:Panel ID="pnlStudents" runat="server">
+            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="true" OnRowDataBound="example_RowDataBound"></asp:GridView>
+
+        </asp:Panel>
+
+        <asp:Panel ID="pnlPI" runat="server">
+            <table id="table2" class="display" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>TUID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Department</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+
+                <tfoot>
+                    <tr>
+                        <th>TUID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Department</th>
+                        <th>View</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </asp:Panel>
+        <div>
+            <asp:Button class="btn" CssClass="button redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All" />
+            <asp:Button class="btn" CssClass="button redbtn" ID="btnEmailChecked" OnClientClick="return SelectedEmailClick();" runat="server" Text="Email Selected" />
+        </div>
+        <asp:Button class="btn" CssClass="button redbtn" ID="btnExport" runat="server" Text="Export" />
+    </div>
+
 
 </asp:Content>
