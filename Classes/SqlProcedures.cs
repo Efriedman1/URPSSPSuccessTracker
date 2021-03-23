@@ -136,7 +136,7 @@ namespace URPSSPSuccessTracker.Classes
             studentCommand.Parameters.AddWithValue("@firstName", firstName);
             studentCommand.Parameters.AddWithValue("@lastName", lastName);
             studentCommand.Parameters.AddWithValue("@major", major);
-            studentCommand.Parameters.AddWithValue("@status", status);
+            //studentCommand.Parameters.AddWithValue("@status", status);
 
             return urpDB.GetDataSetUsingCmdObj(studentCommand);
         }
