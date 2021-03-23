@@ -4,6 +4,7 @@ body {
 
 }
 
+
 .container{
     max-width: 80% !important;
 }
@@ -91,22 +92,35 @@ body {
 
 }
 
+
+.button {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    padding: 10px 22px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 .redbtn {
-    background-color: #91182a;
+    border-color: #f44336;
+    color: red
+}
+
+.redbtn:hover {
+    background: #f44336;
     color: white;
 }
 
-@font-face {
-    font-family: 'AvanirNext';
-    src: url('fonts/AvanirNext.otf') format('opentype');
+.infobtn {
+    border-color: #2196F3;
+    color: dodgerblue
 }
-/*Made for PIViewStudentResearch*/
 
-.btnSize{
-    height: 50px !important;
-    width: 200px !important;
-    justify-content: center !important;
-    margin: 5px;
+.infobtn:hover {
+    background: #2196F3;
+    color: white;
 }
 
 .mydropdownlist1 {
@@ -135,18 +149,14 @@ body {
     font-size: 20px !important;
 }
 
-    .redbtn:hover {
-        background-color: #740000;
-        color:white;
-    }
 
 
-.app-footer {
-    position: fixed;
-    left: 0;
+
+#app-footer {
     bottom: 0;
     width: 100%;
-    padding: 10px 50px;
+    padding: 5px;
+    text-align: center;
 }
 
 /*Css from AdminHome*/
@@ -162,7 +172,7 @@ fieldset.scheduler-border {
 legend.scheduler-border {
     font-size: 1.2em !important;
     font-weight: bold !important;
-    text-align: left !important;
+    text-a[NP-GENED]lign: left !important;
     width: auto;
     padding: 0 10px;
     border-bottom: none;
@@ -183,7 +193,7 @@ legend.scheduler-border {
 /* Extra Small devices (phones, 575px and below) */
 
 @media (max-width: 575px) {
-  
+
 }
 
 /* Small devices (landscape phones, 576px to 767px) */
