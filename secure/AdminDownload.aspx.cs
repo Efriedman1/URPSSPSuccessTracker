@@ -106,6 +106,7 @@ namespace URPSSPSuccessTracker
             //Check if the file is an xls file
             if (fileUploadTemplate.HasFile)
             {
+
                 //if the file includes xls then use it
                 if (validateTemplate.IsValid)
                 {
