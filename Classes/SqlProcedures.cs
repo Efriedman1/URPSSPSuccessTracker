@@ -448,6 +448,45 @@ namespace URPSSPSuccessTracker.Classes
             return researchList;
         }
 
+        public List<ResearchProject> LoadResearchProjects(string tuid)
+        {
+            List<ResearchProject> researchList = new List<ResearchProject>();
+
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "LoadResearchDocuments";
+            researchCommand.Parameters.AddWithValue("@ResearchID", tuid);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
+
+            for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
+            {
+                ResearchProject newResearch = new ResearchProject(researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][9].ToString(), researchData.Tables[0].Rows[i][5].ToString(),
+                    researchData.Tables[0].Rows[i][2].ToString(), "");
+                researchList.Add(newResearch);
+            }
+            return researchList;
+        }
+
+        public ResearchProject LoadResearchProjectByID(int id)
+        {
+            ResearchProject researchProject = new ResearchProject();
+            return researchProject;
+        }
+
+        //public ResearchProject(string researchTitle, string researchType, string researchDescription, string piTUID, string piDepartment, string studentTUID)
+        //private string researchTitle;
+        ////research type will be the same as the student's program
+        //private string researchType;
+        //private string researchDescription = "";
+        ////by default a new research project is set to incomplete
+        //private string status = "Incomplete";
+        //private string piTUID;
+        //private string piDepartment;
+        //private string studentTUID;
+        //private string researchPapers;
+        //private string researchJournals;
+        //private string researchConferences;
+
         public Boolean UpdateResearchProject(int researchID, int studentTUID, int piTUID, int termID, string title, string description, string link, string researchMethod, string status, string typeOfResearch, DateTime lastUpdate)
         {
             SqlCommand researchCommand = new SqlCommand();
