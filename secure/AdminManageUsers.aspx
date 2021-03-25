@@ -2,15 +2,22 @@
 
 <%@ MasterType VirtualPath="~/Master.Master" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    
     <script>
         function ShowPopup() {
             $("#modal1").modal("show");
         }
     </script>
-
+    
     <div class="" style="margin-top: 2%">
         <div class="page-header">
             <h2>Admin Management</h2>
@@ -31,7 +38,7 @@
             <div class="col-4">
                 <div class="col-sm-10 " style="margin-top: 3px">
                     <asp:Label ID="Label1" runat="server" CssClass="col-form-label">TUID</asp:Label>
-                    <asp:TextBox ID="txtTUID" runat="server" CssClass="form-control mb-2 col-8" placeholder="9 Digit TUID" BackColor="#FAFAFA"></asp:TextBox>
+                    <asp:TextBox ID="txtTUID" runat="server" CssClass="form-control mb-2 col-8" placeholder="9 digit TUID" BackColor="#FAFAFA"></asp:TextBox>
                 </div>
                 <div class="col-sm-10 " style="margin-top: 3px">
                     <asp:Label Text="No user found." runat="server" CssClass="text-danger" Visible="false" ID="lblNoUser"/>

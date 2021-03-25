@@ -21,6 +21,34 @@ namespace URPSSPSuccessTracker.Classes
             return urpDB.Open();
         }
 
+        public Boolean GiveAdminRole(string tuid)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "AddNewUserRole";
+            cmd.Parameters.AddWithValue("@TUID", tuid);
+            cmd.Parameters.AddWithValue("@UserRole", "Admin");
+            return urpDB.DoUpdateUsingCmdObj(cmd) > 0;
+        }
+        public Boolean GivePIRole(string tuid)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "AddNewUserRole";
+            cmd.Parameters.AddWithValue("@TUID", tuid);
+            cmd.Parameters.AddWithValue("@UserRole", "PI");
+            return urpDB.DoUpdateUsingCmdObj(cmd) > 0;
+        }
+        public Boolean GiveStudentRole(string tuid)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "AddNewUserRole";
+            cmd.Parameters.AddWithValue("@TUID", tuid);
+            cmd.Parameters.AddWithValue("@UserRole", "Student");
+            return urpDB.DoUpdateUsingCmdObj(cmd) > 0;
+        }
+
         public string GetUserRole(string tuid)
         {
             SqlCommand cmd = new SqlCommand();
