@@ -144,12 +144,12 @@ namespace URPSSPSuccessTracker.secure
                             break;
 
                         case "PI":
-                            Response.Redirect("PIHome.aspx");
+                            Response.Redirect("PIHomeDatatable.aspx");
                             break;
 
                         case "Student":
                             Console.WriteLine("student");
-                            Response.Redirect("StudentHome.aspx");
+                            Response.Redirect("StudentHomeDatatable.aspx");
                             break;
                         case "":
                             Response.Redirect("~/default.aspx");

@@ -30,14 +30,14 @@ namespace URPSSPSuccessTracker
         {
             Session["UserType"] = "PI";
             this.Master.SetNavBar((String)Session["UserType"]);
-            Response.Redirect("PiHome.aspx");
+            Response.Redirect("PiHomeDatatable.aspx");
         }
 
         protected void btnStudent_Click(object sender, EventArgs e)
         {
             Session["UserType"] = "Student";
             this.Master.SetNavBar((String)Session["UserType"]);
-            Response.Redirect("StudentHome.aspx");
+            Response.Redirect("StudentHomeDatatable.aspx");
         }
     }
 }
