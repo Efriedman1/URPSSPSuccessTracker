@@ -118,6 +118,7 @@ namespace URPSSPSuccessTracker
             bool success = sqlProcedures.AddAdministrator(tuID, firstName, lastName, email, active);
             if (success)
             {
+                sqlProcedures.GiveAdminRole(tuID.ToString());
                 getAdmins();            
             }
             lblNoUser.Visible = false;

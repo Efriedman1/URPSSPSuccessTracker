@@ -16,7 +16,8 @@
     <AssemblyName>URPSSPSuccessTracker</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>true</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -320,15 +321,10 @@
     <Content Include="bin\URPSSPSuccessTracker.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings" />
-    <Content Include="URPSSPSuccessTracker\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="URPSSPSuccessTracker\obj\Debug\URPSSPSuccessTracker.csproj.CoreCompileInputs.cache" />
-    <Content Include="URPSSPSuccessTracker\obj\Debug\URPSSPSuccessTracker.csprojAssemblyReference.cache" />
     <Content Include="UploadTemplate-Test.xlsx" />
     <None Include="Web References\WS_LDAP_Search\ldap_search.disco" />
     <None Include="Web References\WS_Programs_And_Degrees\ProgramsAndDegrees.disco" />
     <None Include="Web References\WS_Student_Search\ws_student.disco" />
-    <Content Include="URPSSPSuccessTracker\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
-    <Content Include="URPSSPSuccessTracker\URPSSPSuccessTracker.csproj.user" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -512,9 +508,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="URPSSPSuccessTracker\obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
