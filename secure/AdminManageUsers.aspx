@@ -38,7 +38,7 @@
             <div class="col-4">
                 <div class="col-sm-10 " style="margin-top: 3px">
                     <asp:Label ID="Label1" runat="server" CssClass="col-form-label">TUID</asp:Label>
-                    <asp:TextBox ID="txtTUID" runat="server" CssClass="form-control mb-2 col-8" placeholder="9 digit TUID" BackColor="#FAFAFA"></asp:TextBox>
+                    <asp:TextBox ID="txtTUID" runat="server" CssClass="form-control mb-2 col-8" placeholder="" BackColor="#FAFAFA"></asp:TextBox>
                 </div>
                 <div class="col-sm-10 " style="margin-top: 3px">
                     <asp:Label Text="No user found." runat="server" CssClass="text-danger" Visible="false" ID="lblNoUser"/>
@@ -152,7 +152,7 @@
                                 <asp:Button Text="Change Status" runat="server" CssClass="btn btn-primary" CommandName="EditStatus"/>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn redbtn"/>
+                        <%--<asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn redbtn"/>--%>
                     </Columns>
                 </asp:GridView>
         </div>
