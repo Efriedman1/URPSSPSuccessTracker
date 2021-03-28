@@ -15,7 +15,7 @@ namespace URPSSPSuccessTracker
         {
             if (!IsPostBack)
             {
-                //validateStudent();
+                
                 bool local = Session["Local"].ToString() == "true";
             }
         }

@@ -20,7 +20,7 @@ namespace URPSSPSuccessTracker
         {
 //<<<<<<< backend
             if (!IsPostBack)
-            {
+            {                
                 this.Master.SetNavBar((String)Session["UserType"]);
 
                 
@@ -100,7 +100,7 @@ namespace URPSSPSuccessTracker
 
                     }
                     else
-                    {
+                    {/*
                         Console.WriteLine(employeeNumber + " is NOT a admin! REDIRECT BACK");
                         Response.Write("<script>console.log(\"" + employeeNumber + " is NOT a admin! REDIRECT BACK" + "\");</script>");
 
@@ -111,7 +111,7 @@ namespace URPSSPSuccessTracker
 
                         var master = Master as Master;
                         master.logout();
-                        Response.Redirect("~/default.aspx");
+                        Response.Redirect("~/default.aspx");*/
                     }
                 }
                 else
