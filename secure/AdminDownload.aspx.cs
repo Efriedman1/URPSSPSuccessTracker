@@ -119,7 +119,6 @@ namespace URPSSPSuccessTracker
                     ResearchProject researchProject;
 
                     //the file uploaded is valid and begin reading file
-                    //the file uploaded is valid and begin reading file
 
                     //read the uploaded excel file
                     IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(fileUploadTemplate.PostedFile.InputStream);
@@ -186,7 +185,15 @@ namespace URPSSPSuccessTracker
                         //next add the principal investigator
                         sqlProcedures = new SqlProcedures();
                         success = sqlProcedures.AddPrincipalInvestigator(principalInvestigator);
-                        
+
+
+                        //add the Users to the user table in order to allow them to sign in to the application
+                        sqlProcedures = new SqlProcedures();
+                        success = sqlProcedures.GiveStudentRole(student.TUID);
+
+                        //add the PI User
+                        sqlProcedures = new SqlProcedures();
+                        success = sqlProcedures.GivePIRole(principalInvestigator.TUID);
 
                         //Finally, add the the research project
                         //remember to come back and change the term id to the drop down value
@@ -225,13 +232,17 @@ namespace URPSSPSuccessTracker
         {
             string fileName = "URP_SSP_UploadTemplate.xlsx";
             string filePath = Server.MapPath("~/" + fileName);
-            Response.Clear();
-            Response.ClearHeaders();
-            Response.ClearContent();
-            Response.AddHeader("Content-Disposition", "attachment; filename = " + fileName);
-            Response.Flush();
-            Response.TransmitFile(filePath);
-            Response.End();
+            HttpContext.Current.Response.Clear();
+            HttpContext.Current.Response.ClearHeaders();
+            HttpContext.Current.Response.ClearContent();
+            HttpContext.Current.Response.Buffer = true;
+            HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment; filename =" + fileName);
+            HttpContext.Current.Response.ContentType = "application/x-msexcel";
+            HttpContext.Current.Response.Flush();
+            HttpContext.Current.Response.TransmitFile(filePath);
+            HttpContext.Current.Response.End();
+            HttpContext.Current.Response.Close();
+
         }
     }
 }
