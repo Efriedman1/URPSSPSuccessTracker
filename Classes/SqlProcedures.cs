@@ -236,24 +236,36 @@ namespace URPSSPSuccessTracker.Classes
         }
 
         //load pi
-        public List<PrincipalInvestigator> LoadPrincipalInvestigator()
+
+        public DataSet LoadPrincipalInvestigators()
         {
-            List<PrincipalInvestigator> piList = new List<PrincipalInvestigator>();
+            SqlCommand piCommand = new SqlCommand();
+            piCommand.CommandType = CommandType.StoredProcedure;
+            piCommand.CommandText = "LoadStudents";
+            DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
+            int count = piData.Tables[0].Rows.Count;
 
-            //SqlCommand piCommand = new SqlCommand();
-            //piCommand.CommandType = CommandType.StoredProcedure;
-            //piCommand.CommandText = "LoadPrincipalInvestigator";
-            //DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
-            //int count = piData.Tables[0].Rows.Count;
-            //for (int i = 0; i < count; i++)
-            //{
-            //    PrincipalInvestigator newPI = new PrincipalInvestigator((int)piData.Tables[0].Rows[i][0], piData.Tables[0].Rows[i][1].ToString(), piData.Tables[0].Rows[i][2].ToString(), piData.Tables[0].Rows[i][3].ToString(),
-            //         piData.Tables[0].Rows[i][4].ToString(), piData.Tables[0].Rows[i][5].ToString(), piData.Tables[0].Rows[i][6].ToString(), piData.Tables[0].Rows[i][6].ToString(), (DateTime)piData.Tables[0].Rows[i][8]);
-            //    piList.Add(newPI);
-            //}
-
-            return piList;
+            return piData;
         }
+
+        //public DataSet LoadPrincipalInvestigator()
+        //{
+        //    DataSet piData
+
+        //    //SqlCommand piCommand = new SqlCommand();
+        //    //piCommand.CommandType = CommandType.StoredProcedure;
+        //    //piCommand.CommandText = "LoadPrincipalInvestigator";
+        //    //DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
+        //    //int count = piData.Tables[0].Rows.Count;
+        //    //for (int i = 0; i < count; i++)
+        //    //{
+        //    //    PrincipalInvestigator newPI = new PrincipalInvestigator((int)piData.Tables[0].Rows[i][0], piData.Tables[0].Rows[i][1].ToString(), piData.Tables[0].Rows[i][2].ToString(), piData.Tables[0].Rows[i][3].ToString(),
+        //    //         piData.Tables[0].Rows[i][4].ToString(), piData.Tables[0].Rows[i][5].ToString(), piData.Tables[0].Rows[i][6].ToString(), piData.Tables[0].Rows[i][6].ToString(), (DateTime)piData.Tables[0].Rows[i][8]);
+        //    //    piList.Add(newPI);
+        //    //}
+
+        //    return piList;
+        //}
 
         //search pi
         public DataSet SearchPrincipalInvestigator(int tuid, string department, string firstName, string lastName)

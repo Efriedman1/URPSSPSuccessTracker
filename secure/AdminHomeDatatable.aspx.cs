@@ -41,18 +41,31 @@ namespace URPSSPSuccessTracker
             }
             pnlPI.Visible = false;
             pnlStudents.Visible = true;
-            populateDataTable();
+            populateDataTable(1);
         }
 
-        protected void populateDataTable()
+        protected void populateDataTable(int type)
         {
-            DataSet studentData = procedures.LoadStudents();
-            if (studentData.Tables.Count > 0)
+            DataSet data = new DataSet();
+            GridView gv;
+            if (type == 1)
             {
-                gvStudents.DataSource = studentData;
+                data = procedures.LoadStudents();
+                gv = gvStudents;
+            }
+            else
+            {
+                //data = procedures.LoadPrincipalInvestigator();
+                gv = gvPI;
+            }
+            if (data.Tables.Count > 0)
+            {
+                gvStudents.DataSource = data;
                 gvStudents.DataBind();
             }
         }
+
+
 
         protected void SetSelectedTuids(List<string> selected)
         {
@@ -168,6 +181,14 @@ namespace URPSSPSuccessTracker
         }
 
         protected void example_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.TableSection = TableRowSection.TableHeader;
+            }
+        }
+
+        protected void gv_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {

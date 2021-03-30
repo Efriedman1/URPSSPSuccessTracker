@@ -278,11 +278,11 @@
         <asp:Button class="btn p-2" CssClass="button redbtn" ID="btnPI" runat="server" Text="Principal Investigator" OnClick="btnPI_Click" />
 
         <asp:Panel ID="pnlStudents" runat="server">
-            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="true" OnRowDataBound="example_RowDataBound"></asp:GridView>
-
+            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="true" OnRowDataBound="gv_RowDataBound"></asp:GridView>
         </asp:Panel>
 
         <asp:Panel ID="pnlPI" runat="server">
+            <asp:GridView ID="gvPI" runat="server" AutoGenerateColumns="true" OnRowDataBound="gv_RowDataBound"></asp:GridView>
             <table id="table2" class="display" style="width: 100%">
                 <thead>
                     <tr>
