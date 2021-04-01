@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PIViewStudentResearch.aspx.cs" Inherits="URPSSPSuccessTracker.PIViewResearch" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PIViewStudentResearch.aspx.cs" Inherits="URPSSPSuccessTracker.PIViewResearch" MaintainScrollPositionOnPostBack="true" %>
 
 <%@ MasterType VirtualPath="~/Master.Master" %>
 
@@ -16,15 +16,15 @@
             $('#tabs').tabs();
         });
 
-        $('btnEditJournal').click(function() {
-            // get the contents of the link that was clicked
-            var linkText = $(this).text();
 
-            // replace the contents of the div with the link text
-            $('#tab_<%#Eval("ResearchID") %>').html(linkText);
-
-            // cancel the default action of the link by returning false
-            return false;
+        $(function () {
+            $("#tabs").tabs({
+                activate: function() {
+                    var selectedTab = $('#tabs').tabs('option', 'active');
+                    $("#<%= hdnSelectedTab.ClientID %>").val(selectedTab);
+                },
+                active: document.getElementById('<%= hdnSelectedTab.ClientID %>').value
+            });
         });
     </script>
 
@@ -32,6 +32,12 @@
 
 
     <style>
+        .repeater_scroll{
+            overflow: auto;
+            max-height:535px;
+        }
+
+
         .table_scroll {
             overflow: auto;
             height: 535px;
@@ -56,36 +62,9 @@
             padding: 0 10px;
             border-bottom: none;
         }
-
-        .modal-header {
-            padding: 2px 16px;
-            background-color: #91182a;
-            color: white;
-        }
-
-        .modal-body {
-            padding: 2px 16px;
-        }
-
-        .modal-content {
-            position: relative;
-            background-color: #fefefe;
-            margin: auto;
-            padding: 2px;
-            border: 1px solid #888;
-            width: 100%;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-            animation-name: animatetop;
-            animation-duration: 0.4s
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: center;
-        }
     </style>
 
-    <div class="container">
+    <div class="container-fluid">
         <!--Section: Contact v.2-->
         <section class="mb-4">
             <div class="d-flex justify-content-between mt-3">
@@ -116,14 +95,10 @@
                 </div>
             </div>
 
-
-
-            <%--<div class="row">--%>
             <div class="row">
-
-            <div class="col-xs-6">
+            <div class="col-6">
                 <!--Grid column-->
-                <div class="col-md-7 mb-md-0 mb-5 h4">
+                <div class="col-md-12 mb-md-0 mb-5 h4">
 
                     <!--Begin of Principal Investigator Profile-->
                     <!--Grid row-->
@@ -132,7 +107,7 @@
                         <div class="row">
 
                             <!--Grid column-->
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="md-form mb-0">
                                     <asp:Label ID="lblPI" CssClass="control-label" runat="server" Text="Principal Investigator" Enabled="False"></asp:Label>
                                     <asp:TextBox ID="txtName" CssClass="form-control input-lg" runat="server" Enabled="False">Bill Perkins</asp:TextBox>
@@ -141,8 +116,8 @@
                             <!--Grid column-->
 
                             <!--Grid column-->
-                            <div class="col-md-6">
-                                <div class="md-form mb-0">
+                            <div class="col-md-12">
+                                <div class="md-form mb-0" style="padding-top: 20px;">
                                     <asp:Label ID="lblPIEmail" CssClass="control-label" runat="server" Text="Email"></asp:Label>
                                     <asp:TextBox ID="txtEmail" CssClass="form-control input-lg" runat="server" Enabled="False">billperkins@temple.edu</asp:TextBox>
                                 </div>
@@ -166,62 +141,6 @@
                     
                     <!--End of Principal Investigator Profile-->
 
-                    <!--Grid row-->
-
-
-                    <!--Grid row-->
-                    <%--<div class="row" style="justify-content: center !important;">
-                        <div class="col  btn-toolbar m-3" style="justify-content: center !important;">
-                            <asp:Button ID="AddDocumentation" runat="server" Text="Add New Documentation" class="btn redbtn text-lg-center btnSize" data-toggle="modal" data-target="#AddDocumentation1" OnClientClick="return false" />
-                            <div class="modal fade" id="AddDocumentation1" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header" style="width: 100%">
-                                            <h3 class="modal-title" id="ModalLabel">Add Documentation</h3>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-
-                                        <div class="modal-body" style="padding: 10px 20px 10px 20px">
-                                            <div class="row">
-                                                <asp:Label ID="lblDocType" runat="server" CssClass="font-weight-bold">Document Type:</asp:Label>
-                                            </div>
-
-                                            <div class="row">
-                                                <asp:DropDownList ID="ddlAddDoc" runat="server" CssClass="dropdown-toggle" Width="100%">
-
-                                                    <asp:ListItem Selected="true" Value="" disabled="disabled">Please select a document type</asp:ListItem>
-                                                    <asp:ListItem Value="Journal">Journal</asp:ListItem>
-                                                    <asp:ListItem Value="Conference">Conference</asp:ListItem>
-                                                    <asp:ListItem Value="Paper">Paper</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-
-                                            <br />
-
-                                            <div class="row">
-                                                <asp:Label ID="lblModDocTitle" runat="server" CssClass="font-weight-bold">Document Title:</asp:Label>
-                                            </div>
-                                            <div class="row">
-                                                <asp:TextBox ID="txtModDocTitle" runat="server" Width="100%" TextMode="MultiLine" Rows="2"></asp:TextBox>
-                                            </div>
-
-                                            <br />
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" runat="server" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                            <asp:Button CssClass="btn redbtn" runat="server" OnClick="btnModAdd_Click" Text="Confirm and Add" UseSubmitBehavior="false" data-dismiss="modal" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
-                            <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
-                        </div>
-                    </div>--%>
                     <!--Grid row-->
 
                     <!--Grid row-->
@@ -252,21 +171,7 @@
                         </div>
                         <!--Grid column-->
 
-                        <div class="row">
-<%--                            <asp:Label ID="lblModDocDesc" runat="server" CssClass="font-weight-bold">Description:</asp:Label>--%>
-                        </div>
-                            <div class="row">
-                                <%--<asp:TextBox ID="TxtModDocDesc" runat="server" Width="100%" TextMode="MultiLine" Rows="5"></asp:TextBox>--%>
-                        </div>
 
-<%--                        <!--Grid column-->
-                        <div class="col-md-6">
-                            <div class="md-form mb-0">
-                                <asp:Label ID="lblType" CssClass="control-label" runat="server" Text="Resesarch Type"></asp:Label>
-                                <asp:TextBox ID="txtType" CssClass="form-control input-lg" runat="server" Enabled="False">URP</asp:TextBox>
-                            </div>
-                        </div>
-                        <!--Grid column-->--%>
 
                     </div>
                     <!--Grid row-->
@@ -287,9 +192,8 @@
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <asp:Label ID="lblStatus" CssClass="control-label" runat="server" Text="Status"></asp:Label>
-                                <%--<asp:TextBox ID="txtStatus" CssClass="form-control input-lg" runat="server" Enabled="False">Concluded</asp:TextBox>--%>
                                 <asp:DropDownList ID="ddlStatus" runat="server" CssClass="dropdown-toggle form-control input-lg" Width="100%" >
-                                    <asp:ListItem Selected="true" Value="" disabled="disabled">Please Select Status</asp:ListItem>
+                                    <asp:ListItem Selected="true" Value="" disabled="disabled">Select the Status</asp:ListItem>
                                     <asp:ListItem Value="In-Progress">In-Progress</asp:ListItem>
                                     <asp:ListItem Value="Complete">Complete</asp:ListItem>
                                     
@@ -304,13 +208,10 @@
                             <div class="md-form mb-0">
                                 <asp:Label ID="lblMethod" CssClass="control-label" runat="server" Text="Research Method"></asp:Label>
                                 <asp:DropDownList ID="ddlResearchMethod" runat="server" CssClass="dropdown-toggle form-control input-lg" Width="100%" >
-                                    <asp:ListItem Selected="true" Value="" disabled="disabled">Please select research method</asp:ListItem>
+                                    <asp:ListItem Selected="true" Value="" disabled="disabled">Select Research Method</asp:ListItem>
                                     <asp:ListItem Value="Remote">Remote</asp:ListItem>
                                     <asp:ListItem Value="In-Person">In-Person</asp:ListItem>
-                                    
                                 </asp:DropDownList>
-
-                                <asp:TextBox ID="txtMethod" CssClass="textbox form-control input-lg" runat="server" Enabled="False">Experimentation</asp:TextBox>
 
                             </div>
                         </div>
@@ -353,65 +254,58 @@
                     <div id="divTextBox" style="border-color: Background; border-width: thick;" runat="server"></div>
                 </div>
 
+                <asp:HiddenField ID="hdnSelectedTab" runat="server" Value="0" />
 
 
+                
+            </div>
+                    
+               
 
 
-<%--
-                    <!--Grid row-->
-                    <div class="row" style="justify-content: center !important;">
-                        <div class="col  btn-toolbar m-3" style="justify-content: center !important;">
-                            <asp:Button ID="AddDocumentation" runat="server" Text="Add New Documentation" class="btn redbtn text-lg-center btnSize" data-toggle="modal" data-target="#AddDocumentation1" OnClientClick="return false" />
-                            <div class="modal fade" id="AddDocumentation1" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header" style="width: 100%">
-                                            <h3 class="modal-title" id="ModalLabel">Add Documentation</h3>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
+                <!-- Comment Section -->
+                <div class="col-5 text-left h4">
+                    <div class="titleBox">
+                        <asp:Label ID="lblComments" runat="server" Text="Comments" class="mr-md-2" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+                        <%-- <asp:Button ID="btnHome" runat="server" Text="Home" class="btn btn-outline-warning my-2 my-sm-0" />--%>
+                    </div>
+                    <div class="detailBox table_scroll">
+                        <div class="actionBox">
+                            <asp:ScriptManager ID="smComments" runat="server"></asp:ScriptManager>
+                            <asp:UpdatePanel runat="server" ID="upnlComments" CssClass="commentList" UpdateMode="Conditional">
+                                <ContentTemplate>
+                                    <!--Comments will be inserted here-->
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="btnComment" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                        </div>
 
-                                        <div class="modal-body" style="padding: 10px 20px 10px 20px">
-                                            <div class="row">
-                                                <asp:Label ID="lblDocType" runat="server" CssClass="font-weight-bold">Document Type:</asp:Label>
-                                            </div>
+                    </div>
 
-                                            <div class="row">
-                                                <asp:DropDownList ID="ddlAddDoc" runat="server" CssClass="dropdown-toggle" Width="100%">
-                                                    <asp:ListItem Selected="true" Value="" disabled="disabled">Please select a document type</asp:ListItem>
-                                                    <asp:ListItem Value="Journal">Journal</asp:ListItem>
-                                                    <asp:ListItem Value="Conference">Conference</asp:ListItem>
-                                                    <asp:ListItem Value="Paper">Paper</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
+                    <div class="col-12 form-group" >
+                        <asp:TextBox ID="tbComment" runat="server" class="form-control" TextMode="MultiLine" Rows="5" MaxLength="500"></asp:TextBox>
+                   
 
-                                            <br />
+                        <div class="form-group text-center">
+                            <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn redbtn my-2 my-sm-0 btnSize" OnClick="btnComment_Click"  />
+                        </div>
+                        <asp:Label runat="server" ID="lblCharMax" Text="Characters: 0/500"></asp:Label>
+                        <asp:Label runat="server" ID="lblCommentError" Text=""></asp:Label>
+                    </div>
 
-                                            <div class="row">
-                                                <asp:Label ID="lblModDocTitle" runat="server" CssClass="font-weight-bold">Document Title:</asp:Label>
-                                            </div>
-                                            <div class="row">
-                                                <asp:TextBox ID="txtModDocTitle" runat="server" Width="100%" TextMode="MultiLine" Rows="2"></asp:TextBox>
-                                            </div>
+                </div>
+                </div>
+             
+                <!--Grid column-->
+                    
 
-                                            <br />
+               <!-- Jquery Tabs -->
 
-                                            <div class="row">
-                                                <asp:Label ID="lblModDocDesc" runat="server" CssClass="font-weight-bold">Description:</asp:Label>
-                                            </div>
-                                            <div class="row">
-                                                <asp:TextBox ID="TxtModDocDesc" runat="server" Width="100%" TextMode="MultiLine" Rows="5"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" runat="server" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                            <%--                                    <button type="button" runat="server" class="btn redbtn" data-dismiss="modal" onclick="btnModAdd_Click">Confirm and Add</button>--%>
-                                  <%--          <asp:Button CssClass="btn redbtn" runat="server" OnClick="btnModAdd_Click" Text="Confirm and Add" UseSubmitBehavior="false" data-dismiss="modal" /> --%>
-                <!--Jquery Tab-->
                 <div class="row">
-                    <div class="col-md-12">
-                        <div id="tabs" style="width:100%">
+                    <div class="col-lg-12" style="padding-bottom:50px">
+                        <div id="tabs" >
                           <ul>
                             <li>
                                 <a href="#tab-Journal">
@@ -435,41 +329,43 @@
                             </li>
 
                           </ul>
-
-                          <div id="tab-Journal">
+                        
+                          <div id="tab-Journal" >
                               <asp:Button id="btnEditJournal" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditJournal_Click"/>
                               <asp:Button id="btnSaveJournal" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveJournal_Click"/>
-
+                              <br />
                               <p>
+                                
                                 <asp:Repeater ID="RepeaterTabJournal" runat="server">
+                                   
                                     <ItemTemplate>
-                                        <div id="tab_<%#Eval("ResearchID") %>">
-                                            <%--<%#Eval("Journal") %>--%>
+                                            <ContentTemplate>
+                                        <div id="tab_<%#Eval("ResearchID") %>" class="repeater_scroll">                                       
                                           <td><%# ((string)Eval ("Journal")).Replace(Environment.NewLine, "<br />") %></td>
-
                                         </div>
+                                            </ContentTemplate>
                                     </ItemTemplate>
-                                </asp:Repeater>
-                                                                              
-                                <asp:Textbox id='txtEditJournal' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">   
+                                </asp:Repeater>                                                                              
+                                <asp:Textbox id='txtEditJournal' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="8" CssClass="repeater_scroll">   
                                 </asp:Textbox>      
+                    
+                              </p>
 
-                                </p>
                           </div>
 
-                          <div id="tab-Conference">
+                          <div id="tab-Conference" >
                               <asp:Button id="btnEditConference" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditConference_Click"/>
                               <asp:Button id="btnSaveConference" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveConference_Click" />
+                              <br />
                               <p>
                                 <asp:Repeater ID="RepeaterTabConference" runat="server">
                                 <ItemTemplate>
-                                    <div id="tab_<%#Eval("ResearchID") %>">
-                                       <%-- <%#Eval("Conference") %>--%>
+                                    <div id="tab_<%#Eval("ResearchID") %>" class="repeater_scroll">                                     
                                         <td><%# ((string)Eval ("Conference")).Replace(Environment.NewLine, "<br />") %></td>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-                                <asp:Textbox id='txtEditConference' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">
+                                <asp:Textbox id='txtEditConference' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="8">
     
                                 </asp:Textbox>  
                               </p>  
@@ -479,90 +375,46 @@
                           <div id="tab-Paper">
                               <asp:Button id="btnEditPaper" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditPaper_Click" />
                               <asp:Button id="btnSavePaper" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSavePaper_Click"/>
+                              <br />
                               <p>
                                 <asp:Repeater ID="RepeaterTabPaper" runat="server">
                                     <ItemTemplate>
-                                        <div id="tab_<%#Eval("ResearchID") %>">
-                                           <%-- <%#Eval("Paper") %>--%>
+                                        <div id="tab_<%#Eval("ResearchID") %>" class="repeater_scroll">                                        
                                              <td><%# ((string)Eval ("Paper")).Replace(Environment.NewLine, "<br />") %></td>
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-                                <asp:Textbox id='txtEditPaper' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">
+                                <asp:Textbox id='txtEditPaper' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="8">
     
                                 </asp:Textbox>  
 
                               </p>  
                           </div>
 
-                          <div id="tab-Link">
+                          <div id="tab-Link" >
                               <asp:Button id="btnEditLink" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditLink_Click" />
                               <asp:Button id="btnSaveLink" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveLink_Click"/>
+                              <br />
                               <p>
                                 <asp:Repeater ID="RepeaterTabLink" runat="server">
                                     <ItemTemplate>
-                                        <div id="tab_<%#Eval("ResearchID") %>">
-                                           <%-- <%#Eval("Paper") %>--%>
+                                        <div id="tab_<%#Eval("ResearchID") %>" class="repeater_scroll">                                           
                                              <td><%# ((string)Eval ("Link")).Replace(Environment.NewLine, "<br />") %></td>
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-                                <asp:Textbox id='txtEditLink' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="5">
-    
+                                <asp:Textbox id='txtEditLink' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="8"> 
                                 </asp:Textbox>  
-
                               </p>  
                           </div>
-
-
-
-
                         </div>
                     </div>
-
                     <!--Grid row-->
-
-
                 </div>
 
-                                                                              
-                <div class="col-md-5 text-left h4">
-                    <div class="titleBox">
-                        <asp:Label ID="lblComments" runat="server" Text="Comments" class="mr-md-2" Font-Bold="True" Font-Size="X-Large"></asp:Label>
-                        <%-- <asp:Button ID="btnHome" runat="server" Text="Home" class="btn btn-outline-warning my-2 my-sm-0" />--%>
-                    </div>
-                    <div class="detailBox table_scroll">
+             
 
-
-                <!--End Jquery Tab-->
-
-                        <div class="actionBox">
-                            <asp:ScriptManager ID="smComments" runat="server"></asp:ScriptManager>
-                            <asp:UpdatePanel runat="server" ID="upnlComments" CssClass="commentList" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <!--Comments will be inserted here-->
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="btnComment" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </div>
-
-                    </div>
-
-                    <div class="form-group d-flex justify-content-center">
-                        <asp:TextBox ID="tbComment" runat="server" class="form-control" Width="650px" TextMode="MultiLine" Rows="5" MaxLength="500"></asp:TextBox>
-                    </div>
-
-                    <div class="form-group text-center">
-                        <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn redbtn my-2 my-sm-0 btnSize" OnClick="btnComment_Click" />
-                    </div>
-                    <asp:Label runat="server" ID="lblCharMax" Text="Characters: 0/500"></asp:Label>
-                    <asp:Label runat="server" ID="lblCommentError" Text=""></asp:Label>
-                </div>
-                <!--Grid column-->
-                    
-          </div>
+          
    
         </section>
  </div>

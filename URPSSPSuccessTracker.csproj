@@ -52,6 +52,9 @@
       <HintPath>packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.1.9, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>packages\SharpZipLib.1.3.1\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -320,15 +323,10 @@
     <Content Include="bin\URPSSPSuccessTracker.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings" />
-    <Content Include="URPSSPSuccessTracker\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="URPSSPSuccessTracker\obj\Debug\URPSSPSuccessTracker.csproj.CoreCompileInputs.cache" />
-    <Content Include="URPSSPSuccessTracker\obj\Debug\URPSSPSuccessTracker.csprojAssemblyReference.cache" />
     <Content Include="UploadTemplate-Test.xlsx" />
     <None Include="Web References\WS_LDAP_Search\ldap_search.disco" />
     <None Include="Web References\WS_Programs_And_Degrees\ProgramsAndDegrees.disco" />
     <None Include="Web References\WS_Student_Search\ws_student.disco" />
-    <Content Include="URPSSPSuccessTracker\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
-    <Content Include="URPSSPSuccessTracker\URPSSPSuccessTracker.csproj.user" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -512,9 +510,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="URPSSPSuccessTracker\obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -530,7 +526,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57744</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57755/</IISUrl>
+          <IISUrl>http://localhost:57756/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

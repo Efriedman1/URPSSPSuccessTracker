@@ -56,7 +56,7 @@ namespace URPSSPSuccessTracker
             txtName.Enabled = tf;
             txtDept.Enabled = tf;
             txtEmail.Enabled = tf;
-            txtMethod.Enabled = tf;
+            //txtMethod.Enabled = tf;
            // txtStatus.Enabled = tf;
             txtTitle.Enabled = tf;
             txtType.Enabled = tf;
@@ -226,6 +226,10 @@ namespace URPSSPSuccessTracker
             string journalinfo = txtEditJournal.Text;
 
             urpSqlProcedures.UpdateJournal(researchID, journalinfo);
+
+            this.populateResearch();
+
+            
         }
 
         protected void btnEditConference_Click(object sender, EventArgs e)
@@ -262,6 +266,7 @@ namespace URPSSPSuccessTracker
             string conferenceinfo = txtEditConference.Text;
 
             urpSqlProcedures.UpdateConference(researchID, conferenceinfo);
+            this.populateResearch();
         }
 
         protected void btnEditPaper_Click(object sender, EventArgs e)
@@ -297,6 +302,7 @@ namespace URPSSPSuccessTracker
             string paperinfo = txtEditPaper.Text;
 
             urpSqlProcedures.UpdatePaper(researchID, paperinfo);
+            this.populateResearch();
         }
 
         protected void btnEditLink_Click(object sender, EventArgs e)
@@ -336,6 +342,7 @@ namespace URPSSPSuccessTracker
             string Linkinfo = txtEditLink.Text;
 
             urpSqlProcedures.UpdateLink(researchID, Linkinfo);
+            this.populateResearch();
         }
 
 

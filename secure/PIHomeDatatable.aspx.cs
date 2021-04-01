@@ -15,7 +15,6 @@ namespace URPSSPSuccessTracker.secure
         {
             if (!IsPostBack)
             {
-               // validatePI();
             }
         }
 

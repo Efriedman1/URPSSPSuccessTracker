@@ -215,6 +215,9 @@
             //    }
             //});
 
+
+            document.getElementById('<% =hidden.ClientID %>').value = JSON.stringify(selectedTuids); 
+
             var query = "AdminSendEmail.aspx?";
             for (var i = 0; i < selectedTuids.length; i++) {
                 query += "id" + i + "=" + selectedTuids[i];
@@ -249,7 +252,7 @@
     <div>
 
 
-
+        <asp:HiddenField runat="server" ID="hidden" />
         <!-- Modal -->
         <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -286,6 +289,7 @@
             <table id="table2" class="display" style="width: 100%">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>TUID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
