@@ -82,7 +82,7 @@ namespace URPSSPSuccessTracker
             Response.Redirect("AdminHomeDatatable.aspx");
         }
 
-        //moved to email class
+        /*        //moved to email class
         protected bool sendEmail(string subject, string body, List<string> emailList)
         {
             try
@@ -93,15 +93,15 @@ namespace URPSSPSuccessTracker
                 SmtpClient smtpClient = new SmtpClient("smtp.temple.edu", 25);
                 
                 mailMessage.From = mailAddress;      
-                /*
+                
                 foreach (var item in emailList)
                 {
                     mailMessage.Bcc.Add(item);
                 }
-                */
+                
 
                 //for testing
-                mailMessage.Bcc.Add("tuf53874@temple.edu");
+                //mailMessage.Bcc.Add("tuf53874@temple.edu");
 
                 mailMessage.Subject = subject;
                 mailMessage.Body = body;
@@ -119,6 +119,7 @@ namespace URPSSPSuccessTracker
                 return false;
             }
         }
+        */
 
         protected void loadTable()
         {
