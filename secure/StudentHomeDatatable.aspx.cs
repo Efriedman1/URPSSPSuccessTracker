@@ -104,6 +104,7 @@ namespace URPSSPSuccessTracker
                 {
                     e.Row.Cells[i].Text = headers[i];
                 }
+                e.Row.TableSection = TableRowSection.TableHeader;
             }
             else
             {

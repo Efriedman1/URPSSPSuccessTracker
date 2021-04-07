@@ -18,13 +18,11 @@ namespace URPSSPSuccessTracker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-//<<<<<<< backend
             if (!IsPostBack)
             {                
                 this.Master.SetNavBar((String)Session["UserType"]);
 
                 
-// =======
 
              SqlProcedures procedures = new SqlProcedures();
 //             if (!IsPostBack)
@@ -37,7 +35,6 @@ namespace URPSSPSuccessTracker
 //                     example.DataBind();
 //                 }
 
-// >>>>>>> main
             }
             pnlPI.Visible = false;
             pnlStudents.Visible = true;

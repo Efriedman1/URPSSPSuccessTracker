@@ -60,61 +60,37 @@
 
 	<script>
 		$(document).ready(function () {
-
-			var table = $('#example').DataTable({
+			var table = $('[id*=gvStudent]').DataTable({
 				responsive: true,
 
-                /*dom: 'Bfrtip',
- 
-                buttons: [
- 
-                    'selected',
- 
-                    'selectedSingle',
- 
-                    'selectAll',
- 
+				dom: 'Bfrtip', 
+				/*
+                buttons: [ 
+                    'selected', 
+                    'selectedSingle', 
+                    'selectAll', 
                     'selectNone',
- 
-                    'selectRows',
- 
+					'selectRows', 
                     'selectColumns',
- 
-                    'selectCells'
- 
-                ],
- 
-                select: true,*/
+                    'selectCells' 
+                ], 
+				*/
+                select: true
 
-				"ajax": "studentArrays.txt",
-
-				"columnDefs": [{
-
-					"targets": -1,
-
-					"data": null,
-
-					"defaultContent": "<a class='btn btn-outline-secondary' href='datatables5.aspx'>View</a>"
-
-				}]
-
+				//"columnDefs": [{
+				//	"targets": -1,
+				//	"data": null,
+				//	"defaultContent": "<a class='btn btn-outline-secondary'>View</a>"
+				//}]
 			});
 
 
-
-			$('#example tbody').on('click', 'button', function () {
-
-				var data = table.row($(this).parents('tr')).data();
-
-				alert(data[0] + "'s salary is: " + data[5]);
+			$('[id*=gvStudent] tbody').on('click', 'button', function () {
 
 			});
 
-
-			$('#example tbody').on('click', 'tr', function () {
-
+			$('[id*=gvStudent] tbody').on('click', 'tr', function () {
 				$(this).toggleClass('selected');
-
 			});
 
 
@@ -126,19 +102,21 @@
 			//$('#example thead tr:eq(1) th').each( function (i) {
 
 			//$('#example thead tr:eq(1) th:not(:last-child)').each( function (i) {
-			$('#example thead tr').clone(true).appendTo('#example thead');
-			$('#example thead tr:eq(1) th:not(:last-child)').each(function (i) {
-				var title = $(this).text();
-				$(this).html('<input type="text" placeholder="Search ' + title + '" />');
-				$('input', this).on('keyup change', function () {
-					if (table.column(i).search() !== this.value) {
-						table
-							.column(i)
-							.search(this.value)
-							.draw();
-					}
-				});
-			});
+
+			//Search Functionality
+			$('[id*=gvStudent] thead tr').clone(true).appendTo('[id*=gvStudent] thead');
+            $('[id*=gvStudent] thead tr:eq(1) th:not(:last-child)').each(function (i) {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+                $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table
+                            .column(i)
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
 		});
 	</script>
 
@@ -217,23 +195,6 @@
 					</ItemTemplate>
 				</asp:TemplateField>
 			</Columns>
-		</asp:GridView>
-
-		<table id="example" class="display" style="width: 100%">
-			<thead>
-				<tr>
-					<th>Term</th>
-					<th>Year</th>
-					<th>PI</th>
-					<th>Last Update</th>
-					<th>View</th>
-				</tr>
-			</thead>
-
-			<tfoot>
-				<tr>
-				</tr>
-			</tfoot>
-		</table>
+		</asp:GridView>		
 	</div>
 </asp:Content>

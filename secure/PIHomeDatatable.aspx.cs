@@ -19,7 +19,7 @@ namespace URPSSPSuccessTracker.secure
                 DataSet researchData = procedures.LoadResearchProjectsByPI("741258963");
                 gvPI.DataSource = researchData;
                 gvPI.DataBind();
-                gvPI.Columns[4].Visible = false;
+                gvPI.Columns[6].Visible = false;
             }
         }
 
@@ -95,7 +95,7 @@ namespace URPSSPSuccessTracker.secure
 
         protected void gvPI_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            string[] headers = { "PI", "Project Title", "Term", "Last Update", "", "" };
+            string[] headers = { "First Name", "Last Name", "Title", "Term", "Program", "Major", "", "", "", ""};
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 for (int i = 0; i < e.Row.Cells.Count; i++)
@@ -113,7 +113,7 @@ namespace URPSSPSuccessTracker.secure
         {
             Button btn = (Button)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
-            int ResearchID = Convert.ToInt32(row.Cells[4].Text);
+            int ResearchID = Convert.ToInt32(row.Cells[6].Text);
             Response.Redirect("PIViewStudentResearch.aspx");
         }
     }
