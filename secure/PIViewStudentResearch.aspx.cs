@@ -20,9 +20,9 @@ namespace URPSSPSuccessTracker
         protected void Page_Load(object sender, EventArgs e)
         {
             researchID = (int)Session["researchID"];
-            if (Session["FullName"] != null)
+            if (Session["Full_Name"] != null)
             {
-                fullName = (string)Session["FullName"];
+                fullName = (string)Session["Full_Name"];
             }
 
 
