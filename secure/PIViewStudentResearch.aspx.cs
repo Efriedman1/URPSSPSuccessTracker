@@ -14,8 +14,18 @@ namespace URPSSPSuccessTracker
     public partial class PIViewResearch : System.Web.UI.Page
     {
 
+        int researchID;
+        string fullName = "Rose McGinnis";
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            researchID = (int)Session["researchID"];
+            if (Session["Full_Name"] != null)
+            {
+                fullName = (string)Session["Full_Name"];
+            }
+
+
             if (!IsPostBack)
             {
                 
@@ -82,8 +92,8 @@ namespace URPSSPSuccessTracker
             Validation validation = new Validation();
             if (validation.ValidateChaMinMax(tbComment.Text, 1, 500))
             {
-                if (urpSqlProcedures.AddComments(6, "Rose McGinnis", tbComment.Text, DateTime.Now))
-                {
+                if (urpSqlProcedures.AddComments(researchID, fullName, tbComment.Text, DateTime.Now))
+                {                   
                     //Populate the comment section and highlight the newly added comment
                     populateCommentSection(true);
                     tbComment.Text = "";                    
@@ -103,7 +113,7 @@ namespace URPSSPSuccessTracker
         protected void populateCommentSection(bool newComment)
         {
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            List<Comment> commentList = urpSqlProcedures.LoadComments(6);
+            List<Comment> commentList = urpSqlProcedures.LoadComments(researchID);
 
             for (int i = 0; i < commentList.Count; i++)
             {
@@ -173,22 +183,22 @@ namespace URPSSPSuccessTracker
         {
             
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-            List<ResearchDocument> researchList = urpSqlProcedures.GetProjectInfo(6);
+            List<ResearchDocument> researchList = urpSqlProcedures.GetProjectInfo(researchID);
 
 
-            RepeaterTabJournal.DataSource = urpSqlProcedures.GetProjectInfo(6);
+            RepeaterTabJournal.DataSource = urpSqlProcedures.GetProjectInfo(researchID);
             RepeaterTabJournal.DataBind();        
             
 
-            RepeaterTabConference.DataSource = urpSqlProcedures.GetProjectInfo(6);
+            RepeaterTabConference.DataSource = urpSqlProcedures.GetProjectInfo(researchID);
             RepeaterTabConference.DataBind();
 
 
-            RepeaterTabPaper.DataSource = urpSqlProcedures.GetProjectInfo(6);
+            RepeaterTabPaper.DataSource = urpSqlProcedures.GetProjectInfo(researchID);
             RepeaterTabPaper.DataBind();
 
 
-            RepeaterTabLink.DataSource = urpSqlProcedures.GetProjectInfo(6);
+            RepeaterTabLink.DataSource = urpSqlProcedures.GetProjectInfo(researchID);
             RepeaterTabLink.DataBind();
 
         }
@@ -207,7 +217,7 @@ namespace URPSSPSuccessTracker
                        
             DataSet ds = new DataSet();
 
-            string Journal = urpSqlProcedures.LoadResearchDocuments(6).Tables[0].Rows[0][0].ToString();
+            string Journal = urpSqlProcedures.LoadResearchDocuments(researchID).Tables[0].Rows[0][0].ToString();
 
             txtEditJournal.Text = Journal;
         }
@@ -222,7 +232,6 @@ namespace URPSSPSuccessTracker
 
             SqlProcedures urpSqlProcedures = new SqlProcedures();
 
-            int researchID = 6;
             string journalinfo = txtEditJournal.Text;
 
             
@@ -251,7 +260,7 @@ namespace URPSSPSuccessTracker
 
             DataSet ds = new DataSet();
 
-            string Conference = urpSqlProcedures.LoadResearchDocuments(6).Tables[0].Rows[0][1].ToString();
+            string Conference = urpSqlProcedures.LoadResearchDocuments(researchID).Tables[0].Rows[0][1].ToString();
 
             txtEditConference.Text = Conference;
 
@@ -268,7 +277,7 @@ namespace URPSSPSuccessTracker
 
             SqlProcedures urpSqlProcedures = new SqlProcedures();
 
-            int researchID = 6;
+
             string conferenceinfo = txtEditConference.Text;
 
             urpSqlProcedures.UpdateConference(researchID, conferenceinfo);
@@ -288,7 +297,7 @@ namespace URPSSPSuccessTracker
 
             DataSet ds = new DataSet();
 
-            string Paper = urpSqlProcedures.LoadResearchDocuments(6).Tables[0].Rows[0][2].ToString();
+            string Paper = urpSqlProcedures.LoadResearchDocuments(researchID).Tables[0].Rows[0][2].ToString();
 
             txtEditPaper.Text = Paper;
         }
@@ -304,7 +313,6 @@ namespace URPSSPSuccessTracker
 
             SqlProcedures urpSqlProcedures = new SqlProcedures();
 
-            int researchID = 6;
             string paperinfo = txtEditPaper.Text;
 
             urpSqlProcedures.UpdatePaper(researchID, paperinfo);
@@ -326,7 +334,7 @@ namespace URPSSPSuccessTracker
 
             DataSet ds = new DataSet();
 
-            string Link = urpSqlProcedures.LoadResearchDocuments(6).Tables[0].Rows[0][3].ToString();
+            string Link = urpSqlProcedures.LoadResearchDocuments(researchID).Tables[0].Rows[0][3].ToString();
 
             txtEditLink.Text = Link;
         }
@@ -344,7 +352,6 @@ namespace URPSSPSuccessTracker
 
             SqlProcedures urpSqlProcedures = new SqlProcedures();
 
-            int researchID = 6;
             string Linkinfo = txtEditLink.Text;
 
             urpSqlProcedures.UpdateLink(researchID, Linkinfo);

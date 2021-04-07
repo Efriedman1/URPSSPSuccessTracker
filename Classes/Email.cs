@@ -30,11 +30,12 @@ namespace URPSSPSuccessTracker.Classes
                 this.Subject = subject;
                 this.Message = body;
 
-                objMail.Bcc.Add("tuf53874@temple.edu");
+                // for testing
+                // objMail.Bcc.Add("tuf53874@temple.edu");
 
                 foreach (string email in emailList)
                 {
-                    //objMail.Bcc.Add(email);
+                    objMail.Bcc.Add(email);
                 }
                 objMail.From = this.fromAddress;
                 objMail.Subject = this.subject;

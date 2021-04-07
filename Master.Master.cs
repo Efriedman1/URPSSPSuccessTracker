@@ -16,10 +16,13 @@ namespace URPSSPSuccessTracker
 
             if (Session["Full_Name"] != null)
             {
-                lblUserName.Text =  Session["Full_Name"].ToString();
+                lblUserName.Text = Session["Full_Name"].ToString();
             }
             else
+            {
                 lblUserName.Text = string.Empty;
+            }
+            CheckPageRemoveTermDropdown();            
         }
 
         protected void Secure_My_Session()
@@ -110,6 +113,22 @@ namespace URPSSPSuccessTracker
                 btnUploadUsers.Visible = false;
                 //lblUserName.Text = "";
                 //lblUserType.Text = "";
+            }
+        }
+
+        public void CheckPageRemoveTermDropdown()
+        {
+            System.Diagnostics.Debug.Print(HttpContext.Current.Request.Url.AbsolutePath);
+            if (HttpContext.Current.Request.Url.AbsolutePath == "/secure/TempLogin.aspx" || HttpContext.Current.Request.Url.AbsolutePath == "/secure/AdminManageUsers.aspx"
+                || HttpContext.Current.Request.Url.AbsolutePath == "/secure/AdminDownload.aspx" || HttpContext.Current.Request.Url.AbsolutePath == "/secure/AdminSendEmail.aspx")
+            {
+                DropDownList2.Visible = false;
+                lblTerm.Visible = false;
+            }
+            else
+            {
+                DropDownList2.Visible = true;
+                lblTerm.Visible = true;
             }
         }
 

@@ -50,16 +50,20 @@
         }
     </style>
 
-
     <script type="text/javascript">
         /*$(document).ready(function() {
             $('table.display').DataTable();
         });
         */
+        var selectedTuids = [];
+
         $(document).ready(function () {
-            var table = $('#table2').DataTable({
-                responsive: true,
-                /*dom: 'Bfrtip',
+
+
+
+            var table = $("[id*=gvPI]").DataTable({
+                dom: 'Bfrtip',
+
                 buttons: [
                     'selected',
                     'selectedSingle',
@@ -69,50 +73,41 @@
                     'selectColumns',
                     'selectCells'
                 ],
-                select: true,*/
-                "ajax": "arrays.txt",/*PI*/
-                "columnDefs": [{
-                    "targets": -1,
-                    "data": null,
-                    "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
-                }]
+
+
+                //"ajax": "studentArrays.txt",/*students*/
+
+                select: true,
+
+
             });
 
-            $('#table2 tbody').on('click', 'tr', function () {
+            $('[id*=gvPI] tbody').on('click', 'button', function () {
+                var data = table.row($(this).parents('tr')).data();
+                alert(data[0] + "'s salary is: " + data[5]);
+            });
+
+            $('[id*=gvPI] tbody').on('click', 'tr', function () {
                 $(this).toggleClass('selected');
+                var data = table.row(this).data();
+                var count = selectedTuids.length;
+                var addFlag = true; //flag to check if we are adding or removing TUID
+                for (var i = 0; i < count; i++) {
+                    if (selectedTuids[i] == data[0]) {  //if TUID is already in array, aka if user is clicking an already selected user (deselecting), remove from array
+                        selectedTuids.splice(i, 1);
+                        addFlag = false;    //set flag to false to skip adding the TUID
+                    }
+                }
+                if (addFlag) {  //if we are still adding, add the TUID
+                    selectedTuids.push(data[0]);
+                }
+                //alert(selectedTuids);
+
+
             });
 
-
-            /* backend */
-            /* $('#table2 tbody').on('click', 'button', function () {
-                 var data = table.row($(this).parents('tr')).data();
-                 alert(data[0] + "'s salary is: " + data[5]);
-             });
- 
-             $('#table2 thead tr').clone(true).appendTo('#table2 thead');
-             //$('#table2 thead tr:eq(1) th').each( function (i) {
-             $('table2 thead tr:eq(1) th:not(:last-child)').each(function (i) {
-                 var title = $(this).text();
-                 $(this).html('<input type="text" placeholder="Search ' + title + '" />');
- 
-                 $('input', this).on('keyup change', function () {
-                     if (table.column(i).search() !== this.value) {
-                         table
-                             .column(i)
-                             .search(this.value)
-                             .draw();
-                     }
-                 });
-             }); */
-            /* backend */
-
-            /* $('#table2 tbody').on( 'click', 'button', function () {
-                 var data = table.row( $(this).parents('tr') ).data();
-                 alert( data[0] +"'s salary is: "+ data[ 5 ] );
-                 });*/
-
-            $('#table2 thead tr').clone(true).appendTo('#table2 thead');
-            $('#table2 thead tr:eq(1) th:not(:last-child)').each(function (i) {
+            $('[id*=gvPI] thead tr').clone(true).appendTo('[id*=gvPI] thead');
+            $('[id*=gvPI] thead tr:eq(1) th:not(:last-child)').each(function (i) {
                 var title = $(this).text();
                 $(this).html('<input type="text" placeholder="Search ' + title + '" />');
 
@@ -131,9 +126,7 @@
 
         $(document).ready(function () {
 
-            //var table = $('#example').DataTable({
-            //    responsive: true,
-            //    dom: 'Bfrtip',
+
 
             var table = $("[id*=gvStudents]").DataTable({
                 dom: 'Bfrtip',
@@ -149,15 +142,9 @@
                 ],
 
 
-                //"ajax": "studentArrays.txt",/*students*/
 
                 select: true,
 
-                "columnDefs": [{
-                    "targets": -1,
-                    "data": null,
-                    "defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
-                }]
             });
 
             $('[id*=gvStudents] tbody').on('click', 'button', function () {
@@ -215,6 +202,9 @@
             //    }
             //});
 
+
+            document.getElementById('<% =hidden.ClientID %>').value = JSON.stringify(selectedTuids); 
+
             var query = "AdminSendEmail.aspx?";
             for (var i = 0; i < selectedTuids.length; i++) {
                 query += "id" + i + "=" + selectedTuids[i];
@@ -249,7 +239,7 @@
     <div>
 
 
-
+        <asp:HiddenField runat="server" ID="hidden" />
         <!-- Modal -->
         <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -278,32 +268,34 @@
         <asp:Button class="btn p-2" CssClass="button redbtn" ID="btnPI" runat="server" Text="Principal Investigator" OnClick="btnPI_Click" />
 
         <asp:Panel ID="pnlStudents" runat="server">
-            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="true" OnRowDataBound="example_RowDataBound"></asp:GridView>
-
+            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" OnRowDataBound="example_RowDataBound" OnRowCommand="gvStudents_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="TUID" HeaderText="TUID" />
+                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" />
+                    <asp:BoundField DataField="Major" HeaderText="Major" />
+                    <asp:BoundField DataField="Program" HeaderText="Program" />
+                    <asp:BoundField DataField="Title" HeaderText="Research Title" />
+                    <asp:BoundField DataField="LastUpdate" HeaderText="Last Update" />
+                    <asp:ButtonField ButtonType="Button" CommandName="View" Text="View" />
+                </Columns>
+            </asp:GridView>
         </asp:Panel>
 
         <asp:Panel ID="pnlPI" runat="server">
-            <table id="table2" class="display" style="width: 100%">
-                <thead>
-                    <tr>
-                        <th>TUID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Department</th>
-                        <th>View</th>
-                    </tr>
-                </thead>
-
-                <tfoot>
-                    <tr>
-                        <th>TUID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Department</th>
-                        <th>View</th>
-                    </tr>
-                </tfoot>
-            </table>
+            <asp:GridView ID="gvPI"  OnRowDataBound="example_RowDataBound" runat="server" AutoGenerateColumns="False" OnRowCommand="gvPI_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="TUID" HeaderText="TUID" />
+                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" />
+                    <asp:BoundField DataField="Department" HeaderText="Department" />
+                    <asp:BoundField DataField="Title" HeaderText="Research Title" />
+                    <asp:BoundField DataField="LastUpdate" HeaderText="Last Update" />
+                    <asp:ButtonField ButtonType="Button" CommandName="View" Text="View" />
+                </Columns>
+            </asp:GridView>
         </asp:Panel>
         <div>
             <asp:Button class="btn" CssClass="button redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All" />

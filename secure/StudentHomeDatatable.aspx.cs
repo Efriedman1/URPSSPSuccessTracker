@@ -11,17 +11,22 @@ namespace URPSSPSuccessTracker
 {
     public partial class StudentHomeDatatable : System.Web.UI.Page
     {
+        SqlProcedures procedures = new SqlProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                //validateStudent();
+            {                
                 bool local = Session["Local"].ToString() == "true";
+
+                DataSet projectData = procedures.LoadResearchProjects("915049699");
+                gvStudent.DataSource = projectData;
+                gvStudent.DataBind();
+                gvStudent.Columns[4].Visible = false;
             }
+
         }
         public void validateStudent()
         {
-
             //get TUID from header after login
             int employeeNumber;
             bool number = false;
@@ -88,6 +93,32 @@ namespace URPSSPSuccessTracker
                 }
             }
 
+        }
+
+        protected void gvStudents_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            string[] headers = { "PI", "Project Title", "Term", "Last Update", "", ""};
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                for (int i = 0; i < e.Row.Cells.Count; i++)
+                {
+                    e.Row.Cells[i].Text = headers[i];
+                }
+                e.Row.TableSection = TableRowSection.TableHeader;
+            }
+            else
+            {
+
+            }
+        }
+
+        protected void btnView_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            int researchID = Convert.ToInt32(row.Cells[4].Text);
+            Session["researchID"] = researchID;
+            Response.Redirect("PIViewStudentResearch.aspx");
         }
     }
 }

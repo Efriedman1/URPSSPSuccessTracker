@@ -323,7 +323,10 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\URPSSPSuccessTracker.dll.config" />
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
     <Content Include="UploadTemplate-Test.xlsx" />
     <None Include="Web References\WS_LDAP_Search\ldap_search.disco" />
     <None Include="Web References\WS_Programs_And_Degrees\ProgramsAndDegrees.disco" />
@@ -527,7 +530,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57744</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57755/</IISUrl>
+          <IISUrl>http://localhost:57899/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

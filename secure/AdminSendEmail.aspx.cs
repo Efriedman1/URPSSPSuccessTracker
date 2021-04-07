@@ -18,12 +18,40 @@ namespace URPSSPSuccessTracker
             if (!IsPostBack)
             {
                 this.Master.SetNavBar((String)Session["UserType"]);
-                loadTable();
                 SelectedTUIDs = ParseQueryString();
                 foreach (string tuid in SelectedTUIDs)
                 {
                     System.Diagnostics.Debug.Print(tuid);
+
                 }
+                //
+                if (SelectedTUIDs.Count > 0)
+                {
+                    SqlProcedures sqlProcedures = new SqlProcedures();
+
+                    List<Student> studentList = new List<Student>();
+                    foreach (var item in SelectedTUIDs)
+                    {
+                        DataSet ds = sqlProcedures.SearchStudent(Convert.ToInt32(item),"","","","","");
+
+                        DataTable dt = ds.Tables[0];
+                        DataRow row = dt.Rows[0];
+                        Student student = new Student();
+
+                        student.TUID = row[0].ToString();
+                        student.FirstName = row[1].ToString();
+                        student.LastName = row[2].ToString();
+                        student.Email = row[3].ToString();
+                        student.Program = row[4].ToString();
+                        student.Major = row[5].ToString();
+
+                        studentList.Add(student);
+                    }
+                    Session["Students"] = studentList;
+                }
+
+                loadTable();
+
             }
         }
 
@@ -51,10 +79,10 @@ namespace URPSSPSuccessTracker
 
         protected void btnAddStudent_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminHome.aspx");
+            Response.Redirect("AdminHomeDatatable.aspx");
         }
 
-        //moved to email class
+        /*        //moved to email class
         protected bool sendEmail(string subject, string body, List<string> emailList)
         {
             try
@@ -65,15 +93,15 @@ namespace URPSSPSuccessTracker
                 SmtpClient smtpClient = new SmtpClient("smtp.temple.edu", 25);
                 
                 mailMessage.From = mailAddress;      
-                /*
+                
                 foreach (var item in emailList)
                 {
                     mailMessage.Bcc.Add(item);
                 }
-                */
+                
 
                 //for testing
-                mailMessage.Bcc.Add("tuf53874@temple.edu");
+                //mailMessage.Bcc.Add("tuf53874@temple.edu");
 
                 mailMessage.Subject = subject;
                 mailMessage.Body = body;
@@ -91,6 +119,7 @@ namespace URPSSPSuccessTracker
                 return false;
             }
         }
+        */
 
         protected void loadTable()
         {

@@ -112,7 +112,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                    <asp:Button runat="server" CssClass="btn redbtn" ID="btnAddStudent" Text="Add More Students" OnClick="btnAddStudent_Click" style="margin-bottom:20px"/>
+                    <asp:Button runat="server" CssClass="btn redbtn" ID="btnAddStudent" Text="Selected Students" OnClick="btnAddStudent_Click" style="margin-bottom:20px"/>
                  </fieldset>    
 
             </div>

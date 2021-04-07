@@ -7,6 +7,7 @@
 
 .container{
     max-width: 80% !important;
+    padding-bottom:2.5rem;
 }
 
 .detailBox {
@@ -104,24 +105,28 @@
 }
 
 .redbtn {
-    border-color: #f44336;
-    color: red
-}
-
-.redbtn:hover {
-    background: #f44336;
+    border-color: white;
+    background: #91182A;
     color: white;
 }
 
-.infobtn {
-    border-color: #2196F3;
-    color: dodgerblue
-}
+    .redbtn:hover {
+        border-color: #91182A;
+        color: #91182A;
+        background: white;
+    }
 
-.infobtn:hover {
+.infobtn {
+    border-color: white;
     background: #2196F3;
     color: white;
 }
+
+    .infobtn:hover {
+        border-color: #2196F3;
+        color: dodgerblue;
+        background: white;
+    }
 
 .mydropdownlist1 {
     color: #fff;
@@ -150,13 +155,20 @@
 }
 
 
-
+#page-container{
+    position: relative;
+    min-height: 100vh;
+    max-height: 100%;
+    margin: 0;
+}
 
 #app-footer {
     bottom: 0;
     width: 100%;
-    padding: 5px;
+    /*padding: 5px;*/
     text-align: center;
+    position: absolute;
+    height: 2.5rem;
 }
 
 /*Css from AdminHome*/
