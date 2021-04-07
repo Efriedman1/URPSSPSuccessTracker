@@ -18,13 +18,11 @@ namespace URPSSPSuccessTracker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-//<<<<<<< backend
             if (!IsPostBack)
             {                
                 this.Master.SetNavBar((String)Session["UserType"]);
 
                 
-// =======
 
              SqlProcedures procedures = new SqlProcedures();
 //             if (!IsPostBack)
@@ -37,14 +35,13 @@ namespace URPSSPSuccessTracker
 //                     example.DataBind();
 //                 }
 
-// >>>>>>> main
             }
             pnlPI.Visible = false;
             pnlStudents.Visible = true;
-            populateDataTable();
+            populateDataTable(1);
         }
 
-        protected void populateDataTable()
+        protected void populateDataTable(int type)
         {
             DataSet studentData = procedures.LoadStudents("Fall", "2020");
             DataSet piData = procedures.LoadPrincipalInvestigator("Fall", "2020");
@@ -61,7 +58,6 @@ namespace URPSSPSuccessTracker
                 gvStudents.DataBind();
 
             }
-
             if (piData.Tables.Count > 0)
             {
                 gvPI.DataSource = piData;
@@ -73,9 +69,9 @@ namespace URPSSPSuccessTracker
                 //gvPI.DataKeyNames = names;
 
                 gvPI.DataBind();
-
             }
         }
+
 
         protected void SetSelectedTuids(List<string> selected)
         {
@@ -198,6 +194,13 @@ namespace URPSSPSuccessTracker
             }
         }
 
+        protected void gv_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.TableSection = TableRowSection.TableHeader;
+            }
+        }
         protected void gvStudents_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
