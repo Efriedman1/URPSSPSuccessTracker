@@ -225,6 +225,12 @@ namespace URPSSPSuccessTracker
             int researchID = 6;
             string journalinfo = txtEditJournal.Text;
 
+            
+
+
+
+
+
             urpSqlProcedures.UpdateJournal(researchID, journalinfo);
 
             this.populateResearch();

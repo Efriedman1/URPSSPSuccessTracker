@@ -26,6 +26,24 @@
                 active: document.getElementById('<%= hdnSelectedTab.ClientID %>').value
             });
         });
+
+      
+
+        //TinyMCE WYSIWYG
+        tinymce.init({
+        selector: 'textarea#editor',
+        menubar: false
+        });
+
+        tinymce.init({
+            selector: 'textarea',
+            toolbar_mode: 'floating',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            menubar: 'insert  table tools'  // skip file
+        });
+
+
     </script>
 
 
@@ -157,7 +175,7 @@
                         <div class="col-md-12">
                             <div class="md-form mb-0">
                                 <asp:Label ID="lblTitle" CssClass="control-label" runat="server" Text="Title"></asp:Label>
-                                <asp:TextBox ID="txtTitle" CssClass="form-control input-lg" runat="server" Enabled="False">UV Photolysis</asp:TextBox>
+                                <asp:TextBox ID="txtTitle" CssClass="form-control input-lg" runat="server" Enabled="False">Medical Genetics and Molecular Biochemistry</asp:TextBox>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -330,6 +348,9 @@
 
                           </ul>
                         
+                         
+                          <asp:HiddenField ID="hdnJournalVariable" runat="server" />
+
                           <div id="tab-Journal" >
                               <asp:Button id="btnEditJournal" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditJournal_Click"/>
                               <asp:Button id="btnSaveJournal" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveJournal_Click"/>
