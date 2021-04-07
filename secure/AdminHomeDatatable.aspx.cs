@@ -43,25 +43,34 @@ namespace URPSSPSuccessTracker
 
         protected void populateDataTable(int type)
         {
-            DataSet data = new DataSet();
-            GridView gv;
-            if (type == 1)
+            DataSet studentData = procedures.LoadStudents("Fall", "2020");
+            DataSet piData = procedures.LoadPrincipalInvestigator("Fall", "2020");
+            if (studentData.Tables.Count > 0)
             {
-                data = procedures.LoadStudents();
-                gv = gvStudents;
-            }
-            else
-            {
-                //data = procedures.LoadPrincipalInvestigator();
-                gv = gvPI;
-            }
-            if (data.Tables.Count > 0)
-            {
-                gvStudents.DataSource = data;
+                gvStudents.DataSource = studentData;
+
+                //add the research ID to the datakeys collection so that the correct
+                //research will be loaded on the view research page
+                string[] names = new string[1];
+                names[0] = "ResearchID";
+                gvStudents.DataKeyNames = names;
+
                 gvStudents.DataBind();
+
+            }
+            if (piData.Tables.Count > 0)
+            {
+                gvPI.DataSource = piData;
+
+                //add the research ID to the datakeys collection so that the correct
+                //research will be loaded on the view research page
+                //string[] names = new string[1];
+                //names[0] = "ResearchID";
+                //gvPI.DataKeyNames = names;
+
+                gvPI.DataBind();
             }
         }
-
 
 
         protected void SetSelectedTuids(List<string> selected)
@@ -190,6 +199,30 @@ namespace URPSSPSuccessTracker
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 e.Row.TableSection = TableRowSection.TableHeader;
+            }
+        }
+        protected void gvStudents_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+            if (e.CommandName == "View")
+            {
+                int researchID = int.Parse(gvStudents.DataKeys[rowIndex].Value.ToString());
+                Session.Add("researchID", researchID);
+                Response.Redirect("PIViewStudentResearch.aspx");
+            }
+
+        }
+
+        protected void gvPI_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+            if (e.CommandName == "View")
+            {
+                int researchID = int.Parse(gvStudents.DataKeys[rowIndex].Value.ToString());
+                Session.Add("researchID", researchID);
+                Response.Redirect("PIViewStudentResearch.aspx");
             }
         }
     }
