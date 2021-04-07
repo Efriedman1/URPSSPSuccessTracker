@@ -340,11 +340,6 @@
     <Compile Include="Classes\ResearchProject.cs" />
     <Compile Include="Classes\UpdateProjectDocuments.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="Properties\Settings1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="secure\AdminDownload.aspx.cs">
       <DependentUpon>AdminDownload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

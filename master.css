@@ -112,7 +112,7 @@
 
     .redbtn:hover {
         border-color: #91182A;
-        color: red;
+        color: #91182A;
         background: white;
     }
 
@@ -157,7 +157,9 @@
 
 #page-container{
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100%;
+    margin: 0;
 }
 
 #app-footer {
