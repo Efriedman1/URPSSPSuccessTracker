@@ -30,6 +30,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <div id="page-container">
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
@@ -61,7 +62,21 @@
         </nav>
 
         <!--Main Content Placeholder-->
-        <div class="container">           
+        <div class="container">   
+             <div class="col-md-2 md-offset-">
+                <div class="row" style="padding-top: 5px;">
+                
+                    <label>Term: </label>
+                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
+                        <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
+                        <asp:ListItem>SPRING 2020</asp:ListItem>
+                        <asp:ListItem>FALL 2019</asp:ListItem>
+                        <asp:ListItem>SPRING 2019</asp:ListItem>
+                        <asp:ListItem>FALL 2018</asp:ListItem>
+                        <asp:ListItem>SPRING 2018</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+            </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>           
         </div>  
@@ -73,8 +88,8 @@
             </div>
         </footer>
 
-    </form>
-   
+    </form> 
+    </div>   
 </body>
 
 </html>
