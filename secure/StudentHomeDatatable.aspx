@@ -3,34 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
-
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" />
-
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css" />
-
-
 	<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-
 	<script type="text/javascript" src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
-
 	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
-
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
 	<script type="text/javascript" src="https://hr.oop.cmu.ac.th/data/appointment/js/DataTable/media/js/jquery.dataTables.js"></script>
-
 
 	<style>
 		div.dataTables_wrapper {
@@ -60,48 +44,11 @@
 
 	<script>
 		$(document).ready(function () {
-			var table = $('[id*=gvStudent]').DataTable({
+			var table = $("[id*=gvStudent]").DataTable({
 				responsive: true,
-
 				dom: 'Bfrtip', 
-				/*
-                buttons: [ 
-                    'selected', 
-                    'selectedSingle', 
-                    'selectAll', 
-                    'selectNone',
-					'selectRows', 
-                    'selectColumns',
-                    'selectCells' 
-                ], 
-				*/
                 select: true
-
-				//"columnDefs": [{
-				//	"targets": -1,
-				//	"data": null,
-				//	"defaultContent": "<a class='btn btn-outline-secondary'>View</a>"
-				//}]
 			});
-
-
-			$('[id*=gvStudent] tbody').on('click', 'button', function () {
-
-			});
-
-			$('[id*=gvStudent] tbody').on('click', 'tr', function () {
-				$(this).toggleClass('selected');
-			});
-
-
-			//$('#example thead tr').clone(true).appendTo( '#example thead' );
-
-
-
-
-			//$('#example thead tr:eq(1) th').each( function (i) {
-
-			//$('#example thead tr:eq(1) th:not(:last-child)').each( function (i) {
 
 			//Search Functionality
 			$('[id*=gvStudent] thead tr').clone(true).appendTo('[id*=gvStudent] thead');
@@ -143,20 +90,6 @@
 		<div class="row text-center mt-3">
 			<div class="col-md-2"></div>
 			<div class="col-md-2 md-offset-">
-				<div class="row">
-					<label>Term: </label>
-					<asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
-						<asp:ListItem Selected="True">FALL 2020</asp:ListItem>
-						<asp:ListItem>SPRING 2020</asp:ListItem>
-						<asp:ListItem>FALL 2019</asp:ListItem>
-						<asp:ListItem>SPRING 2019</asp:ListItem>
-						<asp:ListItem>FALL 2018</asp:ListItem>
-						<asp:ListItem>SPRING 2018</asp:ListItem>
-					</asp:DropDownList>
-				</div>
-			</div>
-
-			<div class="col-md-2 md-offset-">
 				<div class="d-flex justify-content-center mt-2">
 					<button type="button" class="btn redbtn p-2 mr-3 ml-3 mt-4" data-toggle="modal" data-target="#resultModal">Instructions</button>
 				</div>
@@ -182,7 +115,7 @@
 		</div>
 	</div>
 	<div>
-		<asp:GridView ID="gvStudent" runat="server" OnRowDataBound="gvStudents_RowDataBound" AutoGenerateColumns="false">
+		<asp:GridView ID="gvStudent" runat="server" OnRowDataBound="gvStudents_RowDataBound" AutoGenerateColumns="false" ClientIDMode="Static">
 			<Columns>
 				<asp:BoundField DataField="PrincipalInvestigator" />
 				<asp:BoundField DataField="Title" />

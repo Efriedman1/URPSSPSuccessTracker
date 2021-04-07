@@ -48,46 +48,26 @@
 
 	<script>
 		$(document).ready(function () {
-			var table = $('#example').DataTable({
+			var table = $('[id*=gvPI]').DataTable({
 				responsive: true,
-				/*dom: 'Bfrtip',
-				buttons: [
-					'selected',
-					'selectedSingle',
-					'selectAll',
-					'selectNone',
-					'selectRows',
-					'selectColumns',
-					'selectCells'
-				],
-				select: true,*/
-				"ajax": "arrays.txt",
-				"columnDefs": [{
-					"targets": -1,
-					"data": null,
-					"defaultContent": "<a class='btn btn-outline-secondary' href='PIViewStudentResearch.aspx'>View</a>"
-				}]
+				dom: 'Bfrtip', 
+                select: true
 			});
 
 
-			$('#example tbody').on('click', 'button', function () {
+			$('[id*=gvPI] tbody').on('click', 'button', function () {
 				var data = table.row($(this).parents('tr')).data();
 				alert(data[0] + "'s salary is: " + data[5]);
 			});
 
 
-			$('#example tbody').on('click', 'tr', function () {
+			$('[id*=gvPI] tbody').on('click', 'tr', function () {
 				$(this).toggleClass('selected');
 			});
 
+			$('[id*=gvPI] thead tr').clone(true).appendTo('[id*=gvPI] thead');
 
-			//$('#example thead tr').clone(true).appendTo( '#example thead' );            
-
-			//$('#example thead tr:eq(1) th').each( function (i) {
-
-			//$('example thead tr:eq(1) th:not(:last-child)').each( function (i) {
-			$('[id*=gvStudents] thead tr').clone(true).appendTo('[id*=gvStudents] thead');
-            $('[id*=gvStudents] thead tr:eq(1) th:not(:last-child)').each(function (i) {
+            $('[id*=gvPI] thead tr:eq(1) th:not(:last-child)').each(function (i) {
                 var title = $(this).text();
                 $(this).html('<input type="text" placeholder="Search ' + title + '" />');
 
@@ -132,19 +112,6 @@
 		<div class="row text-center mt-3">
 			<div class="col-md-2"></div>
 			<div class="col-md-2 md-offset-">
-				<div class="row">
-					<label>Term: </label>
-					<asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
-						<asp:ListItem Selected="True">FALL 2020</asp:ListItem>
-						<asp:ListItem>SPRING 2020</asp:ListItem>
-						<asp:ListItem>FALL 2019</asp:ListItem>
-						<asp:ListItem>SPRING 2019</asp:ListItem>
-						<asp:ListItem>FALL 2018</asp:ListItem>
-						<asp:ListItem>SPRING 2018</asp:ListItem>
-					</asp:DropDownList>
-				</div>
-			</div>
-			<div class="col-md-2 md-offset-">
 				<div class="d-flex justify-content-center mt-2">
 					<button type="button" class="btn redbtn p-2 mr-3 ml-3 mt-4" data-toggle="modal" data-target="#resultModal">Instructions</button>
 				</div>
@@ -170,7 +137,7 @@
 		</div>
 	</div>
 	<div>
-		<asp:GridView ID="gvPI" runat="server" OnRowDataBound="gvPI_RowDataBound" AutoGenerateColumns="false">
+		<asp:GridView ID="gvPI" runat="server" OnRowDataBound="gvPI_RowDataBound" AutoGenerateColumns="false" ClientIDMode="Static">
 			<Columns>
 				<asp:BoundField DataField="FirstName" />
 				<asp:BoundField DataField="LastName" />

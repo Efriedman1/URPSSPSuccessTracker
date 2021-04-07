@@ -50,7 +50,6 @@
         }
     </style>
 
-
     <script type="text/javascript">
         /*$(document).ready(function() {
             $('table.display').DataTable();
@@ -269,14 +268,6 @@
         <asp:Button class="btn p-2" CssClass="button redbtn" ID="btnPI" runat="server" Text="Principal Investigator" OnClick="btnPI_Click" />
 
         <asp:Panel ID="pnlStudents" runat="server">
-<<<<<<< HEAD
-            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="true" OnRowDataBound="gv_RowDataBound"></asp:GridView>
-        </asp:Panel>
-
-        <asp:Panel ID="pnlPI" runat="server">
-            <asp:GridView ID="gvPI" runat="server" AutoGenerateColumns="true" OnRowDataBound="gv_RowDataBound"></asp:GridView>
-            <table id="table2" class="display" style="width: 100%">
-=======
             <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" OnRowDataBound="example_RowDataBound" OnRowCommand="gvStudents_RowCommand">
                 <Columns>
                     <asp:BoundField DataField="TUID" HeaderText="TUID" />
@@ -290,7 +281,6 @@
                     <asp:ButtonField ButtonType="Button" CommandName="View" Text="View" />
                 </Columns>
             </asp:GridView>
-
         </asp:Panel>
 
         <asp:Panel ID="pnlPI" runat="server">
@@ -306,29 +296,6 @@
                     <asp:ButtonField ButtonType="Button" CommandName="View" Text="View" />
                 </Columns>
             </asp:GridView>
-<%--            <table id="table2" class="display" style="width: 100%">
->>>>>>> 45b2cac2728b7ab8b034768b79ecb1976fe784eb
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>TUID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Department</th>
-                        <th>View</th>
-                    </tr>
-                </thead>
-
-                <tfoot>
-                    <tr>
-                        <th>TUID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Department</th>
-                        <th>View</th>
-                    </tr>
-                </tfoot>
-            </table>--%>
         </asp:Panel>
         <div>
             <asp:Button class="btn" CssClass="button redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All" />

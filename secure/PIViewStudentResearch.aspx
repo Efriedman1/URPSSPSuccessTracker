@@ -71,22 +71,7 @@
                 <h2>Student Research Information</h2>
             </div>
             <!--Section heading-->
-            <div class="col-md-2 md-offset-">
-                <div class="row">
-                
-                    <label>Term: </label>
-                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
-                        <asp:ListItem Selected="True">FALL 2020</asp:ListItem>
-                        <asp:ListItem>SPRING 2020</asp:ListItem>
-                        <asp:ListItem>FALL 2019</asp:ListItem>
-                        <asp:ListItem>SPRING 2019</asp:ListItem>
-                        <asp:ListItem>FALL 2018</asp:ListItem>
-                        <asp:ListItem>SPRING 2018</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-            </div>
-
-            <div class="row">
+			<div class="row">
                 <div class="col-md-8">
                     <h2 class="h2-responsive text-left my-4"><b>John Doe</b> 915112112 </h2>
                 </div>
