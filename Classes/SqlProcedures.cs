@@ -531,23 +531,28 @@ namespace URPSSPSuccessTracker.Classes
             return researchData;
         }
 
-        public List<ResearchProject> LoadResearchProjects(string tuid)
+        public DataSet LoadResearchProjects(string tuid)
         {
-            List<ResearchProject> researchList = new List<ResearchProject>();
+            //List<ResearchProject> researchList = new List<ResearchProject>();
 
             SqlCommand researchCommand = new SqlCommand();
             researchCommand.CommandType = CommandType.StoredProcedure;
-            researchCommand.CommandText = "LoadResearchDocuments";
-            researchCommand.Parameters.AddWithValue("@ResearchID", tuid);
+            researchCommand.CommandText = "LoadResearchProjects";
+            researchCommand.Parameters.AddWithValue("@StudentTUID", tuid);
             DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
 
-            for (int i = 0; i < researchData.Tables[0].Rows.Count; i++)
-            {
-                ResearchProject newResearch = new ResearchProject(researchData.Tables[0].Rows[i][4].ToString(), researchData.Tables[0].Rows[i][9].ToString(), researchData.Tables[0].Rows[i][5].ToString(),
-                    researchData.Tables[0].Rows[i][2].ToString(), "");
-                researchList.Add(newResearch);
-            }
-            return researchList;
+            return researchData;
+        }
+
+        public DataSet LoadResearchProjectsByPI(string tuid)
+        {
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "LoadResearchProjectsByPI";
+            researchCommand.Parameters.AddWithValue("@PITUID", tuid);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
+
+            return researchData;
         }
 
         public ResearchProject LoadResearchProjectByID(int id)

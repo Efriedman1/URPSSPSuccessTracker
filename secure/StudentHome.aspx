@@ -5,8 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="flex-container m-5">        
-        <div class="row"><asp:Label ID="lblInfo" Text="" runat="server" /></div>
+    <div class="flex-container m-5">
+        <div class="row">
+            <asp:Label ID="lblInfo" Text="" runat="server" /></div>
         <div class="row mt-3">
             <div class="col-md-2 md-offset-">
                 <h2>Student Dashboard</h2>
@@ -79,116 +80,33 @@
     <div class="container mt-4">
         <h3 class="mt-2">Research Terms</h3>
         <div class="row text-center">
+
+            <%--                <asp:TableHeaderCell Scope="Column">
+                                        Term
+                                </asp:TableHeaderCell>
+                                <asp:TableHeaderCell Scope="Column">
+                                        Year
+                                </asp:TableHeaderCell>
+                                <asp:TableHeaderCell Scope="Column">
+                                        PI
+                                </asp:TableHeaderCell>
+                                <asp:TableHeaderCell Scope="Column">
+                                        Last Update
+                                </asp:TableHeaderCell>
+                                <asp:TableHeaderCell Scope="Column">
+                                        Action
+                                </asp:TableHeaderCell>--%>
+
             <div class="col-md-11">
-                <asp:Table ID="Table1" runat="server" CssClass="table table-striped">
-                    <asp:TableHeaderRow Style="background-color: #91182a; color: white;">
-                        <asp:TableHeaderCell Scope="Column">
-                                Term
-                        </asp:TableHeaderCell>
-                        <asp:TableHeaderCell Scope="Column">
-                                Year
-                        </asp:TableHeaderCell>
-                        <asp:TableHeaderCell Scope="Column">
-                                PI
-                        </asp:TableHeaderCell>
-                        <asp:TableHeaderCell Scope="Column">
-                                Last Update
-                        </asp:TableHeaderCell>
-                        <asp:TableHeaderCell Scope="Column">
-                                Action
-                        </asp:TableHeaderCell>
-                    </asp:TableHeaderRow>
-
-                    <asp:TableRow>
-                        <asp:TableCell>
-                                Spring
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                2020
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                Johnny Appleseed
-                        </asp:TableCell>
-                        <asp:TableCell ForeColor="Red">
-                                Not Updated
-                        </asp:TableCell>
-                        <asp:TableHeaderCell>
-                            <asp:Button ID="Button1" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm1_Click" />
-                        </asp:TableHeaderCell>
-                    </asp:TableRow>
-
-                    <asp:TableRow>
-                        <asp:TableCell>
-                                Fall
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                2019
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                Bill Perkins
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                12/15/2019
-                        </asp:TableCell>
-                        <asp:TableHeaderCell>
-                            <asp:Button ID="Button2" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm2_Click" />
-                        </asp:TableHeaderCell>
-                    </asp:TableRow>
-
-                    <asp:TableRow>
-                        <asp:TableCell>
-                                Fall
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                2018
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                Johnny Appleseed
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                11/20/2018
-                        </asp:TableCell>
-                        <asp:TableHeaderCell>
-                            <asp:Button ID="Button3" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm3_Click" />
-                        </asp:TableHeaderCell>
-                    </asp:TableRow>
-
-                    <asp:TableRow>
-                        <asp:TableCell>
-                                Spring
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                2017
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                Johnny Appleseed
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                04/07/2017
-                        </asp:TableCell>
-                        <asp:TableHeaderCell>
-                            <asp:Button ID="Button4" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm4_Click" />
-                        </asp:TableHeaderCell>
-                    </asp:TableRow>
-
-                    <asp:TableRow>
-                        <asp:TableCell>
-                                Fall
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                2017
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                Johnny Appleseed
-                        </asp:TableCell>
-                        <asp:TableCell>
-                                11/12/2017
-                        </asp:TableCell>
-                        <asp:TableHeaderCell>
-                            <asp:Button ID="Button5" runat="server" Text="View" CssClass=" btn redbtn" OnClick="btnSelectTerm5_Click" />
-                        </asp:TableHeaderCell>
-                    </asp:TableRow>
-                </asp:Table>
+                <asp:GridView ID="gvStudent" runat="server" CssClass="table table-striped" OnRowDataBound="gvStudent_RowDataBound" AutoGenerateColumns="false">
+                    <Columns>
+                        <asp:BoundField DataField="Term" HeaderText="Term" />
+                        <asp:BoundField DataField="Year" HeaderText="Year" />
+                        <asp:BoundField DataField="PI" HeaderText="PI" />
+                        <asp:BoundField DataField="LastUpdate" HeaderText="Last Update" />
+                        <asp:TemplateField></asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>
     </div>

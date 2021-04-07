@@ -17,23 +17,12 @@
 
     <script src="https://cdn.tiny.cloud/1/i54bprw5m2uj875trfa1pvdzesz2t76vsgtu8w6c0d0wpb6h/tinymce/5/tinymce.min.js"></script>
 
-<<<<<<< HEAD
- 
-    ~~~~~~used for Jquery Tabs~~~~
-=======
-     
     <%--~~~~~~used for Jquery Tabs~~~~--%>
 
->>>>>>> a23d19e436516bc3e48086d82c6fbfea0b6ca8a7
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> a23d19e436516bc3e48086d82c6fbfea0b6ca8a7
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

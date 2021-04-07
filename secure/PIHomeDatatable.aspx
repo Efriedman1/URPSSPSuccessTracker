@@ -300,9 +300,20 @@
     </div>
 
         <div>
-
-            <asp:Panel ID="pnlStudents" runat="server">
-
+			<asp:GridView ID="gvPI" runat="server" OnRowDataBound="gvPI_RowDataBound" AutoGenerateColumns="false">
+			<Columns>
+				<asp:BoundField DataField="FirstName" />
+				<asp:BoundField DataField="LastName" />
+				<asp:BoundField DataField="Title" />
+				<asp:BoundField DataField="Term" />
+				<asp:BoundField DataField="ResearchID" />
+				<asp:TemplateField>
+					<ItemTemplate>
+						<asp:Button ID="btnView" runat="server" Text="View" OnClick="btnView_Click"></asp:Button>
+					</ItemTemplate>
+				</asp:TemplateField>
+			</Columns>
+		</asp:GridView>
                 <table id="example" class="display" style="width:100%">
 
                     <thead>
@@ -344,8 +355,6 @@
                     </tfoot>
 
         </table>
-
-            </asp:Panel>
 
         </div>
 
