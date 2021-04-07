@@ -198,7 +198,7 @@ namespace URPSSPSuccessTracker
                         //Finally, add the the research project
                         //remember to come back and change the term id to the drop down value
                         sqlProcedures = new SqlProcedures();
-                        success = sqlProcedures.InsertResearchProject(researchProject, 1);
+                        success = sqlProcedures.InsertResearchProject(researchProject, 1, "FALL", "2020");
 
                     }
 

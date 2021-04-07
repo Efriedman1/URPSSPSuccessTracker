@@ -213,11 +213,13 @@ namespace URPSSPSuccessTracker.Classes
         //    return studentList;
         //}
 
-        public DataSet LoadStudents()
+        public DataSet LoadStudents(string semester, string year)
         {
             SqlCommand studentCommand = new SqlCommand();
             studentCommand.CommandType = CommandType.StoredProcedure;
-            studentCommand.CommandText = "LoadStudents";
+            studentCommand.CommandText = "LoadStudentsTable";
+            studentCommand.Parameters.AddWithValue("@Semester", semester);
+            studentCommand.Parameters.AddWithValue("@Year", year);
             DataSet studentData = urpDB.GetDataSetUsingCmdObj(studentCommand);
             int count = studentData.Tables[0].Rows.Count;
 
@@ -264,23 +266,17 @@ namespace URPSSPSuccessTracker.Classes
         }
 
         //load pi
-        public List<PrincipalInvestigator> LoadPrincipalInvestigator()
+        public DataSet LoadPrincipalInvestigator(string semester, string year)
         {
-            List<PrincipalInvestigator> piList = new List<PrincipalInvestigator>();
+            SqlCommand piCommand = new SqlCommand();
+            piCommand.CommandType = CommandType.StoredProcedure;
+            piCommand.CommandText = "LoadPITable";
+            piCommand.Parameters.AddWithValue("@Semester", semester);
+            piCommand.Parameters.AddWithValue("@Year", year);
+            DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
+            int count = piData.Tables[0].Rows.Count;
 
-            //SqlCommand piCommand = new SqlCommand();
-            //piCommand.CommandType = CommandType.StoredProcedure;
-            //piCommand.CommandText = "LoadPrincipalInvestigator";
-            //DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
-            //int count = piData.Tables[0].Rows.Count;
-            //for (int i = 0; i < count; i++)
-            //{
-            //    PrincipalInvestigator newPI = new PrincipalInvestigator((int)piData.Tables[0].Rows[i][0], piData.Tables[0].Rows[i][1].ToString(), piData.Tables[0].Rows[i][2].ToString(), piData.Tables[0].Rows[i][3].ToString(),
-            //         piData.Tables[0].Rows[i][4].ToString(), piData.Tables[0].Rows[i][5].ToString(), piData.Tables[0].Rows[i][6].ToString(), piData.Tables[0].Rows[i][6].ToString(), (DateTime)piData.Tables[0].Rows[i][8]);
-            //    piList.Add(newPI);
-            //}
-
-            return piList;
+            return piData;
         }
 
         //search pi
@@ -592,7 +588,7 @@ namespace URPSSPSuccessTracker.Classes
         }
 
 
-        public Boolean InsertResearchProject(ResearchProject researchProject, int termID)
+        public Boolean InsertResearchProject(ResearchProject researchProject, int termID, string semester, string year)
         {
             SqlCommand researchCommand = new SqlCommand();
             researchCommand.CommandType = CommandType.StoredProcedure;
@@ -603,6 +599,8 @@ namespace URPSSPSuccessTracker.Classes
             researchCommand.Parameters.AddWithValue("@Title", researchProject.ResearchTitle);
             researchCommand.Parameters.AddWithValue("@Description", researchProject.ResearchDescription);
             researchCommand.Parameters.AddWithValue("@TypeOfResearch", researchProject.ResearchType);
+            researchCommand.Parameters.AddWithValue("@Semester", semester);
+            researchCommand.Parameters.AddWithValue("@Year", year);
 
             return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
         }
