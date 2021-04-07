@@ -13,6 +13,7 @@ namespace URPSSPSuccessTracker
 {
     public partial class StudentHome : System.Web.UI.Page
     {
+        SqlProcedures procedures = new SqlProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,6 +24,9 @@ namespace URPSSPSuccessTracker
 
                 this.Master.SetNavBar((String)Session["UserType"]);
             }
+            DataSet projectData = procedures.LoadResearchProjects("915049699");
+            gvStudent.DataSource = projectData;
+            gvStudent.DataBind();
         }
         public void validateStudent()
         {
@@ -116,5 +120,14 @@ namespace URPSSPSuccessTracker
             Response.Redirect("PIViewStudentResearch.aspx");
         }
 
+        protected void gvPI_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
+
+        protected void gvStudent_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
     }
 }
