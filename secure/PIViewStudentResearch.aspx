@@ -86,10 +86,11 @@
             <!--Section heading-->
 			<div class="row">
                 <div class="col-md-8">
-                    <h2 class="h2-responsive text-left my-4"><b>John Doe</b> 915112112 </h2>
+                    <h2 class="h2-responsive text-left my-4"><b>
+                        <asp:Label ID="lblStudentName" runat="server" Text="John Doe"></asp:Label></b> <asp:Label ID="lblStudentTUID" runat="server" Text="915112112"></asp:Label> </h2>
                 </div>
                 <div class="col-2 ">
-                    johndoe@temple.edu
+                    <asp:Label ID="lblStudentEmail" runat="server" Text="johndoe@temple.edu"></asp:Label>                  
                 </div>
             </div>
 

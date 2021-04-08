@@ -183,10 +183,46 @@ namespace URPSSPSuccessTracker
 
         protected void populateResearch()
         {
-            
+
             SqlProcedures urpSqlProcedures = new SqlProcedures();
             List<ResearchDocument> researchList = urpSqlProcedures.GetProjectInfo(researchID);
 
+            //load the student info
+            DataSet studentData = urpSqlProcedures.LoadStudentInfo(researchID);
+            DataRow dr = studentData.Tables[0].Rows[0];
+            lblStudentTUID.Text = dr["StudentTUID"].ToString();
+            lblStudentName.Text = dr["StudentName"].ToString();
+            lblStudentEmail.Text = dr["Email"].ToString();
+
+            //add the correct PI information
+            DataSet piData = urpSqlProcedures.LoadPiInfo(researchID);
+            dr = piData.Tables[0].Rows[0];
+            txtName.Text = dr["PIName"].ToString();
+            txtEmail.Text = dr["Email"].ToString();
+            txtDept.Text = dr["Department"].ToString();
+
+            //add the correct research project details
+            DataSet researchData = urpSqlProcedures.LoadResearchInfo(researchID);
+            dr = researchData.Tables[0].Rows[0];
+            txtTitle.Text = dr["Title"].ToString();
+            TxtModDocDesc.Text = dr["Description"].ToString();
+            txtType.Text = dr["TypeOfResearch"].ToString();
+
+            string researchMethod = dr["ResearchMethod"].ToString();
+            if (researchMethod.Contains("Remote"))
+            {
+                ddlResearchMethod.SelectedIndex = 1;
+            }
+            else if (researchMethod.Contains("In")) { ddlResearchMethod.SelectedIndex = 2; }
+            else { ddlResearchMethod.SelectedIndex = 2; }
+
+            string status = dr["Status"].ToString();
+            if (status.Contains("Complete"))
+            {
+                ddlStatus.SelectedIndex = 2;
+            }
+            else if (researchMethod.Contains("In")) { ddlStatus.SelectedIndex = 1; }
+            else { ddlStatus.SelectedIndex = 0; }
 
             RepeaterTabJournal.DataSource = urpSqlProcedures.GetProjectInfo(researchID);
             RepeaterTabJournal.DataBind();        
