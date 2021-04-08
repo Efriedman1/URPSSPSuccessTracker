@@ -692,5 +692,34 @@ namespace URPSSPSuccessTracker.Classes
 
             return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
         }
+
+        public DataSet GetCurrentTerm()
+        {
+            SqlCommand termCommand = new SqlCommand();
+            termCommand.CommandType = CommandType.StoredProcedure;
+            termCommand.CommandText = "GetCurrentTerm";
+
+            return urpDB.GetDataSetUsingCmdObj(termCommand);
+        }
+
+        public DataSet GetTermByPI(string tuid)
+        {
+            SqlCommand termCommand = new SqlCommand();
+            termCommand.CommandType = CommandType.StoredProcedure;
+            termCommand.CommandText = "GetTermByPI";
+            termCommand.Parameters.AddWithValue("@PITUID", tuid);
+
+            return urpDB.GetDataSetUsingCmdObj(termCommand);
+        }
+
+        public DataSet GetTermByStudent(string tuid)
+        {
+            SqlCommand termCommand = new SqlCommand();
+            termCommand.CommandType = CommandType.StoredProcedure;
+            termCommand.CommandText = "GetTermByStudent";
+            termCommand.Parameters.AddWithValue("@StudentTUID", tuid);
+
+            return urpDB.GetDataSetUsingCmdObj(termCommand);
+        }
     }
 }

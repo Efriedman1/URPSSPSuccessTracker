@@ -16,11 +16,12 @@ namespace URPSSPSuccessTracker.secure
         {
             if (!IsPostBack)
             {
-                DataSet researchData = procedures.LoadResearchProjectsByPI("741258963");
-                gvPI.DataSource = researchData;
-                gvPI.DataBind();
-                gvPI.Columns[6].Visible = false;
+  
             }
+            DataSet researchData = procedures.LoadResearchProjectsByPI("741258963");
+            gvPI.DataSource = researchData;
+            gvPI.DataBind();
+            gvPI.Columns[6].Visible = false;
         }
 
         public void validatePI()

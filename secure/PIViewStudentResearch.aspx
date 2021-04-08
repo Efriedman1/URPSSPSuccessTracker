@@ -16,7 +16,6 @@
             $('#tabs').tabs();
         });
 
-
         $(function () {
             $("#tabs").tabs({
                 activate: function() {
@@ -28,15 +27,11 @@
         });
     </script>
 
-
-
-
     <style>
         .repeater_scroll{
             overflow: auto;
             max-height:535px;
         }
-
 
         .table_scroll {
             overflow: auto;

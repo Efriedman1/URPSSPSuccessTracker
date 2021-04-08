@@ -64,13 +64,7 @@
 					<div class="col-md-2 md-offset-">
 						<div class="row" style="padding-top: 5px;">
 							<asp:Label ID="lblTerm" runat="server">Term: </asp:Label>
-							<asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
-								<asp:ListItem Selected="True">FALL 2020</asp:ListItem>
-								<asp:ListItem>SPRING 2020</asp:ListItem>
-								<asp:ListItem>FALL 2019</asp:ListItem>
-								<asp:ListItem>SPRING 2019</asp:ListItem>
-								<asp:ListItem>FALL 2018</asp:ListItem>
-								<asp:ListItem>SPRING 2018</asp:ListItem>
+							<asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" AutoPostBack="true">
 							</asp:DropDownList>
 						</div>
 					</div>

@@ -18,12 +18,12 @@ namespace URPSSPSuccessTracker
             {                
                 bool local = Session["Local"].ToString() == "true";
 
-                DataSet projectData = procedures.LoadResearchProjects("915049699");
-                gvStudent.DataSource = projectData;
-                gvStudent.DataBind();
-                gvStudent.Columns[4].Visible = false;
-            }
 
+            }
+            DataSet projectData = procedures.LoadResearchProjects("915049699");
+            gvStudent.DataSource = projectData;
+            gvStudent.DataBind();
+            gvStudent.Columns[4].Visible = false;
         }
         public void validateStudent()
         {
