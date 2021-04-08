@@ -13,12 +13,14 @@ namespace URPSSPSuccessTracker
 {
     public partial class PIViewResearch : System.Web.UI.Page
     {
-
+        // research id used for testing. delete after
         int researchID;
         string fullName = "Rose McGinnis";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            
             researchID = (int)Session["researchID"];
             if (Session["Full_Name"] != null)
             {
@@ -246,6 +248,12 @@ namespace URPSSPSuccessTracker
             SqlProcedures urpSqlProcedures = new SqlProcedures();
 
             string journalinfo = txtEditJournal.Text;
+
+            
+
+
+
+
 
             urpSqlProcedures.UpdateJournal(researchID, journalinfo);
 
