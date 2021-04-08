@@ -181,10 +181,23 @@ namespace URPSSPSuccessTracker
 
         protected void populateResearch()
         {
-            
+
             SqlProcedures urpSqlProcedures = new SqlProcedures();
             List<ResearchDocument> researchList = urpSqlProcedures.GetProjectInfo(researchID);
 
+            //load the student info
+            DataSet studentData = urpSqlProcedures.LoadStudentInfo(researchID);
+            DataRow dr = studentData.Tables[0].Rows[0];
+            lblStudentTUID.Text = dr["StudentTUID"].ToString();
+            lblStudentName.Text = dr["StudentName"].ToString();
+            lblStudentEmail.Text = dr["Email"].ToString();
+
+            //add the correct PI information
+            DataSet piData = urpSqlProcedures.LoadPiInfo(researchID);
+            dr = studentData.Tables[0].Rows[0];
+            txtName.Text = dr["PIName"].ToString();
+            txtEmail.Text = dr["Email"].ToString();
+            txtDept.Text = dr["Department"].ToString();
 
             RepeaterTabJournal.DataSource = urpSqlProcedures.GetProjectInfo(researchID);
             RepeaterTabJournal.DataBind();        
