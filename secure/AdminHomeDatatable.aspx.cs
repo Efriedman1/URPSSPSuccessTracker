@@ -61,7 +61,6 @@ namespace URPSSPSuccessTracker
                 string[] term = this.Master.GetTerm().Split(' ');
                 studentData = procedures.LoadStudents(term[0], term[1]);
                 piData = procedures.LoadPrincipalInvestigator(term[0], term[1]);
-
             }
             if (studentData.Tables.Count > 0)
             {

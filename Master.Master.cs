@@ -123,19 +123,20 @@ namespace URPSSPSuccessTracker
 
         public void CheckPageRemoveTermDropdown()
         {
-            //If located on Admin home page, load all terms
-            //If located on PI Home page, load all terms with research
+            
             if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/StudentHomeDataTable.aspx"))
             {
-                DataSet data = procedures.GetAllTerms();
+                //If located on PI Home page, load all terms with research
+                DataSet data = procedures.GetTermByStudent("123456789");
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
-                    if (data.Tables[0].Rows[i][3].ToString() == "Active")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString());
+                    if (data.Tables[0].Rows[i][1].ToString() == "Active" || data.Tables[0].Rows[i][1].ToString() == "Current")
+                        DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
                 }
-            }           //If located on Student Home page, load all terms with research
+            }
             else if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIHomeDataTable.aspx"))
             {
+                //If located on Student Home page, load all terms with research
                 DataSet data = procedures.GetTermByPI("915576335");
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
@@ -144,12 +145,13 @@ namespace URPSSPSuccessTracker
                 }
             }
             else
-            {
-                DataSet data = procedures.GetTermByStudent("123456789");
+            {            
+                //If located on any other page, load all terms
+                DataSet data = procedures.GetAllTerms();
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
-                    if (data.Tables[0].Rows[i][1].ToString() == "Active" || data.Tables[0].Rows[i][1].ToString() == "Current")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
+                    if (data.Tables[0].Rows[i][3].ToString() == "Active")
+                        DropDownList2.Items.Add(data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString());
                 }
             }
 
