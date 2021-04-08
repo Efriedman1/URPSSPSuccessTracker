@@ -119,8 +119,8 @@ namespace URPSSPSuccessTracker
         public void CheckPageRemoveTermDropdown()
         {
             System.Diagnostics.Debug.Print(HttpContext.Current.Request.Url.AbsolutePath);
-            if (HttpContext.Current.Request.Url.AbsolutePath == "/secure/TempLogin.aspx" || HttpContext.Current.Request.Url.AbsolutePath == "/secure/AdminManageUsers.aspx"
-                || HttpContext.Current.Request.Url.AbsolutePath == "/secure/AdminDownload.aspx" || HttpContext.Current.Request.Url.AbsolutePath == "/secure/AdminSendEmail.aspx")
+            if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/TempLogin.aspx") || HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/AdminManageUsers.aspx")
+                || HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/AdminDownload.aspx") || HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/AdminSendEmail.aspx"))
             {
                 DropDownList2.Visible = false;
                 lblTerm.Visible = false;
