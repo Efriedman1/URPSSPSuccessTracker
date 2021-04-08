@@ -3,6 +3,60 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <script>
+        $(function () {
+            $('#gradDate').datepicker(
+                {
+                    dateFormat: "mm/yy",
+                    changeMonth: true,
+                    changeYear: true,
+                    showButtonPanel: true,
+                    onClose: function (dateText, inst) {
+
+
+                        function isDonePressed() {
+                            return ($('#ui-datepicker-div').html().indexOf('ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all ui-state-hover') > -1);
+                        }
+
+                        if (isDonePressed()) {
+                            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+                            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                            $(this).datepicker('setDate', new Date(year, month, 1)).trigger('change');
+
+                            $('#gradDate').focusout()//Added to remove focus from datepicker input box on selecting date
+                        }
+                    },
+                    beforeShow: function (input, inst) {
+
+                        inst.dpDiv.addClass('month_year_datepicker')
+
+                        if ((datestr = $(this).val()).length > 0) {
+                            year = datestr.substring(datestr.length - 4, datestr.length);
+                            month = datestr.substring(0, 2);
+                            $(this).datepicker('option', 'defaultDate', new Date(year, month - 1, 1));
+                            $(this).datepicker('setDate', new Date(year, month - 1, 1));
+                            $(".ui-datepicker-calendar").hide();
+                        }
+                    }
+                })
+        });
+
+
+    </script>
+
+    <style>
+        .ui-datepicker-calendar {
+            display: none;
+        }
+
+        .required:after{
+            content: " *";
+            font-weight: bold;
+            color: darkred;
+        }
+    </style>
+
+
     <div class="d-flex justify-content-between" style="margin-top: 2%">
         <div>
             <h2>Upload Student Research Information</h2>
@@ -24,11 +78,17 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        You may search by any combination of first name, last name, major, student term, TUID,
-                        and status. Select no parameters to view all profiles. Select the 'Student' or 'Principal Investigator' button to view Student or Principal Investigator profiles.
-                        Below the search results table, you will find several buttons. Use "Export" to export these students to a spreadsheet,
-                        Use "Email Selected" to email the students you selected on the table using the checkboxes. Use "Email All" to send an
-                        Email to all students in the table.
+                        <ul>
+                            <li><div style="color:darkred">Begin by specifying your upload term in the upper left hand corner.</div></li>
+                            <li>For <strong>Individual User Upload</strong> please fill out the form fields on the left hand side and click the 
+                                'Upload' button beneath them when you're done.
+                            </li>
+                            <li>For <strong>Mass User Upload</strong> click the 'Download' button on the right hand side of the screen next to the 'Template' label. 
+                                This will provide you with a formatted Excel document that will be used to enter each users information. Once you are done entering 
+                                user information in the Excel sheet, save the sheet, click the 'Choose File' button, select the Excel file, then click the 'Upload' button on the right 
+                                hand side.
+                            </li>
+                        </ul>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -38,7 +98,7 @@
         </div>
 
         <div class="container" style="max-width: 100% !important; padding-left: 0px !important; padding-right: 0px !important;">
-            <div class="row row-eq-height" style="height: 100% !important">
+            <div class="row" style="height: 100% !important">
                 <!--Single User Upload -->
                 <div class="col">
                     <fieldset class="scheduler-border" style="height: 100% !important">
@@ -47,14 +107,14 @@
                     <div class="row">
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="">Student TUID</label>
-                                <input type="text" id="studentTUID" name="studentTUID" class="form-control">                           
+                                <label for="name" class="required">Student TUID</label>
+                                <input type="text" id="studentTUID" name="studentTUID" class="form-control required" required="required">                         
                             </div>
                         </div>
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="">Principal Investigator TUID</label>
-                                <input type="text" id="piTUID" name="piTUID" class="form-control">                           
+                                <label for="name" class="required">Principal Investigator TUID</label>
+                                <input type="text" id="piTUID" name="piTUID" class="form-control" required="required">                           
                             </div>
                         </div>
                     </div>
@@ -62,20 +122,20 @@
                     <div class="row">
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="">Student Program</label>
-                                <input type="text" id="studentProgram" name="studentProgram" class="form-control">                           
+                                <label for="name" class="required">Student Program</label>
+                                <input type="text" id="studentProgram" name="studentProgram" class="form-control" required="required">                           
                             </div>
                         </div>
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="">Student Grad Date</label>
-                                <input type="text" id="gradDate" name="gradDate" class="form-control">                           
+                                <label for="name" class="required">Student Grad Date</label>
+                                <input type="text" id="gradDate" name="gradDate" class="form-control" required="required">                           
                             </div>
                         </div>
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="">PI Department</label>
-                                <input type="text" id="piDepartment" name="piDepartment" class="form-control">                           
+                                <label for="name" class="required">PI Department</label>
+                                <input type="text" id="piDepartment" name="piDepartment" class="form-control" required="required">                           
                             </div>
                         </div>
                     </div>               
@@ -83,8 +143,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="">Research Project Title</label>
-                                <input type="text" id="projectTitle" name="projectTitle" class="form-control">                           
+                                <label for="name" class="required">Research Project Title</label>
+                                <input type="text" id="projectTitle" name="projectTitle" class="form-control" required="required">                           
                             </div>
                         </div>
                     </div>
@@ -92,8 +152,8 @@
                     <div class="row">
                     <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="">Research Project Description</label>
-                                <input type="text" id="projectDescription" name="projectDescription" class="form-control">                           
+                                <label for="name" class="required">Research Project Description</label>
+                                <input type="text" id="projectDescription" name="projectDescription" class="form-control" required="required">                           
                             </div>
                         </div>
                     </div>
@@ -112,13 +172,13 @@
                 <!--Mass User Upload -->
                 <div class="col">
                     <fieldset class="scheduler-border" style="height: 100% !important">
-                    <legend class="scheduler-border">Mass User Upload</legend>       
-                <div class="col" style="margin-bottom:auto; margin-top: auto;">
+                    <legend class="scheduler-border">Mass User Upload</legend>
+                     
                     <!-- Template -->
                          <div class="row">
-                             <div class="col" style="padding-bottom: 15px;">
+                             <div class="col" style="padding-bottom: 15px; margin-top: 75px;">
                                  <div class="d-flex flex-row mt-2" style="justify-content: center;">
-                                     <label for="name" class="" style="margin-bottom: auto; margin-top: auto;"><h5>Template: </h5></label>
+                                     <label for="name" class="" style="margin-bottom: auto; margin-top: auto;">Upload Template: </label>
                                      <asp:LinkButton CssClass="btn redbtn p-2 mr-3 ml-3" ID="btnDownload" runat="server" OnClick="btnDownload_Click">Download</asp:LinkButton>
                                  </div>
                              </div>
@@ -151,8 +211,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-       
+
                 </fieldset>
                 </div>
             </div>
