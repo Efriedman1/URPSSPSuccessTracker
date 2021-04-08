@@ -150,7 +150,7 @@ namespace URPSSPSuccessTracker
                 DataSet data = procedures.GetAllTerms();
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
-                    if (data.Tables[0].Rows[i][3].ToString() == "Active")
+                    if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
                         DropDownList2.Items.Add(data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString());
                 }
             }
