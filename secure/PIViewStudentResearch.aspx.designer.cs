@@ -13,6 +13,33 @@ namespace URPSSPSuccessTracker {
     public partial class PIViewResearch {
         
         /// <summary>
+        /// lblStudentName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStudentName;
+        
+        /// <summary>
+        /// lblStudentTUID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStudentTUID;
+        
+        /// <summary>
+        /// lblStudentEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStudentEmail;
+        
+        /// <summary>
         /// lblPI control.
         /// </summary>
         /// <remarks>

@@ -225,6 +225,18 @@ namespace URPSSPSuccessTracker.Classes
 
             return studentData;
         }
+
+        public DataSet LoadStudentInfo(int researchID)
+        {
+            SqlCommand studentCommand = new SqlCommand();
+            studentCommand.CommandType = CommandType.StoredProcedure;
+            studentCommand.CommandText = "LoadStudentInfo";
+            studentCommand.Parameters.AddWithValue("@ResearchID", researchID);
+            DataSet studentData = urpDB.GetDataSetUsingCmdObj(studentCommand);
+
+            return studentData;
+        }
+
         public DataSet GetAllStudents()
         {
             List<Student> studentList = new List<Student>();
@@ -283,6 +295,16 @@ namespace URPSSPSuccessTracker.Classes
             piCommand.CommandText = "LoadPITable";
             piCommand.Parameters.AddWithValue("@Semester", semester);
             piCommand.Parameters.AddWithValue("@Year", year);
+            DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
+            return piData;
+        }
+
+        public DataSet LoadPiInfo(int researchID)
+        {
+            SqlCommand piCommand = new SqlCommand();
+            piCommand.CommandType = CommandType.StoredProcedure;
+            piCommand.CommandText = "LoadPIinfo";
+            piCommand.Parameters.AddWithValue("@researchID", researchID);
             DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
             return piData;
         }
@@ -570,6 +592,17 @@ namespace URPSSPSuccessTracker.Classes
         {
             ResearchProject researchProject = new ResearchProject();
             return researchProject;
+        }
+
+        public DataSet LoadResearchInfo(int researchID)
+        {
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "LoadResearchInfo";
+            researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
+
+            return researchData;
         }
 
         //public ResearchProject(string researchTitle, string researchType, string researchDescription, string piTUID, string piDepartment, string studentTUID)
