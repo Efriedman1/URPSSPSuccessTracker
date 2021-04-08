@@ -594,6 +594,17 @@ namespace URPSSPSuccessTracker.Classes
             return researchProject;
         }
 
+        public DataSet LoadResearchInfo(int researchID)
+        {
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "LoadResearchInfo";
+            researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
+
+            return researchData;
+        }
+
         //public ResearchProject(string researchTitle, string researchType, string researchDescription, string piTUID, string piDepartment, string studentTUID)
         //private string researchTitle;
         ////research type will be the same as the student's program
