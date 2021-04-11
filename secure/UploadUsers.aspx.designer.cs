@@ -22,22 +22,85 @@ namespace URPSSPSuccessTracker.secure {
         protected global::System.Web.UI.WebControls.HiddenField hidden;
         
         /// <summary>
-        /// Button1 control.
+        /// txtStudentTUID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox txtStudentTUID;
         
         /// <summary>
-        /// Label1 control.
+        /// txtPiTUID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtPiTUID;
+        
+        /// <summary>
+        /// txtStudentProgram control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtStudentProgram;
+        
+        /// <summary>
+        /// txtGradDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGradDate;
+        
+        /// <summary>
+        /// txtPiDepartment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPiDepartment;
+        
+        /// <summary>
+        /// txtProjectTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtProjectTitle;
+        
+        /// <summary>
+        /// txtProjectDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtProjectDescription;
+        
+        /// <summary>
+        /// btnSingleUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSingleUpload;
+        
+        /// <summary>
+        /// lblSingleError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSingleError;
         
         /// <summary>
         /// btnDownload control.
@@ -58,13 +121,13 @@ namespace URPSSPSuccessTracker.secure {
         protected global::System.Web.UI.WebControls.FileUpload fileUploadTemplate;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// validateTemplate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validateTemplate;
         
         /// <summary>
         /// Button2 control.
@@ -76,12 +139,24 @@ namespace URPSSPSuccessTracker.secure {
         protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// Label2 control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new URPSSPSuccessTracker.Master Master {
+            get {
+                return ((URPSSPSuccessTracker.Master)(base.Master));
+            }
+        }
     }
 }

@@ -1,11 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="UploadUsers.aspx.cs" Inherits="URPSSPSuccessTracker.secure.UploadUsers" %>
+
+<%@ MasterType VirtualPath="~/Master.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <script>
         $(function () {
-            $('#gradDate').datepicker(
+            $('[id*=txtGradDate]').datepicker(
                 {
                     dateFormat: "mm/yy",
                     changeMonth: true,
@@ -108,13 +111,13 @@
                         <div class="col">
                             <div class="md-form mb-2">
                                 <label for="name" class="required">Student TUID</label>
-                                <input type="text" id="studentTUID" name="studentTUID" class="form-control required" required="required">                         
+                                <asp:TextBox ID="txtStudentTUID" name="studentTUID" class="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="required">Principal Investigator TUID</label>
-                                <input type="text" id="piTUID" name="piTUID" class="form-control" required="required">                           
+                                <label for="name">Principal Investigator TUID</label>
+                                <asp:TextBox ID="txtPiTUID"  name="piTUID" class="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -122,20 +125,20 @@
                     <div class="row">
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="required">Student Program</label>
-                                <input type="text" id="studentProgram" name="studentProgram" class="form-control" required="required">                           
+                                <label for="name">Student Program</label>
+                                <asp:TextBox ID="txtStudentProgram"  name="studentProgram" class="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="required">Student Grad Date</label>
-                                <input type="text" id="gradDate" name="gradDate" class="form-control" required="required">                           
+                                <label for="name" >Student Grad Date</label>
+                                <asp:TextBox ID="txtGradDate" name="gradDate" class="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="required">PI Department</label>
-                                <input type="text" id="piDepartment" name="piDepartment" class="form-control" required="required">                           
+                                <label for="name">PI Department</label>
+                                <asp:TextBox ID="txtPiDepartment" name="piDepartment" class="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                     </div>               
@@ -143,8 +146,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="required">Research Project Title</label>
-                                <input type="text" id="projectTitle" name="projectTitle" class="form-control" required="required">                           
+                                <label for="name">Research Project Title</label>
+                                <asp:TextBox ID="txtProjectTitle" name="projectTitle" class="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -152,8 +155,8 @@
                     <div class="row">
                     <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="required">Research Project Description</label>
-                                <input type="text" id="projectDescription" name="projectDescription" class="form-control" required="required">                           
+                                <label for="name">Research Project Description</label>
+                                <asp:TextBox ID="txtProjectDescription" name="projectDescription" class="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -161,8 +164,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="d-flex justify-content-center mt-2">
-                                <asp:Button  class="btn redbtn p-2 mr-3 ml-3 " ID="Button1" runat="server" Text="Upload" OnClick="btnUpload_Click" />
-                                <asp:Label ID="Label1" runat="server" Text="Error" Visible="False"></asp:Label>
+                                <asp:Button  class="btn redbtn p-2 mr-3 ml-3 " ID="btnSingleUpload" runat="server" Text="Upload" OnClick="btnSingleUpload_Click" />
+                                <asp:Label ID="lblSingleError" runat="server" Text="Error" Visible="False"></asp:Label>
                             </div>
                         </div>
                     </div>
@@ -197,7 +200,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="d-flex justify-content-center mt-2">
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Only .xls format is allowed" ControlToValidate="fileUploadTemplate" ValidationExpression="^.*\.(xls|xlsx|csv)$"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="validateTemplate" runat="server" ErrorMessage="Only .xls format is allowed" ControlToValidate="fileUploadTemplate" ValidationExpression="^.*\.(xls|xlsx|csv)$"></asp:RegularExpressionValidator>
                             </div>
                         </div>
                     </div>
@@ -207,7 +210,7 @@
                         <div class="col">
                             <div class="d-flex justify-content-center mt-2">
                                 <asp:Button  class="btn redbtn p-2 mr-3 ml-3 " ID="Button2" runat="server" Text="Upload" OnClick="btnUpload_Click" />
-                                <asp:Label ID="Label2" runat="server" Text="Error" Visible="False"></asp:Label>
+                                <asp:Label ID="lblError" runat="server" Text="Error" Visible="False"></asp:Label>
                             </div>
                         </div>
                     </div>

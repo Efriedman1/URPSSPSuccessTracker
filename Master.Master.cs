@@ -175,7 +175,7 @@ namespace URPSSPSuccessTracker
 
         protected void btnUploadUsers_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminDownload.aspx");
+            Response.Redirect("UploadUsers.aspx");
         }
 
         protected void btnManageUsers_Click(object sender, EventArgs e)
