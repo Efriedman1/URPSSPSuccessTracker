@@ -22,6 +22,8 @@ namespace URPSSPSuccessTracker
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            populateCommentSection(false);
+
             
             researchID = (int)Session["researchID"];
             if (Session["Full_Name"] != null)
@@ -36,7 +38,7 @@ namespace URPSSPSuccessTracker
 
                 this.Master.SetNavBar((String)Session["UserType"]);
                 //Initial population of the comment section, newComment set to false because there is not a newly added comment to highlight
-                populateCommentSection(false);
+                //populateCommentSection(false);
                 populateResearch();
 
                 
