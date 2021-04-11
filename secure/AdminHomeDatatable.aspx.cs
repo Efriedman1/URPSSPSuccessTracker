@@ -38,13 +38,30 @@ namespace URPSSPSuccessTracker
             }
             pnlPI.Visible = false;
             pnlStudents.Visible = true;
-            populateDataTable(1);
+            populateDataTable();
         }
 
-        protected void populateDataTable(int type)
+        protected void Page_PreInit(object sender, EventArgs e)
         {
-            DataSet studentData = procedures.LoadStudents("Fall", "2020");
-            DataSet piData = procedures.LoadPrincipalInvestigator("Fall", "2020");
+            this.Master.contentCallEvent += new EventHandler(Master_DdlChangeIndex);
+        }
+
+        protected void populateDataTable()
+        {
+            DataSet studentData = new DataSet();
+            DataSet piData = new DataSet();
+            if (!IsPostBack)
+            {
+                DataRow currentTermRow = procedures.GetCurrentTerm().Tables[0].Rows[0];
+                studentData = procedures.LoadStudents(currentTermRow[1].ToString(), currentTermRow[2].ToString());
+                piData = procedures.LoadPrincipalInvestigator(currentTermRow[1].ToString(), currentTermRow[2].ToString());
+            }
+            else
+            {
+                string[] term = this.Master.GetTerm().Split(' ');
+                studentData = procedures.LoadStudents(term[0], term[1]);
+                piData = procedures.LoadPrincipalInvestigator(term[0], term[1]);
+            }
             if (studentData.Tables.Count > 0)
             {
                 gvStudents.DataSource = studentData;
@@ -80,7 +97,6 @@ namespace URPSSPSuccessTracker
 
         public void validateAdmin()
         {
-
             //get TUID from header after login
             int employeeNumber;
             bool number = false;
@@ -148,6 +164,13 @@ namespace URPSSPSuccessTracker
                 }
             }
         }
+        
+        //Event Handler that deals with changing the Master Page's term dropdown list
+        private void Master_DdlChangeIndex(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.Print("Reached DdlChangedIndex in AdminHome");
+
+        }
 
         protected void btnPI_Click(object sender, EventArgs e)
         {
@@ -211,7 +234,6 @@ namespace URPSSPSuccessTracker
                 Session.Add("researchID", researchID);
                 Response.Redirect("PIViewStudentResearch.aspx");
             }
-
         }
 
         protected void gvPI_RowCommand(object sender, GridViewCommandEventArgs e)

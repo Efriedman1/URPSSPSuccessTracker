@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminHomeDatatable.aspx.cs" Inherits="URPSSPSuccessTracker.AdminHomeDatatable" %>
-
 <%@ MasterType VirtualPath="~/Master.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -59,8 +58,6 @@
 
         $(document).ready(function () {
 
-
-
             var table = $("[id*=gvPI]").DataTable({
                 dom: 'Bfrtip',
 
@@ -74,12 +71,9 @@
                     'selectCells'
                 ],
 
-
                 //"ajax": "studentArrays.txt",/*students*/
 
                 select: true,
-
-
             });
 
             $('[id*=gvPI] tbody').on('click', 'button', function () {
