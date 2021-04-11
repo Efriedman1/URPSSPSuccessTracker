@@ -122,8 +122,7 @@ namespace URPSSPSuccessTracker
         }
 
         public void CheckPageRemoveTermDropdown()
-        {
-            
+        {            
             if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/StudentHomeDataTable.aspx"))
             {
                 //If located on PI Home page, load all terms with research
