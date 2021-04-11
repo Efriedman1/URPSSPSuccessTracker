@@ -13,13 +13,15 @@ namespace URPSSPSuccessTracker
 {
     public partial class PIViewResearch : System.Web.UI.Page
     {
-        // research id used for testing. delete after
+        
         int researchID;
+
+       
         string fullName = "Rose McGinnis";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             
             researchID = (int)Session["researchID"];
             if (Session["Full_Name"] != null)
@@ -65,27 +67,26 @@ namespace URPSSPSuccessTracker
 
         public void display(Boolean tf)
         {
-            txtName.Enabled = tf;
-            txtDept.Enabled = tf;
-            txtEmail.Enabled = tf;
+            //txtName.Enabled = tf;
+            //txtDept.Enabled = tf;
+            //txtEmail.Enabled = tf;
             //txtMethod.Enabled = tf;
            // txtStatus.Enabled = tf;
             txtTitle.Enabled = tf;
+            TxtDesc.Enabled = tf;
             txtType.Enabled = tf;
             
 
            
 
-            //txtLinks.Enabled = tf;
-            //txtJournal.Enabled = tf;
-            //txtInfo.Enabled = tf;
-            //txtDescription.Enabled = tf;
+
 
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
+            display(false);
+           
         }
 
         protected void btnComment_Click(object sender, EventArgs e)
@@ -107,10 +108,7 @@ namespace URPSSPSuccessTracker
             }
         }
 
-        protected void updateCharLimit()
-        {
-            int charCount = 0;
-        }
+
 
         protected void populateCommentSection(bool newComment)
         {
@@ -154,39 +152,49 @@ namespace URPSSPSuccessTracker
             }
         }
 
-        //protected void populateResearch()
-        //{
-        //    SqlProcedures urpSqlProcedures = new SqlProcedures();
-        //    List<ResearchDocument> researchList = urpSqlProcedures.LoadResearchDocuments(6);
-        //    for (int i = 0; i < researchList.Count; i++)
-        //    {
-        //        Panel pnlResearch = new Panel();
-        //        Label lblResearchType = new Label();
-        //        lblResearchType.Text = researchList[i].DocumentType + " - ";
-        //        Label lblResearchTitle = new Label();
-        //        lblResearchTitle.Text = researchList[i].DocumentTitle + " - ";
-        //        Label lblResearchDescription = new Label();
-        //        lblResearchDescription.Text = researchList[i].Description;
-
-        //        pnlResearch.Controls.Add(lblResearchTitle);
-        //        pnlResearch.Controls.Add(lblResearchType);
-        //        pnlResearch.Controls.Add(lblResearchDescription);
-
-        //        pnlResearchDocument.Controls.Add(pnlResearch);
-        //    }
-
-        //    Panel contentPanel = new Panel();
-        //    contentPanel.CssClass = "row";
-        //    Panel colPanel = new Panel();
-        //    colPanel.CssClass = "col-md-6";
-        //}
 
         protected void populateResearch()
         {
-            
+
             SqlProcedures urpSqlProcedures = new SqlProcedures();
             List<ResearchDocument> researchList = urpSqlProcedures.GetProjectInfo(researchID);
 
+            //load the student info
+            DataSet studentData = urpSqlProcedures.LoadStudentInfo(researchID);
+            DataRow dr = studentData.Tables[0].Rows[0];
+            lblStudentTUID.Text = dr["StudentTUID"].ToString();
+            lblStudentName.Text = dr["StudentName"].ToString();
+            lblStudentEmail.Text = dr["Email"].ToString();
+
+            //add the correct PI information
+            DataSet piData = urpSqlProcedures.LoadPiInfo(researchID);
+            dr = piData.Tables[0].Rows[0];
+            txtName.Text = dr["PIName"].ToString();
+            txtEmail.Text = dr["Email"].ToString();
+            txtDept.Text = dr["Department"].ToString();
+
+            //add the correct research project details
+            DataSet researchData = urpSqlProcedures.LoadResearchInfo(researchID);
+            dr = researchData.Tables[0].Rows[0];
+            txtTitle.Text = dr["Title"].ToString();
+            TxtDesc.Text = dr["Description"].ToString();
+            txtType.Text = dr["TypeOfResearch"].ToString();
+
+            string researchMethod = dr["ResearchMethod"].ToString();
+            if (researchMethod.Contains("Remote"))
+            {
+                ddlResearchMethod.SelectedIndex = 1;
+            }
+            else if (researchMethod.Contains("In")) { ddlResearchMethod.SelectedIndex = 2; }
+            else { ddlResearchMethod.SelectedIndex = 2; }
+
+            string status = dr["Status"].ToString();
+            if (status.Contains("Complete"))
+            {
+                ddlStatus.SelectedIndex = 2;
+            }
+            else if (researchMethod.Contains("In")) { ddlStatus.SelectedIndex = 1; }
+            else { ddlStatus.SelectedIndex = 0; }
 
             RepeaterTabJournal.DataSource = urpSqlProcedures.GetProjectInfo(researchID);
             RepeaterTabJournal.DataBind();        
@@ -236,11 +244,7 @@ namespace URPSSPSuccessTracker
 
             string journalinfo = txtEditJournal.Text;
 
-            
-
-
-
-
+          
 
             urpSqlProcedures.UpdateJournal(researchID, journalinfo);
 
@@ -364,171 +368,20 @@ namespace URPSSPSuccessTracker
 
 
 
-        //protected void btnAdd_Click(object sender, EventArgs e)
-        //{
-        //    display(false);
-        //}
+
         class click
         {
             public static int buttonclick = 0;
         }
 
-        protected void btnModAdd_Click(object sender, EventArgs e)
-        {
-            //SqlProcedures urpSqlProcedures = new SqlProcedures();
-            //if (urpSqlProcedures.InsertResearchDocuments(6, ddlAddDoc.SelectedValue, txtModDocTitle.Text, TxtModDocDesc.Text))
-            //{
-            //    populateResearch();
-            //}
-            //else
-            //{
-            //    //update fail
-            //}
 
-            ////int i;
-            ////for (i = 0; i < Total; i++)
-            ////{
-            //click.buttonclick++;
-            //int count = click.buttonclick;
-            //int Total = Convert.ToInt32(count.ToString());
-
-            //    Label lblDocType = new Label();
-            //    lblDocType.Text = "Document Type";
-            //    lblDocType.ID = "Labeldoc" + Convert.ToString(count);
-            //    TextBox txtDocType = new TextBox();
-            //    txtDocType.ID = Convert.ToString(count);
-            //    txtDocType.Width = Unit.Percentage(100);
-            //    txtDocType.Enabled = false;
-            //    txtDocType.ReadOnly = true;
-            //    txtDocType.Text = ddlAddDoc.SelectedValue;
-
-
-            //    Label lblDocTitle = new Label();
-            //    lblDocTitle.Text = "Title";
-            //    TextBox tbDocTitle = new TextBox();
-            //    tbDocTitle.Width = Unit.Percentage(100);
-            //    tbDocTitle.Enabled = false;
-            //    tbDocTitle.Text = txtModDocTitle.Text;
-
-
-            //    Label lblDocDesc = new Label();
-            //    lblDocDesc.Text = "Description";
-            //    TextBox tbDocDesc = new TextBox();
-            //    tbDocDesc.Width = Unit.Percentage(100);
-            //    tbDocDesc.Rows = 5;
-            //    tbDocDesc.TextMode = TextBoxMode.MultiLine;
-            //    tbDocDesc.Enabled = false;
-            //    tbDocDesc.Text = TxtModDocDesc.Text;
-
-
-
-            //    pnlResearchDocument.Controls.Add(lblDocType);
-            //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-            //    pnlResearchDocument.Controls.Add(txtDocType);
-            //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-            //    pnlResearchDocument.Controls.Add(lblDocTitle);
-            //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-            //    pnlResearchDocument.Controls.Add(tbDocTitle);
-            //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-            //    pnlResearchDocument.Controls.Add(lblDocDesc);
-            //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-            //    pnlResearchDocument.Controls.Add(tbDocDesc);
-            //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-            //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-            ////int i;
-            ////for (i = 0; i < Total; i++)
-            ////{
-
-
-            //    Label lblDocType = new Label();
-            //    lblDocType.Text = "Document Type";
-            //    lblDocType.ID = "Labeldoc" + Convert.ToString(count);
-            //    TextBox txtDocType = new TextBox();
-            //    txtDocType.ID = Convert.ToString(count);
-            //    txtDocType.Width = Unit.Percentage(100);
-            //    txtDocType.Enabled = false;
-            //    txtDocType.ReadOnly = true;
-            //    txtDocType.Text = ddlAddDoc.SelectedValue;
-
-
-            //    Label lblDocTitle = new Label();
-            //    lblDocTitle.Text = "Title";
-            //    TextBox tbDocTitle = new TextBox();
-            //    tbDocTitle.Width = Unit.Percentage(100);
-            //    tbDocTitle.Enabled = false;
-            //    tbDocTitle.Text = txtModDocTitle.Text;
-
-
-            //    Label lblDocDesc = new Label();
-            //    lblDocDesc.Text = "Description";
-            //    TextBox tbDocDesc = new TextBox();
-            //    tbDocDesc.Width = Unit.Percentage(100);
-            //    tbDocDesc.Rows = 5;
-            //    tbDocDesc.TextMode = TextBoxMode.MultiLine;
-            //    tbDocDesc.Enabled = false;
-            //    tbDocDesc.Text = TxtModDocDesc.Text;
-            // }
-
-        }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             display(false);
         }
 
-        //protected void tbComment_TextChanged(object sender, EventArgs e)
-        //{
-        //    lblCharMax.Text = "Characters: " + tbComment.Text.Length.ToString() + "/500";
-        //}
-
-        //protected void btnModAdd_Click(object sender, EventArgs e)
-        //{
-        //    SqlProcedures urpSqlProcedures = new SqlProcedures();
-        //    urpSqlProcedures.InsertResearchDocuments(6, ddlAddDoc.SelectedValue, txtModDocTitle.Text, TxtModDocDesc.Text);
-
-
-        //    //click.buttonclick++;
-        //    //int count = click.buttonclick;
-        //    //int Total = Convert.ToInt32(count.ToString());
-
-        //    Panel pnlResearch = new Panel();
-        //    Label lblResearchType = new Label();
-        //    lblResearchType.Text = researchList[i].DocumentType + " - ";
-        //    Label lblResearchTitle = new Label();
-        //    lblResearchTitle.Text = researchList[i].DocumentTitle + " - ";
-        //    Label lblResearchDescription = new Label();
-        //    lblResearchDescription.Text = researchList[i].Description;
-
-        //    pnlResearch.Controls.Add(lblResearchTitle);
-        //    pnlResearch.Controls.Add(lblResearchType);
-        //    pnlResearch.Controls.Add(lblResearchDescription);
-
-        //    pnlResearchDocument.Controls.Add(pnlResearch);
-        //}
     }
 
-    //protected void btnAdd_Click(object sender, EventArgs e)
-    //{
-    //    display(false);
-    //}
-
-
-
-    //    pnlResearchDocument.Controls.Add(lblDocType);
-    //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-    //    pnlResearchDocument.Controls.Add(txtDocType);
-    //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-    //    pnlResearchDocument.Controls.Add(lblDocTitle);
-    //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-    //    pnlResearchDocument.Controls.Add(tbDocTitle);
-    //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-    //    pnlResearchDocument.Controls.Add(lblDocDesc);
-    //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-    //    pnlResearchDocument.Controls.Add(tbDocDesc);
-    //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-    //    pnlResearchDocument.Controls.Add(new LiteralControl("<br />"));
-
-
-    // }
 }
 

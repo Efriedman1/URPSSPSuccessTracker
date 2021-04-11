@@ -11,39 +11,7 @@
 
 
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#tabs').tabs();
-        });
 
-        $(function () {
-            $("#tabs").tabs({
-                activate: function() {
-                    var selectedTab = $('#tabs').tabs('option', 'active');
-                    $("#<%= hdnSelectedTab.ClientID %>").val(selectedTab);
-                },
-                active: document.getElementById('<%= hdnSelectedTab.ClientID %>').value
-            });
-        });
-
-      
-
-        ////TinyMCE WYSIWYG
-        //tinymce.init({
-        //selector: 'textarea#editor',
-        //menubar: false
-        //});
-
-        //tinymce.init({
-        //    selector: 'textarea',
-        //    toolbar_mode: 'floating',
-        //    tinycomments_mode: 'embedded',
-        //    tinycomments_author: 'Author name',
-        //    menubar: 'insert  table tools'  // skip file
-        //});
-
-
-    </script>
 
     <style>
         .repeater_scroll{
@@ -86,10 +54,11 @@
             <!--Section heading-->
 			<div class="row">
                 <div class="col-md-8">
-                    <h2 class="h2-responsive text-left my-4"><b>John Doe</b> 915112112 </h2>
+                    <h2 class="h2-responsive text-left my-4"><b>
+                        <asp:Label ID="lblStudentName" runat="server" Text="John Doe"></asp:Label></b> <asp:Label ID="lblStudentTUID" runat="server" Text="915112112"></asp:Label> </h2>
                 </div>
                 <div class="col-2 ">
-                    johndoe@temple.edu
+                    <asp:Label ID="lblStudentEmail" runat="server" Text="johndoe@temple.edu"></asp:Label>                  
                 </div>
             </div>
 
@@ -143,10 +112,6 @@
 
                     <!--Grid row-->
 
-                    <div class="col  btn-toolbar m-3" style="justify-content: center !important;"">
-                         <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
-                            <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
-                    </div>
 
 
                     <div class="row">
@@ -163,8 +128,8 @@
                         <!--Grid column-->
                         <div class="col-md-12">
                             <div class="md-form mb-0">
-                                <asp:Label ID="lblModDocDesc" runat="server" CssClass="control-label">Description:</asp:Label>
-                                <asp:TextBox ID="TxtModDocDesc" runat="server" CssClass="form-control input-lg" Width="100%" TextMode="MultiLine" Enabled="False" Rows="5"></asp:TextBox>
+                                <asp:Label ID="lblDesc" runat="server" CssClass="control-label">Description:</asp:Label>
+                                <asp:TextBox ID="TxtDesc" runat="server" CssClass="form-control input-lg" Width="100%" TextMode="MultiLine" Enabled="False" Rows="5"></asp:TextBox>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -215,46 +180,22 @@
                         </div>
                         <!--Grid column-->
 
+
                     </div>
+
+                    <div class="row">    
+                        <div class="col  btn-toolbar m-3" style="justify-content: center !important;"">
+                             <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" style="width:100px"/>
+                             <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" style="width:100px"/>
+                        </div>
+
+                    </div>
+
                     <!--Grid row-->
 
                     <br />
-
-                    <asp:Panel ID="pnlResearchDocument" runat="server">
-
-                        <%--                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <asp:Label ID="lblDocTitle" CssClass="control-label" runat="server" Text="Title"></asp:Label>
-                                    <asp:TextBox ID="txtDocTitle" CssClass="form-control input-lg" runat="server" Enabled="False"></asp:TextBox>
-                                </div>
-                            </div>
-                            <!--Grid column-->
-                        </div>
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <asp:Label ID="lblDocDescrip" CssClass="control-label" runat="server" Text="Journal Description"></asp:Label>
-                                    <asp:TextBox ID="txtDocDescrip" CssClass="textbox form-control input-lg" runat="server" Enabled="False" TextMode="MultiLine" Rows="5"></asp:TextBox>
-
-                                </div>
-                            </div>
-                            <!--Grid column-->
-                        </div>
-                        <!--Grid row-->--%>
-                    </asp:Panel>
-
-
-
-                    <div id="divTextBox" style="border-color: Background; border-width: thick;" runat="server"></div>
+              
                 </div>
-
-                <asp:HiddenField ID="hdnSelectedTab" runat="server" Value="0" />
-
-
                 
             </div>
                     
@@ -265,7 +206,6 @@
                 <div class="col-5 text-left h4">
                     <div class="titleBox">
                         <asp:Label ID="lblComments" runat="server" Text="Comments" class="mr-md-2" Font-Bold="True" Font-Size="X-Large"></asp:Label>
-                        <%-- <asp:Button ID="btnHome" runat="server" Text="Home" class="btn btn-outline-warning my-2 my-sm-0" />--%>
                     </div>
                     <div class="detailBox table_scroll">
                         <div class="actionBox">
@@ -289,7 +229,7 @@
                         <div class="form-group text-center">
                             <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn redbtn my-2 my-sm-0 btnSize" OnClick="btnComment_Click"  />
                         </div>
-                        <asp:Label runat="server" ID="lblCharMax" Text="Characters: 0/500"></asp:Label>
+                        
                         <asp:Label runat="server" ID="lblCommentError" Text=""></asp:Label>
                     </div>
 
@@ -310,8 +250,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                              <asp:Button id="btnEditJournal" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditJournal_Click"/>
-                              <asp:Button id="btnSaveJournal" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveJournal_Click"/>
+                              <asp:Button id="btnEditJournal" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditJournal_Click" style="width:100px"/>
+                              <asp:Button id="btnSaveJournal" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveJournal_Click" style="width:100px"/>
                               <br />
                               <p>
                                 
@@ -340,8 +280,8 @@
                     <legend class="scheduler-border">Conferences</legend>
                     <div class="row">
                         <div class="col-lg-12">
-                                  <asp:Button id="btnEditConference" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditConference_Click"/>
-                                  <asp:Button id="btnSaveConference" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveConference_Click" />
+                                  <asp:Button id="btnEditConference" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditConference_Click" style="width:100px"/>
+                                  <asp:Button id="btnSaveConference" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveConference_Click" style="width:100px"/>
                                   <br />
                                   <p>
                                     <asp:Repeater ID="RepeaterTabConference" runat="server">
@@ -372,8 +312,8 @@
                     <legend class="scheduler-border">Papers</legend>
                     <div class="row">
                         <div class="col-lg-12">
-                                  <asp:Button id="btnEditPaper" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditPaper_Click" />
-                                  <asp:Button id="btnSavePaper" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSavePaper_Click"/>
+                                  <asp:Button id="btnEditPaper" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditPaper_Click" style="width:100px" />
+                                  <asp:Button id="btnSavePaper" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSavePaper_Click" style="width:100px"/>
                                   <br />
                                   <p>
                                     <asp:Repeater ID="RepeaterTabPaper" runat="server">
@@ -399,8 +339,8 @@
                     <legend class="scheduler-border">Links</legend>
                     <div class="row">
                         <div class="col-lg-12">
-                                  <asp:Button id="btnEditLink" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditLink_Click" />
-                                  <asp:Button id="btnSaveLink" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveLink_Click"/>
+                                  <asp:Button id="btnEditLink" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditLink_Click" style="width:100px" />
+                                  <asp:Button id="btnSaveLink" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveLink_Click" style="width:100px"/>
                                   <br />
                                   <p>
                                     <asp:Repeater ID="RepeaterTabLink" runat="server">
@@ -424,125 +364,7 @@
             
 
 
-            
-
-
-
-
-
-
-                <%--<div class="row">
-                    <div class="col-lg-12" style="padding-bottom:50px">
-                        <div id="tabs" >
-                          <ul>
-                            <li>
-                                <a href="#tab-Journal">
-                                    Journal
-                                </a>
-                            </li>
-                             <li>
-                                 <a href="#tab-Conference">
-                                    Conference
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="#tab-Paper">
-                                    Paper
-                                 </a>
-                            </li>
-                             <li>
-                                 <a href="#tab-Link">
-                                    Link
-                                 </a>
-                            </li>
-
-                          </ul>
-                        
-                         
-                          
-
-                          <div id="tab-Journal" >
-                              <asp:Button id="btnEditJournal" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditJournal_Click"/>
-                              <asp:Button id="btnSaveJournal" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveJournal_Click"/>
-                              <br />
-                              <p>
-                                
-                                <asp:Repeater ID="RepeaterTabJournal" runat="server">
-                                   
-                                    <ItemTemplate>
-                                            <ContentTemplate>
-                                        <div id="tab_<%#Eval("ResearchID") %>" class="repeater_scroll">                                       
-                                          <td><%# ((string)Eval ("Journal")).Replace(Environment.NewLine, "<br />") %></td>
-                                        </div>
-                                            </ContentTemplate>
-                                    </ItemTemplate>
-                                </asp:Repeater>                                                                              
-                                <asp:Textbox id='txtEditJournal' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="8" CssClass="repeater_scroll">   
-                                </asp:Textbox>      
-                    
-                              </p>
-
-                          </div>
-
-                          <div id="tab-Conference" >
-                              <asp:Button id="btnEditConference" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditConference_Click"/>
-                              <asp:Button id="btnSaveConference" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveConference_Click" />
-                              <br />
-                              <p>
-                                <asp:Repeater ID="RepeaterTabConference" runat="server">
-                                <ItemTemplate>
-                                    <div id="tab_<%#Eval("ResearchID") %>" class="repeater_scroll">                                     
-                                        <td><%# ((string)Eval ("Conference")).Replace(Environment.NewLine, "<br />") %></td>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                                <asp:Textbox id='txtEditConference' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="8">
-    
-                                </asp:Textbox>  
-                              </p>  
-                          </div>
-
-
-                          <div id="tab-Paper">
-                              <asp:Button id="btnEditPaper" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditPaper_Click" />
-                              <asp:Button id="btnSavePaper" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSavePaper_Click"/>
-                              <br />
-                              <p>
-                                <asp:Repeater ID="RepeaterTabPaper" runat="server">
-                                    <ItemTemplate>
-                                        <div id="tab_<%#Eval("ResearchID") %>" class="repeater_scroll">                                        
-                                             <td><%# ((string)Eval ("Paper")).Replace(Environment.NewLine, "<br />") %></td>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                                <asp:Textbox id='txtEditPaper' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="8">
-    
-                                </asp:Textbox>  
-
-                              </p>  
-                          </div>
-
-                          <div id="tab-Link" >
-                              <asp:Button id="btnEditLink" runat="server" Text="Edit" CssClass="btn redbtn float-right" OnClick="btnEditLink_Click" />
-                              <asp:Button id="btnSaveLink" runat="server" Text="Save" CssClass="btn redbtn float-right" OnClick="btnSaveLink_Click"/>
-                              <br />
-                              <p>
-                                <asp:Repeater ID="RepeaterTabLink" runat="server">
-                                    <ItemTemplate>
-                                        <div id="tab_<%#Eval("ResearchID") %>" class="repeater_scroll">                                           
-                                             <td><%# ((string)Eval ("Link")).Replace(Environment.NewLine, "<br />") %></td>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                                <asp:Textbox id='txtEditLink' runat="server" BorderStyle="None" Width="100%" TextMode="MultiLine" Rows="8"> 
-                                </asp:Textbox>  
-                              </p>  
-                          </div>
-                        </div>
-                    </div>
-                    <!--Grid row-->
-                </div>--%>
-
+   
              
 
           

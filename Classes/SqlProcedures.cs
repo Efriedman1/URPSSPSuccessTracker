@@ -225,6 +225,18 @@ namespace URPSSPSuccessTracker.Classes
 
             return studentData;
         }
+
+        public DataSet LoadStudentInfo(int researchID)
+        {
+            SqlCommand studentCommand = new SqlCommand();
+            studentCommand.CommandType = CommandType.StoredProcedure;
+            studentCommand.CommandText = "LoadStudentInfo";
+            studentCommand.Parameters.AddWithValue("@ResearchID", researchID);
+            DataSet studentData = urpDB.GetDataSetUsingCmdObj(studentCommand);
+
+            return studentData;
+        }
+
         public DataSet GetAllStudents()
         {
             List<Student> studentList = new List<Student>();
@@ -283,6 +295,16 @@ namespace URPSSPSuccessTracker.Classes
             piCommand.CommandText = "LoadPITable";
             piCommand.Parameters.AddWithValue("@Semester", semester);
             piCommand.Parameters.AddWithValue("@Year", year);
+            DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
+            return piData;
+        }
+
+        public DataSet LoadPiInfo(int researchID)
+        {
+            SqlCommand piCommand = new SqlCommand();
+            piCommand.CommandType = CommandType.StoredProcedure;
+            piCommand.CommandText = "LoadPIinfo";
+            piCommand.Parameters.AddWithValue("@researchID", researchID);
             DataSet piData = urpDB.GetDataSetUsingCmdObj(piCommand);
             return piData;
         }
@@ -572,6 +594,17 @@ namespace URPSSPSuccessTracker.Classes
             return researchProject;
         }
 
+        public DataSet LoadResearchInfo(int researchID)
+        {
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "LoadResearchInfo";
+            researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
+
+            return researchData;
+        }
+
         //public ResearchProject(string researchTitle, string researchType, string researchDescription, string piTUID, string piDepartment, string studentTUID)
         //private string researchTitle;
         ////research type will be the same as the student's program
@@ -642,7 +675,7 @@ namespace URPSSPSuccessTracker.Classes
         //====================
 
         //get term id
-        public Boolean GetTermID(string semester, int year)
+        public int GetTermID(string semester, int year)
         {
             SqlCommand termCommand = new SqlCommand();
             termCommand.CommandType = CommandType.StoredProcedure;
@@ -650,7 +683,9 @@ namespace URPSSPSuccessTracker.Classes
             termCommand.Parameters.AddWithValue("@Semester", semester);
             termCommand.Parameters.AddWithValue("@Year", year);
 
-            return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
+            DataSet termID = urpDB.GetDataSetUsingCmdObj(termCommand);
+
+            return (int)termID.Tables[0].Rows[0][0];
         }
 
         public DataSet GetAllTerms()
@@ -689,6 +724,16 @@ namespace URPSSPSuccessTracker.Classes
             termCommand.CommandText = "ChangeTermStatus";
             termCommand.Parameters.AddWithValue("@TermID", termID);
 
+
+            return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
+        }
+
+        public Boolean ChangeCurrentTermTo(int termID)
+        {
+            SqlCommand termCommand = new SqlCommand();
+            termCommand.CommandType = CommandType.StoredProcedure;
+            termCommand.CommandText = "ChangeCurrentTerm";
+            termCommand.Parameters.AddWithValue("@TermID", termID);
 
             return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
         }

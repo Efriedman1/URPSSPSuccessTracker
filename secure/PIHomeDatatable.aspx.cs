@@ -115,7 +115,8 @@ namespace URPSSPSuccessTracker.secure
         {
             Button btn = (Button)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
-            int ResearchID = Convert.ToInt32(row.Cells[6].Text);
+            int researchID = Convert.ToInt32(row.Cells[6].Text);
+            Session["researchID"] = researchID;
             Response.Redirect("PIViewStudentResearch.aspx");
         }
     }

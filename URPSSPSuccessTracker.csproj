@@ -16,8 +16,7 @@
     <AssemblyName>URPSSPSuccessTracker</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>
-    </Use64BitIISExpress>
+    <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -266,6 +265,7 @@
     <Content Include="secure\StudentEnterResearch.aspx" />
     <Content Include="secure\StudentHomeDatatable.aspx" />
     <Content Include="secure\TempLogin.aspx" />
+    <Content Include="secure\UploadUsers.aspx" />
     <Content Include="UpgradeLog.htm" />
     <Content Include="secure\ViewStudentResearch.aspx" />
     <Content Include="packages\ExcelDataReader.3.6.0\.signature.p7s" />
@@ -481,6 +481,13 @@
     <Compile Include="secure\TempLogin.aspx.designer.cs">
       <DependentUpon>TempLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="secure\UploadUsers.aspx.cs">
+      <DependentUpon>UploadUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="secure\UploadUsers.aspx.designer.cs">
+      <DependentUpon>UploadUsers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="secure\ViewStudentResearch.aspx.cs">
       <DependentUpon>ViewStudentResearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -530,7 +537,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57744</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57899/</IISUrl>
+          <IISUrl>http://localhost:57799/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

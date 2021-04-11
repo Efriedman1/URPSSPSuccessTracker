@@ -12,10 +12,9 @@ using URPSSPSuccessTracker.Library;
 using URPSSPSuccessTracker.Classes;
 using Newtonsoft.Json;
 
-
-namespace URPSSPSuccessTracker
+namespace URPSSPSuccessTracker.secure
 {
-    public partial class AdminDownload : System.Web.UI.Page
+    public partial class UploadUsers : System.Web.UI.Page
     {
         //create a list of student objects created after calling web services
         List<Student> studentList;
@@ -27,7 +26,7 @@ namespace URPSSPSuccessTracker
             if (!IsPostBack)
             {
                 this.Master.SetNavBar((String)Session["UserType"]);
-               
+
             }
 
 
@@ -104,6 +103,11 @@ namespace URPSSPSuccessTracker
         }
         protected void btnUpload_Click(object sender, EventArgs e)
         {
+            string term = this.Master.GetTerm();
+            string semester = term.Split(' ')[0];
+            string year = term.Split(' ')[1];
+            int termID = sql.GetTermID(semester,Convert.ToInt32(year));
+
             //Check if the file is an xls file
             if (fileUploadTemplate.HasFile)
             {
@@ -139,13 +143,13 @@ namespace URPSSPSuccessTracker
                     foreach (DataRow dr in dt.Rows)
                     {
 
-                            string entry = dr[0].ToString() + "," + dr[1].ToString() + "," + dr[2].ToString() + "," + dr[3].ToString() + "," + dr[4].ToString() + "," + dr[5].ToString() + "," + dr[6].ToString();
-                            entryList.Add(entry);
-                        
+                        string entry = dr[0].ToString() + "," + dr[1].ToString() + "," + dr[2].ToString() + "," + dr[3].ToString() + "," + dr[4].ToString() + "," + dr[5].ToString() + "," + dr[6].ToString();
+                        entryList.Add(entry);
+
                     }
 
                     //now that I have each entry, go through each one and create a student, a PI, and a research project
-                    
+
                     for (int i = 1; i < entryList.Count; i++)
                     {
                         string[] entryArray = entryList[i].Split(',');
@@ -199,7 +203,7 @@ namespace URPSSPSuccessTracker
                         //Finally, add the the research project
                         //remember to come back and change the term id to the drop down value
                         sqlProcedures = new SqlProcedures();
-                        success = sqlProcedures.InsertResearchProject(researchProject, 1, "FALL", "2020");
+                        success = sqlProcedures.InsertResearchProject(researchProject, termID, semester, year);
 
                     }
 
@@ -208,7 +212,7 @@ namespace URPSSPSuccessTracker
                     lblError.Text = "Upload Successful";
                     lblError.Visible = true;
 
-                 
+
 
                 }
 
@@ -245,5 +249,67 @@ namespace URPSSPSuccessTracker
             HttpContext.Current.Response.Close();
 
         }
+
+        protected void btnSingleUpload_Click(object sender, EventArgs e)
+        {
+            if (isValid())
+            {
+
+            }
+        }
+
+        public bool isValid()
+        {
+            if (isNull(txtStudentTUID) && isValidTUID(txtStudentTUID))
+            {
+                return false;
+            }
+            else if (!isNull(txtPiTUID) && isValidTUID(txtPiTUID)) { return false; }
+            else if (isNull(txtStudentProgram)) { return false; }
+            else if (isNull(txtGradDate)) { return false; }
+            else if (isNull(txtPiDepartment)) { return false; }
+            else if (isNull(txtProjectTitle)) { return false; }
+
+            return true;
+        }
+
+        public bool isNull(TextBox textBox)
+        {
+            if (textBox.Text == "")
+            {
+                lblSingleError.ForeColor = System.Drawing.Color.Red;
+                lblSingleError.Text = "Must enter value for " + textBox.ID;
+                lblSingleError.Visible = true;
+                return true;
+            }
+            return false;
+        }
+
+        public bool isValidTUID(TextBox text)
+        {
+            WebService.LDAPuser Temple_Information = WebService.Webservice.getLDAPEntryByTUID(text.Text);
+
+            if (Temple_Information != null)
+            {
+                return true;
+            }
+
+            lblSingleError.ForeColor = System.Drawing.Color.Red;
+            lblSingleError.Text = "Must Enter Valid TUID";
+            lblSingleError.Visible = true;
+            return false;
+        }
+
+        public bool isDuplicate(TextBox textBox, TextBox textBox2)
+        {
+            if (textBox.Text == textBox2.Text)
+            {
+                lblSingleError.ForeColor = System.Drawing.Color.Red;
+                lblSingleError.Text = "Must enter different TUIDs for Student and Principal Investigator";
+                return true;
+            }
+            return false;
+        }
+
     }
 }

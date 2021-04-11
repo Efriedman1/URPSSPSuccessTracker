@@ -8,16 +8,55 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">    
+    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+
     
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">    
+
+
     <script>
+        $(document).ready(function () {
+            var adminsTable = $('#<%= gvAdministrators.ClientID %>').DataTable(
+                {
+                autoWidth: false,                
+                columnDefs: [
+                    { orderable: false, targets: -1 }
+                ]
+                }
+            );
+            var termsTable = $('#<%= gvTerms.ClientID %>').DataTable({
+                autoWidth: false,                
+                columnDefs: [
+                    { orderable: false, targets: -1 },
+                    { orderable: false, targets: -2 }
+                ]
+            });
+        });
+        
+        function redraw() {            
+            var adminsTable = $('#<%= gvAdministrators.ClientID %>').DataTable();
+            adminsTable.ajax.draw();
+            adminsTable.draw();
+            
+            var termsTable = $('#<%= gvTerms.ClientID %>').DataTable();
+            termsTable.ajax.draw();
+            termsTable.draw();
+        };        
+
         function ShowPopup() {
             $("#modal1").modal("show");
-        }
+        };
     </script>
-    
+   
     <div class="" style="margin-top: 2%">
         <div class="page-header">
             <h2>Admin Management</h2>
@@ -35,17 +74,18 @@
     <div class="">
         <h3 class="mt-3">Manage Admin Users</h3>
         <div class="row">
-            <div class="col-4">
-                <div class="col-sm-10 " style="margin-top: 3px">
-                    <asp:Label ID="Label1" runat="server" CssClass="col-form-label">TUID</asp:Label>
-                    <asp:TextBox ID="txtTUID" runat="server" CssClass="form-control mb-2 col-8" placeholder="" BackColor="#FAFAFA"></asp:TextBox>
+            <div class="col-lg-3">
+                <div class="row col-8" style="margin-top: 3px">
+                    <asp:Label ID="Label1" runat="server" CssClass="col-form-label ">TUID</asp:Label>
+                    <asp:TextBox ID="txtTUID" runat="server" CssClass="form-control mb-2 " placeholder="" BackColor="#FAFAFA"></asp:TextBox>
                 </div>
-                <div class="col-sm-10 " style="margin-top: 3px">
+
+                <div class="row" style="margin-top: 3px">
                     <asp:Label Text="No user found." runat="server" CssClass="text-danger" Visible="false" ID="lblNoUser"/>
                 </div>
 
-                <div class="col-sm-12 col-sm-12">
-                    <asp:Button ID="AddAdminModal" runat="server" Text="Add New Admin" CssClass="button redbtn" data-toggle="modal" data-target="#modal" OnClick="AddAdminModal_Click" />
+                <div class="row col-8 mb-5">
+                    <asp:Button ID="AddAdminModal" runat="server" Text="Add New Admin" CssClass="button redbtn " data-toggle="modal" data-target="#modal" OnClick="AddAdminModal_Click" />
                     <div class="modal fade" id="modal1" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -71,20 +111,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
-                <div class="col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="col-12 col-sm-12 col-lg-12 col-lg-12" style="margin-top: 2%;">
-                        <asp:GridView runat="server" ID="gvAdministrators" DataKeyNames="TUID" AutoGenerateColumns="false" OnRowCommand="gvAdministrators_RowCommand" CssClass="table table-borderless text-center table-striped" BorderStyle="None" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="X-Large" Font-Size="X-Large">
+            <div class="col-lg-9">
+                        <asp:GridView runat="server" ID="gvAdministrators" OnRowDataBound="gvAdministrators_RowDataBound" DataKeyNames="TUID" AutoGenerateColumns="false" OnRowCommand="gvAdministrators_RowCommand" CssClass="table text-center table-striped table-borderless" BorderStyle="None" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White" >
                             <Columns>
                                 <asp:BoundField DataField="TUID" HeaderText="TUID"/>
                                 <asp:BoundField DataField="FirstName" HeaderText="FirstName" />
                                 <asp:BoundField DataField="LastName" HeaderText="LastName" />
                                 <asp:BoundField DataField="Email" HeaderText="Email" />             
-                                <asp:BoundField DataField="Active" HeaderText="Active" />             
+                                <asp:BoundField DataField="Active" HeaderText="Status" />             
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <div class="dropdown" >
-                                            <button id="dropdownbutton" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Actions</button>
+                                            <button id="dropdownbutton" type="button" class="btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Actions</button>
                                             <div class="dropdown-menu">
                                             <asp:Button Text="Change Status" runat="server" CommandName="EditAdmin" CssClass="dropdown-item"/>
                                             <asp:Button Text="Delete" runat="server" CommandName="DeleteAdmin" CssClass="dropdown-item"/>
@@ -94,10 +132,8 @@
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
-                    </div>
 
 
-                </div>
 
                 <%--            ~~~Dropdown Button Style~~~--%>
                 <style>
@@ -105,57 +141,66 @@
                         color: white;
                         background-color: #91182A;
                     }
+
                 </style>
             </div>
         </div>
     </div>
 
+    <br />
+    <hr />
 
     <div class="">
         <h3 class="mt-4">Manage Terms</h3>        
         <div class="row mt-5">
-            <div class="col">
-                <div class="row col-6">
-                    <div class="col">
-                        <label>
+            <div class="col-lg-3">
+                <div class="row col-8">
+                        <label >
                             Term
                         </label>
-                        <asp:DropDownList ID="ddlSemester" runat="server" CssClass="form-control">
+                        <asp:DropDownList ID="ddlSemester" runat="server" CssClass="form-control col-8">
                             <asp:ListItem>SPRING</asp:ListItem>
                             <asp:ListItem>FALL</asp:ListItem>
                         </asp:DropDownList>
-                    </div>
-                    <div class="col">
+                                     
+                </div>
+                <div class="row col-8">
                         <label>
                             Year
                         </label>
-                        <asp:TextBox ID="txtYear" runat="server" CssClass="form-control" MaxLength="4" placeholder="YYYY">
+                        <asp:TextBox ID="txtYear" runat="server" CssClass="form-control col-8" MaxLength="4" placeholder="YYYY">
 
                         </asp:TextBox>
-                    </div>
                 </div>
-                <div class="col-sm-12 mt-2">
-                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="button redbtn btn-lg"  OnClick="btnCreateTerm_Click" />
+                <div class="row col-8 mb-5">
+                    <asp:Button runat="server" ID="btnCreateTerm" Text="Create Term" CssClass="button redbtn mt-3 "  OnClick="btnCreateTerm_Click" />
+                            
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-lg-9">
                 
-                <div class="col-12 col-sm-12 col-lg-12 col-lg-12" style="margin-top: 2%; margin-bottom:10%">            
-                <asp:GridView runat="server" ID="gvTerms" DataKeyNames="TermID" AutoGenerateColumns="false" OnRowCommand="gvTerms_RowCommand" OnRowDeleting="gvTerms_RowDeleting" CssClass="table table-borderless text-center table-striped" BorderStyle="None" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="X-Large" Font-Size="X-Large">
+                <div class="col">            
+                <asp:GridView runat="server" ID="gvTerms" OnRowDataBound="gvTerms_RowDataBound" DataKeyNames="TermID" AutoGenerateColumns="false" OnRowCommand="gvTerms_RowCommand" CssClass="table text-center table-striped table-borderless" BorderStyle="None" HeaderStyle-BackColor="#91182a" HeaderStyle-ForeColor="White" >
                     <Columns>
                         <asp:BoundField DataField="TermID" HeaderText="TermID" Visible="false"/>
-                        <asp:BoundField DataField="Semester" HeaderText="Term" />
-                        <asp:BoundField DataField="Year" HeaderText="Year" />
-                        <asp:BoundField DataField="Status" HeaderText="Status" />        
-                        <asp:TemplateField>
+                        <asp:BoundField  DataField="Semester" HeaderText="Term" />
+                        <asp:BoundField    DataField="Year" HeaderText="Year" />
+                        <asp:BoundField   DataField="Status" HeaderText="Status" />        
+                        <asp:TemplateField >
                             <ItemTemplate>
-                                <asp:Button Text="Change Status" runat="server" CssClass="btn btn-primary" CommandName="EditStatus"/>
+                                <asp:Button Text="Change Status" runat="server" CssClass="btn-sm btn-primary" CommandName="EditStatus"/>
+                                   
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <%--<asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn redbtn"/>--%>
+                        <asp:TemplateField  >
+                            <ItemTemplate>
+                                <asp:Button Text="Set as Current" runat="server" CommandName="ChangeToCurrent" CssClass="btn-sm btn-primary"/>                                   
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <%--<asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" ControlStyle-CssClass="btn btn-primary"/>--%>
                     </Columns>
                 </asp:GridView>
-        </div>
+                </div>
             </div>
         </div>
 
