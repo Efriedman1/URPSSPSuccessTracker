@@ -222,8 +222,8 @@
 
                     </div>
 
-                    <div class="col-12 form-group" >
-                        <asp:TextBox ID="tbComment" runat="server" class="form-control" TextMode="MultiLine" Rows="5" MaxLength="500"></asp:TextBox>
+                    <div class="col-12 form-group" style="width:100%;" >
+                        <asp:TextBox ID="tbComment" runat="server" class="form-control" TextMode="MultiLine" Rows="5" MaxLength="500" CssClass="mb-3 w-100 p-3"></asp:TextBox>
                    
 
                         <div class="form-group text-center">
