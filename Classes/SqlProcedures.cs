@@ -675,7 +675,7 @@ namespace URPSSPSuccessTracker.Classes
         //====================
 
         //get term id
-        public Boolean GetTermID(string semester, int year)
+        public int GetTermID(string semester, int year)
         {
             SqlCommand termCommand = new SqlCommand();
             termCommand.CommandType = CommandType.StoredProcedure;
@@ -683,7 +683,9 @@ namespace URPSSPSuccessTracker.Classes
             termCommand.Parameters.AddWithValue("@Semester", semester);
             termCommand.Parameters.AddWithValue("@Year", year);
 
-            return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
+            DataSet termID = urpDB.GetDataSetUsingCmdObj(termCommand);
+
+            return (int)termID.Tables[0].Rows[0][0];
         }
 
         public DataSet GetAllTerms()
