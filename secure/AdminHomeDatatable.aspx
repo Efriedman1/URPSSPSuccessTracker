@@ -21,8 +21,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="https://hr.oop.cmu.ac.th/data/appointment/js/DataTable/media/js/jquery.dataTables.js"></script>
 
-
-
     <style>
         div.dataTables_wrapper {
             margin-bottom: 3em;
@@ -36,6 +34,12 @@
         th:last-child {
             color: white;
             pointer-events: none;
+        }
+
+        th:first-child{
+            color: white;
+            pointer-events: none;
+            visibility:hidden;
         }
 
         thead input {
@@ -61,7 +65,7 @@
             var table = $("[id*=gvPI]").DataTable({
                 dom: 'Bfrtip',
 
-                buttons: [
+                /*buttons: [
                     'selected',
                     'selectedSingle',
                     'selectAll',
@@ -69,7 +73,17 @@
                     'selectRows',
                     'selectColumns',
                     'selectCells'
-                ],
+                ],*/
+                columnDefs: [{
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets:0 
+                }],
+                select: {
+                    style: 'multi',
+                    selecetor: 'td:first-child'
+                },
+                order:[[1, 'asc']],
 
                 //"ajax": "studentArrays.txt",/*students*/
 
@@ -100,6 +114,8 @@
 
             });
 
+            //$('[id*=gvPI] tbody', this).removeClass('highlight');
+
             $('[id*=gvPI] thead tr').clone(true).appendTo('[id*=gvPI] thead');
             $('[id*=gvPI] thead tr:eq(1) th:not(:last-child)').each(function (i) {
                 var title = $(this).text();
@@ -125,7 +141,7 @@
             var table = $("[id*=gvStudents]").DataTable({
                 dom: 'Bfrtip',
 
-                buttons: [
+                /*buttons: [
                     'selected',
                     'selectedSingle',
                     'selectAll',
@@ -133,8 +149,17 @@
                     'selectRows',
                     'selectColumns',
                     'selectCells'
-                ],
-
+                */
+                columnDefs: [{
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets:0 
+                }],
+                select: {
+                    style: 'multi',
+                    selecetor: 'td:first-child'
+                },
+                order:[[1, 'asc']],
 
 
                 select: true,
@@ -165,8 +190,10 @@
 
             });
 
+            //$('[id*=gvStudents] tbody', this).removeClass('highlight');
+
             $('[id*=gvStudents] thead tr').clone(true).appendTo('[id*=gvStudents] thead');
-            $('[id*=gvStudents] thead tr:eq(1) th:not(:last-child)').each(function (i) {
+            $('[id*=gvStudents] thead tr:eq(1) th:not(:last-child) ').each(function (i) {
                 var title = $(this).text();
                 $(this).html('<input type="text" placeholder="Search ' + title + '" />');
 
@@ -264,6 +291,7 @@
         <asp:Panel ID="pnlStudents" runat="server">
             <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" OnRowDataBound="example_RowDataBound" OnRowCommand="gvStudents_RowCommand">
                 <Columns>
+                    <asp:CheckBoxField />
                     <asp:BoundField DataField="TUID" HeaderText="TUID" />
                     <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                     <asp:BoundField DataField="LastName" HeaderText="Last Name" />
@@ -280,6 +308,7 @@
         <asp:Panel ID="pnlPI" runat="server">
             <asp:GridView ID="gvPI"  OnRowDataBound="example_RowDataBound" runat="server" AutoGenerateColumns="False" OnRowCommand="gvPI_RowCommand">
                 <Columns>
+                    <asp:CheckBoxField />
                     <asp:BoundField DataField="TUID" HeaderText="TUID" />
                     <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                     <asp:BoundField DataField="LastName" HeaderText="Last Name" />
