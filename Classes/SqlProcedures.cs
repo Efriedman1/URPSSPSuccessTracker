@@ -728,6 +728,16 @@ namespace URPSSPSuccessTracker.Classes
             return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
         }
 
+        public Boolean ChangeCurrentTermTo(int termID)
+        {
+            SqlCommand termCommand = new SqlCommand();
+            termCommand.CommandType = CommandType.StoredProcedure;
+            termCommand.CommandText = "ChangeCurrentTerm";
+            termCommand.Parameters.AddWithValue("@TermID", termID);
+
+            return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
+        }
+
         public DataSet GetCurrentTerm()
         {
             SqlCommand termCommand = new SqlCommand();

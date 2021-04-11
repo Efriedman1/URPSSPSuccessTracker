@@ -38,7 +38,9 @@ namespace URPSSPSuccessTracker
             bool success = sqlProcedures.AddTerm(semester, year);
             if (success)
             {
+                getAdmins();
                 getTerms();
+                //ClientScript.RegisterStartupScript(this.GetType(), "redraw", "redraw();", true);
             }
 
         }
@@ -51,7 +53,7 @@ namespace URPSSPSuccessTracker
             gvTerms.DataSource = ds;
             gvTerms.DataBind();
         }
-
+        /*
         protected void gvTerms_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int termID = Convert.ToInt32(gvTerms.DataKeys[e.RowIndex].Value.ToString());
@@ -62,7 +64,7 @@ namespace URPSSPSuccessTracker
                 getTerms();
 
             }
-        }
+        }*/
 
         protected void AddAdminModal_Click(object sender, EventArgs e)
         {
@@ -97,7 +99,7 @@ namespace URPSSPSuccessTracker
                 string firstName = Temple_Information.givenName;
                 string lastName = Temple_Information.sn;
                 string email = Temple_Information.mail;
-                string active = "True";
+                string active = "Active";
 
                 administrator = new Administrator(tuID, firstName, lastName, email, active);
             }
@@ -119,7 +121,10 @@ namespace URPSSPSuccessTracker
             if (success)
             {
                 sqlProcedures.GiveAdminRole(tuID.ToString());
-                getAdmins();            
+                getAdmins();
+                getTerms();
+                //ClientScript.RegisterStartupScript(this.GetType(), "redraw", "redraw();", true);
+
             }
             lblNoUser.Visible = false;
             txtTUID.Text = "";
@@ -132,7 +137,7 @@ namespace URPSSPSuccessTracker
             gvAdministrators.DataSource = administrators;
             gvAdministrators.DataBind();
         }
-
+       /*
         protected void gvAdministrators_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int tuID = Convert.ToInt32(gvAdministrators.DataKeys[e.RowIndex].Value.ToString());
@@ -143,6 +148,7 @@ namespace URPSSPSuccessTracker
                 getAdmins();
             }
         }
+        */
         
         protected void gvAdministrators_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -157,6 +163,7 @@ namespace URPSSPSuccessTracker
                     if (success)
                     {
                         getAdmins();
+                        getTerms();
                     }
                     break;
                 case "EditAdmin":
@@ -164,6 +171,7 @@ namespace URPSSPSuccessTracker
                     if (success)
                     {
                         getAdmins();
+                        getTerms();
                     }
                     break;
             }
@@ -175,10 +183,51 @@ namespace URPSSPSuccessTracker
             int termID = Convert.ToInt32(gvTerms.DataKeys[row.RowIndex].Value.ToString());
             SqlProcedures sqlProcedures = new SqlProcedures();
             bool success = false;
-            success = sqlProcedures.ChangeTermStatus(termID);
-            if (success)
+            switch (e.CommandName)
             {
-                getTerms();
+                case "EditStatus":
+                    success = sqlProcedures.ChangeTermStatus(termID);
+                    if (success)
+                    {
+                        getTerms();
+                        getAdmins();
+                    }
+                    break;
+
+                case "ChangeToCurrent":
+                    success = sqlProcedures.ChangeCurrentTermTo(termID);
+                    if (success)
+                    {
+                        getTerms();
+                        getAdmins();
+                    }
+                    break;
+
+                case "DeleteTerm":
+                    success = sqlProcedures.DeleteTerm(termID);
+                    if (success)
+                    {
+                        getTerms();
+                    }
+                    break;
+            }
+        }
+
+        protected void gvAdministrators_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                //add the thead and tbody section programatically
+                e.Row.TableSection = TableRowSection.TableHeader;
+            }
+        }
+
+        protected void gvTerms_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                //add the thead and tbody section programatically
+                e.Row.TableSection = TableRowSection.TableHeader;
             }
         }
     }
