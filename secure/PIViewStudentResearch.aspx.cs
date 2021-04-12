@@ -22,7 +22,7 @@ namespace URPSSPSuccessTracker
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            populateCommentSection(false);
+            populateCommentSection(true);
 
             
             researchID = (int)Session["researchID"];
@@ -38,7 +38,7 @@ namespace URPSSPSuccessTracker
 
                 this.Master.SetNavBar((String)Session["UserType"]);
                 //Initial population of the comment section, newComment set to false because there is not a newly added comment to highlight
-                //populateCommentSection(false);
+                populateCommentSection(true);
                 populateResearch();
 
                 
@@ -78,8 +78,9 @@ namespace URPSSPSuccessTracker
             TxtDesc.Enabled = tf;
             txtType.Enabled = tf;
 
+            populateCommentSection(true);
 
-            populateCommentSection(false);
+
 
 
 
@@ -88,8 +89,20 @@ namespace URPSSPSuccessTracker
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+
+            string title = txtTitle.Text;
+            string description = TxtDesc.Text;
+            string researchMethod = ddlResearchMethod.SelectedValue;
+            string status = ddlStatus.SelectedValue;
+            string typeOfResearch = txtType.Text;
+            DateTime date = DateTime.Now;
+
+
+            urpSqlProcedures.UpdateResearchProject(researchID, title, description, researchMethod, status, typeOfResearch, date);
+
             display(false);
-           
+           this.populateResearch();
         }
 
         protected void btnComment_Click(object sender, EventArgs e)
@@ -234,7 +247,9 @@ namespace URPSSPSuccessTracker
 
             txtEditJournal.Text = Journal;
 
-            populateCommentSection(false);
+            display(false);
+
+
         }
         protected void btnSaveJournal_Click(object sender, EventArgs e)
         {
@@ -254,7 +269,10 @@ namespace URPSSPSuccessTracker
             urpSqlProcedures.UpdateJournal(researchID, journalinfo);
 
             this.populateResearch();
-            populateCommentSection(false);
+
+
+
+            display(false);
 
         }
 
@@ -275,6 +293,8 @@ namespace URPSSPSuccessTracker
 
             txtEditConference.Text = Conference;
 
+            display(false);
+
         }
 
         protected void btnSaveConference_Click(object sender, EventArgs e)
@@ -293,6 +313,9 @@ namespace URPSSPSuccessTracker
 
             urpSqlProcedures.UpdateConference(researchID, conferenceinfo);
             this.populateResearch();
+
+            display(false);
+
         }
 
         protected void btnEditPaper_Click(object sender, EventArgs e)
@@ -311,6 +334,9 @@ namespace URPSSPSuccessTracker
             string Paper = urpSqlProcedures.LoadResearchDocuments(researchID).Tables[0].Rows[0][2].ToString();
 
             txtEditPaper.Text = Paper;
+
+            display(false);
+
         }
 
         protected void btnSavePaper_Click(object sender, EventArgs e)
@@ -328,6 +354,9 @@ namespace URPSSPSuccessTracker
 
             urpSqlProcedures.UpdatePaper(researchID, paperinfo);
             this.populateResearch();
+
+            display(false);
+
         }
 
         protected void btnEditLink_Click(object sender, EventArgs e)
@@ -348,6 +377,9 @@ namespace URPSSPSuccessTracker
             string Link = urpSqlProcedures.LoadResearchDocuments(researchID).Tables[0].Rows[0][3].ToString();
 
             txtEditLink.Text = Link;
+
+            display(false);
+
         }
 
         protected void btnSaveLink_Click(object sender, EventArgs e)
@@ -367,6 +399,9 @@ namespace URPSSPSuccessTracker
 
             urpSqlProcedures.UpdateLink(researchID, Linkinfo);
             this.populateResearch();
+
+            display(false);
+
         }
 
 

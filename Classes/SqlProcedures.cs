@@ -619,18 +619,14 @@ namespace URPSSPSuccessTracker.Classes
         //private string researchJournals;
         //private string researchConferences;
 
-        public Boolean UpdateResearchProject(int researchID, int studentTUID, int piTUID, int termID, string title, string description, string link, string researchMethod, string status, string typeOfResearch, DateTime lastUpdate)
+        public Boolean UpdateResearchProject(int researchID, string title, string description, string researchMethod, string status, string typeOfResearch, DateTime lastUpdate)
         {
             SqlCommand researchCommand = new SqlCommand();
             researchCommand.CommandType = CommandType.StoredProcedure;
             researchCommand.CommandText = "UpdateResarchProject";
             researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
-            researchCommand.Parameters.AddWithValue("@StudentTUID", studentTUID);
-            researchCommand.Parameters.AddWithValue("@PITUID", piTUID);
-            researchCommand.Parameters.AddWithValue("@TermID", termID);
             researchCommand.Parameters.AddWithValue("@Title", title);
             researchCommand.Parameters.AddWithValue("@Description", description);
-            researchCommand.Parameters.AddWithValue("@Link", link);
             researchCommand.Parameters.AddWithValue("@ResarchMethod", researchMethod);
             researchCommand.Parameters.AddWithValue("@Status", status);
             researchCommand.Parameters.AddWithValue("@TypeOfResearch", typeOfResearch);
@@ -675,7 +671,7 @@ namespace URPSSPSuccessTracker.Classes
         //====================
 
         //get term id
-        public Boolean GetTermID(string semester, int year)
+        public int GetTermID(string semester, int year)
         {
             SqlCommand termCommand = new SqlCommand();
             termCommand.CommandType = CommandType.StoredProcedure;
@@ -683,7 +679,9 @@ namespace URPSSPSuccessTracker.Classes
             termCommand.Parameters.AddWithValue("@Semester", semester);
             termCommand.Parameters.AddWithValue("@Year", year);
 
-            return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
+            DataSet termID = urpDB.GetDataSetUsingCmdObj(termCommand);
+
+            return (int)termID.Tables[0].Rows[0][0];
         }
 
         public DataSet GetAllTerms()
@@ -722,6 +720,16 @@ namespace URPSSPSuccessTracker.Classes
             termCommand.CommandText = "ChangeTermStatus";
             termCommand.Parameters.AddWithValue("@TermID", termID);
 
+
+            return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
+        }
+
+        public Boolean ChangeCurrentTermTo(int termID)
+        {
+            SqlCommand termCommand = new SqlCommand();
+            termCommand.CommandType = CommandType.StoredProcedure;
+            termCommand.CommandText = "ChangeCurrentTerm";
+            termCommand.Parameters.AddWithValue("@TermID", termID);
 
             return urpDB.DoUpdateUsingCmdObj(termCommand) > 0;
         }
