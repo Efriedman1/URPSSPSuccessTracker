@@ -34,7 +34,6 @@ namespace URPSSPSuccessTracker
 //                     example.DataSource = studentData;
 //                     example.DataBind();
 //                 }
-
             }
             pnlPI.Visible = false;
             pnlStudents.Visible = true;
@@ -232,7 +231,9 @@ namespace URPSSPSuccessTracker
             {
                 int researchID = int.Parse(gvStudents.DataKeys[rowIndex].Value.ToString());
                 Session.Add("researchID", researchID);
-                Response.Redirect("PIViewStudentResearch.aspx");
+                System.Diagnostics.Debug.Print(gvStudents.Rows[rowIndex].Cells[0].Text);
+                Session.Add("StudentTUID", gvStudents.Rows[rowIndex].Cells[0].Text);
+                Response.Redirect("PIViewStudentResearch.aspx");               
             }
         }
 

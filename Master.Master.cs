@@ -143,6 +143,18 @@ namespace URPSSPSuccessTracker
                         DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
                 }
             }
+            else if(HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIViewStudentResearch.aspx"))
+            {
+                //If located on Student Home page, load all terms with research
+                string StudentTuid = Session["StudentTUID"].ToString();
+                System.Diagnostics.Debug.Print(StudentTuid);
+                DataSet data = procedures.GetTermByStudent(Session["StudentTUID"].ToString());
+                for (int i = 0; i < data.Tables[0].Rows.Count; i++)
+                {
+                    if (data.Tables[0].Rows[i][1].ToString() == "Active" || data.Tables[0].Rows[i][1].ToString() == "Current")
+                        DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
+                }
+            }
             else
             {            
                 //If located on any other page, load all terms
