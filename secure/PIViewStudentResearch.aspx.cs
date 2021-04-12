@@ -15,8 +15,8 @@ namespace URPSSPSuccessTracker
     {
         
         int researchID;
+        
 
-       
         string fullName = "Rose McGinnis";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -77,9 +77,10 @@ namespace URPSSPSuccessTracker
             txtTitle.Enabled = tf;
             TxtDesc.Enabled = tf;
             txtType.Enabled = tf;
-            
 
-           
+
+            populateCommentSection(false);
+
 
 
 
@@ -232,6 +233,8 @@ namespace URPSSPSuccessTracker
             string Journal = urpSqlProcedures.LoadResearchDocuments(researchID).Tables[0].Rows[0][0].ToString();
 
             txtEditJournal.Text = Journal;
+
+            populateCommentSection(false);
         }
         protected void btnSaveJournal_Click(object sender, EventArgs e)
         {
@@ -251,8 +254,8 @@ namespace URPSSPSuccessTracker
             urpSqlProcedures.UpdateJournal(researchID, journalinfo);
 
             this.populateResearch();
+            populateCommentSection(false);
 
-            
         }
 
         protected void btnEditConference_Click(object sender, EventArgs e)
