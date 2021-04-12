@@ -47,6 +47,9 @@
             padding: 3px;
             box-sizing: border-box;
         }
+        thead {
+            background-color: firebrick;
+        }
 
         body {
             padding: 1%;
