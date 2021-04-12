@@ -619,18 +619,14 @@ namespace URPSSPSuccessTracker.Classes
         //private string researchJournals;
         //private string researchConferences;
 
-        public Boolean UpdateResearchProject(int researchID, int studentTUID, int piTUID, int termID, string title, string description, string link, string researchMethod, string status, string typeOfResearch, DateTime lastUpdate)
+        public Boolean UpdateResearchProject(int researchID, string title, string description, string researchMethod, string status, string typeOfResearch, DateTime lastUpdate)
         {
             SqlCommand researchCommand = new SqlCommand();
             researchCommand.CommandType = CommandType.StoredProcedure;
             researchCommand.CommandText = "UpdateResarchProject";
             researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
-            researchCommand.Parameters.AddWithValue("@StudentTUID", studentTUID);
-            researchCommand.Parameters.AddWithValue("@PITUID", piTUID);
-            researchCommand.Parameters.AddWithValue("@TermID", termID);
             researchCommand.Parameters.AddWithValue("@Title", title);
             researchCommand.Parameters.AddWithValue("@Description", description);
-            researchCommand.Parameters.AddWithValue("@Link", link);
             researchCommand.Parameters.AddWithValue("@ResarchMethod", researchMethod);
             researchCommand.Parameters.AddWithValue("@Status", status);
             researchCommand.Parameters.AddWithValue("@TypeOfResearch", typeOfResearch);
