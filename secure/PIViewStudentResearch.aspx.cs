@@ -87,8 +87,20 @@ namespace URPSSPSuccessTracker
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            SqlProcedures urpSqlProcedures = new SqlProcedures();
+
+            string title = txtTitle.Text;
+            string description = TxtDesc.Text;
+            string researchMethod = ddlResearchMethod.SelectedValue;
+            string status = ddlStatus.SelectedValue;
+            string typeOfResearch = txtType.Text;
+            DateTime date = DateTime.Now;
+
+
+            urpSqlProcedures.UpdateResearchProject(researchID, title, description, researchMethod, status, typeOfResearch, date);
+
             display(false);
-           
+           this.populateResearch();
         }
 
         protected void btnComment_Click(object sender, EventArgs e)
