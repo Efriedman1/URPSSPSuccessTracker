@@ -252,9 +252,77 @@ namespace URPSSPSuccessTracker.secure
 
         protected void btnSingleUpload_Click(object sender, EventArgs e)
         {
-            if (isValid())
+            if (isValid() == true)
             {
+                string term = this.Master.GetTerm();
+                string semester = term.Split(' ')[0];
+                string year = term.Split(' ')[1];
+                int termID = sql.GetTermID(semester, Convert.ToInt32(year));
 
+                studentList = new List<Student>();
+                failedUploads = new List<string>();
+                Student student;
+                PrincipalInvestigator principalInvestigator;
+                ResearchProject researchProject;
+
+                //if the correct information is entered use it to upload for the selected term
+                string studentTUID = txtStudentTUID.Text;
+                string piTUID = txtPiTUID.Text;
+
+                //call webservices using the student tuid provided to get the student's information
+                WebService.StudentObj studentObj = WebService.Webservice.getStudentInfo(studentTUID);
+                //call webservices using the PI's tuid provided to get the PI's information
+                WebService.StudentObj piObj = WebService.Webservice.getStudentInfo(piTUID);
+
+                //get the other information needed from the tmplate
+                string program = txtStudentProgram.Text;
+                string department = txtPiDepartment.Text;
+                string gradDate = txtGradDate.Text;
+                string researchTitle = txtProjectTitle.Text;
+                string researchDescription = txtProjectDescription.Text;
+
+                //create a student object and add the object from web services and the program
+                student = new Student(studentObj, program, gradDate);
+
+                //create a principal investigator object  from the web service object and department
+                principalInvestigator = new PrincipalInvestigator(piObj, department);
+
+                //create a new research project
+                researchProject = new ResearchProject(researchTitle, program, researchDescription, piTUID, studentTUID);
+
+                //add the student, the PI, and the research project to the dtabase
+                //start with the student
+                SqlProcedures sqlProcedures = new SqlProcedures();
+                bool success = sqlProcedures.AddStudent(student);
+                //if the upload fails then add the attempted tuid to a list of failed uploads
+                if (success == false)
+                {
+                    failedUploads.Add(student.TUID);
+                }
+
+                //next add the principal investigator
+                sqlProcedures = new SqlProcedures();
+                success = sqlProcedures.AddPrincipalInvestigator(principalInvestigator);
+
+
+                //add the Users to the user table in order to allow them to sign in to the application
+                sqlProcedures = new SqlProcedures();
+                success = sqlProcedures.GiveStudentRole(student.TUID);
+
+                //add the PI User
+                sqlProcedures = new SqlProcedures();
+                success = sqlProcedures.GivePIRole(principalInvestigator.TUID);
+
+                //Finally, add the the research project
+                sqlProcedures = new SqlProcedures();
+                success = sqlProcedures.InsertResearchProject(researchProject, termID, semester, year);
+
+
+
+                //finally add the upload successful label
+                lblSingleError.ForeColor = System.Drawing.Color.Green;
+                lblSingleError.Text = "Upload Successful";
+                lblSingleError.Visible = true;
             }
         }
 
@@ -264,7 +332,8 @@ namespace URPSSPSuccessTracker.secure
             {
                 return false;
             }
-            else if (!isNull(txtPiTUID) && isValidTUID(txtPiTUID)) { return false; }
+            else if (!isNull(txtPiTUID) && !isValidTUID(txtPiTUID)) { return false; }
+            else if (isDuplicate(txtPiTUID, txtStudentTUID)) { return false; }
             else if (isNull(txtStudentProgram)) { return false; }
             else if (isNull(txtGradDate)) { return false; }
             else if (isNull(txtPiDepartment)) { return false; }
@@ -306,6 +375,7 @@ namespace URPSSPSuccessTracker.secure
             {
                 lblSingleError.ForeColor = System.Drawing.Color.Red;
                 lblSingleError.Text = "Must enter different TUIDs for Student and Principal Investigator";
+                lblSingleError.Visible = true;
                 return true;
             }
             return false;
