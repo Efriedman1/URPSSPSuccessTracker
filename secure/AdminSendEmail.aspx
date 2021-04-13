@@ -20,18 +20,18 @@
         
 
 
-      tinymce.init({
-        selector: 'textarea#editor',
-        menubar: false
-      });
+      //tinymce.init({
+      //  selector: 'textarea#editor',
+      //  menubar: false
+      //});
 
-        tinymce.init({
-            selector: 'textarea',
-            toolbar_mode: 'floating',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-            menubar: 'insert  table tools'  // skip file
-        });
+      //  tinymce.init({
+      //      selector: 'textarea',
+      //      toolbar_mode: 'floating',
+      //      tinycomments_mode: 'embedded',
+      //      tinycomments_author: 'Author name',
+      //      menubar: 'insert  table tools'  // skip file
+      //  });
     </script>
 
     <style>
