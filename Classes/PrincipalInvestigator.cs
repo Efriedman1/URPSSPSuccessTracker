@@ -24,12 +24,13 @@ namespace URPSSPSuccessTracker.Classes
 
         }
 
-        public PrincipalInvestigator(WebService.StudentObj studentObj, string department)
+        public PrincipalInvestigator(WebService.LDAPuser piObj, string department, string tuid)
         {
-            TUID = studentObj.tuid;
-            FirstName = studentObj.firstName;
-            LastName = studentObj.lastName;
-            Email = studentObj.email;
+
+            TUID = tuid;
+            FirstName = piObj.givenName;
+            LastName = piObj.sn;
+            Email = piObj.mail;
             Department = department;
             LastUpdate = DateTime.Now;
             
