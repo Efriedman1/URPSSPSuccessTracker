@@ -227,7 +227,7 @@
                    
 
                         <div class="form-group text-center">
-                            <asp:Button ID="btnComment" runat="server" Text="Add Comment" class="btn redbtn my-2 my-sm-0 btnSize" OnClick="btnComment_Click"  />
+                            <asp:Button ID="btnComment" runat="server" Text="Add Comment"  class="btn redbtn my-2 my-sm-0 btnSize" OnClick="btnComment_Click"  />
                         </div>
                         
                         <asp:Label runat="server" ID="lblCommentError" Text=""></asp:Label>
