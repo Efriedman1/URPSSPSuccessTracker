@@ -155,7 +155,7 @@ namespace URPSSPSuccessTracker
                         //call webservices using the student tuid provided to get the student's information
                         WebService.StudentObj studentObj = WebService.Webservice.getStudentInfo(studentTUID);
                         //call webservices using the PI's tuid provided to get the PI's information
-                        WebService.StudentObj piObj = WebService.Webservice.getStudentInfo(piTUID);
+                        WebService.LDAPuser piObj = WebService.Webservice.getLDAPEntryByTUID(piTUID);
 
                         //get the other information needed from the tmplate
                         string program = entryArray[1];
@@ -168,7 +168,7 @@ namespace URPSSPSuccessTracker
                         student = new Student(studentObj, program, gradDate);
 
                         //create a principal investigator object  from the web service object and department
-                        principalInvestigator = new PrincipalInvestigator(piObj, department);
+                        principalInvestigator = new PrincipalInvestigator(piObj, department, piTUID);
 
                         //create a new research project
                         researchProject = new ResearchProject(researchTitle, program, researchDescription, piTUID, studentTUID);
