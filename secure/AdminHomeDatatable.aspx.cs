@@ -231,8 +231,8 @@ namespace URPSSPSuccessTracker
             {
                 int researchID = int.Parse(gvStudents.DataKeys[rowIndex].Value.ToString());
                 Session.Add("researchID", researchID);
-                System.Diagnostics.Debug.Print(gvStudents.Rows[rowIndex].Cells[0].Text);
-                Session.Add("StudentTUID", gvStudents.Rows[rowIndex].Cells[0].Text);
+                System.Diagnostics.Debug.Print(gvStudents.Rows[rowIndex].Cells[1].Text);
+                Session.Add("StudentTUID", gvStudents.Rows[rowIndex].Cells[1].Text);
                 Response.Redirect("PIViewStudentResearch.aspx");               
             }
         }
