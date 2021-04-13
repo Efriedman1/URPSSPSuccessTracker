@@ -577,6 +577,20 @@ namespace URPSSPSuccessTracker.Classes
             return researchData;
         }
 
+        public DataSet LoadProjectsByTerm(string semester, string year)
+        {
+            //List<ResearchProject> researchList = new List<ResearchProject>();
+
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "LoadResearchProjectsByTerm";
+            researchCommand.Parameters.AddWithValue("@Semester", semester);
+            researchCommand.Parameters.AddWithValue("@Year", year);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
+
+            return researchData;
+        }
+
         public DataSet LoadResearchProjectsByPI(string tuid)
         {
             SqlCommand researchCommand = new SqlCommand();

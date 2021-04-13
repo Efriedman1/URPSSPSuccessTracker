@@ -28,7 +28,6 @@
 
         table {
             width: 80%;
-            table-layout: fixed;
         }
 
         th:last-child {
@@ -48,8 +47,14 @@
             box-sizing: border-box;
         }
         thead {
-            background-color: firebrick;
+            /*background-color: firebrick;*/
         }
+
+        thead tr:first-child {
+            background-color: #91182A;
+            color:white;
+        }
+        
 
         body {
             padding: 1%;
@@ -327,7 +332,7 @@
             <asp:Button class="btn" CssClass="button redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All" />
             <asp:Button class="btn" CssClass="button redbtn" ID="btnEmailChecked" OnClientClick="return SelectedEmailClick();" runat="server" Text="Email Selected" />
         </div>
-        <asp:Button class="btn" CssClass="button redbtn" ID="btnExport" runat="server" Text="Export" />
+        <asp:Button class="btn" CssClass="button redbtn" ID="btnExport" runat="server" Text="Export" OnClick="btnExport_Click" />
     </div>
 
 
