@@ -28,7 +28,6 @@
 
         table {
             width: 80%;
-            table-layout: fixed;
         }
 
         th:last-child {
@@ -48,8 +47,14 @@
             box-sizing: border-box;
         }
         thead {
-            background-color: firebrick;
+            /*background-color: firebrick;*/
         }
+
+        thead tr:first-child {
+            background-color: #91182A;
+            color:white;
+        }
+        
 
         body {
             padding: 1%;
