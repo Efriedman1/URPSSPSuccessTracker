@@ -248,6 +248,31 @@ namespace URPSSPSuccessTracker
                 Response.Redirect("PIViewStudentResearch.aspx");
             }
         }
+
+        protected void btnExport_Click(object sender, EventArgs e)
+        {
+            //Create an excel sheet using the cureently viewed term
+            //First get the selected term
+            string[] term = this.Master.GetTerm().Split(' ');
+
+            //check which term is currently visible in order to use the correct information\
+            //if the student panel is visible then, that means you are exporting the student info
+            if (pnlStudents.Visible == true)
+            {
+                //Next pull all the research projects for the selected term
+                DataSet projectInfo = procedures.LoadProjectsByTerm(term[0], term[1]);
+
+            }
+            //if the sudent panel isn't visible then the PI panel must be. So get theinformation for PIs
+            else
+            {
+
+            }
+            //create a spread sheet and fill in all the research from the dataset
+
+            //
+
+        }
     }
 
 }

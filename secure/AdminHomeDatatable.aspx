@@ -327,7 +327,7 @@
             <asp:Button class="btn" CssClass="button redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All" />
             <asp:Button class="btn" CssClass="button redbtn" ID="btnEmailChecked" OnClientClick="return SelectedEmailClick();" runat="server" Text="Email Selected" />
         </div>
-        <asp:Button class="btn" CssClass="button redbtn" ID="btnExport" runat="server" Text="Export" />
+        <asp:Button class="btn" CssClass="button redbtn" ID="btnExport" runat="server" Text="Export" OnClick="btnExport_Click" />
     </div>
 
 
