@@ -22,7 +22,11 @@ namespace URPSSPSuccessTracker
 
 
             }
-            employeeNumber = Convert.ToInt32(Session["employeeNumber"]);
+            if (Session["SSO_Attribute_employeeNumber"] != null)
+            {
+                employeeNumber = Convert.ToInt32(Session["SSO_Attribute_employeeNumber"]);
+            }
+            
             DataSet projectData = procedures.LoadResearchProjects(employeeNumber.ToString());
             gvStudent.DataSource = projectData;
             //add the research ID to the datakeys collection so that the correct

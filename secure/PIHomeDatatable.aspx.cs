@@ -20,7 +20,10 @@ namespace URPSSPSuccessTracker.secure
             {
   
             }
-            employeeNumber = Convert.ToInt32(Session["employeeNumber"]);
+            if (Session["SSO_Attribute_employeeNumber"] != null)
+            {
+                employeeNumber = Convert.ToInt32(Session["SSO_Attribute_employeeNumber"]);
+            }
             DataSet researchData = procedures.LoadResearchProjectsByPI(employeeNumber.ToString());
             gvPI.DataSource = researchData;
 
