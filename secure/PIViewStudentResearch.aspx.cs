@@ -438,6 +438,8 @@ namespace URPSSPSuccessTracker
             System.Diagnostics.Debug.Print(Master.GetTermID().ToString());
             string[] term = this.Master.GetTerm().Split(' ');
             Session["researchID"] = procedures.GetResearchIDFromTerm(Session["StudentTUID"].ToString(), term[0], Convert.ToInt32(term[1]));
+            Session["SelectedTermID"] = this.Master.GetTermID();
+            Response.Redirect("PIViewStudentResearch.aspx");
         }
 
     }

@@ -65,8 +65,7 @@
         
 
         body {
-            padding: 1%;
-            
+            padding: 1%;           
             
         }
     </style>
