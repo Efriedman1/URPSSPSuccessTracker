@@ -11,6 +11,8 @@ namespace URPSSPSuccessTracker.secure
 {
     public partial class PIHomeDatatable : System.Web.UI.Page
     {
+        int employeeNumber = 741258963;
+
         SqlProcedures procedures = new SqlProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,8 +20,16 @@ namespace URPSSPSuccessTracker.secure
             {
   
             }
-            DataSet researchData = procedures.LoadResearchProjectsByPI("741258963");
+            employeeNumber = Convert.ToInt32(Session["employeeNumber"]);
+            DataSet researchData = procedures.LoadResearchProjectsByPI(employeeNumber.ToString());
             gvPI.DataSource = researchData;
+
+            //add the research ID to the datakeys collection so that the correct
+            //research will be loaded on the view research page
+            string[] names = new string[1];
+            names[0] = "ResearchID";
+            gvPI.DataKeyNames = names;
+
             gvPI.DataBind();
             gvPI.Columns[6].Visible = false;
         }
@@ -36,7 +46,6 @@ namespace URPSSPSuccessTracker.secure
         {
 
             //get TUID from header after login
-            int employeeNumber;
             bool number = false;
 
             // check if running locally
@@ -119,13 +128,21 @@ namespace URPSSPSuccessTracker.secure
             }
         }
 
-        protected void btnView_Click(object sender, EventArgs e)
+        protected void gvPI_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
-            int researchID = Convert.ToInt32(row.Cells[6].Text);
-            //Session["researchID"] = researchID;
-            Response.Redirect("PIViewStudentResearch.aspx");
+
+            int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+            if (e.CommandName == "View")
+            {
+                int researchID = int.Parse(gvPI.DataKeys[rowIndex].Value.ToString());
+                DataSet researchData = procedures.LoadStudentInfo(researchID);
+
+                Session.Add("StudentTUID", researchData.Tables[0].Rows[0][1].ToString());
+                Session.Add("researchID", researchID);
+                Response.Redirect("PIViewStudentResearch.aspx");
+            }
+
         }
     }
 }

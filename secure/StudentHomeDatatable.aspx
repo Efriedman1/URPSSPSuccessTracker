@@ -37,6 +37,12 @@
 			box-sizing: border-box;
 		}
 
+        thead tr:first-child {
+            background-color: #91182A;
+            color:white;
+        }
+
+
 		body {
 			padding: 1%;
 		}
@@ -115,18 +121,14 @@
 		</div>
 	</div>
 	<div>
-		<asp:GridView ID="gvStudent" runat="server" OnRowDataBound="gvStudents_RowDataBound" AutoGenerateColumns="false" ClientIDMode="Static">
+		<asp:GridView ID="gvStudent" runat="server" OnRowDataBound="gvStudents_RowDataBound" AutoGenerateColumns="False" ClientIDMode="Static" OnRowCommand="gvStudent_RowCommand">
 			<Columns>
 				<asp:BoundField DataField="PrincipalInvestigator" />
 				<asp:BoundField DataField="Title" />
 				<asp:BoundField DataField="Term" />
 				<asp:BoundField DataField="LastUpdate" />
 				<asp:BoundField DataField="ResearchID" />
-				<asp:TemplateField>
-					<ItemTemplate>
-						<asp:Button ID="btnView" runat="server" Text="View" OnClick="btnView_Click"></asp:Button>
-					</ItemTemplate>
-				</asp:TemplateField>
+				<asp:ButtonField ButtonType="Button" CommandName="View" Text="View" />
 			</Columns>
 		</asp:GridView>		
 	</div>

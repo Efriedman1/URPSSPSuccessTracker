@@ -28,6 +28,11 @@
 			table-layout: fixed;
 		}
 
+        thead tr:first-child {
+            background-color: #91182A;
+            color:white;
+        }
+
 		th:last-child {
 			color: white;
 			pointer-events: none;
@@ -135,7 +140,7 @@
 		</div>
 	</div>
 	<div>
-		<asp:GridView ID="gvPI" runat="server" OnRowDataBound="gvPI_RowDataBound" AutoGenerateColumns="false" ClientIDMode="Static">
+		<asp:GridView ID="gvPI" runat="server" OnRowDataBound="gvPI_RowDataBound" AutoGenerateColumns="False" ClientIDMode="Static" OnRowCommand="gvPI_RowCommand">
 			<Columns>
 				<asp:BoundField DataField="FirstName" />
 				<asp:BoundField DataField="LastName" />
@@ -144,11 +149,7 @@
 				<asp:BoundField DataField="Program" />
 				<asp:BoundField DataField="Major" />
 				<asp:BoundField DataField="ResearchID" />
-				<asp:TemplateField>
-					<ItemTemplate>
-						<asp:Button ID="btnView" runat="server" Text="View" OnClick="btnView_Click"></asp:Button>
-					</ItemTemplate>
-				</asp:TemplateField>
+				<asp:ButtonField ButtonType="Button" CommandName="View" Text="View" />
 			</Columns>
 		</asp:GridView>
 	</div>
