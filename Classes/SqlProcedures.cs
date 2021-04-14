@@ -691,6 +691,17 @@ namespace URPSSPSuccessTracker.Classes
 
             return Convert.ToInt32(researchData.Tables[0].Rows[0][0]);
         }
+
+        public DataSet LoadResearchProjectsByTermID(int termID)
+        {
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "LoadResearchProjectsByTermID";
+            researchCommand.Parameters.AddWithValue("@TermID", termID);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
+
+            return researchData;
+        }
         //====================
         //Term
         //====================
@@ -787,5 +798,7 @@ namespace URPSSPSuccessTracker.Classes
 
             return urpDB.GetDataSetUsingCmdObj(termCommand);
         }
+
+
     }
 }

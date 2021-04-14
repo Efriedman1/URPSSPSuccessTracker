@@ -13,7 +13,8 @@ namespace URPSSPSuccessTracker.secure
         SqlProcedures procedures = new SqlProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvExport.DataSource = procedures.LoadResearchProjectsByTermID(Convert.ToInt32(Session["TermID"]));
+            gvExport.DataSource = procedures.LoadResearchProjectsByTermID(Convert.ToInt32(Session["SelectedTermID"]));
+            gvExport.DataBind();
         }
     }
 }
