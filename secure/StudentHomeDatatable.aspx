@@ -37,12 +37,6 @@
             box-sizing: border-box;
         }
 
-<<<<<<< HEAD
-        body {
-            padding: 1%;
-        }
-    </style>
-=======
         thead tr:first-child {
             background-color: #91182A;
             color:white;
@@ -53,7 +47,6 @@
 			padding: 1%;
 		}
 	</style>
->>>>>>> a5a3447f6e4a656cf64669dcfb77491e9e725621
 
     <script>
         $(document).ready(function () {
