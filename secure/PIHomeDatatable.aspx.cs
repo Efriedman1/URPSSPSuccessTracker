@@ -18,7 +18,10 @@ namespace URPSSPSuccessTracker.secure
             {
   
             }
-            PopulateDataTable();
+            DataSet researchData = procedures.LoadResearchProjectsByPI("741258963");
+            gvPI.DataSource = researchData;
+            gvPI.DataBind();
+            gvPI.Columns[6].Visible = false;
         }
 
         private void PopulateDataTable()
