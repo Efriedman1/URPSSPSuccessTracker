@@ -34,6 +34,14 @@ namespace URPSSPSuccessTracker.secure
             gvPI.Columns[6].Visible = false;
         }
 
+        private void PopulateDataTable()
+        {
+            DataSet researchData = procedures.LoadResearchProjectsByPI("741258963");
+            gvPI.DataSource = researchData;
+            gvPI.DataBind();
+            gvPI.Columns[6].Visible = false;
+        }
+
         public void validatePI()
         {
 
@@ -122,6 +130,7 @@ namespace URPSSPSuccessTracker.secure
 
         protected void gvPI_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+
             int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
 
             if (e.CommandName == "View")
@@ -133,6 +142,7 @@ namespace URPSSPSuccessTracker.secure
                 Session.Add("researchID", researchID);
                 Response.Redirect("PIViewStudentResearch.aspx");
             }
+
         }
     }
 }
