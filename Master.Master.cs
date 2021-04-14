@@ -128,10 +128,10 @@ namespace URPSSPSuccessTracker
 
         public void InitializeTermDropdown()
         {
-            if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/StudentHomeDataTable.aspx"))
+            if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/StudentHomeDatatable.aspx"))
             {
                 //If located on Student Home page, load all terms with research
-                string StudentTuid = Session["StudentTUID"].ToString();
+                string StudentTuid = Session["employeeNumber"].ToString();
                 System.Diagnostics.Debug.Print(StudentTuid);
                 DataSet data = procedures.GetTermByStudent(StudentTuid);
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
@@ -145,10 +145,10 @@ namespace URPSSPSuccessTracker
                     }
                 }
             }
-            else if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIHomeDataTable.aspx"))
+            else if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIHomeDatatable.aspx"))
             {
                 //If located on PI Home page, load all terms with research
-                DataSet data = procedures.GetTermByPI("915576335");
+                DataSet data = procedures.GetTermByPI(Session["employeeNumber"].ToString());
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
                     if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
