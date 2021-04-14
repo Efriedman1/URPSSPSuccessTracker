@@ -19,21 +19,20 @@ namespace URPSSPSuccessTracker
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {                
+            {
                 this.Master.SetNavBar((String)Session["UserType"]);
 
-                
+                procedures = new SqlProcedures();
+                //             if (!IsPostBack)
+                //             {
+                //                 this.Master.SetNavBar((String)Session["UserType"]);
+                //                 DataSet studentData = procedures.LoadStudents();
+                //                 if (studentData.Tables.Count > 0)
+                //                 {
+                //                     example.DataSource = studentData;
+                //                     example.DataBind();
+                //                 }
 
-             SqlProcedures procedures = new SqlProcedures();
-//             if (!IsPostBack)
-//             {
-//                 this.Master.SetNavBar((String)Session["UserType"]);
-//                 DataSet studentData = procedures.LoadStudents();
-//                 if (studentData.Tables.Count > 0)
-//                 {
-//                     example.DataSource = studentData;
-//                     example.DataBind();
-//                 }
             }
             pnlPI.Visible = false;
             pnlStudents.Visible = true;
@@ -70,9 +69,7 @@ namespace URPSSPSuccessTracker
                 string[] names = new string[1];
                 names[0] = "ResearchID";
                 gvStudents.DataKeyNames = names;
-
                 gvStudents.DataBind();
-
             }
             if (piData.Tables.Count > 0)
             {
@@ -163,11 +160,12 @@ namespace URPSSPSuccessTracker
                 }
             }
         }
-        
+
         //Event Handler that deals with changing the Master Page's term dropdown list
         private void Master_DdlChangeIndex(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.Print("Reached DdlChangedIndex in AdminHome");
+            Session["SelectedTermID"] = this.Master.GetTermID();
 
         }
 
@@ -231,9 +229,10 @@ namespace URPSSPSuccessTracker
             {
                 int researchID = int.Parse(gvStudents.DataKeys[rowIndex].Value.ToString());
                 Session.Add("researchID", researchID);
-                System.Diagnostics.Debug.Print(gvStudents.Rows[rowIndex].Cells[1].Text);
                 Session.Add("StudentTUID", gvStudents.Rows[rowIndex].Cells[1].Text);
-                Response.Redirect("PIViewStudentResearch.aspx");               
+                Session.Add("TermID", this.Master.GetTermID());
+                System.Diagnostics.Debug.Print(this.Master.GetTermID().ToString());
+                Response.Redirect("PIViewStudentResearch.aspx");
             }
         }
 
@@ -253,14 +252,14 @@ namespace URPSSPSuccessTracker
         {
             //Create an excel sheet using the cureently viewed term
             //First get the selected term
-            string[] term = this.Master.GetTerm().Split(' ');
-
+            //string[] term = this.Master.GetTerm().Split(' ');
             //check which term is currently visible in order to use the correct information\
             //if the student panel is visible then, that means you are exporting the student info
             if (pnlStudents.Visible == true)
             {
                 //Next pull all the research projects for the selected term
-                DataSet projectInfo = procedures.LoadProjectsByTerm(term[0], term[1]);
+                //DataSet projectInfo = procedures.LoadProjectsByTerm(term[0], term[1]);
+                Response.Redirect("ExportSample.aspx");
 
             }
             //if the sudent panel isn't visible then the PI panel must be. So get theinformation for PIs

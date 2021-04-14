@@ -14,6 +14,8 @@ namespace URPSSPSuccessTracker
 
     public partial class Master : System.Web.UI.MasterPage
     {
+        private string SelectedTermID;
+
         SqlProcedures procedures = new SqlProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,8 +29,11 @@ namespace URPSSPSuccessTracker
             {
                 lblUserName.Text = string.Empty;
             }
+
             if (!IsPostBack)
-                CheckPageRemoveTermDropdown();
+                //Session["SelectedTermID"] = null;
+
+            InitializeTermDropdown();
         }
 
         protected void Secure_My_Session()
@@ -121,49 +126,78 @@ namespace URPSSPSuccessTracker
             }
         }
 
-        public void CheckPageRemoveTermDropdown()
-        {            
-            if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/StudentHomeDataTable.aspx"))
-            {
-                //If located on PI Home page, load all terms with research
-                DataSet data = procedures.GetTermByStudent("123456789");
-                for (int i = 0; i < data.Tables[0].Rows.Count; i++)
-                {
-                    if (data.Tables[0].Rows[i][1].ToString() == "Active" || data.Tables[0].Rows[i][1].ToString() == "Current")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
-                }
-            }
-            else if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIHomeDataTable.aspx"))
+        public void InitializeTermDropdown()
+        {
+            if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/StudentHomeDatatable.aspx"))
             {
                 //If located on Student Home page, load all terms with research
-                DataSet data = procedures.GetTermByPI("915576335");
+                string StudentTuid = Session["employeeNumber"].ToString();
+                System.Diagnostics.Debug.Print(StudentTuid);
+                DataSet data = procedures.GetTermByStudent(StudentTuid);
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
-                    if (data.Tables[0].Rows[i][1].ToString() == "Active" || data.Tables[0].Rows[i][1].ToString() == "Current")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
+                    if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
+                    {
+                        ListItem newItem = new ListItem();
+                        newItem.Text = data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString();
+                        newItem.Value = data.Tables[0].Rows[i][0].ToString();
+                        DropDownList2.Items.Add(newItem);
+                    }
                 }
             }
-            else if(HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIViewStudentResearch.aspx"))
+            else if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIHomeDatatable.aspx"))
+            {
+                //If located on PI Home page, load all terms with research
+                DataSet data = procedures.GetTermByPI(Session["employeeNumber"].ToString());
+                for (int i = 0; i < data.Tables[0].Rows.Count; i++)
+                {
+                    if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
+                    {
+                        ListItem newItem = new ListItem();
+                        newItem.Text = data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString();
+                        newItem.Value = data.Tables[0].Rows[i][0].ToString();
+                        DropDownList2.Items.Add(newItem);
+                    }
+                }
+            }
+            else if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIViewStudentResearch.aspx"))
             {
                 //If located on Student Home page, load all terms with research
                 string StudentTuid = Session["StudentTUID"].ToString();
                 System.Diagnostics.Debug.Print(StudentTuid);
-                DataSet data = procedures.GetTermByStudent(Session["StudentTUID"].ToString());
+                DataSet data = procedures.GetTermByStudent(StudentTuid);
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
-                    if (data.Tables[0].Rows[i][1].ToString() == "Active" || data.Tables[0].Rows[i][1].ToString() == "Current")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
+                    if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
+                    {
+                        ListItem newItem = new ListItem();
+                        newItem.Text = data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString();
+                        newItem.Value = data.Tables[0].Rows[i][0].ToString();
+                        DropDownList2.Items.Add(newItem);
+                    }
                 }
+                SetSelectedTerm(Session["SelectedTermID"].ToString());
             }
             else
-            {            
+            {
                 //If located on any other page, load all terms
                 DataSet data = procedures.GetAllTerms();
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
                     if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString());
+                    {
+                        ListItem newItem = new ListItem();
+                        newItem.Text = data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString();
+                        newItem.Value = data.Tables[0].Rows[i][0].ToString();
+                        DropDownList2.Items.Add(newItem);
+                    }
                 }
+                if (!IsPostBack)
+                {
+                    DataSet currentTerm = procedures.GetCurrentTerm();
+                    Session["SelectedTermID"] = currentTerm.Tables[0].Rows[0][0].ToString();
+                }
+                SetSelectedTerm(Session["SelectedTermID"].ToString());
             }
 
             System.Diagnostics.Debug.Print(HttpContext.Current.Request.Url.AbsolutePath);
@@ -181,7 +215,17 @@ namespace URPSSPSuccessTracker
 
         public string GetTerm()
         {
-            return DropDownList2.SelectedValue;
+            return DropDownList2.SelectedItem.Text;
+        }
+
+        public int GetTermID()
+        {
+            return Convert.ToInt32(DropDownList2.SelectedItem.Value);
+        }
+
+        public void SetSelectedTerm(string termID)
+        {
+            DropDownList2.SelectedValue = termID;
         }
 
         protected void btnUploadUsers_Click(object sender, EventArgs e)

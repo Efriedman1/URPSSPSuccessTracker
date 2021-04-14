@@ -29,7 +29,7 @@
 
         table {
             width: 80%;
-
+            /*table-layout: fixed;*/
 
         }
 
