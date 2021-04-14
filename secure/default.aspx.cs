@@ -63,6 +63,8 @@ namespace URPSSPSuccessTracker.secure
             Session["SSO_Attribute_eduPersonPrincipalName"] = Request.Headers["eduPersonPrincipalName"];
             Session["SSO_Attribute_Unscoped_Affiliation"] = Request.Headers["unscopedaffiliation"];
             Session["SSO_Attribute_employeeNumber"] = employeeNumber;
+            //remove this later
+            Session["employeeNumber"] = employeeNumber;
             Session["HTTP_Request_Headers"] = RetrieveHTTPHeaders();
 
             return employeeNumber;
