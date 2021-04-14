@@ -154,6 +154,7 @@
     <Content Include="images\templeulogo.png" />
     <Content Include="images\urpssp.png" />
     <Content Include="secure\arrays.txt" />
+    <Content Include="secure\ExportSample.aspx" />
     <Content Include="secure\ManageTerm.aspx" />
     <Content Include="master.css" />
     <Content Include="packages\ExcelDataReader.3.6.0\lib\net20\ExcelDataReader.dll" />
@@ -394,6 +395,13 @@
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Library\WebService.cs" />
+    <Compile Include="secure\ExportSample.aspx.cs">
+      <DependentUpon>ExportSample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="secure\ExportSample.aspx.designer.cs">
+      <DependentUpon>ExportSample.aspx</DependentUpon>
+    </Compile>
     <Compile Include="secure\ManageTerm.aspx.cs">
       <DependentUpon>ManageTerm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

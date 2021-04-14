@@ -23,36 +23,51 @@
 
     <style>
         div.dataTables_wrapper {
-            margin-bottom: 3em;
+            margin-bottom: 3em;       
         }
+     
 
         table {
             width: 80%;
             /*table-layout: fixed;*/
+
         }
 
         th:last-child {
             color: white;
             pointer-events: none;
+        
         }
 
         th:first-child{
             color: white;
             pointer-events: none;
             visibility:hidden;
+       
         }
 
         thead input {
             width: 100%;
             padding: 3px;
             box-sizing: border-box;
+           
         }
+
         thead {
-            background-color: firebrick;
+            /*background-color: firebrick;*/
+
         }
+
+        thead tr:first-child {
+            background-color: #91182A;
+            color:white;
+        }
+        
 
         body {
             padding: 1%;
+            
+            
         }
     </style>
 
@@ -205,7 +220,8 @@
                         table
                             .column(i)
                             .search(this.value)
-                            .draw();
+                            .draw()
+                            
                     }
                 });
             });
@@ -294,7 +310,7 @@
         <asp:Panel ID="pnlStudents" runat="server">
             <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" OnRowDataBound="example_RowDataBound" OnRowCommand="gvStudents_RowCommand">
                 <Columns>
-                    <asp:CheckBoxField />
+                    <asp:CheckBoxField/>
                     <asp:BoundField DataField="TUID" HeaderText="TUID" />
                     <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                     <asp:BoundField DataField="LastName" HeaderText="Last Name" />
@@ -327,7 +343,7 @@
             <asp:Button class="btn" CssClass="button redbtn" ID="btnEmail" OnClick="btnEmail_Click" runat="server" Text="Email All" />
             <asp:Button class="btn" CssClass="button redbtn" ID="btnEmailChecked" OnClientClick="return SelectedEmailClick();" runat="server" Text="Email Selected" />
         </div>
-        <asp:Button class="btn" CssClass="button redbtn" ID="btnExport" runat="server" Text="Export" />
+        <asp:Button class="btn" CssClass="button redbtn" ID="btnExport" runat="server" Text="Export" OnClick="btnExport_Click" />
     </div>
 
 

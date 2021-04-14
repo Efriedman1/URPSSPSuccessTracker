@@ -31,7 +31,9 @@ namespace URPSSPSuccessTracker
             }
 
             if (!IsPostBack)
-                CheckPageRemoveTermDropdown();
+                //Session["SelectedTermID"] = null;
+
+            InitializeTermDropdown();
         }
 
         protected void Secure_My_Session()
@@ -124,8 +126,8 @@ namespace URPSSPSuccessTracker
             }
         }
 
-        public void CheckPageRemoveTermDropdown()
-        {            
+        public void InitializeTermDropdown()
+        {
             if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/StudentHomeDataTable.aspx"))
             {
                 //If located on Student Home page, load all terms with research
@@ -141,7 +143,7 @@ namespace URPSSPSuccessTracker
                         newItem.Value = data.Tables[0].Rows[i][0].ToString();
                         DropDownList2.Items.Add(newItem);
                     }
-                }            
+                }
             }
             else if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIHomeDataTable.aspx"))
             {
@@ -158,7 +160,7 @@ namespace URPSSPSuccessTracker
                     }
                 }
             }
-            else if(HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIViewStudentResearch.aspx"))
+            else if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIViewStudentResearch.aspx"))
             {
                 //If located on Student Home page, load all terms with research
                 string StudentTuid = Session["StudentTUID"].ToString();
@@ -174,9 +176,10 @@ namespace URPSSPSuccessTracker
                         DropDownList2.Items.Add(newItem);
                     }
                 }
+                SetSelectedTerm(Session["SelectedTermID"].ToString());
             }
             else
-            {            
+            {
                 //If located on any other page, load all terms
                 DataSet data = procedures.GetAllTerms();
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
@@ -186,9 +189,15 @@ namespace URPSSPSuccessTracker
                         ListItem newItem = new ListItem();
                         newItem.Text = data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString();
                         newItem.Value = data.Tables[0].Rows[i][0].ToString();
-                        DropDownList2.Items.Add(newItem);                        
+                        DropDownList2.Items.Add(newItem);
                     }
                 }
+                if (!IsPostBack)
+                {
+                    DataSet currentTerm = procedures.GetCurrentTerm();
+                    Session["SelectedTermID"] = currentTerm.Tables[0].Rows[0][0].ToString();
+                }
+                SetSelectedTerm(Session["SelectedTermID"].ToString());
             }
 
             System.Diagnostics.Debug.Print(HttpContext.Current.Request.Url.AbsolutePath);
@@ -236,7 +245,6 @@ namespace URPSSPSuccessTracker
 
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedTermID = DropDownList2.SelectedValue;
             if (contentCallEvent != null)
                 contentCallEvent(this, EventArgs.Empty);
         }

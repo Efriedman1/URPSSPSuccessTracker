@@ -15,8 +15,8 @@ namespace URPSSPSuccessTracker
     {
         
         int researchID;
+        
 
-       
         string fullName = "Rose McGinnis";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -35,8 +35,6 @@ namespace URPSSPSuccessTracker
             {              
 
                 this.Master.SetNavBar((String)Session["UserType"]);
-                this.Master.SetSelectedTerm(Session["TermID"].ToString());
-
 
                 //Initial population of the comment section, newComment set to false because there is not a newly added comment to highlight
                 populateCommentSection(false);
@@ -82,7 +80,9 @@ namespace URPSSPSuccessTracker
             txtTitle.Enabled = tf;
             TxtDesc.Enabled = tf;
             txtType.Enabled = tf;
+
             populateCommentSection(true);
+            
 
 
 
@@ -111,18 +111,27 @@ namespace URPSSPSuccessTracker
         {
             SqlProcedures urpSqlProcedures = new SqlProcedures();
             Validation validation = new Validation();
-            if (validation.ValidateChaMinMax(tbComment.Text, 1, 500))
+            if (validation.ValidateChaMinMax(tbComment.Text, 1, 500) && tbComment.Text != "")
             {
+
                 if (urpSqlProcedures.AddComments(researchID, fullName, tbComment.Text, DateTime.Now))
-                {                   
+                {                 
+                    tbComment.Text = " ";
                     //Populate the comment section and highlight the newly added comment
                     populateCommentSection(true);
-                    tbComment.Text = "";                    
+
+                    Response.Redirect("PIViewStudentResearch.aspx");
                 }
                 else
                 {
                     lblCommentError.Text = "Invalid Comment Length";
+                    
                 }
+            }
+            else
+            {
+                display(false);
+               
             }
         }
 
@@ -167,6 +176,8 @@ namespace URPSSPSuccessTracker
                 if (i == 0 && newComment)
                     li.Attributes.Add("class", "card p-1 bg-light");
                 upnlComments.ContentTemplateContainer.Controls.Add(li);
+
+               
             }
         }
 
@@ -247,7 +258,9 @@ namespace URPSSPSuccessTracker
             string Journal = urpSqlProcedures.LoadResearchDocuments(researchID).Tables[0].Rows[0][0].ToString();
 
             txtEditJournal.Text = Journal;
+
             display(false);
+
 
         }
         protected void btnSaveJournal_Click(object sender, EventArgs e)
@@ -269,7 +282,10 @@ namespace URPSSPSuccessTracker
 
             this.populateResearch();
 
+
+
             display(false);
+
         }
 
         protected void btnEditConference_Click(object sender, EventArgs e)
@@ -359,7 +375,7 @@ namespace URPSSPSuccessTracker
         {
             RepeaterTabLink.Visible = false;
             txtEditPaper.Visible = false;
-            btnEditPaper.Visible = false;
+            btnEditPaper.Visible = true;
             btnSavePaper.Visible = false;
             btnSaveLink.Visible = true;
             btnEditLink.Visible = false;
