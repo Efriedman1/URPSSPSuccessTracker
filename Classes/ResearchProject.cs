@@ -23,6 +23,7 @@ namespace URPSSPSuccessTracker.Classes
         private string researchConferences;
         private string links;
         private DateTime lastUpdate;
+        private ResearchDocument[] researchDocuments;
 
 
         public ResearchProject()

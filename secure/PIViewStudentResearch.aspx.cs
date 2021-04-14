@@ -21,11 +21,10 @@ namespace URPSSPSuccessTracker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            populateCommentSection(true);
-
-            
             researchID = (int)Session["researchID"];
+            populateCommentSection(false);
+            populateResearch();
+
             if (Session["Full_Name"] != null)
             {
                 fullName = (string)Session["Full_Name"];
@@ -33,15 +32,12 @@ namespace URPSSPSuccessTracker
 
 
             if (!IsPostBack)
-            {
-                
+            {              
 
                 this.Master.SetNavBar((String)Session["UserType"]);
-                //Initial population of the comment section, newComment set to false because there is not a newly added comment to highlight
-                populateCommentSection(true);
-                populateResearch();
 
-                
+                //Initial population of the comment section, newComment set to false because there is not a newly added comment to highlight
+                populateCommentSection(false);
 
                 txtEditJournal.Visible = false;
                 txtEditConference.Visible = false;
@@ -52,10 +48,16 @@ namespace URPSSPSuccessTracker
                 btnSaveConference.Visible = false;
                 btnSavePaper.Visible = false;
                 btnSaveLink.Visible = false;
-
-
-
             }
+            else
+            {
+                //If on a postback
+            }
+        }
+
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            this.Master.contentCallEvent += new EventHandler(Master_DdlChangeIndex);
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -63,9 +65,10 @@ namespace URPSSPSuccessTracker
             display(true);
         }
 
-        
+        protected void ReloadResearchTerm(int termID)
+        {
 
-
+        }
 
         public void display(Boolean tf)
         {
@@ -90,7 +93,6 @@ namespace URPSSPSuccessTracker
         protected void btnSave_Click(object sender, EventArgs e)
         {
             SqlProcedures urpSqlProcedures = new SqlProcedures();
-
             string title = txtTitle.Text;
             string description = TxtDesc.Text;
             string researchMethod = ddlResearchMethod.SelectedValue;
@@ -182,7 +184,6 @@ namespace URPSSPSuccessTracker
 
         protected void populateResearch()
         {
-
             SqlProcedures urpSqlProcedures = new SqlProcedures();
             List<ResearchDocument> researchList = urpSqlProcedures.GetProjectInfo(researchID);
 
@@ -410,9 +411,7 @@ namespace URPSSPSuccessTracker
 
             urpSqlProcedures.UpdateLink(researchID, Linkinfo);
             this.populateResearch();
-
             display(false);
-
         }
 
 
@@ -430,6 +429,15 @@ namespace URPSSPSuccessTracker
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             display(false);
+        }
+
+        private void Master_DdlChangeIndex(object sender, EventArgs e)
+        {
+            SqlProcedures procedures = new SqlProcedures();
+            System.Diagnostics.Debug.Print("Reached DdlChangedIndex in ViewResearch");
+            System.Diagnostics.Debug.Print(Master.GetTermID().ToString());
+            string[] term = this.Master.GetTerm().Split(' ');
+            Session["researchID"] = procedures.GetResearchIDFromTerm(Session["StudentTUID"].ToString(), term[0], Convert.ToInt32(term[1]));
         }
 
     }
