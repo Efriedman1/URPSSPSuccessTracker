@@ -30,7 +30,7 @@ namespace URPSSPSuccessTracker.secure
 
                 //dummy data for local 
                 Session["Local"] = "true";
-                employeeNumber = "123456789";
+                employeeNumber = "915594171";
                 Session["mail"] = "John.Doe@temple.edu";
                 Session["affiliation"] = "affiliation";
                 Session["eduPersonPrincipalName"] = "eduPersonPrincipalName";
