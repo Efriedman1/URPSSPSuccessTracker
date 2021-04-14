@@ -24,6 +24,14 @@ namespace URPSSPSuccessTracker.secure
             gvPI.Columns[6].Visible = false;
         }
 
+        private void PopulateDataTable()
+        {
+            DataSet researchData = procedures.LoadResearchProjectsByPI("741258963");
+            gvPI.DataSource = researchData;
+            gvPI.DataBind();
+            gvPI.Columns[6].Visible = false;
+        }
+
         public void validatePI()
         {
 
@@ -116,7 +124,7 @@ namespace URPSSPSuccessTracker.secure
             Button btn = (Button)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
             int researchID = Convert.ToInt32(row.Cells[6].Text);
-            Session["researchID"] = researchID;
+            //Session["researchID"] = researchID;
             Response.Redirect("PIViewStudentResearch.aspx");
         }
     }

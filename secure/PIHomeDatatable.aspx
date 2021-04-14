@@ -44,8 +44,6 @@
 		}
 	</style>
 
-
-
 	<script>
 		$(document).ready(function () {
 			var table = $('[id*=gvPI]').DataTable({
