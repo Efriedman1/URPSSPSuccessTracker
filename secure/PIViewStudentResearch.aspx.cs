@@ -81,8 +81,7 @@ namespace URPSSPSuccessTracker
             TxtDesc.Enabled = tf;
             txtType.Enabled = tf;
 
-            populateCommentSection(true);
-            
+            populateCommentSection(true);         
 
 
 
