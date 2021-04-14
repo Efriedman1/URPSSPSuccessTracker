@@ -14,6 +14,8 @@ namespace URPSSPSuccessTracker
 
     public partial class Master : System.Web.UI.MasterPage
     {
+        private string SelectedTermID;
+
         SqlProcedures procedures = new SqlProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +29,7 @@ namespace URPSSPSuccessTracker
             {
                 lblUserName.Text = string.Empty;
             }
+
             if (!IsPostBack)
                 CheckPageRemoveTermDropdown();
         }
@@ -233,6 +236,7 @@ namespace URPSSPSuccessTracker
 
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SelectedTermID = DropDownList2.SelectedValue;
             if (contentCallEvent != null)
                 contentCallEvent(this, EventArgs.Empty);
         }
