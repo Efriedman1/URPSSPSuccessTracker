@@ -37,10 +37,23 @@
             box-sizing: border-box;
         }
 
+<<<<<<< HEAD
         body {
             padding: 1%;
         }
     </style>
+=======
+        thead tr:first-child {
+            background-color: #91182A;
+            color:white;
+        }
+
+
+		body {
+			padding: 1%;
+		}
+	</style>
+>>>>>>> a5a3447f6e4a656cf64669dcfb77491e9e725621
 
     <script>
         $(document).ready(function () {
@@ -114,19 +127,15 @@
     </div>
     </div>
 	<div>
-        <asp:GridView ID="gvStudent" runat="server" OnRowDataBound="gvStudents_RowDataBound" AutoGenerateColumns="false" ClientIDMode="Static">
-            <Columns>
-                <asp:BoundField DataField="PrincipalInvestigator" />
-                <asp:BoundField DataField="Title" />
-                <asp:BoundField DataField="Term" />
-                <asp:BoundField DataField="LastUpdate" />
-                <asp:BoundField DataField="ResearchID" />
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:Button ID="btnView" runat="server" Text="View" OnClick="btnView_Click"></asp:Button>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-    </div>
+		<asp:GridView ID="gvStudent" runat="server" OnRowDataBound="gvStudents_RowDataBound" AutoGenerateColumns="False" ClientIDMode="Static" OnRowCommand="gvStudent_RowCommand">
+			<Columns>
+				<asp:BoundField DataField="PrincipalInvestigator" />
+				<asp:BoundField DataField="Title" />
+				<asp:BoundField DataField="Term" />
+				<asp:BoundField DataField="LastUpdate" />
+				<asp:BoundField DataField="ResearchID" />
+				<asp:ButtonField ButtonType="Button" CommandName="View" Text="View" />
+			</Columns>
+		</asp:GridView>		
+	</div>
 </asp:Content>

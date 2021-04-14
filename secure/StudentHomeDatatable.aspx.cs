@@ -11,17 +11,26 @@ namespace URPSSPSuccessTracker
 {
     public partial class StudentHomeDatatable : System.Web.UI.Page
     {
+        int employeeNumber = 741258963;
+
         SqlProcedures procedures = new SqlProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {                
-                bool local = Session["Local"].ToString() == "true";
+               // bool local = Session["Local"].ToString() == "true";
 
 
             }
-            DataSet projectData = procedures.LoadResearchProjects("915049699");
+            employeeNumber = Convert.ToInt32(Session["employeeNumber"]);
+            DataSet projectData = procedures.LoadResearchProjects(employeeNumber.ToString());
             gvStudent.DataSource = projectData;
+            //add the research ID to the datakeys collection so that the correct
+            //research will be loaded on the view research page
+            string[] names = new string[1];
+            names[0] = "ResearchID";
+            gvStudent.DataKeyNames = names;
+
             gvStudent.DataBind();
             gvStudent.Columns[4].Visible = false;
         }
@@ -29,7 +38,6 @@ namespace URPSSPSuccessTracker
         public void validateStudent()
         {
             //get TUID from header after login
-            int employeeNumber;
             bool number = false;
 
             // check if running locally
@@ -112,13 +120,17 @@ namespace URPSSPSuccessTracker
             }
         }
 
-        protected void btnView_Click(object sender, EventArgs e)
+        protected void gvStudent_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
-            int researchID = Convert.ToInt32(row.Cells[4].Text);
-            Session["researchID"] = researchID;
-            Response.Redirect("PIViewStudentResearch.aspx");
+            int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+            if (e.CommandName == "View")
+            {
+                int researchID = int.Parse(gvStudent.DataKeys[rowIndex].Value.ToString());
+                Session.Add("researchID", researchID);
+                Session.Add("StudentTUID",Session["employeeNumber"].ToString());
+                Response.Redirect("PIViewStudentResearch.aspx");
+            }
         }
     }
 }
