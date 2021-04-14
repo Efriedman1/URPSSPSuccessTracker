@@ -333,9 +333,6 @@
                     <asp:BoundField DataField="LastName" HeaderText="Last Name" />
                     <asp:BoundField DataField="Email" HeaderText="Email" />
                     <asp:BoundField DataField="Department" HeaderText="Department" />
-                    <asp:BoundField DataField="Title" HeaderText="Research Title" />
-                    <asp:BoundField DataField="LastUpdate" HeaderText="Last Update" />
-                    <asp:ButtonField ButtonType="Button" CommandName="View" Text="View" />
                 </Columns>
             </asp:GridView>
         </asp:Panel>
