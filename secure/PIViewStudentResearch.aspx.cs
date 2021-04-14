@@ -37,7 +37,7 @@ namespace URPSSPSuccessTracker
                 this.Master.SetNavBar((String)Session["UserType"]);
 
                 //Initial population of the comment section, newComment set to false because there is not a newly added comment to highlight
-                populateCommentSection(false);
+                //populateCommentSection(false);
 
                 txtEditJournal.Visible = false;
                 txtEditConference.Visible = false;
@@ -81,7 +81,7 @@ namespace URPSSPSuccessTracker
             TxtDesc.Enabled = tf;
             txtType.Enabled = tf;
 
-            populateCommentSection(true);
+           // populateCommentSection(true);
             
 
 
@@ -438,6 +438,8 @@ namespace URPSSPSuccessTracker
             System.Diagnostics.Debug.Print(Master.GetTermID().ToString());
             string[] term = this.Master.GetTerm().Split(' ');
             Session["researchID"] = procedures.GetResearchIDFromTerm(Session["StudentTUID"].ToString(), term[0], Convert.ToInt32(term[1]));
+            Session["SelectedTermID"] = this.Master.GetTermID();
+            Response.Redirect("PIViewStudentResearch.aspx");
         }
 
     }
