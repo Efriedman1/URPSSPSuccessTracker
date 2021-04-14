@@ -28,7 +28,7 @@
 
         table {
             width: 80%;
-            table-layout: fixed;
+            /*table-layout: fixed;*/
         }
 
         th:last-child {

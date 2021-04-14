@@ -20,11 +20,9 @@ namespace URPSSPSuccessTracker
         {
             if (!IsPostBack)
             {                
-                this.Master.SetNavBar((String)Session["UserType"]);
+                this.Master.SetNavBar((String)Session["UserType"]);       
 
-                
-
-             SqlProcedures procedures = new SqlProcedures();
+             procedures = new SqlProcedures();
 //             if (!IsPostBack)
 //             {
 //                 this.Master.SetNavBar((String)Session["UserType"]);
@@ -70,9 +68,7 @@ namespace URPSSPSuccessTracker
                 string[] names = new string[1];
                 names[0] = "ResearchID";
                 gvStudents.DataKeyNames = names;
-
                 gvStudents.DataBind();
-
             }
             if (piData.Tables.Count > 0)
             {
@@ -231,8 +227,9 @@ namespace URPSSPSuccessTracker
             {
                 int researchID = int.Parse(gvStudents.DataKeys[rowIndex].Value.ToString());
                 Session.Add("researchID", researchID);
-                System.Diagnostics.Debug.Print(gvStudents.Rows[rowIndex].Cells[1].Text);
                 Session.Add("StudentTUID", gvStudents.Rows[rowIndex].Cells[1].Text);
+                Session.Add("TermID", this.Master.GetTermID());
+                System.Diagnostics.Debug.Print(this.Master.GetTermID().ToString());
                 Response.Redirect("PIViewStudentResearch.aspx");               
             }
         }

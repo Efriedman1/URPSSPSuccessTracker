@@ -164,7 +164,6 @@ namespace URPSSPSuccessTracker.Classes
             studentCommand.Parameters.AddWithValue("@Major", student.Major);
             studentCommand.Parameters.AddWithValue("@GraduationDate", student.GradDate);
 
-
             return urpDB.DoUpdateUsingCmdObj(studentCommand) > 0;
         }
 
@@ -666,6 +665,18 @@ namespace URPSSPSuccessTracker.Classes
             return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
         }
 
+        public int GetResearchIDFromTerm(string tuid, string semester, int year)
+        {
+            SqlCommand researchCommand = new SqlCommand();
+            researchCommand.CommandType = CommandType.StoredProcedure;
+            researchCommand.CommandText = "GetResearchIDFromTerm";
+            researchCommand.Parameters.AddWithValue("@Year", year);
+            researchCommand.Parameters.AddWithValue("@Semester", semester);
+            researchCommand.Parameters.AddWithValue("@StudentTUID", tuid);
+            DataSet researchData = urpDB.GetDataSetUsingCmdObj(researchCommand);
+
+            return Convert.ToInt32(researchData.Tables[0].Rows[0][0]);
+        }
         //====================
         //Term
         //====================

@@ -125,22 +125,34 @@ namespace URPSSPSuccessTracker
         {            
             if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/StudentHomeDataTable.aspx"))
             {
-                //If located on PI Home page, load all terms with research
-                DataSet data = procedures.GetTermByStudent("123456789");
+                //If located on Student Home page, load all terms with research
+                string StudentTuid = Session["StudentTUID"].ToString();
+                System.Diagnostics.Debug.Print(StudentTuid);
+                DataSet data = procedures.GetTermByStudent(StudentTuid);
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
-                    if (data.Tables[0].Rows[i][1].ToString() == "Active" || data.Tables[0].Rows[i][1].ToString() == "Current")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
-                }
+                    if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
+                    {
+                        ListItem newItem = new ListItem();
+                        newItem.Text = data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString();
+                        newItem.Value = data.Tables[0].Rows[i][0].ToString();
+                        DropDownList2.Items.Add(newItem);
+                    }
+                }            
             }
             else if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIHomeDataTable.aspx"))
             {
-                //If located on Student Home page, load all terms with research
+                //If located on PI Home page, load all terms with research
                 DataSet data = procedures.GetTermByPI("915576335");
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
-                    if (data.Tables[0].Rows[i][1].ToString() == "Active" || data.Tables[0].Rows[i][1].ToString() == "Current")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
+                    if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
+                    {
+                        ListItem newItem = new ListItem();
+                        newItem.Text = data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString();
+                        newItem.Value = data.Tables[0].Rows[i][0].ToString();
+                        DropDownList2.Items.Add(newItem);
+                    }
                 }
             }
             else if(HttpContext.Current.Request.Url.AbsolutePath.EndsWith("/secure/PIViewStudentResearch.aspx"))
@@ -148,11 +160,16 @@ namespace URPSSPSuccessTracker
                 //If located on Student Home page, load all terms with research
                 string StudentTuid = Session["StudentTUID"].ToString();
                 System.Diagnostics.Debug.Print(StudentTuid);
-                DataSet data = procedures.GetTermByStudent(Session["StudentTUID"].ToString());
+                DataSet data = procedures.GetTermByStudent(StudentTuid);
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
-                    if (data.Tables[0].Rows[i][1].ToString() == "Active" || data.Tables[0].Rows[i][1].ToString() == "Current")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
+                    if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
+                    {
+                        ListItem newItem = new ListItem();
+                        newItem.Text = data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString();
+                        newItem.Value = data.Tables[0].Rows[i][0].ToString();
+                        DropDownList2.Items.Add(newItem);
+                    }
                 }
             }
             else
@@ -162,7 +179,12 @@ namespace URPSSPSuccessTracker
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
                     if (data.Tables[0].Rows[i][3].ToString() == "Active" || data.Tables[0].Rows[i][3].ToString() == "Current")
-                        DropDownList2.Items.Add(data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString());
+                    {
+                        ListItem newItem = new ListItem();
+                        newItem.Text = data.Tables[0].Rows[i][1].ToString() + " " + data.Tables[0].Rows[i][2].ToString();
+                        newItem.Value = data.Tables[0].Rows[i][0].ToString();
+                        DropDownList2.Items.Add(newItem);                        
+                    }
                 }
             }
 
@@ -181,7 +203,17 @@ namespace URPSSPSuccessTracker
 
         public string GetTerm()
         {
-            return DropDownList2.SelectedValue;
+            return DropDownList2.SelectedItem.Text;
+        }
+
+        public int GetTermID()
+        {
+            return Convert.ToInt32(DropDownList2.SelectedItem.Value);
+        }
+
+        public void SetSelectedTerm(string termID)
+        {
+            DropDownList2.SelectedValue = termID;
         }
 
         protected void btnUploadUsers_Click(object sender, EventArgs e)

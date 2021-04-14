@@ -9,10 +9,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="master.css" />
 
-
-
-
-
     <style>
         .repeater_scroll{
             overflow: auto;
