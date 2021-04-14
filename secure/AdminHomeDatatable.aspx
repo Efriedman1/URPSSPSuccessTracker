@@ -194,17 +194,15 @@
                 var count = selectedTuids.length;
                 var addFlag = true; //flag to check if we are adding or removing TUID
                 for (var i = 0; i < count; i++) {
-                    if (selectedTuids[i] == data[0]) {  //if TUID is already in array, aka if user is clicking an already selected user (deselecting), remove from array
+                    if (selectedTuids[i] == data[1]) {  //if TUID is already in array, aka if user is clicking an already selected user (deselecting), remove from array
                         selectedTuids.splice(i, 1);
                         addFlag = false;    //set flag to false to skip adding the TUID
                     }
                 }
                 if (addFlag) {  //if we are still adding, add the TUID
-                    selectedTuids.push(data[0]);
+                    selectedTuids.push(data[1]);
                 }
                 //alert(selectedTuids);
-
-
             });
 
             //$('[id*=gvStudents] tbody', this).removeClass('highlight');
@@ -332,9 +330,6 @@
                     <asp:BoundField DataField="LastName" HeaderText="Last Name" />
                     <asp:BoundField DataField="Email" HeaderText="Email" />
                     <asp:BoundField DataField="Department" HeaderText="Department" />
-                    <asp:BoundField DataField="Title" HeaderText="Research Title" />
-                    <asp:BoundField DataField="LastUpdate" HeaderText="Last Update" />
-                    <asp:ButtonField ButtonType="Button" CommandName="View" Text="View" />
                 </Columns>
             </asp:GridView>
         </asp:Panel>

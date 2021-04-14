@@ -37,7 +37,7 @@ namespace URPSSPSuccessTracker
                 this.Master.SetNavBar((String)Session["UserType"]);
 
                 //Initial population of the comment section, newComment set to false because there is not a newly added comment to highlight
-                populateCommentSection(false);
+                //populateCommentSection(false);
 
                 txtEditJournal.Visible = false;
                 txtEditConference.Visible = false;
@@ -80,10 +80,7 @@ namespace URPSSPSuccessTracker
             txtTitle.Enabled = tf;
             TxtDesc.Enabled = tf;
             txtType.Enabled = tf;
-
-            populateCommentSection(true);
-            
-
+           // populateCommentSection(true);          
 
 
 

@@ -111,7 +111,6 @@
 
 
                     <div class="row">
-
                         <!--Grid column-->
                         <div class="col-md-12">
                             <div class="md-form mb-0">
