@@ -34,7 +34,8 @@ namespace URPSSPSuccessTracker
             string[] names = new string[1];
             names[0] = "ResearchID";
             gvStudent.DataKeyNames = names;
-
+            Label9.Text = Session["SSO_Attribute_employeeNumber"].ToString();
+            Label4.Text = Session["SSO_Attribute_mail"].ToString();
             gvStudent.DataBind();
             gvStudent.Columns[4].Visible = false;
         }

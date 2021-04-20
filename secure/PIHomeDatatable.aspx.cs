@@ -32,7 +32,8 @@ namespace URPSSPSuccessTracker.secure
             string[] names = new string[1];
             names[0] = "ResearchID";
             gvPI.DataKeyNames = names;
-
+            Label9.Text = Session["SSO_Attribute_employeeNumber"].ToString();
+            Label4.Text = Session["SSO_Attribute_mail"].ToString();
             gvPI.DataBind();
             gvPI.Columns[6].Visible = false;
         }

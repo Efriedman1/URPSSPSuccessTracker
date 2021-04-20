@@ -43,9 +43,9 @@
 			box-sizing: border-box;
 		}
 
-		body {
+		/*body {
 			padding: 1%;
-		}
+		}*/
 	</style>
 
 	<script>
@@ -135,9 +135,6 @@
 		<div class="row text-center mt-3">
 			<div class="col-md-2"></div>
 			<div class="col-md-2 md-offset-">
-				<div class="d-flex justify-content-center mt-2">
-					<button type="button" class="btn redbtn p-2 mr-3 ml-3 mt-4" data-toggle="modal" data-target="#resultModal">Instructions</button>
-				</div>
 				<div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">

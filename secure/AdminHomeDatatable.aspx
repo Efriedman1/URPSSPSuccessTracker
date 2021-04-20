@@ -64,10 +64,10 @@
         }
         
 
-        body {
+        /*body {
             padding: 1%;           
             
-        }
+        }*/
     </style>
 
     <script type="text/javascript">
