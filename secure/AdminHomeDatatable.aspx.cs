@@ -16,6 +16,14 @@ namespace URPSSPSuccessTracker
         SqlProcedures procedures = new SqlProcedures();
         List<string> selectedTuids;
 
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
+            this.ViewStateUserKey = Session.SessionID;
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -244,7 +252,7 @@ namespace URPSSPSuccessTracker
             {
                 int researchID = int.Parse(gvStudents.DataKeys[rowIndex].Value.ToString());
                 Session.Add("researchID", researchID);
-                Response.Redirect("PIViewStudentResearch.aspx");
+                Response.Redirect("PIHomeDatatable.aspx");
             }
         }
 

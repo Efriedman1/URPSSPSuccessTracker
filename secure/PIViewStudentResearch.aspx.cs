@@ -19,6 +19,14 @@ namespace URPSSPSuccessTracker
 
         string fullName = "Rose McGinnis";
 
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
+            this.ViewStateUserKey = Session.SessionID;
+        }
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             researchID = (int)Session["researchID"];
