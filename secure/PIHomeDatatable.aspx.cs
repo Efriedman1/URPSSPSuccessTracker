@@ -14,8 +14,17 @@ namespace URPSSPSuccessTracker.secure
         int employeeNumber = 741258963;
 
         SqlProcedures procedures = new SqlProcedures();
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
+            this.ViewStateUserKey = Session.SessionID;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
             if (!IsPostBack)
             {
   
