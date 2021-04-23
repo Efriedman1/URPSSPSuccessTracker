@@ -13,13 +13,13 @@ namespace URPSSPSuccessTracker {
     public partial class AdminManageUsers {
         
         /// <summary>
-        /// lblInstructions control.
+        /// hidden control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInstructions;
+        protected global::System.Web.UI.WebControls.HiddenField hidden;
         
         /// <summary>
         /// Label1 control.
@@ -101,6 +101,15 @@ namespace URPSSPSuccessTracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvAdministrators;
+        
+        /// <summary>
+        /// HiddenField1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
         
         /// <summary>
         /// ddlSemester control.

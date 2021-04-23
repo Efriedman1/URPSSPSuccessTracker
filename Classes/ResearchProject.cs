@@ -17,6 +17,9 @@ namespace URPSSPSuccessTracker.Classes
         private int termID;
         private string piTUID;
         private string studentTUID;
+        private int researchID;
+        private string description;
+        private string typeOfResearch;
         private string researchMethod;
         private string researchPapers;
         private string researchJournals;
@@ -88,7 +91,28 @@ namespace URPSSPSuccessTracker.Classes
             set { links = value; }
         }
 
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
 
+        public string TypeOfResearch
+        {
+            get { return typeOfResearch; }
+            set { typeOfResearch = value; }
+        }
 
+        public string ResearchMethod
+        {
+            get { return researchMethod; }
+            set { researchMethod = value; }
+        }
+
+        public int ResearchID
+        {
+            get { return researchID; }
+            set { researchID = value; }
+        }
     }
 }

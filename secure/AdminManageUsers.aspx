@@ -62,17 +62,62 @@
             <h2>Admin Management</h2>
         </div>
 
-        <div class="row">
+<%--        <div class="row">
             <div class="col-sm-12 col-sm-12 col-md-6 col-lg-6">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Instructions</legend>
                     <asp:Label runat="server" ID="lblInstructions" Text="null"></asp:Label>
                 </fieldset>
             </div>
+        </div>--%>
+    </div>
+
+       
+
+
+
+
+    <div class="">
+ <!--Instruction Modal-->
+    <div class="d-flex justify-content-between" style="margin-top: 2%; margin-bottom:2%">
+        <div>
+            <h2>Manage Admin Users</h2>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="button infobtn" data-toggle="modal" data-target="#instructionsModal">Instructions</button>
+    </div>
+    <div>
+
+
+        <asp:HiddenField runat="server" ID="hidden" />
+        <!-- Modal -->
+        <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="instructionsModalLabel">Instructions</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>To add a new Admin, enter their TUID and click 'Add New Admin'. </li>
+                            
+                            <li>To change the status of an Admin, click 'Action' and click 'Change Status'. </li>
+                            
+                            <li>To delete an Admin, click 'Action' and click 'Delete'.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="">
-        <h3 class="mt-3">Manage Admin Users</h3>
+        <!--Instruction Modal-->
         <div class="row">
             <div class="col-lg-3">
                 <div class="row col-8" style="margin-top: 3px">
@@ -151,7 +196,53 @@
     <hr />
 
     <div class="">
-        <h3 class="mt-4">Manage Terms</h3>        
+         <!--Instruction Modal-->
+        <div class="d-flex justify-content-between" style="margin-top: 2%">
+            <div>
+                <h2>Manage Terms</h2>
+            </div>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="button infobtn" data-toggle="modal" data-target="#instructionsModal1">Instructions</button>
+        </div>
+        <div>
+
+
+            <asp:HiddenField runat="server" ID="HiddenField1" />
+            <!-- Modal -->
+            <div class="modal fade" id="instructionsModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="instructionsModalLabel1">Instructions</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                                <li>
+                                    To add a new term, enter the Term name and Year and click 'Create Term'.
+                                </li>
+                                <li>
+                                    To change status of a new term, click 'Change Status'.
+                                </li>
+                                <li>
+                                    To set a term as current term, click 'Set as Current'.
+                                </li>
+                            </ul>
+
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Instruction Modal-->  
+        
         <div class="row mt-5">
             <div class="col-lg-3">
                 <div class="row col-8">
