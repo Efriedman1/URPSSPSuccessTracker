@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PIViewStudentResearch.aspx.cs" Inherits="URPSSPSuccessTracker.PIViewResearch" MaintainScrollPositionOnPostBack="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PIViewStudentResearch.aspx.cs" Inherits="URPSSPSuccessTracker.PIViewResearch" MaintainScrollPositionOnPostBack="true" EnableViewState="true"%>
 
 <%@ MasterType VirtualPath="~/Master.Master" %>
 
@@ -40,6 +40,8 @@
             border-bottom: none;
         }
     </style>
+
+
 
     <div class="container-fluid">
         <!--Section: Contact v.2-->
@@ -111,20 +113,33 @@
 
 
                     <div class="row">
-                        <!--Grid column-->
-                        <div class="col-md-12">
-                            <div class="md-form mb-0">
-                                <asp:Label ID="lblTitle" CssClass="control-label" runat="server" Text="Title"></asp:Label>
-                                <asp:TextBox ID="txtTitle" CssClass="form-control input-lg" runat="server" Enabled="False">Medical Genetics and Molecular Biochemistry</asp:TextBox>
-                            </div>
-                        </div>
+                      
+
+
+                                <div class="col-md-12">
+                                    <div class="md-form mb-0">
+
+                                        <asp:Label ID="lblTitle" CssClass="control-label" runat="server" Text="Title"></asp:Label>
+                                        <asp:TextBox ID="txtTitle" CssClass="form-control input-lg" runat="server" Enabled="false"></asp:TextBox>
+                                       
+                                                 
+                                        </div>
+                                </div>
+
+
+
+
+                        
                         <!--Grid column-->
 
                         <!--Grid column-->
-                        <div class="col-md-12">
+
+                        <!--Grid column-->
+                       <div class="col-md-12">
                             <div class="md-form mb-0">
-                                <asp:Label ID="lblDesc" runat="server" CssClass="control-label">Description:</asp:Label>
-                                <asp:TextBox ID="TxtDesc" runat="server" CssClass="form-control input-lg" Width="100%" TextMode="MultiLine" Enabled="False" Rows="5"></asp:TextBox>
+                                <asp:Label ID="lblDesc" runat="server" CssClass="control-label">Description</asp:Label>
+                                <asp:TextBox ID="TxtDesc" runat="server" CssClass="form-control input-lg" Width="100%" TextMode="MultiLine" Rows="5" Enabled="false" CausesValidation="False"></asp:TextBox>
+                                
                             </div>
                         </div>
                         <!--Grid column-->
@@ -139,8 +154,8 @@
                         <!--Grid column-->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
-                                <asp:Label ID="lblType" CssClass="control-label" runat="server" Text="Resesarch Type"></asp:Label>
-                                <asp:TextBox ID="txtType" CssClass="form-control input-lg" runat="server" Enabled="False">URP</asp:TextBox>
+                                <asp:Label ID="lblType" CssClass="control-label" runat="server" Text="Research Type"></asp:Label>
+                                <asp:TextBox ID="txtType" CssClass="form-control input-lg" runat="server" Enabled="false"></asp:TextBox>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -150,7 +165,7 @@
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <asp:Label ID="lblStatus" CssClass="control-label" runat="server" Text="Status"></asp:Label>
-                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="dropdown-toggle form-control input-lg" Width="100%" >
+                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="dropdown-toggle form-control input-lg" Enabled="false" Width="100%" >
                                     <asp:ListItem Selected="true" Value="" disabled="disabled">Select the Status</asp:ListItem>
                                     <asp:ListItem Value="In-Progress">In-Progress</asp:ListItem>
                                     <asp:ListItem Value="Complete">Complete</asp:ListItem>
@@ -165,7 +180,7 @@
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <asp:Label ID="lblMethod" CssClass="control-label" runat="server" Text="Research Method"></asp:Label>
-                                <asp:DropDownList ID="ddlResearchMethod" runat="server" CssClass="dropdown-toggle form-control input-lg" Width="100%" >
+                                <asp:DropDownList ID="ddlResearchMethod" runat="server" CssClass="dropdown-toggle form-control input-lg" Enabled="false" Width="100%" >
                                     <asp:ListItem Selected="true" Value="" disabled="disabled">Select Research Method</asp:ListItem>
                                     <asp:ListItem Value="Remote">Remote</asp:ListItem>
                                     <asp:ListItem Value="In-Person">In-Person</asp:ListItem>
@@ -182,6 +197,7 @@
                         <div class="col  btn-toolbar m-3" style="justify-content: center !important;"">
                              <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" style="width:100px"/>
                              <asp:Button class="btn redbtn text-lg-center btnSize" ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" style="width:100px"/>
+                                
                         </div>
 
                     </div>

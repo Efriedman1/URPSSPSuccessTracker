@@ -21,8 +21,8 @@ namespace URPSSPSuccessTracker
 
                 //Update instruction label
                 SqlProcedures sqlProcedures = new SqlProcedures();
-                Instruction instruction = sqlProcedures.LoadInstructions(2);
-                lblInstructions.Text = instruction.Body;
+                //Instruction instruction = sqlProcedures.LoadInstructions(2);
+                //lblInstructions.Text = instruction.Body;
 
                 getTerms();
                 getAdmins();

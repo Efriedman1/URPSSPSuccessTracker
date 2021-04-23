@@ -632,18 +632,18 @@ namespace URPSSPSuccessTracker.Classes
         //private string researchJournals;
         //private string researchConferences;
 
-        public Boolean UpdateResearchProject(int researchID, string title, string description, string researchMethod, string status, string typeOfResearch, DateTime lastUpdate)
+        public Boolean UpdateResearchProject(int ResearchID, string Title, string Description, string ResearchMethod, string Status, string TypeOfResearch, DateTime LastUpdate)
         {
             SqlCommand researchCommand = new SqlCommand();
             researchCommand.CommandType = CommandType.StoredProcedure;
-            researchCommand.CommandText = "UpdateResarchProject";
-            researchCommand.Parameters.AddWithValue("@ResearchID", researchID);
-            researchCommand.Parameters.AddWithValue("@Title", title);
-            researchCommand.Parameters.AddWithValue("@Description", description);
-            researchCommand.Parameters.AddWithValue("@ResarchMethod", researchMethod);
-            researchCommand.Parameters.AddWithValue("@Status", status);
-            researchCommand.Parameters.AddWithValue("@TypeOfResearch", typeOfResearch);
-            researchCommand.Parameters.AddWithValue("@LastUpdate", lastUpdate);
+            researchCommand.CommandText = "UpdateResearchProject";
+            researchCommand.Parameters.AddWithValue("@ResearchID", ResearchID);
+            researchCommand.Parameters.AddWithValue("@Title", Title);
+            researchCommand.Parameters.AddWithValue("@Description", Description);
+            researchCommand.Parameters.AddWithValue("@ResearchMethod", ResearchMethod);
+            researchCommand.Parameters.AddWithValue("@Status", Status);
+            researchCommand.Parameters.AddWithValue("@TypeOfResearch", TypeOfResearch);
+            researchCommand.Parameters.AddWithValue("@LastUpdate", LastUpdate);
 
             return urpDB.DoUpdateUsingCmdObj(researchCommand) > 0;
         }

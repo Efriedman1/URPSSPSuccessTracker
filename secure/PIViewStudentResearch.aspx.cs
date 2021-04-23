@@ -21,9 +21,10 @@ namespace URPSSPSuccessTracker
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             researchID = (int)Session["researchID"];
             populateCommentSection(false);
-            populateResearch();
+            //populateResearch();
 
             if (Session["Full_Name"] != null)
             {
@@ -32,7 +33,8 @@ namespace URPSSPSuccessTracker
 
 
             if (!IsPostBack)
-            {              
+            {
+                populateResearch();
 
                 this.Master.SetNavBar((String)Session["UserType"]);
 
@@ -48,10 +50,13 @@ namespace URPSSPSuccessTracker
                 btnSaveConference.Visible = false;
                 btnSavePaper.Visible = false;
                 btnSaveLink.Visible = false;
+
+                
             }
             else
             {
-                //If on a postback
+                //If on a postback         
+
             }
         }
 
@@ -76,10 +81,13 @@ namespace URPSSPSuccessTracker
             //txtDept.Enabled = tf;
             //txtEmail.Enabled = tf;
             //txtMethod.Enabled = tf;
-           // txtStatus.Enabled = tf;
+            // txtStatus.Enabled = tf;
+
             txtTitle.Enabled = tf;
             TxtDesc.Enabled = tf;
             txtType.Enabled = tf;
+            ddlStatus.Enabled = tf;
+            ddlResearchMethod.Enabled = tf;
            // populateCommentSection(true);          
 
 
@@ -89,19 +97,29 @@ namespace URPSSPSuccessTracker
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            SqlProcedures urpSqlProcedures = new SqlProcedures();
-            string title = txtTitle.Text;
-            string description = TxtDesc.Text;
-            string researchMethod = ddlResearchMethod.SelectedValue;
-            string status = ddlStatus.SelectedValue;
-            string typeOfResearch = txtType.Text;
-            DateTime date = DateTime.Now;
+            if (Page.IsPostBack)
+            {
+                SqlProcedures urpSqlProcedures = new SqlProcedures();
+                int researchID = (int)Session["researchID"];
+                string title = txtTitle.Text;
+                string description = TxtDesc.Text;
+                string researchMethod = ddlResearchMethod.SelectedValue;
+                string status = ddlStatus.SelectedValue;
+                string typeOfResearch = txtType.Text;
 
 
-            urpSqlProcedures.UpdateResearchProject(researchID, title, description, researchMethod, status, typeOfResearch, date);
+                DateTime lastUpdate = DateTime.Now;
 
-            display(false);
-           this.populateResearch();
+
+                urpSqlProcedures.UpdateResearchProject(researchID, title, description, researchMethod, status, typeOfResearch, lastUpdate);
+
+                display(false);
+                this.populateResearch();
+
+               
+
+            }
+
         }
 
         protected void btnComment_Click(object sender, EventArgs e)
