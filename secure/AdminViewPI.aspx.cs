@@ -7,11 +7,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using URPSSPSuccessTracker.Classes;
 
-namespace URPSSPSuccessTracker
+namespace URPSSPSuccessTracker.secure
 {
-    public partial class StudentHomeDatatable : System.Web.UI.Page
+    public partial class AdminViewPI : System.Web.UI.Page
     {
         int employeeNumber = 741258963;
+        string piTUID = "741258963";
         string email = "JohnDoe@email.edu";
         SqlProcedures procedures = new SqlProcedures();
 
@@ -21,39 +22,45 @@ namespace URPSSPSuccessTracker
             this.ViewStateUserKey = Session.SessionID;
         }
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["PITUID"] != null)
+            {
+                piTUID = Session["PITUID"].ToString();
+                email = Session["PIEmail"].ToString();
+            }
+
             if (!IsPostBack)
-            {                
-               // bool local = Session["Local"].ToString() == "true";
-
-
-            }
-            if (Session["SSO_Attribute_employeeNumber"] != null)
             {
-                employeeNumber = Convert.ToInt32(Session["SSO_Attribute_employeeNumber"]);
-            }
-            if (Session["SSO_Attribute_mail"] != null)
-            {
-                email = Session["SSO_Attribute_mail"].ToString();
+              this.Master.SetNavBar((String)Session["UserType"]);
+              PopulateDataTable();
             }
 
-            DataSet projectData = procedures.LoadResearchProjects(employeeNumber.ToString());
-            gvStudent.DataSource = projectData;
+            DataSet researchData = procedures.LoadResearchProjectsByPI(piTUID);
+            gvPI.DataSource = researchData;
+
             //add the research ID to the datakeys collection so that the correct
             //research will be loaded on the view research page
             string[] names = new string[1];
             names[0] = "ResearchID";
-            gvStudent.DataKeyNames = names;
-            Label9.Text = employeeNumber.ToString();
+            gvPI.DataKeyNames = names;
+            Label9.Text = piTUID.ToString();
             Label4.Text = email;
-            gvStudent.DataBind();
-            gvStudent.Columns[4].Visible = false;
+            gvPI.DataBind();
+            gvPI.Columns[6].Visible = false;
         }
 
-        public void validateStudent()
+        private void PopulateDataTable()
         {
+            DataSet researchData = procedures.LoadResearchProjectsByPI(piTUID);
+            gvPI.DataSource = researchData;
+            gvPI.DataBind();
+            gvPI.Columns[6].Visible = false;
+        }
+
+        public void validatePI()
+        {
+
             //get TUID from header after login
             bool number = false;
 
@@ -62,7 +69,7 @@ namespace URPSSPSuccessTracker
             {
                 number = int.TryParse(Session["employeeNumber"].ToString(), out employeeNumber);
 
-                if ((String)Session["UserType"] == "Student" && number)
+                if ((String)Session["UserType"] == "PI" && number)
                 {
                     //    lblEmail.Text = Session["mail"].ToString();
                     //    lblTUID.Text = employeeNumber.ToString();
@@ -76,23 +83,23 @@ namespace URPSSPSuccessTracker
             {
                 number = int.TryParse(Session["SSO_Attribute_employeeNumber"].ToString(), out employeeNumber);
 
-                if ((String)Session["UserType"] == "Student" && number)
+                if ((String)Session["UserType"] == "PI" && number)
                 {
                     // Search for employeeNumber in student table to see if user is a valid student
                     SqlProcedures sqlProcedures = new SqlProcedures();
-                    DataSet ds = sqlProcedures.SearchStudent(employeeNumber, "", "", "", "", "");
+                    DataSet ds = sqlProcedures.SearchPrincipalInvestigator(employeeNumber, "", "", "");
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        Response.Write("<script>console.log(\"" + employeeNumber + " is Student\");</script>");
+                        Response.Write("<script>console.log(\"" + employeeNumber + " is PI\");</script>");
                         Console.WriteLine(employeeNumber + " is a PI");
                         // do something with the page
 
                     }
                     else
                     {
-                        Console.WriteLine(employeeNumber + " is NOT a Student! REDIRECT BACK");
-                        Response.Write("<script>console.log(\"" + employeeNumber + " is NOT a Student! REDIRECT BACK" + "\");</script>");
+                        Console.WriteLine(employeeNumber + " is NOT a PI! REDIRECT BACK");
+                        Response.Write("<script>console.log(\"" + employeeNumber + " is NOT a PI! REDIRECT BACK" + "\");</script>");
 
                         Session["Authenticated"] = "";
                         Session["UserType"] = "";
@@ -120,9 +127,9 @@ namespace URPSSPSuccessTracker
             }
         }
 
-        protected void gvStudents_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gvPI_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            string[] headers = { "PI", "Project Title", "Term", "Last Update", "", ""};
+            string[] headers = { "First Name", "Last Name", "Title", "Term", "Program", "Major", "", "", "", ""};
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 for (int i = 0; i < e.Row.Cells.Count; i++)
@@ -133,21 +140,25 @@ namespace URPSSPSuccessTracker
             }
             else
             {
-
+                //If any other rows need to be modified at runtime
             }
         }
 
-        protected void gvStudent_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gvPI_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+
             int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
 
             if (e.CommandName == "View")
             {
-                int researchID = int.Parse(gvStudent.DataKeys[rowIndex].Value.ToString());
+                int researchID = int.Parse(gvPI.DataKeys[rowIndex].Value.ToString());
+                DataSet researchData = procedures.LoadStudentInfo(researchID);
+
+                Session.Add("StudentTUID", researchData.Tables[0].Rows[0][1].ToString());
                 Session.Add("researchID", researchID);
-                Session.Add("StudentTUID",Session["employeeNumber"].ToString());
                 Response.Redirect("PIViewStudentResearch.aspx");
             }
+
         }
     }
 }
