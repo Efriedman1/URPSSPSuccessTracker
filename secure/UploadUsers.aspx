@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="md-form mb-2">
-                                <label for="name" class="required">Student TUID</label>
+                                <label for="name">Student TUID</label>
                                 <asp:TextBox ID="txtStudentTUID" name="studentTUID" class="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
