@@ -251,8 +251,9 @@ namespace URPSSPSuccessTracker
             if (e.CommandName == "View")
             {
                 int researchID = int.Parse(gvStudents.DataKeys[rowIndex].Value.ToString());
-                Session.Add("researchID", researchID);
-                Response.Redirect("PIHomeDatatable.aspx");
+                Session.Add("PITUID", gvPI.Rows[rowIndex].Cells[1].Text);
+                Session.Add("PIEmail", gvPI.Rows[rowIndex].Cells[4].Text);
+                Response.Redirect("AdminViewPI.aspx");
             }
         }
 

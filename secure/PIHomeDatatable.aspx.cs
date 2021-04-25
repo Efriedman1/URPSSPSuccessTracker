@@ -12,7 +12,7 @@ namespace URPSSPSuccessTracker.secure
     public partial class PIHomeDatatable : System.Web.UI.Page
     {
         int employeeNumber = 741258963;
-
+        string email = "JohnDoe@email.edu";
         SqlProcedures procedures = new SqlProcedures();
 
         protected override void OnPreInit(EventArgs e)
@@ -33,6 +33,10 @@ namespace URPSSPSuccessTracker.secure
             {
                 employeeNumber = Convert.ToInt32(Session["SSO_Attribute_employeeNumber"]);
             }
+            if (Session["SSO_Attribute_mail"] != null)
+            {
+                email = Session["SSO_Attribute_mail"].ToString();
+            }
             DataSet researchData = procedures.LoadResearchProjectsByPI(employeeNumber.ToString());
             gvPI.DataSource = researchData;
 
@@ -41,15 +45,15 @@ namespace URPSSPSuccessTracker.secure
             string[] names = new string[1];
             names[0] = "ResearchID";
             gvPI.DataKeyNames = names;
-            Label9.Text = Session["SSO_Attribute_employeeNumber"].ToString();
-            Label4.Text = Session["SSO_Attribute_mail"].ToString();
+            Label9.Text = employeeNumber.ToString();
+            Label4.Text = email;
             gvPI.DataBind();
             gvPI.Columns[6].Visible = false;
         }
 
         private void PopulateDataTable()
         {
-            DataSet researchData = procedures.LoadResearchProjectsByPI("741258963");
+            DataSet researchData = procedures.LoadResearchProjectsByPI(employeeNumber.ToString());
             gvPI.DataSource = researchData;
             gvPI.DataBind();
             gvPI.Columns[6].Visible = false;
